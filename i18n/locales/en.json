@@ -1,0 +1,35 @@
+{
+  "ui": {
+    "siteTitle": "VoiceCraft Documentation",
+    "seoDescription": "VoiceCraft Client/Server setup and configuration for Minecraft Bedrock.",
+    "toc": {
+      "onThisPage": "On this page",
+      "usefulLinks": "Useful links"
+    },
+    "links": {
+      "latestRelease": "Latest release"
+    }
+  },
+  "landing": {
+    "title": "VoiceCraft Documentation",
+    "subtitle": "Cross-platform proximity voice chat for Minecraft Bedrock Edition. Installation, configuration, operations, and McHttp/McWss integration in a single documentation hub.",
+    "quickStart": "Quick Start",
+    "downloadRelease": "Download Release",
+    "productTour": "Product Tour",
+    "interfaceTitle": "VoiceCraft Interface",
+    "slides": [
+      {
+        "title": "Client Home Screen",
+        "description": "Server overview, quick connect flow, and current session status in one place."
+      },
+      {
+        "title": "Settings and Network",
+        "description": "Positioning parameters, McWss endpoint, and advanced client behavior tuning."
+      },
+      {
+        "title": "Audio Pipeline",
+        "description": "Input/output devices, sensitivity, denoising, AGC, and microphone tests."
+      }
+    ]
+  }
+}

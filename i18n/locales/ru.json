@@ -1,0 +1,35 @@
+{
+  "ui": {
+    "siteTitle": "Документация VoiceCraft",
+    "seoDescription": "Установка и настройка VoiceCraft Client/Server для Minecraft Bedrock.",
+    "toc": {
+      "onThisPage": "На этой странице",
+      "usefulLinks": "Полезные ссылки"
+    },
+    "links": {
+      "latestRelease": "Последний релиз"
+    }
+  },
+  "landing": {
+    "title": "VoiceCraft Documentation",
+    "subtitle": "Кроссплатформенный proximity voice chat для Minecraft Bedrock Edition. Установка, настройка, эксплуатация и интеграция McHttp/McWss в одной документации.",
+    "quickStart": "Быстрый старт",
+    "downloadRelease": "Скачать релиз",
+    "productTour": "Product Tour",
+    "interfaceTitle": "Интерфейс VoiceCraft",
+    "slides": [
+      {
+        "title": "Главный экран клиента",
+        "description": "Обзор серверов, быстрый доступ к подключению и статус текущей сессии."
+      },
+      {
+        "title": "Настройки и сеть",
+        "description": "Параметры позиционирования, McWss endpoint и тонкая настройка поведения клиента."
+      },
+      {
+        "title": "Аудио пайплайн",
+        "description": "Устройства ввода/вывода, чувствительность, шумоподавление, AGC и тесты микрофона."
+      }
+    ]
+  }
+}

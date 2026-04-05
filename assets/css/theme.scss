@@ -1,0 +1,248 @@
+:root {
+  --vc-bg-1: #00030c;
+  --vc-bg-2: #000d08;
+  --vc-bg-3: #0a0a13;
+  --vc-surface: rgba(0, 0, 0, 0.45);
+  --vc-surface-dark: rgba(0, 0, 0, 0.52);
+  --vc-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: "Comfortaa", "Segoe UI", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.6;
+  color: #f8fafc;
+  background:
+    radial-gradient(1000px 500px at 12% -20%, rgba(153, 45, 253, 0.17), transparent 60%),
+    radial-gradient(1100px 600px at 92% -25%, rgba(95, 255, 224, 0.14), transparent 66%),
+    linear-gradient(45deg, var(--vc-bg-1), var(--vc-bg-2));
+}
+
+.dark body {
+  background:
+    radial-gradient(1000px 500px at 12% -20%, rgba(153, 45, 253, 0.18), transparent 60%),
+    radial-gradient(1100px 600px at 92% -25%, rgba(95, 255, 224, 0.15), transparent 66%),
+    linear-gradient(45deg, var(--vc-bg-1), var(--vc-bg-2));
+}
+
+h1, h2, h3, .font-heading {
+  font-family: "Nunito", "Comfortaa", sans-serif;
+  font-weight: 800;
+}
+
+p, li, span, a, button, input, textarea {
+  font-family: "Comfortaa", "Segoe UI", sans-serif;
+  font-weight: 500;
+}
+
+p, li {
+  font-size: 1.06rem;
+}
+
+.text-muted {
+  color: rgba(226, 232, 240, 0.88) !important;
+}
+
+$colors: ("white": #fff,
+  "white2": #faf6f6,
+  "black": #000,
+  "blue": #2051ff,
+);
+
+@each $name, $color in $colors {
+  .st-#{$name} {
+    color: $color;
+  }
+}
+
+.black {
+  color: #000 !important;
+}
+
+// Fonts with weights and sizes
+@mixin font-style($family, $weight, $size) {
+  font-family: $family;
+  font-style: normal;
+  font-weight: $weight;
+  font-size: #{$size}px;
+}
+
+$weights: (
+  300,
+  400,
+  500,
+  600,
+  700,
+  800
+);
+$sizes: (
+  20,
+  30,
+  40,
+  50,
+  60
+);
+
+@each $weight in $weights {
+  @each $size in $sizes {
+    .comf-#{$weight}-#{$size} {
+      @include font-style("Comfortaa", $weight, $size);
+    }
+
+    .nuni-#{$weight}-#{$size} {
+      @include font-style("Nunito", $weight, $size);
+    }
+  }
+}
+
+.vc-glass {
+  backdrop-filter: blur(12px);
+  background: var(--vc-surface);
+  border: 1px solid var(--vc-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+}
+
+.dark .vc-glass {
+  background: var(--vc-surface-dark);
+  border-color: var(--vc-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.74);
+}
+
+.vc-float {
+  animation: vc-float 6s ease-in-out infinite;
+}
+
+.vc-reveal {
+  animation: vc-reveal 700ms ease-out both;
+}
+
+.vc-delay-1 { animation-delay: 90ms; }
+.vc-delay-2 { animation-delay: 180ms; }
+.vc-delay-3 { animation-delay: 270ms; }
+
+.vc-card-tilt {
+  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+}
+
+.vc-card-tilt:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(14, 116, 144, 0.18);
+  border-color: rgba(8, 145, 178, 0.32);
+}
+
+.vc-hero {
+  background:
+    radial-gradient(900px 320px at 50% 0%, rgba(153, 45, 253, 0.23), transparent 70%),
+    linear-gradient(140deg, rgba(10, 10, 18, 0.95), rgba(5, 8, 13, 0.94));
+  border: 1px solid rgba(202, 137, 255, 0.26);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55);
+}
+
+.vc-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(95, 255, 224, 0.35);
+  border: 1px solid rgba(95, 255, 224, 0.6);
+  transition: all 180ms ease;
+}
+
+.vc-dot-active {
+  width: 24px;
+  background: rgba(202, 137, 255, 0.95);
+}
+
+.vc-image-reveal {
+  animation: vc-image-reveal 300ms ease-out both;
+}
+
+.vc-landing-wrap {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-top: 2.25rem;
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .vc-landing-wrap {
+    padding-inline: 1.25rem;
+    padding-top: 3.75rem;
+  }
+}
+
+.vc-tour {
+  min-height: 600px;
+}
+
+.vc-btn-main {
+  border: none !important;
+  border-radius: 9999px !important;
+  color: #fff !important;
+  background: linear-gradient(45deg, #992dfd, #ca89ff) !important;
+  letter-spacing: 0.6px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s ease !important;
+}
+
+.vc-btn-main:hover {
+  background: linear-gradient(45deg, #e6d600, #fffd85) !important;
+  color: #111 !important;
+  transform: translateY(-1px);
+}
+
+.vc-btn-outline {
+  border-radius: 9999px !important;
+  border: 2px solid #e6d600 !important;
+  background: transparent !important;
+  color: #fff !important;
+  letter-spacing: 0.6px;
+  transition: all 0.3s ease !important;
+}
+
+.vc-btn-outline:hover {
+  background: linear-gradient(45deg, #992dfd, #ca89ff) !important;
+  border-color: #992dfd !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.vc-icon-btn {
+  border-radius: 9999px !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+.vc-icon-btn:hover {
+  background: rgba(153, 45, 253, 0.22) !important;
+}
+
+@keyframes vc-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes vc-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vc-image-reveal {
+  from {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

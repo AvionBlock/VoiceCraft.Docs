@@ -1,0 +1,35 @@
+{
+  "name": "voicecraft.docs",
+  "version": "1.0.0",
+  "description": "Official VoiceCraft documentation, guides, etc.",
+  "keywords": [
+    "voicecraft",
+    "geyservoice",
+    "minecraft",
+    "bedrock"
+  ],
+  "homepage": "https://voicecraft.avion.team",
+  "bugs": {
+    "url": "https://github.com/AvionBlock/VoiceCraft.Docs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AvionBlock/VoiceCraft.Docs.git"
+  },
+  "license": "MIT",
+  "author": "lil-jon-crunk",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build"
+  },
+  "dependencies": {
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "better-sqlite3": "^12.6.2",
+    "docus": "latest",
+    "nuxt": "^4.3.1"
+  },
+  "devDependencies": {
+    "png-to-ico": "^3.0.1",
+    "sass-embedded": "^1.99.0"
+  }
+}
