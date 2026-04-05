@@ -25,8 +25,16 @@ export default defineNuxtConfig({
   },
   i18n: {
     defaultLocale: 'en',
+    strategy: 'prefix',
     lazy: true,
     langDir: 'locales',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'voicecraft-docs-locale',
+      redirectOn: 'root',
+      alwaysRedirect: false,
+      fallbackLocale: 'en',
+    },
     locales: [{
       code: 'en',
       name: 'English',
