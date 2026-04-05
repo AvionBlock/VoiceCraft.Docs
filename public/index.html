@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VoiceCraft Documentation</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      (async () => {
+        const COOKIE_KEY = 'voicecraft-docs-locale'
+        const FALLBACK_LOCALE = 'en'
+
+        const readCookie = (key) => {
+          const cookie = document.cookie
+            .split('; ')
+            .find((item) => item.startsWith(key + '='))
+          return cookie ? decodeURIComponent(cookie.split('=')[1]) : ''
+        }
+
+        const expandLocale = (value) => {
+          if (!value) return []
+          const normalized = value.toLowerCase().replace('_', '-')
+          const [base] = normalized.split('-')
+          return [normalized, base].filter(Boolean)
+        }
+
+        const localeCandidates = []
+        const seen = new Set()
+
+        const pushCandidate = (value) => {
+          for (const candidate of expandLocale(value)) {
+            if (!seen.has(candidate)) {
+              seen.add(candidate)
+              localeCandidates.push(candidate)
+            }
+          }
+        }
+
+        pushCandidate(readCookie(COOKIE_KEY))
+
+        const browserLocales = Array.isArray(navigator.languages)
+          ? navigator.languages
+          : [navigator.language]
+
+        for (const locale of browserLocales) {
+          pushCandidate(locale)
+        }
+
+        pushCandidate(FALLBACK_LOCALE)
+
+        const detectExistingLocale = async () => {
+          for (const locale of localeCandidates) {
+            try {
+              const response = await fetch(`/${locale}/`, {
+                method: 'HEAD',
+                cache: 'no-store',
+              })
+
+              if (response.ok || (response.status >= 300 && response.status < 400)) {
+                return locale
+              }
+            } catch {
+              // ignore network/head probe errors
+            }
+          }
+
+          return FALLBACK_LOCALE
+        }
+
+        const locale = await detectExistingLocale()
+        window.location.replace(`/${locale}`)
+      })()
+    </script>
+  </head>
+  <body></body>
+</html>
