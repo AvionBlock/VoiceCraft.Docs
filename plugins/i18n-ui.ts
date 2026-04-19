@@ -43,7 +43,10 @@ export default defineNuxtPlugin((nuxtApp) => {
         const links = toc.bottom.links || []
         const releaseLink = links.find(link => link?.icon === 'i-lucide-download')
         if (releaseLink) {
-          releaseLink.label = translate('ui.links.latestRelease', 'Latest release')
+          const isRu = (localeRef?.value || 'en') === 'ru'
+          releaseLink.label = translate('ui.links.downloadPage', 'Downloads')
+          releaseLink.to = isRu ? '/ru/download' : '/en/download'
+          delete releaseLink.target
         }
       }
     }

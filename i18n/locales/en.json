@@ -7,8 +7,40 @@
       "usefulLinks": "Useful links"
     },
     "links": {
-      "latestRelease": "Latest release"
+      "latestRelease": "Latest release",
+      "downloadPage": "Downloads"
     }
+  },
+  "download": {
+    "kicker": "Download Center",
+    "title": "Download VoiceCraft",
+    "subtitle": "Choose the latest client or server build for your platform. Client downloads are automatically highlighted for your current OS when detection is available.",
+    "detected": "A recommended client build has been highlighted for your device.",
+    "recommended": "Recommended",
+    "clientKicker": "Client",
+    "clientTitle": "VoiceCraft Client",
+    "clientSubtitle": "Desktop and mobile client builds for players. Android 32-bit is no longer published.",
+    "serverKicker": "Server",
+    "serverTitle": "VoiceCraft Server",
+    "serverSubtitle": "Standalone server builds for self-hosting and deployment.",
+    "platformLabel": "Platform",
+    "platforms": {
+      "windows": "Windows",
+      "linux": "Linux",
+      "macos": "macOS",
+      "android": "Android",
+      "ios": "iOS"
+    },
+    "androidNote": "Android 32-bit is no longer available. Use the arm64 Android build.",
+    "serverSourceNote": "If you need a platform that is not listed here, check the full releases page or build from source.",
+    "allReleases": "Open All Releases",
+    "addonKicker": "Addon",
+    "addonTitle": "VoiceCraft Addon",
+    "addonSubtitle": "Bedrock addon package and source links.",
+    "addonReleases": "Latest Addon Release",
+    "addonSourceZip": "Download Source ZIP",
+    "addonNote": "Use releases for packaged builds. Source ZIP is useful for custom modifications.",
+    "addonRepo": "Open Addon Repository"
   },
   "landing": {
     "title": "VoiceCraft Documentation",

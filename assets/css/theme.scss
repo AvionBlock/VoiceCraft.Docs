@@ -178,6 +178,137 @@ $sizes: (
   min-height: 600px;
 }
 
+.vc-downloads-wrap {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-top: 2.25rem;
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .vc-downloads-wrap {
+    padding-inline: 1.25rem;
+    padding-top: 3.5rem;
+  }
+}
+
+.vc-download-card {
+  min-height: 100%;
+}
+
+.vc-download-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .vc-download-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.vc-download-button {
+  position: relative;
+  display: flex;
+  min-height: 108px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+  border-radius: 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(135deg, rgba(8, 13, 24, 0.96), rgba(10, 10, 18, 0.92));
+  padding: 1rem 1rem 1rem 1.1rem;
+  color: #fff !important;
+  text-decoration: none !important;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.vc-download-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(95, 255, 224, 0.45);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+}
+
+.vc-download-button-active {
+  border-color: rgba(202, 137, 255, 0.6);
+  background:
+    radial-gradient(500px 180px at 0% 0%, rgba(202, 137, 255, 0.18), transparent 75%),
+    linear-gradient(135deg, rgba(19, 13, 31, 0.98), rgba(9, 12, 24, 0.94));
+  box-shadow: 0 18px 40px rgba(108, 40, 184, 0.26);
+}
+
+.vc-download-button-server:hover {
+  border-color: rgba(52, 211, 153, 0.45);
+}
+
+.vc-platform-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.vc-platform-tab {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(226, 232, 240, 0.96);
+  border-radius: 9999px;
+  padding: 0.38rem 0.8rem;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.15;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.vc-platform-tab:hover {
+  border-color: rgba(95, 255, 224, 0.4);
+  transform: translateY(-1px);
+}
+
+.vc-platform-tab-active {
+  border-color: rgba(202, 137, 255, 0.7);
+  background: linear-gradient(45deg, rgba(153, 45, 253, 0.22), rgba(202, 137, 255, 0.22));
+  color: #fff;
+}
+
+.vc-download-button-title {
+  font-family: "Nunito", "Comfortaa", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.vc-download-button-meta {
+  color: rgba(226, 232, 240, 0.88);
+  font-size: 0.95rem;
+}
+
+.vc-download-badge {
+  position: absolute;
+  right: 0.7rem;
+  bottom: 0.7rem;
+  display: inline-flex;
+  border-radius: 9999px;
+  background: linear-gradient(45deg, #992dfd, #ca89ff);
+  color: #fff;
+  padding: 0.24rem 0.7rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.vc-downloads-detected {
+  color: rgba(110, 231, 183, 0.96) !important;
+}
+
+.vc-download-footer {
+  margin-top: auto;
+}
+
 .vc-btn-main {
   border: none !important;
   border-radius: 9999px !important;

@@ -7,8 +7,40 @@
       "usefulLinks": "Полезные ссылки"
     },
     "links": {
-      "latestRelease": "Последний релиз"
+      "latestRelease": "Последний релиз",
+      "downloadPage": "Скачать"
     }
+  },
+  "download": {
+    "kicker": "Центр загрузок",
+    "title": "Скачать VoiceCraft",
+    "subtitle": "Выберите последнюю клиентскую или серверную сборку под свою платформу. Для клиента страница старается автоматически подсветить рекомендуемую версию под вашу ОС.",
+    "detected": "Рекомендуемая клиентская сборка для вашего устройства подсвечена.",
+    "recommended": "Рекомендуется",
+    "clientKicker": "Клиент",
+    "clientTitle": "VoiceCraft Client",
+    "clientSubtitle": "Сборки клиента для игроков на desktop и mobile. Android 32-bit больше не публикуется.",
+    "serverKicker": "Сервер",
+    "serverTitle": "VoiceCraft Server",
+    "serverSubtitle": "Standalone-сборки сервера для self-hosting и deployment.",
+    "platformLabel": "Платформа",
+    "platforms": {
+      "windows": "Windows",
+      "linux": "Linux",
+      "macos": "macOS",
+      "android": "Android",
+      "ios": "iOS"
+    },
+    "androidNote": "Android 32-bit больше недоступен. Используйте Android arm64 build.",
+    "serverSourceNote": "Если нужной платформы нет в списке, откройте полную страницу релизов или соберите проект из исходников.",
+    "allReleases": "Открыть Все Релизы",
+    "addonKicker": "Аддон",
+    "addonTitle": "VoiceCraft Addon",
+    "addonSubtitle": "Ссылки на Bedrock-аддон и исходники.",
+    "addonReleases": "Последний Релиз Аддона",
+    "addonSourceZip": "Скачать Source ZIP",
+    "addonNote": "Для готовых пакетов используйте релизы. Source ZIP удобен для кастомных доработок.",
+    "addonRepo": "Открыть Репозиторий Аддона"
   },
   "landing": {
     "title": "VoiceCraft Documentation",
