@@ -1,4 +1,18 @@
 export default defineAppConfig({
+  docsVersioning: {
+    current: '1.6.x',
+    versions: [
+      {
+        id: '1.6.x',
+        label: '1.6.x',
+        current: true,
+        paths: {
+          en: '/en',
+          ru: '/ru',
+        },
+      },
+    ],
+  },
   ui: {
     colors: {
       primary: 'purple',
@@ -29,7 +43,7 @@ export default defineAppConfig({
     branch: 'main',
   },
   navigation: {
-    sub: 'header',
+    sub: 'aside',
   },
   toc: {
     title: 'On this page',

@@ -309,6 +309,32 @@ $sizes: (
   margin-top: auto;
 }
 
+.vc-version-cta {
+  display: none;
+  align-items: center;
+}
+
+.vc-version-select {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(14, 20, 32, 0.9);
+  color: #fff;
+  border-radius: 9999px;
+  height: 2rem;
+  min-width: 11.5rem;
+  max-width: 14rem;
+  padding: 0 1.9rem 0 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+  .vc-version-cta {
+    display: inline-flex;
+  }
+}
+
 .vc-btn-main {
   border: none !important;
   border-radius: 9999px !important;

@@ -2,6 +2,9 @@
   "ui": {
     "siteTitle": "VoiceCraft Documentation",
     "seoDescription": "VoiceCraft Client/Server setup and configuration for Minecraft Bedrock.",
+    "docsVersionLabel": "Docs",
+    "versionSwitcher": "Version",
+    "versionCurrent": "current",
     "toc": {
       "onThisPage": "On this page",
       "usefulLinks": "Useful links"

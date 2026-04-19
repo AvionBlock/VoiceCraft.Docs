@@ -2,6 +2,9 @@
   "ui": {
     "siteTitle": "Документация VoiceCraft",
     "seoDescription": "Установка и настройка VoiceCraft Client/Server для Minecraft Bedrock.",
+    "docsVersionLabel": "Доки",
+    "versionSwitcher": "Версия",
+    "versionCurrent": "текущая",
     "toc": {
       "onThisPage": "На этой странице",
       "usefulLinks": "Полезные ссылки"
