@@ -19,17 +19,18 @@
   "license": "MIT",
   "author": "lil-jon-crunk",
   "scripts": {
-    "dev": "nuxt dev",
-    "build": "nuxt build"
+    "dev": "node --disable-warning=DEP0155 ./node_modules/nuxt/bin/nuxt.mjs dev",
+    "build": "node --disable-warning=DEP0155 ./node_modules/nuxt/bin/nuxt.mjs build"
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
-    "better-sqlite3": "^12.6.2",
-    "docus": "latest",
-    "nuxt": "^4.3.1"
+    "better-sqlite3": "^12.9.0",
+    "docus": "5.10.0",
+    "nuxt": "^4.4.2"
   },
   "devDependencies": {
     "png-to-ico": "^3.0.1",
     "sass-embedded": "^1.99.0"
-  }
+  },
+  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }

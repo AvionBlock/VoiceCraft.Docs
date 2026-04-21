@@ -1,4 +1,18 @@
 export default defineAppConfig({
+  docsVersioning: {
+    current: '1.6.x',
+    versions: [
+      {
+        id: '1.6.x',
+        label: '1.6.x',
+        current: true,
+        paths: {
+          en: '/en',
+          ru: '/ru',
+        },
+      },
+    ],
+  },
   ui: {
     colors: {
       primary: 'purple',
@@ -19,7 +33,7 @@ export default defineAppConfig({
   seo: {
     titleTemplate: '%s',
     title: 'VoiceCraft Docs',
-    description: 'Установка и настройка VoiceCraft Client/Server для Minecraft Bedrock.',
+    description: 'VoiceCraft Client/Server setup and configuration for Minecraft Bedrock.',
   },
   socials: {
     github: 'https://github.com/AvionBlock/VoiceCraft',
@@ -29,12 +43,12 @@ export default defineAppConfig({
     branch: 'main',
   },
   navigation: {
-    sub: 'header',
+    sub: 'aside',
   },
   toc: {
-    title: 'На этой странице',
+    title: 'On this page',
     bottom: {
-      title: 'Полезные ссылки',
+      title: 'Useful links',
       links: [
         {
           icon: 'i-simple-icons-github',
@@ -44,9 +58,8 @@ export default defineAppConfig({
         },
         {
           icon: 'i-lucide-download',
-          label: 'Последний релиз',
-          to: 'https://github.com/AvionBlock/VoiceCraft/releases/latest',
-          target: '_blank',
+          label: 'Downloads',
+          to: '/en/download',
         },
       ],
     },
