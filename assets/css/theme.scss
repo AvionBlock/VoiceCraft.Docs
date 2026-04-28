@@ -385,6 +385,75 @@ $sizes: (
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.46);
 }
 
+.vc-telemetry-role-switch {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.vc-telemetry-role-tab {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.1rem;
+  background: linear-gradient(135deg, rgba(9, 17, 28, 0.86), rgba(6, 13, 21, 0.78));
+  padding: 1rem 1.1rem;
+  text-align: left;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.vc-telemetry-role-tab:hover,
+.vc-telemetry-role-tab-active {
+  border-color: rgba(95, 255, 224, 0.34);
+  background: linear-gradient(135deg, rgba(15, 31, 42, 0.94), rgba(13, 19, 35, 0.88));
+  transform: translateY(-1px);
+}
+
+.vc-telemetry-role-tab-title {
+  color: rgba(255, 255, 255, 0.96);
+  font-family: "Nunito", "Comfortaa", sans-serif;
+  font-size: clamp(1.15rem, 1.5vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.vc-telemetry-role-tab-desc {
+  color: rgba(226, 232, 240, 0.72);
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.vc-telemetry-role-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.vc-telemetry-role-kicker {
+  margin-bottom: 0.6rem;
+  color: rgba(165, 243, 252, 0.86);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .vc-telemetry-role-switch {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .vc-telemetry-role-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
 .vc-telemetry-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
