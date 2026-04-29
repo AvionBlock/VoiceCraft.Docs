@@ -913,6 +913,200 @@ $sizes: (
   background: rgba(153, 45, 253, 0.22) !important;
 }
 
+.vc-addon-config-wrap {
+  width: 100%;
+  max-width: 1380px;
+  margin-inline: auto;
+  padding-inline: 0.35rem;
+}
+
+.vc-addon-config-hero {
+  background:
+    radial-gradient(760px 280px at 0% 0%, rgba(95, 255, 224, 0.14), transparent 70%),
+    radial-gradient(820px 320px at 100% 0%, rgba(202, 137, 255, 0.16), transparent 72%),
+    linear-gradient(140deg, rgba(7, 12, 20, 0.97), rgba(6, 10, 16, 0.93));
+  border: 1px solid rgba(95, 255, 224, 0.16);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.46);
+}
+
+.vc-addon-config-section-label {
+  color: rgba(165, 243, 252, 0.86);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vc-addon-config-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vc-addon-config-select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(9, 17, 28, 0.9), rgba(6, 13, 21, 0.84));
+  padding: 0.9rem 1rem;
+  color: #fff;
+  font-family: "Comfortaa", "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.vc-addon-config-select:disabled {
+  opacity: 0.7;
+}
+
+.vc-addon-config-chip,
+.vc-addon-config-list-item,
+.vc-addon-config-log-item {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+}
+
+.vc-addon-config-chip {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.62rem 0.95rem;
+  color: rgba(248, 250, 252, 0.96);
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.vc-addon-config-chip-fixed {
+  box-shadow: inset 0 0 0 1px rgba(95, 255, 224, 0.08);
+}
+
+.vc-addon-config-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.vc-addon-config-choice {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(9, 17, 28, 0.86), rgba(6, 13, 21, 0.78));
+  padding: 1rem 1rem 0.95rem;
+  text-align: left;
+  color: rgba(226, 232, 240, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease, color 180ms ease;
+}
+
+.vc-addon-config-choice:hover,
+.vc-addon-config-choice-active {
+  border-color: rgba(95, 255, 224, 0.34);
+  background: linear-gradient(135deg, rgba(15, 31, 42, 0.94), rgba(13, 19, 35, 0.88));
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.vc-addon-config-upload {
+  display: flex;
+  min-height: 148px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 1.2rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+  padding: 1.15rem 1.1rem;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.vc-addon-config-upload:hover {
+  border-color: rgba(95, 255, 224, 0.34);
+  background: linear-gradient(145deg, rgba(95, 255, 224, 0.06), rgba(255, 255, 255, 0.02));
+  transform: translateY(-1px);
+}
+
+.vc-addon-config-upload-title {
+  color: rgba(248, 250, 252, 0.98);
+  font-family: "Nunito", "Comfortaa", sans-serif;
+  font-size: clamp(1.2rem, 1.4vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.vc-addon-config-upload-subtitle,
+.vc-addon-config-note {
+  color: rgba(226, 232, 240, 0.74);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.vc-addon-config-note {
+  border-left: 2px solid rgba(95, 255, 224, 0.3);
+  padding-left: 0.8rem;
+}
+
+.vc-addon-config-error,
+.vc-addon-config-success {
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.vc-addon-config-error {
+  border: 1px solid rgba(248, 113, 113, 0.28);
+  background: rgba(127, 29, 29, 0.18);
+  color: rgba(254, 226, 226, 0.96);
+}
+
+.vc-addon-config-success {
+  border: 1px solid rgba(52, 211, 153, 0.24);
+  background: rgba(6, 95, 70, 0.18);
+  color: rgba(209, 250, 229, 0.96);
+}
+
+.vc-addon-config-list-item,
+.vc-addon-config-log-item {
+  padding: 0.85rem 0.95rem;
+  color: rgba(248, 250, 252, 0.95);
+}
+
+.vc-addon-config-file-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.32rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 0.8rem 0.9rem;
+}
+
+.vc-addon-config-file-key {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.18rem 0.62rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.84rem;
+  color: rgba(244, 244, 245, 0.94);
+}
+
+@media (min-width: 768px) {
+  .vc-addon-config-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .vc-addon-config-wrap {
+    padding-inline: 0;
+  }
+}
+
 @keyframes vc-float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }

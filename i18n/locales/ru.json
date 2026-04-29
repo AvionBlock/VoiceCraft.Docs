@@ -129,6 +129,61 @@
       "transportWssSubtitle": "Распределение значений серверной метрики `mc_wss_enabled`."
     }
   },
+  "addonConfigurator": {
+    "kicker": "Конфигуратор аддона",
+    "title": "Сборка VoiceCraft Addon под готовый мир",
+    "subtitle": "Выберите базовый аддон и транспортные паки, загрузите свой level.dat и скачайте архив, который можно сразу распаковать в папку мира.",
+    "transport": {
+      "none": "Только базовый аддон",
+      "http": "Базовый + McHttp",
+      "wss": "Базовый + McWss",
+      "both": "Базовый + McHttp + McWss"
+    },
+    "packNames": {
+      "base": "Базовый аддон",
+      "http": "Транспорт McHttp",
+      "wss": "Транспорт McWss"
+    },
+    "steps": {
+      "version": "1. Выбор версии аддона",
+      "selection": "2. Выбор состава аддона",
+      "levelDat": "3. Загрузка level.dat",
+      "build": "4. Сборка готового архива"
+    },
+    "loadingVersions": "Загружаем доступные релизы...",
+    "versionPlaceholder": "Выберите версию релиза",
+    "versionSelected": "{version}, опубликован {date}.",
+    "uploadTitle": "Выберите level.dat",
+    "uploadSubtitle": "Файл будет вложен в архив после патча Bedrock experiment tags.",
+    "betaApiStub": "Конфигуратор напрямую включает в level.dat Bedrock experiment tags, нужные для beta API.",
+    "building": "Собираем архив...",
+    "buildAction": "Собрать и скачать",
+    "summaryTitle": "Что войдет в архив",
+    "summarySubtitle": "Финальный zip собран так, чтобы его можно было сразу распаковать в папку Bedrock-мира.",
+    "outputs": {
+      "levelDat": "Метаданные world save с включенными Bedrock experiment tags для beta API.",
+      "behaviorJson": "Сгенерированный файл регистрации behavior packs.",
+      "resourceJson": "Сгенерированный файл регистрации resource packs.",
+      "behaviorFolder": "Behavior packs, скопированные из выбранных bundle-архивов аддона.",
+      "resourceFolder": "Resource packs, скопированные из выбранных bundle-архивов аддона."
+    },
+    "progressTitle": "Ход сборки",
+    "progress": {
+      "levelDat": "Готовим загруженный level.dat",
+      "release": "Используем релиз: {version}",
+      "request": "Запрашиваем серверную сборку из GitHub release assets",
+      "bundle": "Загружаем bundle: {name}",
+      "metadata": "Генерируем world pack registration JSON-файлы",
+      "archive": "Упаковываем финальный архив мира",
+      "done": "Архив готов"
+    },
+    "archiveNote": "Архив собирается так, чтобы его содержимое можно было сразу распаковать в папку мира.",
+    "success": "Архив успешно создан.",
+    "errors": {
+      "generic": "Не удалось собрать сконфигурированный архив аддона.",
+      "releases": "Не удалось загрузить список доступных релизов аддона."
+    }
+  },
   "landing": {
     "title": "VoiceCraft Documentation",
     "subtitle": "Кроссплатформенный proximity voice chat для Minecraft Bedrock Edition. Установка, настройка, эксплуатация и интеграция McHttp/McWss в одной документации.",

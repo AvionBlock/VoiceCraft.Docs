@@ -20,13 +20,18 @@
   "author": "lil-jon-crunk",
   "scripts": {
     "dev": "node --disable-warning=DEP0155 ./node_modules/nuxt/bin/nuxt.mjs dev",
-    "build": "node --disable-warning=DEP0155 ./node_modules/nuxt/bin/nuxt.mjs build"
+    "build": "node --disable-warning=DEP0155 ./node_modules/nuxt/bin/nuxt.mjs build",
+    "start": "node .output/server/index.mjs"
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
+    "@takumi-rs/core": "^1.1.2",
+    "@takumi-rs/wasm": "^1.1.2",
     "better-sqlite3": "^12.9.0",
     "docus": "5.10.0",
-    "nuxt": "^4.4.2"
+    "jszip": "^3.10.1",
+    "nuxt": "^4.4.2",
+    "prismarine-nbt": "^2.8.0"
   },
   "devDependencies": {
     "png-to-ico": "^3.0.1",

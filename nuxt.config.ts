@@ -35,14 +35,17 @@ export default defineNuxtConfig({
       alwaysRedirect: false,
       fallbackLocale: 'en',
     },
-    locales: [{
-      code: 'en',
-      name: 'English',
-      file: 'en.json',
-    }, {
-      code: 'ru',
-      name: 'Русский',
-      file: 'ru.json',
-    }],
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.json',
+      },
+      {
+        code: 'ru',
+        name: 'Русский',
+        file: 'ru.json',
+      },
+    ],
   },
 })
