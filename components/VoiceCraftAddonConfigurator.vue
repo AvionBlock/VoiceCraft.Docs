@@ -12,6 +12,7 @@ const { t, locale } = useI18n()
 const transportMode = ref<TransportMode>('http')
 const selectedVersion = ref<string>('')
 const levelDatFile = ref<File | null>(null)
+const levelDatOldFile = ref<File | null>(null)
 const isLoadingVersions = ref(true)
 const isBuilding = ref(false)
 const buildError = ref<string | null>(null)
@@ -48,6 +49,11 @@ const canBuild = computed(() => levelDatFile.value !== null && selectedVersion.v
 
 function setLevelDat(files: FileList | null) {
   levelDatFile.value = files?.[0] ?? null
+  buildError.value = null
+}
+
+function setLevelDatOld(files: FileList | null) {
+  levelDatOldFile.value = files?.[0] ?? null
   buildError.value = null
 }
 
@@ -102,10 +108,14 @@ async function downloadConfiguredWorld() {
 
   try {
     pushLog(t('addonConfigurator.progress.levelDat'))
+    if (levelDatOldFile.value) {
+      pushLog(t('addonConfigurator.progress.levelDatOld'))
+    }
     pushLog(t('addonConfigurator.progress.release', { version: selectedVersion.value }))
     pushLog(t('addonConfigurator.progress.request'))
 
     const levelDatBase64 = await fileToBase64(levelDatFile.value)
+    const levelDatOldBase64 = levelDatOldFile.value ? await fileToBase64(levelDatOldFile.value) : null
     const response = await fetch('/api/addon-configurator/build', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -114,6 +124,8 @@ async function downloadConfiguredWorld() {
         transportMode: transportMode.value,
         levelDatBase64,
         levelDatFileName: levelDatFile.value.name,
+        levelDatOldBase64,
+        levelDatOldFileName: levelDatOldFile.value?.name ?? null,
       }),
     })
 
@@ -235,6 +247,20 @@ onMounted(() => {
           <div class="vc-addon-config-note">
             {{ t('addonConfigurator.betaApiStub') }}
           </div>
+          <label class="vc-addon-config-upload">
+            <input
+              type="file"
+              class="sr-only"
+              accept=".dat"
+              @change="setLevelDatOld(($event.target as HTMLInputElement).files)"
+            >
+            <span class="vc-addon-config-upload-title">
+              {{ levelDatOldFile ? levelDatOldFile.name : t('addonConfigurator.uploadOldTitle') }}
+            </span>
+            <span class="vc-addon-config-upload-subtitle">
+              {{ t('addonConfigurator.uploadOldSubtitle') }}
+            </span>
+          </label>
         </div>
 
         <div class="space-y-3">
@@ -286,6 +312,10 @@ onMounted(() => {
           <div class="vc-addon-config-file-map">
             <span class="vc-addon-config-file-key">level.dat</span>
             <span>{{ t('addonConfigurator.outputs.levelDat') }}</span>
+          </div>
+          <div class="vc-addon-config-file-map">
+            <span class="vc-addon-config-file-key">level.dat_old</span>
+            <span>{{ levelDatOldFile ? t('addonConfigurator.outputs.levelDatOldIncluded') : t('addonConfigurator.outputs.levelDatOldOptional') }}</span>
           </div>
           <div class="vc-addon-config-file-map">
             <span class="vc-addon-config-file-key">world_behavior_packs.json</span>

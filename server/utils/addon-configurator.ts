@@ -80,6 +80,7 @@ export async function buildConfiguredAddonArchive(input: {
   version: string
   transportMode: TransportMode
   levelDatBytes: Uint8Array
+  levelDatOldBytes?: Uint8Array | null
 }) {
   const releases = await fetchAddonReleases()
   const release = releases.find((item) => item.tag === input.version)
@@ -92,7 +93,10 @@ export async function buildConfiguredAddonArchive(input: {
   }
 
   const outputZip = new JSZip()
-  outputZip.file('level.dat', await patchLevelDatPlaceholder(input.levelDatBytes))
+  outputZip.file('level.dat', await patchLevelDatFile(input.levelDatBytes, 'level.dat'))
+  if (input.levelDatOldBytes) {
+    outputZip.file('level.dat_old', await patchLevelDatFile(input.levelDatOldBytes, 'level.dat_old'))
+  }
 
   const worldBehaviorPacks: PackManifestReference[] = []
   const worldResourcePacks: PackManifestReference[] = []
@@ -171,13 +175,13 @@ async function addPackEntries(outputZip: JSZip, sourceZip: JSZip, sourceFolder: 
   }
 }
 
-async function patchLevelDatPlaceholder(bytes: Uint8Array) {
+async function patchLevelDatFile(bytes: Uint8Array, fileName: 'level.dat' | 'level.dat_old') {
   const raw = Buffer.from(bytes)
 
   if (raw.length < 8) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'level.dat is too small to contain a Bedrock header.',
+      statusMessage: `${fileName} is too small to contain a Bedrock header.`,
     })
   }
 
@@ -186,7 +190,7 @@ async function patchLevelDatPlaceholder(bytes: Uint8Array) {
   const body = raw.subarray(8)
 
   if (body.length !== bodyLength) {
-    console.warn(`level.dat header length ${bodyLength}, actual ${body.length}`)
+    console.warn(`${fileName} header length ${bodyLength}, actual ${body.length}`)
   }
 
   const { parsed } = await nbt.parse(body, 'little')

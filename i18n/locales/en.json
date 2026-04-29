@@ -39,10 +39,11 @@
     "allReleases": "Open All Releases",
     "addonKicker": "Addon",
     "addonTitle": "VoiceCraft Addon",
-    "addonSubtitle": "Bedrock addon package and source links.",
-    "addonReleases": "Latest Addon Release",
-    "addonSourceZip": "Download Source ZIP",
-    "addonNote": "Use releases for packaged builds. Source ZIP is useful for custom modifications.",
+    "addonSubtitle": "Build a world-ready addon archive or open packaged releases.",
+    "addonConfigurator": "Open Configurator",
+    "addonReleases": "Addon Releases",
+    "worldReady": "World-ready archive",
+    "addonNote": "Use the configurator when you want a ready-to-unpack world archive with patched level.dat and generated pack manifests. Use releases when you want the raw addon packages.",
     "addonRepo": "Open Addon Repository"
   },
   "telemetry": {
@@ -132,7 +133,7 @@
   "addonConfigurator": {
     "kicker": "Addon Configurator",
     "title": "World-ready VoiceCraft Addon Builder",
-    "subtitle": "Choose the base addon and transport packs, upload your world level.dat, and download a ready-to-unpack archive for the world folder.",
+    "subtitle": "Choose the base addon and transport packs, upload your world level.dat, optionally add level.dat_old, and download a ready-to-unpack archive for the world folder.",
     "transport": {
       "none": "Base addon only",
       "http": "Base + McHttp",
@@ -147,7 +148,7 @@
     "steps": {
       "version": "1. Choose addon version",
       "selection": "2. Choose addon composition",
-      "levelDat": "3. Upload world level.dat",
+      "levelDat": "3. Upload world level.dat files",
       "build": "4. Build ready archive"
     },
     "loadingVersions": "Loading available releases...",
@@ -155,6 +156,8 @@
     "versionSelected": "{version} published on {date}.",
     "uploadTitle": "Choose level.dat",
     "uploadSubtitle": "The file will be included in the archive after the Bedrock experiment tags are patched.",
+    "uploadOldTitle": "Choose level.dat_old (optional)",
+    "uploadOldSubtitle": "If provided, the backup file is patched the same way and added to the archive as level.dat_old.",
     "betaApiStub": "The configurator enables the Bedrock experiment tags needed for the beta API directly inside level.dat.",
     "building": "Building archive...",
     "buildAction": "Build and Download",
@@ -162,6 +165,8 @@
     "summarySubtitle": "The final zip is laid out so it can be unpacked directly into a Bedrock world folder.",
     "outputs": {
       "levelDat": "World save metadata with Bedrock beta API experiment tags enabled.",
+      "levelDatOldIncluded": "Optional backup world metadata file, patched and included in the archive.",
+      "levelDatOldOptional": "Optional backup world metadata file. Added only when you upload it.",
       "behaviorJson": "Generated pack registration file for behavior packs.",
       "resourceJson": "Generated pack registration file for resource packs.",
       "behaviorFolder": "Behavior packs copied from the selected addon bundles.",
@@ -170,6 +175,7 @@
     "progressTitle": "Build progress",
     "progress": {
       "levelDat": "Preparing uploaded level.dat",
+      "levelDatOld": "Preparing uploaded level.dat_old",
       "release": "Using release: {version}",
       "request": "Requesting server-side build from GitHub release assets",
       "bundle": "Loading bundle: {name}",

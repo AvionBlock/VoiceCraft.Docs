@@ -9,6 +9,14 @@ type Slide = {
 
 const { t, locale } = useI18n();
 
+const landingTitle = computed(() => t("landing.title"));
+const landingDescription = computed(() => t("landing.subtitle"));
+
+defineOgImage("Landing", {
+  title: computed(() => landingTitle.value.slice(0, 60)),
+  description: landingDescription,
+});
+
 const quickStartPath = computed(() =>
   locale.value === "ru" ? "/ru/start/quick-start" : "/en/start/quick-start",
 );
@@ -67,10 +75,10 @@ onBeforeUnmount(() => {
     <div class="vc-hero vc-reveal rounded-2xl p-6 md:p-10">
       <div class="mx-auto max-w-4xl text-center space-y-6">
         <h1 class="nuni-800-60 tracking-tight">
-          {{ t("landing.title") }}
+          {{ landingTitle }}
         </h1>
         <p class="mx-auto max-w-3xl comf-500-20 text-muted">
-          {{ t("landing.subtitle") }}
+          {{ landingDescription }}
         </p>
         <div class="flex flex-wrap justify-center gap-3">
           <UButton

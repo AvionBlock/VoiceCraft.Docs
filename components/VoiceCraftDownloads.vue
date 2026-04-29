@@ -23,12 +23,13 @@ type ServerDownloadItem = {
 }
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 
 const releaseBase = 'https://github.com/AvionBlock/VoiceCraft/releases/latest/download'
 const releasePage = 'https://github.com/AvionBlock/VoiceCraft/releases/latest'
 const addonReleasePage = 'https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest'
-const addonSourceZip = 'https://github.com/AvionBlock/VoiceCraft.Addon/archive/refs/heads/main.zip'
 const addonRepo = 'https://github.com/AvionBlock/VoiceCraft.Addon'
+const addonConfiguratorPath = computed(() => localePath('/addon-configurator'))
 
 const clientItems: ClientDownloadItem[] = [
   {
@@ -393,6 +394,13 @@ onMounted(() => {
         </div>
 
         <div class="vc-download-grid">
+          <NuxtLink
+            :to="addonConfiguratorPath"
+            class="vc-download-button"
+          >
+            <span class="vc-download-button-title">{{ t('download.addonConfigurator') }}</span>
+            <span class="vc-download-button-meta">{{ t('download.worldReady') }}</span>
+          </NuxtLink>
           <a
             :href="addonReleasePage"
             target="_blank"
@@ -401,15 +409,6 @@ onMounted(() => {
           >
             <span class="vc-download-button-title">{{ t('download.addonReleases') }}</span>
             <span class="vc-download-button-meta">GitHub Releases</span>
-          </a>
-          <a
-            :href="addonSourceZip"
-            target="_blank"
-            rel="noreferrer"
-            class="vc-download-button"
-          >
-            <span class="vc-download-button-title">{{ t('download.addonSourceZip') }}</span>
-            <span class="vc-download-button-meta">.zip</span>
           </a>
         </div>
 

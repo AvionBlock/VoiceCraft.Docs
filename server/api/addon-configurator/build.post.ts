@@ -5,6 +5,8 @@ type BuildRequestBody = {
   transportMode?: TransportMode
   levelDatBase64?: string
   levelDatFileName?: string
+  levelDatOldBase64?: string | null
+  levelDatOldFileName?: string | null
 }
 
 function base64ToBytes(value: string) {
@@ -26,6 +28,7 @@ export default defineEventHandler(async (event) => {
     version: body.version,
     transportMode: body.transportMode,
     levelDatBytes: base64ToBytes(body.levelDatBase64),
+    levelDatOldBytes: body.levelDatOldBase64 ? base64ToBytes(body.levelDatOldBase64) : null,
   })
 
   setHeader(event, 'content-type', 'application/zip')

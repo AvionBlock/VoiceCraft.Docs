@@ -1,6 +1,16 @@
 export default defineNuxtConfig({
   extends: ['docus'],
+  ssr: true,
   modules: ['@nuxtjs/i18n', '@nuxtjs/google-fonts'],
+  site: {
+    name: 'VoiceCraft Docs',
+    url: process.env.NUXT_SITE_URL || process.env.SITE_URL || process.env.COOLIFY_URL || 'https://voicecraft.avion.team',
+  },
+  llms: {
+    domain: process.env.NUXT_SITE_URL || process.env.SITE_URL || process.env.COOLIFY_URL || 'https://voicecraft.avion.team',
+    title: 'VoiceCraft Docs',
+    description: 'VoiceCraft Client/Server setup and configuration for Minecraft Bedrock.',
+  },
   app: {
     head: {
       titleTemplate: '%s',
