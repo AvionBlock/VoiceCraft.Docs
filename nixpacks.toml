@@ -8,12 +8,11 @@ nixPkgs = ["nodejs_22", "python3", "pkg-config", "gcc"]
 
 [phases.install]
 cmds = [
-  "npm install -g pnpm@10.33.2",
-  "pnpm install --frozen-lockfile"
+  "npm exec --yes pnpm@10.33.2 -- install --frozen-lockfile"
 ]
 
 [phases.build]
-cmds = ["pnpm build"]
+cmds = ["npm exec --yes pnpm@10.33.2 -- build"]
 
 [start]
-cmd = "pnpm start"
+cmd = "node .output/server/index.mjs"
