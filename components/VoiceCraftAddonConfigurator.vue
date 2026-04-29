@@ -234,7 +234,7 @@ onMounted(() => {
             <input
               type="file"
               class="sr-only"
-              accept=".dat"
+              accept=".dat,level.dat"
               @change="setLevelDat(($event.target as HTMLInputElement).files)"
             >
             <span class="vc-addon-config-upload-title">
@@ -251,7 +251,7 @@ onMounted(() => {
             <input
               type="file"
               class="sr-only"
-              accept=".dat"
+              accept=".dat_old,level.dat_old"
               @change="setLevelDatOld(($event.target as HTMLInputElement).files)"
             >
             <span class="vc-addon-config-upload-title">
