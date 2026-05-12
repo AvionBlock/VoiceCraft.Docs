@@ -79,7 +79,25 @@
   justify-content: center;
   overflow: hidden;
   aspect-ratio: 1 / 1;
+  border: 0 !important;
+  background: linear-gradient(45deg, #992dfd, #ca89ff) !important;
+  color: #fff !important;
   line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.5rem 1.4rem rgba(153, 45, 253, 0.24);
+}
+
+.btn-lang:hover,
+.btn-lang:focus-visible,
+.nav-bg :deep(.btn-lang:hover),
+.nav-bg :deep(.btn-lang:focus-visible),
+.nav-bg :deep(.btn-lang.btn:hover),
+.nav-bg :deep(.btn-lang.btn:focus-visible),
+.nav-bg :deep(button.btn-lang:hover),
+.nav-bg :deep(button.btn-lang:focus-visible) {
+  background: linear-gradient(45deg, #e6d600, #fffd85) !important;
+  color: #000 !important;
+  box-shadow: 0 0.65rem 1.55rem rgba(230, 214, 0, 0.2);
 }
 
 .nav-account-btn {

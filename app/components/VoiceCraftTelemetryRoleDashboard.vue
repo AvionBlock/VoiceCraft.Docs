@@ -416,7 +416,7 @@ const hasAnyData = computed(() => {
         size="lg"
         color="neutral"
         variant="outline"
-        class="vc-btn-outline comf-500-20"
+        class="btn-outline comf-500-20"
         @click="() => refresh()"
       >
         {{ t('telemetry.refresh') }}

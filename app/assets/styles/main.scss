@@ -12,3 +12,81 @@
 @use "base/animations";
 @use "docs/layout";
 @use "overrides/bootstrap";
+
+
+$black-gradient: linear-gradient(45deg, #00030c, #000d08);
+
+html,
+body {
+  background: $black-gradient;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  // height: 100%;
+  // overflow-x: hidden;
+
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+
+  --bs-body-font-family: "Comfortaa";
+  --bs-body-color: #fff;
+  --bs-body-color-rgb: rgb(255, 255, 255);
+  --bs-secondary-color: rgb(255, 255, 255);
+}
+
+html,
+body,
+#__nuxt {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.glass {
+  background: rgba(0, 0, 0, 0.445);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+  color: #eee;
+  padding: 1rem;
+}
+
+.iconify {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+  border-radius: 10px;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, #A855F7, #5FFFE0);
+  border-radius: 10px;
+  border: 2px solid #000000; /* pseudo gap */
+}
+
+/* On hover, reverse the direction */
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(to top, #A855F7,
+    #5FFFE0);
+}

@@ -269,7 +269,7 @@ onMounted(() => {
           </p>
           <UButton
             size="xl"
-            class="vc-btn-main comf-500-20"
+            class="btn-main comf-500-20"
             :disabled="!canBuild"
             @click="downloadConfiguredWorld"
           >

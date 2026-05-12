@@ -371,7 +371,7 @@ onMounted(() => {
             size="lg"
             color="neutral"
             variant="outline"
-            class="vc-btn-outline comf-500-20"
+            class="btn-outline comf-500-20"
             :to="releasePage"
             target="_blank"
           >
@@ -420,7 +420,7 @@ onMounted(() => {
             size="lg"
             color="neutral"
             variant="outline"
-            class="vc-btn-outline comf-500-20"
+            class="btn-outline comf-500-20"
             :to="addonRepo"
             target="_blank"
           >

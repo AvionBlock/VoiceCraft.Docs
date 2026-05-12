@@ -58,7 +58,7 @@ const apiLinks = computed(() => [
           <div class="flex flex-wrap gap-3">
             <UButton
               size="lg"
-              class="vc-btn-main comf-500-20"
+              class="btn-main comf-500-20"
               :to="TELEMETRY_API_BASE"
               target="_blank"
             >

@@ -64,7 +64,7 @@ useSeoMeta({
     <p class="vc-doc-missing-kicker">404</p>
     <h1>{{ t('ui.notFoundTitle') }}</h1>
     <p>{{ t('ui.notFoundDescription') }}</p>
-    <NuxtLink to="/" class="btn vc-btn-main">
+    <NuxtLink to="/" class="btn btn-main">
       {{ t('ui.backHome') }}
     </NuxtLink>
   </section>

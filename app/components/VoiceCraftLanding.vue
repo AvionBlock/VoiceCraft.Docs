@@ -77,7 +77,7 @@ onBeforeUnmount(() => {
             size="xl"
             color="primary"
             trailing-icon="i-lucide-arrow-right"
-            class="vc-btn-main comf-500-20"
+            class="btn-main comf-500-20"
             :to="quickStartPath"
           >
             {{ t("landing.quickStart") }}
@@ -86,7 +86,7 @@ onBeforeUnmount(() => {
             size="xl"
             color="neutral"
             variant="outline"
-            class="vc-btn-outline comf-500-20"
+            class="btn-outline comf-500-20"
             :to="downloadPath"
           >
             {{ t("landing.downloadRelease") }}

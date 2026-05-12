@@ -14,7 +14,7 @@
       <div class="nav-controls d-flex align-items-center ms-auto order-lg-3 ms-lg-0">
         <Dropdown class="ms-2 ms-lg-3 position-relative">
           <DropdownToggle class="no-caret btn-lang" color="light-subtle" :aria-label="currentLocaleMeta.name">
-            <span :class="['flag-icon', currentLocaleMeta.flagClass]" aria-hidden="true" />
+            <span :class="['flag-icon', currentLocaleMeta.flagClass]" aria-hidden="true"></span>
           </DropdownToggle>
           <DropdownMenu class="dropdown-menu animated animated-fade-in">
             <DropdownItem

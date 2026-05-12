@@ -44,6 +44,35 @@
   margin-top: 1.55rem;
 }
 
+.vc-landing-actions .btn,
+.vc-landing-actions .btn-main,
+.vc-landing-actions .btn-outline,
+.vc-landing-actions .outlined-btn {
+  color: #fff !important;
+}
+
+.vc-landing-actions .btn *,
+.vc-landing-actions .btn-main *,
+.vc-landing-actions .btn-outline *,
+.vc-landing-actions .outlined-btn * {
+  color: currentcolor !important;
+}
+
+.vc-landing-actions .btn-outline,
+.vc-landing-actions .outlined-btn {
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  background: transparent !important;
+}
+
+.vc-landing-actions .btn-outline:hover,
+.vc-landing-actions .btn-outline:focus-visible,
+.vc-landing-actions .outlined-btn:hover,
+.vc-landing-actions .outlined-btn:focus-visible {
+  border-color: #992dfd !important;
+  background: linear-gradient(45deg, #992dfd, #ca89ff) !important;
+  color: #fff !important;
+}
+
 .vc-tour {
   min-height: 600px;
   padding: clamp(1.5rem, 4vw, 2.25rem) !important;
