@@ -55,7 +55,7 @@ async function onVersionChange() {
 </script>
 
 <template>
-  <div class="vc-version-cta">
+  <div v-if="versionOptions.length > 1" class="vc-version-cta">
     <select
       v-model="selectedVersionId"
       class="vc-version-select"

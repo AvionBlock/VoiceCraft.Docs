@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: ['~/assets/css/theme.scss'],
+  css: ['~/assets/styles/main.scss'],
   googleFonts: {
     families: {
       Comfortaa: [300, 400, 500, 600, 700],

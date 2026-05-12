@@ -1,0 +1,61 @@
+.vc-glass {
+  backdrop-filter: blur(12px);
+  background: var(--vc-surface);
+  border: 1px solid var(--vc-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+}
+
+.dark .vc-glass {
+  background: var(--vc-surface-dark);
+  border-color: var(--vc-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.74);
+}
+
+.vc-float {
+  animation: vc-float 6s ease-in-out infinite;
+}
+
+.vc-reveal {
+  animation: vc-reveal 700ms ease-out both;
+}
+
+.vc-delay-1 { animation-delay: 90ms; }
+.vc-delay-2 { animation-delay: 180ms; }
+.vc-delay-3 { animation-delay: 270ms; }
+
+.vc-card-tilt {
+  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+}
+
+.vc-card-tilt:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(14, 116, 144, 0.18);
+  border-color: rgba(8, 145, 178, 0.32);
+}
+
+.vc-hero {
+  background:
+    radial-gradient(900px 320px at 50% 0%, rgba(153, 45, 253, 0.23), transparent 70%),
+    linear-gradient(140deg, rgba(10, 10, 18, 0.95), rgba(5, 8, 13, 0.94));
+  border: 1px solid rgba(202, 137, 255, 0.26);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55);
+}
+
+.vc-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(95, 255, 224, 0.35);
+  border: 1px solid rgba(95, 255, 224, 0.6);
+  transition: all 180ms ease;
+}
+
+.vc-dot-active {
+  width: 24px;
+  background: rgba(202, 137, 255, 0.95);
+}
+
+.vc-image-reveal {
+  animation: vc-image-reveal 300ms ease-out both;
+}
+
