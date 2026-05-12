@@ -1,0 +1,108 @@
+# VoiceCraft (Repository and Build)
+
+Repository: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+
+## Repository structure
+
+- `VoiceCraft.Client/*`
+  platform clients for Windows, Linux, macOS, Android, iOS, and browser-related targets
+- `VoiceCraft.Server`
+  standalone VoiceCraft backend
+- `VoiceCraft.Core`
+  shared core utilities, audio helpers, localization, constants
+- `VoiceCraft.Network`
+  protocol packets, transports, entities, effects, world logic
+- test projects
+  protocol, network, and integration coverage
+
+## What the repository contains
+
+The repository is broader than "client + server":
+
+- full client settings model
+- embedded locales
+- Minecraft-facing transports:
+  `McHttp`, `McWss`, `McTcp`
+- packet definitions for VoiceCraft and McApi layers
+- audio effects and visibility systems
+
+## Build requirements
+
+From source code:
+
+- .NET SDK `9.0.312`
+- `rollForward: latestMinor`
+
+Check locally:
+
+```bash
+dotnet --info
+```
+
+## Build the solution
+
+```bash
+git clone https://github.com/AvionBlock/VoiceCraft.git
+cd VoiceCraft
+
+dotnet restore
+dotnet build -c Release
+```
+
+## Run the server
+
+```bash
+dotnet run --project VoiceCraft.Server -- --language en-US
+```
+
+Useful root options:
+
+- `--language <locale>`
+- `--exit-on-invalid-properties`
+- `--transport-mode <http|tcp|wss>`
+- `--transport-host <host>`
+- `--transport-port <port>`
+- `--server-key <token>`
+
+## Client builds
+
+Examples:
+
+```bash
+dotnet build VoiceCraft.Client/VoiceCraft.Client.Windows -c Release
+dotnet build VoiceCraft.Client/VoiceCraft.Client.Linux -c Release
+dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
+```
+
+Mobile targets usually require their own platform SDK toolchains.
+
+## Embedded locales
+
+Current embedded locales include:
+
+- `en-US`
+- `ru-RU`
+- `nl-NL`
+- `de-DE`
+- `pl-PL`
+- `zh-CN`
+- `zh-TW`
+
+## Production checklist
+
+1. Run `VoiceCraft.Server` once to generate config.
+2. Replace all generated transport tokens.
+3. Decide which transport you actually need:
+   - `McHttp`
+   - `McWss`
+   - `McTcp`
+4. Open only required ports.
+5. Keep backups of `ServerProperties.json`.
+
+## Related docs
+
+- [Server Installation](/server/installation)
+- [ServerProperties.json](/server/server-properties)
+- [Transport Modes](/server/transports)
+- [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
+- [GeyserVoice](/ecosystem/geyservoice)

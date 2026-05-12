@@ -1,0 +1,124 @@
+# VoiceCraft.Addon (Bedrock Addon)
+
+Repository: [AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
+
+This repository contains practical Bedrock addon packages and the script-side McApi surface for custom world logic.
+
+Quick links:
+
+- [Download Page](/download)
+- [Addon Configurator](/addon-configurator)
+- [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
+
+## Packages
+
+1. `Basic`
+   ready-to-use addon with bind flow, settings UI, and in-game voice indicators
+2. `Core.McHttp`
+   Bedrock transport package for HTTP-based integration
+3. `Core.McWss`
+   websocket / command-tunnel transport package
+
+## Version alignment
+
+VoiceCraft `v1.6.1` requires updating the addon packages together with the client/server release. This release includes in-game voice icons, auto connection quality-of-life, broadcasted events, and McHttp/McWss disconnect fixes that depend on the matching addon-side packages.
+
+## Namespace
+
+Across packages:
+
+- `VoiceCraft.Namespace = "voicecraft"`
+
+## Commands
+
+### Basic
+
+- `voicecraft:vcbind <binding_key>`
+  permission: `Any`
+- `voicecraft:vcsettings`
+  permission: `GameDirectors`
+
+### Core.McHttp
+
+- `voicecraft:vcconnect <hostname> <token>`
+  permission: `GameDirectors`
+
+### Core.McWss
+
+- `voicecraft:vcconnect <token>`
+  permission: `Host`
+- `voicecraft:data_tunnel [max_string_length] [data]`
+  permission: `Host`
+
+## What the Basic package gives you
+
+- bind / unbind flow
+- player settings UI
+- effect toggles
+- script events for automation
+
+## Bind flow details
+
+From the current implementation:
+
+1. a new network entity receives a random 5-character binding key
+2. entity description is updated with the key prompt
+3. player runs `voicecraft:vcbind <key>`
+4. entity binds to the player
+5. on leave, unbind happens and a new key is generated
+
+Script events:
+
+- `voicecraft:onPlayerBind`
+- `voicecraft:onPlayerUnbind`
+
+VoiceCraft `v1.6.1` also broadcasts more addon-side lifecycle and packet events so custom worlds can react without polling the transport layer directly.
+
+## Effects UI
+
+`voicecraft:vcsettings` currently exposes:
+
+- Visibility
+- Proximity
+- Directional
+- Proximity Echo
+- Echo
+- Proximity Muffle
+- Muffle
+
+Effects are sent through `McApiSetEffectRequestPacket`.
+
+## What you can customize
+
+- bind / unbind policy
+- role or tag based restrictions
+- world ID rules
+- position / rotation update behavior
+- staff forms through `@minecraft/server-ui`
+- packet handlers around the McApi surface
+
+## Current limitations
+
+- `Core.McWss` stability depends on command and payload limits
+
+## Recommended setup: BDS
+
+1. enable `McHttpConfig.Enabled = true`
+2. ensure BDS can reach `McHttpConfig.Hostname`
+3. copy the `Core.McHttp` package
+4. run `voicecraft:vcconnect <hostname> <token>`
+5. validate bind with `voicecraft:vcbind <key>`
+
+## Recommended setup: local world
+
+1. enable `McWss`
+2. install `Core.McWss`
+3. run `/connect`
+4. run `voicecraft:vcconnect <token>`
+5. keep `voicecraft:data_tunnel` aligned with server config
+
+## Read next
+
+- [Addon API](/ecosystem/addon-api)
+- [McHttp for BDS](/minecraft/mchttp-bds)
+- [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)

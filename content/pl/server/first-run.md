@@ -1,0 +1,117 @@
+# Pierwsze uruchomienie serwera
+
+## Co się dzieje przy pierwszym uruchomieniu
+
+On startup, VoiceCraft looks for `ServerProperties.json` in the current directory and subdirectories.
+
+Jeśli plik nie zostanie znaleziony, serwer automatycznie utworzy:
+
+- `config/`
+- `config/ServerProperties.json`
+
+Plik ten staje się głównym, trwałym źródłem prawdy o zachowaniu serwera.
+
+## Domyślne porty i punkty końcowe
+
+Domyślnie wygenerowana konfiguracja jest wyrównana w następujący sposób:
+
+- VoiceCraft UDP: `9050`
+- `McHttp`: `http://127.0.0.1:9050/`
+- `McWss`: `ws://127.0.0.1:9051/`
+- `McTcp`: `127.0.0.1:9050`
+
+Uwagi:
+
+- UDP voice traffic and some transport defaults share `9050`
+- `McWss` is separated by default on `9051`
+- `McTcp` is especially relevant for `GeyserVoice`
+
+## Argumenty startowe
+
+Serwer VoiceCraft obsługuje następujące argumenty główne:
+
+- `--exit-on-invalid-properties`
+  Exit if `ServerProperties.json` cannot be parsed.
+- `--language <culture>`
+  Zastąp język dziennika serwera dla bieżącego przebiegu.
+- `--transport-mode <mode>`
+  Włącz podzbiór transportów Minecraft dla bieżącego przebiegu.
+- `--transport-host <host>`
+  Zastąp skonfigurowany host transportu Minecraft.
+- `--transport-port <port>`
+  Zastąp skonfigurowany port transportowy Minecraft.
+- `--server-key <token>`
+  Zastąp udostępniony token logowania po stronie Minecraft dla bieżącego przebiegu.
+
+W kodzie istnieją również krótkie aliasy:
+
+- `-eip`
+- `-l`
+- `-tm`
+- `-th`
+- `-tp`
+- `-sk`
+
+## Przykłady
+
+### Uruchom z nadpisaniem języka startowego
+
+```bash
+./VoiceCraft.Server --language en-US
+```
+
+### Wyjdź, jeśli konfiguracja jest nieprawidłowa
+
+```bash
+./VoiceCraft.Server --exit-on-invalid-properties
+```
+
+### Run only `McTcp` for a Java bridge
+
+```bash
+./VoiceCraft.Server --transport-mode tcp --transport-host 0.0.0.0 --transport-port 9050
+```
+
+### Run only `McHttp`
+
+```bash
+./VoiceCraft.Server --transport-mode http --transport-host 0.0.0.0 --transport-port 9050
+```
+
+### Zastąp token bez edycji JSON
+
+```bash
+./VoiceCraft.Server --server-key "replace-with-secure-token"
+```
+
+## Jak zachowują się nadpisania transportu
+
+Runtime overrides do not permanently rewrite `ServerProperties.json`.
+
+Dotyczą tylko bieżącego procesu i są przydatne, gdy:
+
+- uruchamianie wielu środowisk z jednego obrazu
+- za pomocą paneli lub systemowych drop-inów
+- testowanie topologii bezpośrednich i proxy
+- letting another tool such as `GeyserVoice` launch the runtime with generated values
+
+## Lista kontrolna pierwszego uruchomienia
+
+1. Zmień wszystkie wygenerowane tokeny logowania.
+2. Potwierdź, jakiego transportu faktycznie potrzebujesz:
+   - `McHttp` for BDS
+   - `McWss` for local worlds
+   - `McTcp` for `GeyserVoice`
+3. Sprawdź powiązania hosta.
+4. Otwórz tylko te porty, których potrzebujesz.
+5. Confirm `PositioningType` with your clients.
+6. Przetestuj połączenie klienta przed podłączeniem automatyzacji Minecraft.
+
+## Typowe błędy przy pierwszym uruchomieniu
+
+- pozostawienie wygenerowanych tokenów bez zmian
+- exposing `127.0.0.1` endpoints to remote nodes
+- forgetting that `McTcp` may be required by Java-side bridges
+- umożliwienie każdego transportu w produkcji bez ich faktycznej potrzeby
+
+Aby zapoznać się z pełnym opisem konfiguracji, zobacz [ServerProperties.json](/server/server-properties).

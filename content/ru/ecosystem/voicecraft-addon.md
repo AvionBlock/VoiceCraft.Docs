@@ -1,0 +1,113 @@
+# VoiceCraft.Addon (Bedrock addon)
+
+Репозиторий: [AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
+
+Репозиторий содержит готовые Bedrock-пакеты и script-side McApi поверхность для кастомной логики мира.
+
+Быстрые ссылки:
+
+- [Страница скачивания](/download)
+- [Конфигуратор аддона](/addon-configurator)
+- [Релизы аддона](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
+
+## Пакеты
+
+1. `Basic`
+   готовый аддон с bind flow, settings UI и in-game voice indicators
+2. `Core.McHttp`
+   transport-пакет для HTTP-интеграции
+3. `Core.McWss`
+   websocket / command-tunnel transport-пакет
+
+## Совместимость версий
+
+Для VoiceCraft `v1.6.1` нужно обновлять addon-пакеты вместе с client/server релизом. В этом релизе есть in-game voice icons, auto connection quality-of-life, broadcasted events и фиксы McHttp/McWss disconnect, которые рассчитаны на matching addon-side packages.
+
+## Namespace
+
+- `VoiceCraft.Namespace = "voicecraft"`
+
+## Команды
+
+### Basic
+
+- `voicecraft:vcbind <binding_key>`
+- `voicecraft:vcsettings`
+
+### Core.McHttp
+
+- `voicecraft:vcconnect <hostname> <token>`
+
+### Core.McWss
+
+- `voicecraft:vcconnect <token>`
+- `voicecraft:data_tunnel [max_string_length] [data]`
+
+## Что дает Basic
+
+- bind / unbind flow
+- player settings UI
+- effect toggles
+- script events для automation
+
+## Детали bind flow
+
+1. новой network entity выдается случайный 5-символьный binding key
+2. в description пишется подсказка с ключом
+3. игрок вводит `voicecraft:vcbind <key>`
+4. сущность привязывается к игроку
+5. при выходе игрока происходит unbind и генерация нового ключа
+
+Script events:
+
+- `voicecraft:onPlayerBind`
+- `voicecraft:onPlayerUnbind`
+
+VoiceCraft `v1.6.1` также рассылает больше addon-side lifecycle и packet events, чтобы кастомные миры могли реагировать без прямого polling transport layer.
+
+## UI эффектов
+
+Через `voicecraft:vcsettings` доступны:
+
+- Visibility
+- Proximity
+- Directional
+- Proximity Echo
+- Echo
+- Proximity Muffle
+- Muffle
+
+## Что можно кастомизировать
+
+- bind / unbind policy
+- role и tag based logic
+- world ID rules
+- position / rotation update behavior
+- staff forms через `@minecraft/server-ui`
+- packet handlers вокруг McApi surface
+
+## Ограничения
+
+- `Core.McWss` зависит от limit-ов команд и payload
+
+## Рекомендуемая схема: BDS
+
+1. включите `McHttpConfig.Enabled = true`
+2. убедитесь, что BDS видит `McHttpConfig.Hostname`
+3. установите пакет `Core.McHttp`
+4. выполните `voicecraft:vcconnect <hostname> <token>`
+5. проверьте bind через `voicecraft:vcbind <key>`
+
+## Рекомендуемая схема: локальный мир
+
+1. включите `McWss`
+2. установите `Core.McWss`
+3. выполните `/connect`
+4. выполните `voicecraft:vcconnect <token>`
+5. держите `voicecraft:data_tunnel` синхронизированным с серверным конфигом
+
+## Что читать дальше
+
+- [Addon API](/ecosystem/addon-api)
+- [McHttp для BDS](/minecraft/mchttp-bds)
+- [McWss для одиночных миров](/minecraft/mcwss-singleplayer)

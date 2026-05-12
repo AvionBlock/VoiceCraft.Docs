@@ -1,0 +1,108 @@
+# VoiceCraft (repozytorium i kompilacja)
+
+Repozytorium: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+
+## Struktura repozytorium
+
+- `VoiceCraft.Client/*`
+  klienci platformy dla systemów Windows, Linux, macOS, Android, iOS i celów związanych z przeglądarką
+- `VoiceCraft.Server`
+  samodzielny backend VoiceCraft
+- `VoiceCraft.Core`
+  współdzielone podstawowe narzędzia, pomocnicy audio, lokalizacja, stałe
+- `VoiceCraft.Network`
+  pakiety protokołów, transporty, byty, efekty, logika świata
+- projekty testowe
+  protokół, sieć i zasięg integracji
+
+## Co zawiera repozytorium
+
+Repozytorium jest szersze niż „klient + serwer”:
+
+- model pełnych ustawień klienta
+- osadzone lokalizacje
+- Transporty skierowane do Minecrafta:
+  `McHttp`, `McWss`, `McTcp`
+- definicje pakietów dla warstw VoiceCraft i McApi
+- efekty dźwiękowe i systemy widoczności
+
+## Wymagania dotyczące kompilacji
+
+Z kodu źródłowego:
+
+- .NET SDK `9.0.312`
+- `rollForward: latestMinor`
+
+Sprawdź lokalnie:
+
+```bash
+dotnet --info
+```
+
+## Zbuduj rozwiązanie
+
+```bash
+git clone https://github.com/AvionBlock/VoiceCraft.git
+cd VoiceCraft
+
+dotnet restore
+dotnet build -c Release
+```
+
+## Uruchom serwer
+
+```bash
+dotnet run --project VoiceCraft.Server -- --language en-US
+```
+
+Przydatne opcje roota:
+
+- `--language <locale>`
+- `--exit-on-invalid-properties`
+- `--transport-mode <http|tcp|wss>`
+- `--transport-host <host>`
+- `--transport-port <port>`
+- `--server-key <token>`
+
+## Kompilacje klienta
+
+Przykłady:
+
+```bash
+dotnet build VoiceCraft.Client/VoiceCraft.Client.Windows -c Release
+dotnet build VoiceCraft.Client/VoiceCraft.Client.Linux -c Release
+dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
+```
+
+Cele mobilne zwykle wymagają własnych zestawów narzędzi SDK platformy.
+
+## Osadzone lokalizacje
+
+Aktualne osadzone ustawienia regionalne obejmują:
+
+- `en-US`
+- `ru-RU`
+- `nl-NL`
+- `de-DE`
+- `pl-PL`
+- `zh-CN`
+- `zh-TW`
+
+## Lista kontrolna produkcji
+
+1. Run `VoiceCraft.Server` once to generate config.
+2. Zastąp wszystkie wygenerowane tokeny transportu.
+3. Zdecyduj, jakiego transportu faktycznie potrzebujesz:
+   - `McHttp`
+   - `McWss`
+   - `McTcp`
+4. Otwórz tylko wymagane porty.
+5. Keep backups of `ServerProperties.json`.
+
+## Powiązane dokumenty
+
+- [Instalacja serwera](/server/installation)
+- [ServerProperties.json](/server/server-properties)
+- [Tryby transportu](/server/transports)
+- [Dodatek VoiceCraft](/ecosystem/voicecraft-addon)
+- [GeyserVoice](/ecosystem/geyservoice)

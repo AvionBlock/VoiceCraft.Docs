@@ -12,7 +12,10 @@
     "links": {
       "latestRelease": "Latest release",
       "downloadPage": "Downloads"
-    }
+    },
+    "notFoundTitle": "Page not found",
+    "notFoundDescription": "This documentation page does not exist in the current language yet.",
+    "backHome": "Back home"
   },
   "download": {
     "kicker": "Download Center",

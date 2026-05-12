@@ -1,0 +1,142 @@
+# GeyserVoice (Java / Geyser мост)
+
+Репозиторий: [AvionBlock/GeyserVoice](https://github.com/AvionBlock/GeyserVoice)
+
+`GeyserVoice` подключает Java-side инфраструктуру к `VoiceCraft.Server` через transport `McTcp`.
+
+Поддерживаются:
+
+- прямой Paper / Folia deployment
+- Velocity proxy deployment
+- BungeeCord proxy deployment
+- mixed proxy + backend topologies
+
+## Что делает GeyserVoice
+
+`GeyserVoice` переносит в VoiceCraft Java-side состояние:
+
+- lifecycle игроков
+- snapshots позиций и world state
+- bind flow
+- proxy relay для multi-server сетей
+
+## Очень важно: GeyserVoice умеет запускать VoiceCraft под капотом
+
+В прямом Paper-режиме плагин может автоматически:
+
+- скачать VoiceCraft runtime
+- установить его в нужную директорию
+- запустить процесс
+- дождаться готовности
+- при необходимости остановить runtime при выключении плагина
+
+Это настраивается через блок `config.voicecraft.*`.
+
+То есть GeyserVoice подходит и для двух сценариев:
+
+- подключение к уже запущенному внешнему `VoiceCraft.Server`
+- полностью managed runtime, который поднимает сам плагин
+
+## Поддерживаемые платформы
+
+- Paper / Folia
+- Velocity
+- BungeeCord
+
+## Структура `config.yml`
+
+Актуальная Paper-схема:
+
+### `config.debug`
+
+debug-режим.
+
+### `config.lang`
+
+язык плагина.
+
+### `config.auto-reconnect`
+
+авто-реконнект.
+
+### `config.proxy.enabled`
+
+включён ли proxy-режим для текущего узла.
+
+### `config.voicecraft.*`
+
+Блок соединения и управления runtime:
+
+- `host`
+- `port`
+- `login-token`
+- `auto-start`
+- `shutdown-on-disable`
+- `ready-timeout-ms`
+- `install-directory`
+
+Смысл:
+
+- `host` / `port` / `login-token`
+  параметры подключения к VoiceCraft / `McTcp`
+- `auto-start`
+  плагин сам поднимет VoiceCraft runtime
+- `shutdown-on-disable`
+  плагин остановит managed runtime при unload
+- `ready-timeout-ms`
+  сколько ждать готовности runtime
+- `install-directory`
+  куда устанавливать managed runtime
+
+### `config.voice.*`
+
+- `proximity-distance`
+- `proximity-toggle`
+- `voice-effects`
+- `not-in-voice-symbol`
+- `in-voice-symbol`
+- `send-bind-message`
+- `send-disconnect-message`
+- `send-voicecraft-disconnect-message`
+- `send-connection-lost-message`
+- `position-update-interval-ticks`
+
+### `config.players`
+
+кэш autobind / player data.
+
+### `config.player-links`
+
+дополнительная структура link/cache данных.
+
+## Команды
+
+- `connect <host> <port> <key>`
+- `reconnect [true|false]`
+- `disconnect`
+- `settings`
+- `bind <key>`
+- `bindfake <key> <name>`
+- `updatefake <key>`
+- `clearautobind`
+- `reload`
+
+## Прямой Paper-режим
+
+Лучше всего подходит, когда:
+
+- у вас один Paper / Folia сервер
+- вы хотите самый простой Java-side setup
+- хотите, чтобы GeyserVoice сам управлял VoiceCraft runtime
+
+Смотрите [Direct Paper Guide](/ecosystem/geyservoice-direct-paper).
+
+## Proxy-режим
+
+Лучше всего подходит, когда:
+
+- у вас Velocity или BungeeCord
+- несколько backend Paper серверов
+- нужен один центральный VoiceCraft bridge на proxy
+
+Смотрите [Proxy Guide](/ecosystem/geyservoice-proxy).

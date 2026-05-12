@@ -1,0 +1,216 @@
+# ServerProperties.json
+
+Main server config file: `config/ServerProperties.json`.
+
+## 完整示例
+
+```json
+{
+  "TelemetryEnabled": true,
+  "TelemetryToken": "replace-with-stable-random-token",
+  "VoiceCraftConfig": {
+    "Language": "en-US",
+    "Port": 9050,
+    "MaxClients": 100,
+    "Motd": "VoiceCraft Proximity Chat!",
+    "PositioningType": 0,
+    "EnableVisibilityDisplay": true
+  },
+  "McWssConfig": {
+    "Enabled": false,
+    "LoginToken": "replace-with-secure-guid",
+    "Hostname": "ws://127.0.0.1:9051/",
+    "MaxClients": 1,
+    "MaxTimeoutMs": 10000,
+    "DataTunnelCommand": "voicecraft:data_tunnel",
+    "CommandsPerTick": 3,
+    "MaxByteLengthPerCommand": 300,
+    "DisabledPacketTypes": []
+  },
+  "McHttpConfig": {
+    "Enabled": true,
+    "LoginToken": "replace-with-secure-guid",
+    "Hostname": "http://127.0.0.1:9050/",
+    "MaxClients": 1,
+    "MaxTimeoutMs": 10000,
+    "DisabledPacketTypes": []
+  },
+  "McTcpConfig": {
+    "Enabled": false,
+    "LoginToken": "replace-with-secure-guid",
+    "Hostname": "127.0.0.1",
+    "Port": 9050,
+    "MaxClients": 1,
+    "MaxTimeoutMs": 10000,
+    "DisabledPacketTypes": []
+  },
+  "DefaultAudioEffectsConfig": {
+    "1": { "EffectType": 1 },
+    "2": { "WetDry": 1, "MinRange": 0, "MaxRange": 30, "EffectType": 2 },
+    "4": { "WetDry": 1, "Delay": 0.5, "Range": 30, "EffectType": 4 },
+    "8": { "WetDry": 1, "EffectType": 6 }
+  }
+}
+```
+
+## 遥测
+
+- `TelemetryEnabled`:
+  enables anonymous startup, heartbeat, and crash diagnostics from `VoiceCraft.Server`.
+- `TelemetryToken`:
+  用于对来自一台服务器安装的遥测事件进行分组的稳定假名指纹。
+
+如果您不需要遥测，请设置：
+
+```json
+{
+  "TelemetryEnabled": false
+}
+```
+
+## VoiceCraft 配置
+
+- `Language`:
+  服务器日志语言。
+- `Port`:
+  VoiceCraft 核心服务器的 UDP 端口。
+- `MaxClients`:
+  VoiceCraft 客户端最大连接数。
+- `Motd`:
+  ping / info 响应返回的文本。
+- `PositioningType`:
+  定位方式：
+  - `0 = Server`
+  - `1 = Client`
+- `EnableVisibilityDisplay`:
+  是否将可见性指标发送给客户端。
+
+## McWss配置
+
+用于 websocket / 命令隧道基岩流。
+
+- `Enabled`:
+  启用或禁用 McWss。
+- `LoginToken`:
+  shared auth token, typically used with `/voicecraft:vcconnect <token>`.
+- `Hostname`:
+  websocket host such as `ws://0.0.0.0:9051/`.
+- `MaxClients`:
+  最大 McWss 客户端数。
+- `MaxTimeoutMs`:
+  不活动超时。
+- `DataTunnelCommand`:
+  command name used for the data tunnel, usually `voicecraft:data_tunnel`.
+- `CommandsPerTick`:
+  每个时钟周期转发多少个命令数据包。
+- `MaxByteLengthPerCommand`:
+  每个命令调用的有效负载预算（字节）。
+- `DisabledPacketTypes`:
+  此传输上阻止的数据包类型。
+
+## McHttpConfig
+
+用于基岩专用服务器和基于 HTTP 的集成。
+
+- `Enabled`
+- `LoginToken`
+- `Hostname`
+- `MaxClients`
+- `MaxTimeoutMs`
+- `DisabledPacketTypes`
+
+典型的BDS绑定：
+
+```json
+{
+  "Enabled": true,
+  "LoginToken": "replace-with-token",
+  "Hostname": "http://0.0.0.0:9050/",
+  "MaxClients": 10,
+  "MaxTimeoutMs": 10000,
+  "DisabledPacketTypes": []
+}
+```
+
+## McTcp 配置
+
+Used by Java-side bridges, especially `GeyserVoice`.
+
+- `Enabled`:
+  启用或禁用 McTcp。
+- `LoginToken`:
+  TCP 桥的共享身份验证令牌。
+- `Hostname`:
+  bind hostname, for example `127.0.0.1` or `0.0.0.0`.
+- `Port`:
+  TCP 监听端口。
+- `MaxClients`:
+  最大的传输客户端。
+- `MaxTimeoutMs`:
+  不活动超时。
+- `DisabledPacketTypes`:
+  此传输上阻止的数据包类型。
+
+Important differences compared to `McHttp` / `McWss`:
+
+- `Hostname` is a plain host, not a URI
+- `Port` is a separate field
+- this is the transport most relevant to `GeyserVoice`
+
+## 默认音频效果配置
+
+Dictionary key is a `ushort` bitmask, value is an effect JSON object.
+
+默认矩阵：
+
+- `1`:
+  `Visibility`
+- `2`:
+  `Proximity`
+- `4`:
+  `ProximityEcho`
+- `8`:
+  `ProximityMuffle`
+
+您可以覆盖或扩展字典以更改新实体的默认效果行为。
+
+## 禁用数据包类型
+
+Each transport supports `DisabledPacketTypes`.
+
+小心使用这个：
+
+- 用于调试、兼容性实验或紧急缓解
+- 禁用核心数据包可能会破坏登录、实体同步或音频传输
+- 除非您了解数据包流，否则请勿在生产中更改此设置
+
+## 实际生产模式
+
+### 基岩专用服务器
+
+- `McHttpConfig.Enabled = true`
+- `McWssConfig.Enabled = false`
+- `McTcpConfig.Enabled = false` unless you also run Java-side bridges
+
+### 本地世界/单人游戏
+
+- `McWssConfig.Enabled = true`
+- `McHttpConfig.Enabled = false` or optional
+
+### GeyserVoice / Java 桥
+
+- `McTcpConfig.Enabled = true`
+- `McHttpConfig.Enabled = false` or optional
+- `McWssConfig.Enabled = false` unless also needed elsewhere
+
+## 重要提示
+
+- always replace generated `LoginToken` values
+- with `Hostname: http://0.0.0.0:9050/`, the HTTP listener binds to a wildcard address
+- with `McTcpConfig.Hostname = 0.0.0.0`, the TCP bridge becomes remotely reachable
+- keep `PositioningType` aligned with the client configuration
+
+另请参阅：
+
+- [运行时覆盖](/server/runtime-overrides)
+- [传输模式](/server/transports)

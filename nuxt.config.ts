@@ -1,76 +1,27 @@
 const voiceCraftLocales = [
-  {
-    code: 'en',
-    name: 'English',
-    file: 'en.json',
-  },
-  {
-    code: 'ru',
-    name: 'Русский',
-    file: 'ru.json',
-  },
-  {
-    code: 'nl',
-    name: 'Nederlands',
-    language: 'nl-NL',
-    file: 'nl.json',
-  },
-  {
-    code: 'de',
-    name: 'Deutsch',
-    language: 'de-DE',
-    file: 'de.json',
-  },
-  {
-    code: 'pl',
-    name: 'Polski',
-    language: 'pl-PL',
-    file: 'pl.json',
-  },
-  {
-    code: 'zh_cn',
-    name: '简体中文',
-    language: 'zh-CN',
-    file: 'zh_cn.json',
-  },
-  {
-    code: 'zh_tw',
-    name: '繁體中文',
-    language: 'zh-TW',
-    file: 'zh_tw.json',
-  },
+  { code: 'en', name: 'English', file: 'en.json', language: 'en-US' },
+  { code: 'ru', name: 'Русский', file: 'ru.json', language: 'ru-RU' },
+  { code: 'nl', name: 'Nederlands', file: 'nl.json', language: 'nl-NL' },
+  { code: 'de', name: 'Deutsch', file: 'de.json', language: 'de-DE' },
+  { code: 'pl', name: 'Polski', file: 'pl.json', language: 'pl-PL' },
+  { code: 'zh_cn', name: '简体中文', file: 'zh_cn.json', language: 'zh-CN' },
+  { code: 'zh_tw', name: '繁體中文', file: 'zh_tw.json', language: 'zh-TW' },
 ]
 
-const voiceCraftDocusLocaleModule = (_options: unknown, nuxt: any) => {
-  nuxt.hook('modules:done', () => {
-    const publicConfig = nuxt.options.runtimeConfig.public as Record<string, unknown>
-    const docusConfig = typeof publicConfig.docus === 'object' && publicConfig.docus !== null
-      ? publicConfig.docus as Record<string, unknown>
-      : {}
-
-    publicConfig.docus = {
-      ...docusConfig,
-      filteredLocales: voiceCraftLocales,
-    }
-  })
-}
-
 export default defineNuxtConfig({
-  extends: ['docus'],
+  compatibilityDate: '2025-07-15',
+  devtools: { enabled: true },
   ssr: true,
-  modules: [voiceCraftDocusLocaleModule, '@nuxtjs/i18n', '@nuxtjs/google-fonts'],
-  site: {
-    name: 'VoiceCraft Docs',
-    url: process.env.NUXT_SITE_URL || process.env.SITE_URL || process.env.COOLIFY_URL || 'https://voicecraft.avion.team',
-  },
-  llms: {
-    domain: process.env.NUXT_SITE_URL || process.env.SITE_URL || process.env.COOLIFY_URL || 'https://voicecraft.avion.team',
-    title: 'VoiceCraft Docs',
-    description: 'VoiceCraft Client/Server setup and configuration for Minecraft Bedrock.',
-  },
+  modules: [
+    '@avion-block/usebootstrap',
+    '@nuxt/content',
+    '@nuxt/icon',
+    '@nuxtjs/i18n',
+    '@nuxtjs/google-fonts',
+  ],
   app: {
     head: {
-      titleTemplate: '%s',
+      titleTemplate: title => title ? `${title} · VoiceCraft Docs` : 'VoiceCraft Docs',
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico?v=2' },
         { rel: 'icon', type: 'image/png', href: '/images/brand/voicecraft-icon.png?v=2' },
@@ -81,8 +32,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/theme.scss'],
   googleFonts: {
     families: {
-      Comfortaa: [100, 300, 400, 500, 700, 900],
-      Nunito: [100, 300, 400, 500, 700, 900],
+      Comfortaa: [300, 400, 500, 600, 700],
+      Nunito: [500, 700, 800, 900],
     },
     display: 'swap',
     prefetch: true,
@@ -92,7 +43,7 @@ export default defineNuxtConfig({
   },
   i18n: {
     defaultLocale: 'en',
-    strategy: 'prefix',
+    strategy: 'no_prefix',
     lazy: true,
     langDir: 'locales',
     detectBrowserLanguage: {
@@ -103,5 +54,20 @@ export default defineNuxtConfig({
       fallbackLocale: 'en',
     },
     locales: voiceCraftLocales,
+  },
+  usebootstrap: {
+    image: false,
+    fonts: false,
+    sitemap: false,
+    robots: false,
+    shiki: true,
+    leaflet: false,
+    mdc: false,
+    tiptap: false,
+    pwa: false,
+    aos: false,
+    echarts: false,
+    ogImage: false,
+    schemaOrg: false,
   },
 })

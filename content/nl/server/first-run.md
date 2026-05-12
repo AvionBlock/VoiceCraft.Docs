@@ -1,0 +1,117 @@
+# Eerste serverrun
+
+## Wat er gebeurt bij de eerste start
+
+On startup, VoiceCraft looks for `ServerProperties.json` in the current directory and subdirectories.
+
+Als het bestand niet wordt gevonden, maakt de server automatisch:
+
+- `config/`
+- `config/ServerProperties.json`
+
+Dit bestand wordt de belangrijkste blijvende bron van waarheid voor servergedrag.
+
+## Standaardpoorten en eindpunten
+
+Standaard is de gegenereerde configuratie als volgt uitgelijnd:
+
+- VoiceCraft UDP: `9050`
+- `McHttp`: `http://127.0.0.1:9050/`
+- `McWss`: `ws://127.0.0.1:9051/`
+- `McTcp`: `127.0.0.1:9050`
+
+Opmerkingen:
+
+- UDP voice traffic and some transport defaults share `9050`
+- `McWss` is separated by default on `9051`
+- `McTcp` is especially relevant for `GeyserVoice`
+
+## Opstartargumenten
+
+VoiceCraft-server ondersteunt deze hoofdargumenten:
+
+- `--exit-on-invalid-properties`
+  Exit if `ServerProperties.json` cannot be parsed.
+- `--language <culture>`
+  Overschrijf de taal van het serverlogboek voor de huidige run.
+- `--transport-mode <mode>`
+  Schakel een subset van Minecraft-transporten in voor de huidige run.
+- `--transport-host <host>`
+  Overschrijf de geconfigureerde Minecraft-transporthost.
+- `--transport-port <port>`
+  Overschrijf de geconfigureerde Minecraft-transportpoort.
+- `--server-key <token>`
+  Overschrijf het gedeelde Minecraft-inlogtoken voor de huidige uitvoering.
+
+Er bestaan ook korte aliassen in de code:
+
+- `-eip`
+- `-l`
+- `-tm`
+- `-th`
+- `-tp`
+- `-sk`
+
+## Voorbeelden
+
+### Uitvoeren met een opstarttaaloverschrijving
+
+```bash
+./VoiceCraft.Server --language en-US
+```
+
+### Sluit af als de configuratie ongeldig is
+
+```bash
+./VoiceCraft.Server --exit-on-invalid-properties
+```
+
+### Run only `McTcp` for a Java bridge
+
+```bash
+./VoiceCraft.Server --transport-mode tcp --transport-host 0.0.0.0 --transport-port 9050
+```
+
+### Run only `McHttp`
+
+```bash
+./VoiceCraft.Server --transport-mode http --transport-host 0.0.0.0 --transport-port 9050
+```
+
+### Token overschrijven zonder JSON te bewerken
+
+```bash
+./VoiceCraft.Server --server-key "replace-with-secure-token"
+```
+
+## Hoe transportoverschrijvingen zich gedragen
+
+Runtime overrides do not permanently rewrite `ServerProperties.json`.
+
+Ze zijn alleen van toepassing op het huidige proces en zijn nuttig wanneer:
+
+- meerdere omgevingen uitvoeren vanaf één image
+- gebruik van panelen of systemd drop-ins
+- testen van directe versus proxy-topologieën
+- letting another tool such as `GeyserVoice` launch the runtime with generated values
+
+## Controlelijst voor de eerste keer uitvoeren
+
+1. Wijzig alle gegenereerde login-tokens.
+2. Bevestig welk transport je daadwerkelijk nodig hebt:
+   - `McHttp` for BDS
+   - `McWss` for local worlds
+   - `McTcp` for `GeyserVoice`
+3. Controleer de hostbindingen.
+4. Open alleen de poorten die u nodig heeft.
+5. Confirm `PositioningType` with your clients.
+6. Test de clientverbinding voordat u Minecraft-automatisering aansluit.
+
+## Veel voorkomende fouten bij de eerste run
+
+- gegenereerde tokens ongewijzigd laten
+- exposing `127.0.0.1` endpoints to remote nodes
+- forgetting that `McTcp` may be required by Java-side bridges
+- elk transport in productie mogelijk maken zonder dat het daadwerkelijk nodig is
+
+Zie [ServerProperties.json](/server/server-properties) voor de volledige configuratiereferentie.

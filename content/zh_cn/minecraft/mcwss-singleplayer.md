@@ -1,0 +1,118 @@
+# 单人世界的 McWss
+
+`McWss` is the websocket / command-tunnel transport mostly used for local worlds and lightweight Bedrock setups.
+
+## 何时使用
+
+Use `McWss` when:
+
+- 你在当地的基岩世界中玩耍
+- 你想要一个快速的单人游戏设置
+- 您正在没有专用 BDS 主机的情况下测试插件逻辑
+
+## 重要限制
+
+- usually less stable than `McHttp`
+- 命令吞吐量和有效负载大小非常重要
+- 不是大型公共生产环境的默认建议
+
+## 要求
+
+1. `VoiceCraft.Server` with `McWssConfig.Enabled = true`
+2. `VoiceCraft.Addon.Core.McWss.zip`
+3. 支持所需 websocket/脚本功能的基岩构建
+
+有用的链接：
+
+- [Download Page](/download) for the raw `Core.McWss` release package
+- [插件配置器](/addon-configurator) 用于准备解压世界存档
+
+## VoiceCraft 服务器配置
+
+典型设置：
+
+```json
+{
+  "McWssConfig": {
+    "Enabled": true,
+    "LoginToken": "replace-with-token",
+    "Hostname": "ws://127.0.0.1:9051/",
+    "MaxClients": 1,
+    "MaxTimeoutMs": 10000,
+    "DataTunnelCommand": "voicecraft:data_tunnel",
+    "CommandsPerTick": 3,
+    "MaxByteLengthPerCommand": 300,
+    "DisabledPacketTypes": []
+  }
+}
+```
+
+## 安装
+
+### Option 1: import as `.mcaddon`
+
+1. Rename archive to `VoiceCraft.Addon.Core.McWss.mcaddon`.
+2. 打开它，让 Minecraft 导入插件。
+3.启用世界中的行为包和资源包。
+
+### 选项 2：手动复制
+
+1. 解压存档。
+2. Copy `RP` and `BP` to the Bedrock directories.
+3. 在目标世界中启用两个包。
+
+## 连接流程
+
+### 第 1 步：连接世界 websocket
+
+```text
+/connect <VOICECRAFT_HOST>:<MCWSS_PORT>
+```
+
+例子：
+
+```text
+/connect 127.0.0.1:9051
+```
+
+### 第 2 步：验证插件
+
+```text
+/voicecraft:vcconnect <LOGIN_TOKEN>
+```
+
+Use `McWssConfig.LoginToken`.
+
+## 数据隧道
+
+该插件使用：
+
+- `voicecraft:data_tunnel`
+
+This must stay aligned with `McWssConfig.DataTunnelCommand`.
+
+如果您重命名一侧而不重命名另一侧，那么桥梁就会断裂。
+
+该命令当前携带：
+
+- 可选的最大字符串长度参数
+- 打包有效负载数据参数
+
+## 调整
+
+如果您发现延迟或数据包不稳定：
+
+- lower `CommandsPerTick`
+- review `MaxByteLengthPerCommand`
+- 避免大量突发更新
+- 使用较少的活跃实体进行测试
+
+## 何时切换到另一种交通工具
+
+Move to `McHttp` when:
+
+- 您运行真正的专用基岩服务器
+- 您想要清洁生产部署
+- 命令隧道不稳定成为问题
+
+在这种情况下，请继续使用 [McHttp for BDS](/minecraft/mchttp-bds)。

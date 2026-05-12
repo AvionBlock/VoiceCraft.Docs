@@ -1,0 +1,122 @@
+# 快速开始
+
+本指南是获得可用的 VoiceCraft 堆栈的最快方法。
+
+## 首先选择您的拓扑
+
+VoiceCraft 可以通过多种方式部署：
+
+- Bedrock Dedicated Server: `VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
+- Local Bedrock world / singleplayer: `VoiceCraft.Server` or local runtime + `Core.McWss`
+- Java server with Geyser/Floodgate: `GeyserVoice` + `VoiceCraft.Server`
+- Direct Paper server: `GeyserVoice` can also download and run the VoiceCraft runtime under the hood
+
+如果您不确定，请从以下之一开始：
+
+- 基岩专用服务器：读取[McHttp for BDS](/minecraft/mchttp-bds)
+- Java + Geyser 服务器：读取 [GeyserVoice](/ecosystem/geyservoice)
+
+## 1.下载服务器
+
+1. 打开[下载页面](/download)。
+2. 下载适合您平台的服务器存档：
+   - `VoiceCraft.Server.Windows.x64.zip`
+   - `VoiceCraft.Server.Windows.x86.zip`
+   - `VoiceCraft.Server.Windows.arm64.zip`
+   - `VoiceCraft.Server.Linux.x64.zip`
+   - `VoiceCraft.Server.Linux.arm.zip`
+   - `VoiceCraft.Server.Linux.arm64.zip`
+
+如果您从源代码构建，请参阅 [VoiceCraft 仓库和构建](/ecosystem/voicecraft-repository)。
+
+## 2. 运行服务器一次
+
+### 窗口
+
+```powershell
+./VoiceCraft.Server.exe
+```
+
+### Linux
+
+```bash
+chmod +x ./VoiceCraft.Server
+./VoiceCraft.Server
+```
+
+After first launch, VoiceCraft generates `config/ServerProperties.json`.
+
+## 3. 保护生成的配置
+
+在连接 Minecraft 或玩家之前，更改每个生成的共享令牌：
+
+- `McHttpConfig.LoginToken`
+- `McWssConfig.LoginToken`
+- `McTcpConfig.LoginToken`
+
+您通常希望每个环境有不同的值。
+
+## 4. 选择 Minecraft 交通工具
+
+VoiceCraft 目前有 3 种面向 Minecraft 的传输：
+
+- `McHttp`:
+  最适合 Bedrock 专用服务器和最稳定的 Bedrock 自动化。
+- `McWss`:
+  最适合本地世界、测试和命令隧道场景。
+- `McTcp`:
+  Best for Java-side bridges such as `GeyserVoice`.
+
+有关完整比较，请参阅[传输模式](/server/transports)。
+
+## 5.下载客户端
+
+从[下载页面](/download)，下载适合您的玩家的软件包：
+
+- Windows: `VoiceCraft.Client.Windows.<arch>.zip`
+- Linux: `VoiceCraft.Client.Linux.<arch>.zip`
+- macOS: `VoiceCraft.Client.MacOS.<arch>.dmg` or `.pkg`
+- Android: `VoiceCraft.Client.Android.arm64.zip` (APK inside)
+- iOS: `VoiceCraft.Client.iOS.arm64.ipa`
+
+## 6.在客户端添加服务器
+
+1. 打开客户端。
+2. 在 UI 中添加服务器条目。
+3. Use the VoiceCraft UDP endpoint from `VoiceCraftConfig.Port`.
+
+典型的本地设置：
+
+- host: `127.0.0.1`
+- port: `9050`
+
+## 7. 连接 Minecraft 端
+
+- 对于基岩专用服务器，请使用 [McHttp for BDS](/minecraft/mchttp-bds)。
+- 对于本地基岩世界，请使用 [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)。
+- 对于 Java + Geyser/Floodgate，请使用 [GeyserVoice](/ecosystem/geyservoice)。
+
+如果您要在基岩上部署，请将这两个页面放在附近：
+
+- [下载页面](/download) 用于原始客户端/服务器/插件发布文件
+- [插件配置器](/addon-configurator) 用于准备解压世界存档
+
+## 8. 验证堆栈
+
+如果一切配置正确：
+
+- VoiceCraft 服务器启动时没有配置或端口错误
+- 客户端连接时没有传输错误
+- Minecraft 集成使用预期令牌进行身份验证
+- 实体创建和绑定流程工作
+- 玩家在范围内时会听到接近声音
+
+## 推荐下一篇阅读
+
+- [服务器安装](/server/installation)
+- [首次服务器运行](/server/first-run)
+- [ServerProperties.json](/server/server-properties)
+- [运行时覆盖](/server/runtime-overrides)
+- [传输模式](/server/transports)
+- [下载页面](/download)
+- [插件配置器](/addon-configurator)

@@ -1,0 +1,40 @@
+# Обзор
+
+VoiceCraft это proximity voice-платформа для Minecraft Bedrock Edition и связанных bridge-сценариев.
+
+Она состоит из нескольких слоёв:
+
+1. `VoiceCraft.Client`
+   desktop и mobile клиентские приложения
+2. `VoiceCraft.Server`
+   standalone backend для voice transport, state sync и transport endpoint-ов
+3. Minecraft-facing transports
+   `McHttp`, `McWss`, `McTcp`
+4. ecosystem-интеграции
+   `VoiceCraft.Addon` для Bedrock и `GeyserVoice` для Java / proxy стеков
+
+## Как это работает
+
+1. Клиент подключается к `VoiceCraft.Server` по UDP.
+2. Сервер отслеживает сущности, позиции, world ID, effect bitmask и moderation state.
+3. Minecraft-side transport обновляет сервер игровым состоянием:
+   - `McHttp` для BDS
+   - `McWss` для локальных Bedrock миров
+   - `McTcp` для `GeyserVoice`
+4. Клиент воспроизводит proximity audio согласно состоянию сервера и локальным настройкам.
+
+## Поддерживаемые платформы клиента
+
+- Windows (`x86`, `x64`, `arm64`)
+- Linux (`x64`, `arm32`, `arm64`)
+- macOS (`x64`, `arm64`)
+- Android (`arm64`)
+- iOS (`arm64`, `.ipa`)
+
+## Что читать дальше
+
+- [Быстрый старт](/start/quick-start)
+- [Скачать](/download)
+- [Transport-режимы](/server/transports)
+- [Системная архитектура](/architecture/system-architecture)
+- [Обзор экосистемы](/ecosystem/overview)

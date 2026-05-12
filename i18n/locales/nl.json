@@ -12,7 +12,10 @@
     "links": {
       "latestRelease": "Nieuwste uitgave",
       "downloadPage": "Downloads"
-    }
+    },
+    "notFoundTitle": "Pagina niet gevonden",
+    "notFoundDescription": "Deze documentatiepagina bestaat nog niet voor de huidige taal.",
+    "backHome": "Terug naar start"
   },
   "download": {
     "kicker": "Downloadcentrum",

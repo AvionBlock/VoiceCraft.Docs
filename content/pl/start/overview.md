@@ -1,0 +1,48 @@
+# Przegląd
+
+VoiceCraft to zbliżeniowa platforma głosowa dla Minecraft Bedrock Edition i powiązanych scenariuszy mostowych.
+
+Składa się z kilku warstw:
+
+1. `VoiceCraft.Client`
+   aplikacje klienckie na komputery stacjonarne i urządzenia mobilne
+2. `VoiceCraft.Server`
+   samodzielny backend do transportu głosu, synchronizacji stanu i transportowych punktów końcowych
+3. Transporty skierowane do Minecrafta
+   `McHttp`, `McWss`, and `McTcp`
+4. Integracje ekosystemów
+   `VoiceCraft.Addon` for Bedrock and `GeyserVoice` for Java / proxy stacks
+
+## Jak to działa
+
+1. The client connects to `VoiceCraft.Server` over UDP.
+2. Serwer śledzi podmioty, pozycje, identyfikatory światów, maski bitowe efektów i stan moderacji.
+3. Transport po stronie Minecrafta aktualizuje serwer o stan rozgrywki:
+   - `McHttp` for BDS
+   - `McWss` for local Bedrock worlds
+   - `McTcp` for `GeyserVoice`
+4. Klient renderuje dźwięk zbliżeniowy zgodnie ze stanem serwera i wybranymi ustawieniami lokalnymi.
+
+## Obsługiwane platformy klienckie
+
+- Windows (`x86`, `x64`, `arm64`)
+- Linux (`x64`, `arm32`, `arm64`)
+- macOS (`x64`, `arm64`)
+- Android (`arm64`)
+- iOS (`arm64`, `.ipa`)
+
+## Co sprawia, że VoiceCraft jest elastyczny
+
+- wiele transportów Minecraft
+- Powierzchnia API dodatku Bedrock
+- Java-side bridge via `GeyserVoice`
+- konfigurowalne efekty i metadane encji
+- tryby pozycjonowania zarówno po stronie serwera, jak i po stronie klienta
+
+## Co dalej czytać
+
+- [Szybki start](/start/quick-start)
+- [Pobierz](/download)
+- [Tryby transportu](/server/transports)
+- [Architektura systemu](/architecture/system-architecture)
+- [Przegląd ekosystemu](/ecosystem/overview)

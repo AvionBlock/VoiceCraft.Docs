@@ -12,7 +12,10 @@
     "links": {
       "latestRelease": "最新发布",
       "downloadPage": "下载"
-    }
+    },
+    "notFoundTitle": "页面未找到",
+    "notFoundDescription": "当前语言中还没有这个文档页面。",
+    "backHome": "返回首页"
   },
   "download": {
     "kicker": "下载中心",

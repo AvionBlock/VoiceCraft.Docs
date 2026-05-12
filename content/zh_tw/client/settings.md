@@ -1,0 +1,98 @@
+# 客戶端設定（UI）
+
+All client UI changes are auto-saved to `Settings.json`.
+
+有關原始架構、範例和進階字段，請參閱 [Settings.json](/client/settings-json)。
+
+## 一般
+
+- `Language`:
+  客戶端使用的 UI 語言/區域設定。
+- `Notification Dismiss`:
+  自動隱藏本地通知的延遲（以毫秒為單位）。
+- `Hide Server Addresses`:
+  隱藏 UI 中儲存的 IP/主機條目。
+- `Disable Notifications`:
+  禁用本地 toast 通知。
+
+## 外觀
+
+- `Theme`:
+  選定的視覺主題。
+- `Background Image`:
+  選擇內建背景圖像。
+
+## 輸入
+
+- `Input Devices`:
+  捕獲設備/麥克風源。
+- `Input Capture Preset`:
+  capture profile used by the platform backend, default is `VoiceCommunication`.
+- `Input Volume`:
+  microphone gain in range `0..2`.
+- `Microphone Sensitivity`:
+  voice activity threshold in range `0..1`.
+- `Denoisers`:
+  可用的降噪器實作。
+- `Automatic Gain Controllers`:
+  AGC 實施。
+- `Echo Cancelers`:
+  迴聲消除的實現。
+- `Push To Talk`:
+  僅在按住配置的熱鍵時傳輸。
+- `Push To Talk Cue`:
+  PTT 接合/脫離時的本地聲音提示。
+- `Microphone Test`:
+  本地監控和活動視覺化。
+
+## 輸出
+
+- `Output Devices`:
+  播放設備。
+- `Output Volume`:
+  playback gain in range `0..2`.
+- `Audio Clippers`:
+  輸出限幅器/限制器實作。
+- `Test Output`:
+  向所選設備發送本地測試訊號。
+
+## 網路
+
+- `Positioning Type`:
+  must match `VoiceCraftConfig.PositioningType` on the server.
+- `McWss Listen Ip`:
+  McWss側網橋使用的本地位址。
+- `McWss Host Port`:
+  用於 Bedrock Websocket 連結的本地 McWss 端口。
+
+## 熱鍵
+
+預設情況下，VoiceCraft 公開以下綁定：
+
+- `Mute`
+- `Deafen`
+
+預設桌面綁定通常是：
+
+- `Mute`: `LeftControl + LeftShift + M`
+- `Deafen`: `LeftControl + LeftShift + D`
+
+Exact hotkey values are stored in `HotKeySettings.Bindings`.
+
+## 每用戶控制
+
+VoiceCraft 也會儲存每個使用者的本機偏好設定：
+
+- 每位使用者數量乘數
+- 每個用戶本地靜音狀態
+
+These are stored in `UserSettings.Users` and are applied client-side.
+
+## 高級
+
+- `Trigger GC`:
+  手動垃圾收集觸發器。
+- `Crash`:
+  用於診斷/日誌驗證的故意崩潰路徑。
+
+![網路設定](/images/voicecraft/settings-network.png)

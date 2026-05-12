@@ -1,6 +1,6 @@
 {
   "name": "voicecraft.docs",
-  "version": "1.0.0",
+  "version": "1.6.1",
   "description": "Official VoiceCraft documentation, guides, etc.",
   "keywords": [
     "voicecraft",
@@ -18,24 +18,39 @@
   },
   "license": "MIT",
   "author": "lil-jon-crunk",
+  "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "node --disable-warning=DEP0155 ./node_modules/nuxt/bin/nuxt.mjs dev",
-    "build": "node --disable-warning=DEP0155 ./node_modules/nuxt/bin/nuxt.mjs build",
-    "start": "node .output/server/index.mjs"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@avion-block/usebootstrap": "^4.0.3",
+    "@nuxt/content": "^3.13.0",
+    "@nuxt/icon": "^2.2.2",
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@takumi-rs/core": "^1.1.2",
-    "@takumi-rs/wasm": "^1.1.2",
+    "@nuxtjs/i18n": "^10.3.0",
     "better-sqlite3": "^12.9.0",
-    "docus": "5.10.0",
     "jszip": "^3.10.1",
-    "nuxt": "^4.4.2",
-    "prismarine-nbt": "^2.8.0"
+    "nuxt": "^4.4.5",
+    "prismarine-nbt": "^2.8.0",
+    "vue": "^3.5.34",
+    "vue-router": "^5.0.6"
   },
   "devDependencies": {
-    "png-to-ico": "^3.0.1",
-    "sass-embedded": "^1.99.0"
+    "@iconify-json/lucide": "^1.2.107",
+    "@iconify-json/simple-icons": "^1.2.82"
   },
-  "packageManager": "pnpm@10.33.2"
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "better-sqlite3",
+      "esbuild",
+      "sharp",
+      "vue-demi"
+    ]
+  }
 }

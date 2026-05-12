@@ -12,7 +12,10 @@
     "links": {
       "latestRelease": "最新發布",
       "downloadPage": "下載"
-    }
+    },
+    "notFoundTitle": "找不到頁面",
+    "notFoundDescription": "目前語言中尚無此文件頁面。",
+    "backHome": "返回首頁"
   },
   "download": {
     "kicker": "下載中心",

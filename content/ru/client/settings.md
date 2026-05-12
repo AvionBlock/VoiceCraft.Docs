@@ -1,0 +1,96 @@
+# Настройки клиента (UI)
+
+Все изменения в клиентском UI автоматически сохраняются в `Settings.json`.
+
+Для сырой схемы, примеров и расширенных полей смотрите [Settings.json](/client/settings-json).
+
+## Общие
+
+- `Language`:
+  язык интерфейса.
+- `Notification Dismiss`:
+  время автоскрытия уведомлений в миллисекундах.
+- `Hide Server Addresses`:
+  скрывает хосты и IP в UI.
+- `Disable Notifications`:
+  отключает локальные уведомления.
+
+## Внешний вид
+
+- `Theme`:
+  выбранная тема.
+- `Background Image`:
+  выбранный встроенный фон.
+
+## Input
+
+- `Input Devices`:
+  устройство захвата / микрофон.
+- `Input Capture Preset`:
+  профиль захвата платформенного backend-а, по умолчанию `VoiceCommunication`.
+- `Input Volume`:
+  усиление микрофона в диапазоне `0..2`.
+- `Microphone Sensitivity`:
+  порог voice activity в диапазоне `0..1`.
+- `Denoisers`:
+  реализация шумоподавления.
+- `Automatic Gain Controllers`:
+  реализация AGC.
+- `Echo Cancelers`:
+  реализация эхоподавления.
+- `Push To Talk`:
+  передавать голос только при удержании hotkey.
+- `Push To Talk Cue`:
+  локальный сигнал при включении / выключении PTT.
+- `Microphone Test`:
+  локальный мониторинг и индикация активности.
+
+## Output
+
+- `Output Devices`:
+  устройство вывода.
+- `Output Volume`:
+  громкость в диапазоне `0..2`.
+- `Audio Clippers`:
+  выбранный limiter / clipper.
+- `Test Output`:
+  локальный тестовый сигнал.
+
+## Сеть
+
+- `Positioning Type`:
+  должен совпадать с `VoiceCraftConfig.PositioningType` на сервере.
+- `McWss Listen Ip`:
+  локальный адрес для McWss-части.
+- `McWss Host Port`:
+  локальный порт McWss.
+
+## Горячие клавиши
+
+По умолчанию VoiceCraft использует привязки для:
+
+- `Mute`
+- `Deafen`
+
+Типичные desktop-привязки:
+
+- `Mute`: `LeftControl + LeftShift + M`
+- `Deafen`: `LeftControl + LeftShift + D`
+
+Точные значения лежат в `HotKeySettings.Bindings`.
+
+## Персональные настройки по пользователям
+
+Клиент также хранит локальные настройки для конкретных удалённых пользователей:
+
+- индивидуальный множитель громкости
+- локальный mute
+
+Это хранится в `UserSettings.Users` и применяется только на стороне клиента.
+
+## Дополнительно
+
+- `Trigger GC`:
+  ручной вызов garbage collector.
+- `Crash`:
+  намеренный crash-путь для проверки логирования / диагностики.

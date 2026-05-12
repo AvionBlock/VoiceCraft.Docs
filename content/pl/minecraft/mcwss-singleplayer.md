@@ -1,0 +1,118 @@
+# McWss dla światów dla jednego gracza
+
+`McWss` is the websocket / command-tunnel transport mostly used for local worlds and lightweight Bedrock setups.
+
+## Kiedy go używać
+
+Use `McWss` when:
+
+- grasz w lokalnym świecie Bedrock
+- chcesz szybkiej konfiguracji dla jednego gracza
+- testujesz logikę dodatków bez dedykowanego hosta BDS
+
+## Ważne ograniczenia
+
+- usually less stable than `McHttp`
+- przepustowość poleceń i wielkość ładunku mają ogromne znaczenie
+- nie jest to domyślna rekomendacja dla dużych publicznych środowisk produkcyjnych
+
+## Wymagania
+
+1. `VoiceCraft.Server` with `McWssConfig.Enabled = true`
+2. `VoiceCraft.Addon.Core.McWss.zip`
+3. Kompilacja Bedrock obsługująca wymaganą funkcjonalność websocket/skryptu
+
+Pomocne linki:
+
+- [Download Page](/download) for the raw `Core.McWss` release package
+- [Konfigurator dodatków](/addon-configurator) dla gotowego do rozpakowania archiwum świata
+
+## Konfiguracja serwera VoiceCraft
+
+Typowa konfiguracja:
+
+```json
+{
+  "McWssConfig": {
+    "Enabled": true,
+    "LoginToken": "replace-with-token",
+    "Hostname": "ws://127.0.0.1:9051/",
+    "MaxClients": 1,
+    "MaxTimeoutMs": 10000,
+    "DataTunnelCommand": "voicecraft:data_tunnel",
+    "CommandsPerTick": 3,
+    "MaxByteLengthPerCommand": 300,
+    "DisabledPacketTypes": []
+  }
+}
+```
+
+## Instalacja
+
+### Option 1: import as `.mcaddon`
+
+1. Rename archive to `VoiceCraft.Addon.Core.McWss.mcaddon`.
+2. Otwórz go, aby Minecraft zaimportował dodatek.
+3. Włącz pakiet zachowań i pakiet zasobów na świecie.
+
+### Opcja 2: kopia ręczna
+
+1. Wyodrębnij archiwum.
+2. Copy `RP` and `BP` to the Bedrock directories.
+3. Włącz oba pakiety w świecie docelowym.
+
+## Przepływ połączenia
+
+### Krok 1: podłącz światowy websocket
+
+```text
+/connect <VOICECRAFT_HOST>:<MCWSS_PORT>
+```
+
+Przykład:
+
+```text
+/connect 127.0.0.1:9051
+```
+
+### Krok 2: uwierzytelnij dodatek
+
+```text
+/voicecraft:vcconnect <LOGIN_TOKEN>
+```
+
+Use `McWssConfig.LoginToken`.
+
+## Tunel danych
+
+Dodatek używa:
+
+- `voicecraft:data_tunnel`
+
+This must stay aligned with `McWssConfig.DataTunnelCommand`.
+
+Jeśli zmienisz nazwę jednej strony, a nie drugiej, most się zepsuje.
+
+Polecenie obecnie wykonuje:
+
+- opcjonalny argument dotyczący maksymalnej długości łańcucha
+- argument danych spakowanego ładunku
+
+## Strojenie
+
+Jeśli widzisz opóźnienia lub niestabilność pakietów:
+
+- lower `CommandsPerTick`
+- review `MaxByteLengthPerCommand`
+- unikaj dużych aktualizacji seryjnych
+- przetestuj z mniejszą liczbą aktywnych jednostek
+
+## Kiedy przejść na inny transport
+
+Move to `McHttp` when:
+
+- prowadzisz prawdziwy serwer dedykowany Bedrock
+- chcesz czystszego wdrożenia produkcyjnego
+- niestabilność tunelu poleceń staje się problemem
+
+W takim przypadku kontynuuj [McHttp dla BDS](/minecraft/mchttp-bds).

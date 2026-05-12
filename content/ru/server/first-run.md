@@ -1,0 +1,102 @@
+# Первый запуск сервера
+
+## Что происходит при первом старте
+
+При запуске VoiceCraft ищет `ServerProperties.json` в текущей директории и поддиректориях.
+
+Если файл не найден, сервер автоматически создаёт:
+
+- `config/`
+- `config/ServerProperties.json`
+
+Именно этот файл становится главным persistent-конфигом сервера.
+
+## Дефолтные порты и endpoint-ы
+
+По умолчанию генерация идёт так:
+
+- VoiceCraft UDP: `9050`
+- `McHttp`: `http://127.0.0.1:9050/`
+- `McWss`: `ws://127.0.0.1:9051/`
+- `McTcp`: `127.0.0.1:9050`
+
+Важно:
+
+- UDP voice и часть transport defaults используют `9050`
+- `McWss` по умолчанию вынесен на `9051`
+- `McTcp` особенно важен для `GeyserVoice`
+
+## Startup arguments
+
+Сервер поддерживает следующие root-аргументы:
+
+- `--exit-on-invalid-properties`
+- `--language <culture>`
+- `--transport-mode <mode>`
+- `--transport-host <host>`
+- `--transport-port <port>`
+- `--server-key <token>`
+
+Короткие алиасы:
+
+- `-eip`
+- `-l`
+- `-tm`
+- `-th`
+- `-tp`
+- `-sk`
+
+## Примеры
+
+### Переопределить язык логов
+
+```bash
+./VoiceCraft.Server --language ru-RU
+```
+
+### Завершаться при невалидном конфиге
+
+```bash
+./VoiceCraft.Server --exit-on-invalid-properties
+```
+
+### Запустить только `McTcp` для Java-моста
+
+```bash
+./VoiceCraft.Server --transport-mode tcp --transport-host 0.0.0.0 --transport-port 9050
+```
+
+### Запустить только `McHttp`
+
+```bash
+./VoiceCraft.Server --transport-mode http --transport-host 0.0.0.0 --transport-port 9050
+```
+
+### Переопределить токен без правки JSON
+
+```bash
+./VoiceCraft.Server --server-key "prod-secret-token"
+```
+
+## Как работают runtime overrides
+
+Они не переписывают `ServerProperties.json` навсегда.
+
+Они действуют только для текущего процесса и удобны, когда:
+
+- у вас разные окружения
+- конфиг подсовывает systemd / панель / контейнер
+- `GeyserVoice` запускает VoiceCraft runtime автоматически
+
+## Чеклист первого запуска
+
+1. Замените все сгенерированные токены.
+2. Определитесь, какой transport реально нужен:
+   - `McHttp` для BDS
+   - `McWss` для локальных миров
+   - `McTcp` для `GeyserVoice`
+3. Проверьте host bindings.
+4. Откройте только нужные порты.
+5. Сверьте `PositioningType` с клиентами.
+
+Для полного описания конфига смотрите [ServerProperties.json](/server/server-properties).

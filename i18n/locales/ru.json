@@ -12,7 +12,10 @@
     "links": {
       "latestRelease": "Последний релиз",
       "downloadPage": "Скачать"
-    }
+    },
+    "notFoundTitle": "Страница не найдена",
+    "notFoundDescription": "Такой страницы документации пока нет для выбранного языка.",
+    "backHome": "На главную"
   },
   "download": {
     "kicker": "Центр загрузок",
