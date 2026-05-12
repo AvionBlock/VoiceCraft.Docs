@@ -275,5 +275,12 @@
       "finding": "正在尋找最佳答案",
       "finished": "使用的來源"
     }
+  },
+  "footer": {
+    "caption": "適用於 Minecraft Bedrock 的 VoiceCraft 文件、發布與資源。",
+    "contacts": "聯絡方式",
+    "email": "電子郵件",
+    "resources": "資源",
+    "docs": "文件"
   }
 }

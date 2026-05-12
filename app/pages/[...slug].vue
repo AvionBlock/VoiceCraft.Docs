@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import type { Collections } from '@nuxt/content'
+
 const route = useRoute()
 const { locale, t } = useI18n()
+
+type ContentPage = Collections['content']
 
 const routePath = computed(() => {
   const param = route.params.slug
@@ -12,15 +16,29 @@ const routePath = computed(() => {
 const contentPath = computed(() => `/${locale.value}${routePath.value}`)
 const fallbackContentPath = computed(() => `/en${routePath.value}`)
 
-const { data: page } = await useAsyncData(
-  'voicecraft-doc-page',
-  async () => {
-    const localized = await queryCollection('content').path(contentPath.value).first()
-    if (localized) return localized
-    return await queryCollection('content').path(fallbackContentPath.value).first()
-  },
-  { watch: [contentPath] },
-)
+const page = shallowRef<ContentPage | null>(null)
+let loadId = 0
+
+const resolvePage = async () => {
+  const localized = await queryCollection('content').path(contentPath.value).first()
+  if (localized) return localized
+  return await queryCollection('content').path(fallbackContentPath.value).first()
+}
+
+const loadPage = async () => {
+  const currentLoadId = ++loadId
+  page.value = null
+  const nextPage = await resolvePage()
+  if (currentLoadId === loadId) {
+    page.value = nextPage
+  }
+}
+
+await loadPage()
+
+watch([contentPath, fallbackContentPath], () => {
+  void loadPage()
+})
 
 const title = computed(() => {
   const seo = page.value?.seo as { title?: string } | undefined
@@ -39,8 +57,8 @@ useSeoMeta({
 </script>
 
 <template>
-  <article v-if="page" class="vc-doc-article">
-    <ContentRenderer :value="page" class="vc-doc-content" />
+  <article v-if="page" :key="page.path" class="vc-doc-article">
+    <ContentRenderer :key="page.path" :value="page" class="vc-doc-content" />
   </article>
   <section v-else class="vc-doc-missing vc-glass">
     <p class="vc-doc-missing-kicker">404</p>

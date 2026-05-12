@@ -294,7 +294,7 @@ function toChartSlices(items: BreakdownItem[], limit = 5): ChartSlice[] {
     label: item.key === 'other' ? t('telemetry.other') : normalizeLabel(item.key),
     count: item.count,
     percent: (item.count / total) * 100,
-    color: palette[index % palette.length],
+    color: palette[index % palette.length] || '#5fffe0',
   }))
 }
 
@@ -417,7 +417,7 @@ const hasAnyData = computed(() => {
         color="neutral"
         variant="outline"
         class="vc-btn-outline comf-500-20"
-        @click="refresh"
+        @click="() => refresh()"
       >
         {{ t('telemetry.refresh') }}
       </UButton>

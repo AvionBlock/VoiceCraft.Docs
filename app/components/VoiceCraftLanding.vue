@@ -20,7 +20,7 @@ const slideImages = [
   "/images/voicecraft/main-page.png",
   "/images/voicecraft/settings-network.png",
   "/images/voicecraft/settings-voice.png",
-];
+] as const;
 
 const slides = computed<Slide[]>(() => [
   {
@@ -63,16 +63,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section class="vc-landing-wrap space-y-8 md:space-y-10">
-    <div class="vc-hero vc-reveal rounded-2xl p-6 md:p-10">
-      <div class="mx-auto max-w-4xl text-center space-y-6">
-        <h1 class="nuni-800-60 tracking-tight">
+  <section class="vc-landing-wrap">
+    <div class="vc-hero vc-reveal vc-landing-hero">
+      <div class="vc-landing-hero-inner">
+        <h1 class="nuni-800-60 vc-landing-title">
           {{ landingTitle }}
         </h1>
-        <p class="mx-auto max-w-3xl comf-500-20 text-muted">
+        <p class="comf-500-20 text-muted vc-landing-subtitle">
           {{ landingDescription }}
         </p>
-        <div class="flex flex-wrap justify-center gap-3">
+        <div class="vc-landing-actions">
           <UButton
             size="xl"
             color="primary"
@@ -95,17 +95,17 @@ onBeforeUnmount(() => {
       </div>
     </div>
 
-    <div class="vc-glass vc-tour vc-reveal rounded-2xl p-5 md:p-8 space-y-5">
-      <div class="flex items-center justify-between gap-3">
+    <div class="vc-glass vc-tour vc-reveal">
+      <div class="vc-tour-header">
         <div>
-          <p class="comf-500-20 uppercase tracking-wider text-violet-300/90">
+          <p class="comf-500-20 vc-tour-eyebrow">
             {{ t("landing.productTour") }}
           </p>
-          <h2 class="nuni-800-40">
+          <h2 class="nuni-800-40 vc-tour-title">
             {{ t("landing.interfaceTitle") }}
           </h2>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="vc-tour-controls">
           <UButton
             class="vc-icon-btn"
             color="neutral"
@@ -123,15 +123,15 @@ onBeforeUnmount(() => {
         </div>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-[0.9fr_1.1fr] md:items-stretch">
-        <div class="space-y-3 md:pr-4 flex flex-col justify-center">
-          <p class="comf-500-40">
+      <div class="vc-tour-grid">
+        <div class="vc-tour-copy">
+          <p class="comf-500-40 vc-tour-slide-title">
             {{ slides[currentSlide]?.title || "" }}
           </p>
-          <p class="comf-500-20 text-muted">
+          <p class="comf-500-20 text-muted vc-tour-slide-description">
             {{ slides[currentSlide]?.description || "" }}
           </p>
-          <div class="flex gap-2 pt-2">
+          <div class="vc-tour-dots">
             <button
               v-for="(_, index) in slides"
               :key="index"
@@ -142,15 +142,13 @@ onBeforeUnmount(() => {
           </div>
         </div>
 
-        <div
-          class="overflow-hidden rounded-xl border border-white/20 bg-black/30 shadow-2xl"
-        >
-          <div class="aspect-video">
+        <div class="vc-tour-media">
+          <div class="vc-tour-aspect">
             <img
               :key="slides[currentSlide]?.image"
               :src="slides[currentSlide]?.image"
               :alt="slides[currentSlide]?.title"
-              class="h-full w-full object-cover vc-image-reveal"
+              class="vc-tour-image vc-image-reveal"
             />
           </div>
         </div>

@@ -275,5 +275,12 @@
       "finding": "Die beste Antwort finden",
       "finished": "Verwendete Quellen"
     }
+  },
+  "footer": {
+    "caption": "VoiceCraft-Dokumentation, Releases und Ressourcen fuer Minecraft Bedrock.",
+    "contacts": "Kontakt",
+    "email": "E-Mail",
+    "resources": "Ressourcen",
+    "docs": "Dokumentation"
   }
 }

@@ -10,6 +10,7 @@
   --vc-glass-bg: rgba(0, 0, 0, 0.445);
   --vc-glass-border: rgba(255, 255, 255, 0.1);
   --vc-glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+  --vc-doc-header-clearance: 148px;
 }
 
 html,
@@ -68,24 +69,6 @@ body::selection {
   background: var(--vc-glass-bg) !important;
   box-shadow: var(--vc-glass-shadow) !important;
   backdrop-filter: blur(10px);
-}
-
-.brand-primary {
-  display: inline-block;
-  color: var(--vc-mint);
-  background: linear-gradient(100deg, var(--vc-mint), #75ffbc, var(--vc-mint));
-  background-size: 220% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 5s ease-in-out infinite;
-}
-
-.brand-accent {
-  display: inline-block;
-  color: var(--vc-accent-soft);
-  text-shadow:
-    0 0 12px rgba(153, 45, 253, 0.4),
-    0 0 22px rgba(153, 45, 253, 0.2);
 }
 
 @keyframes gradient-shift {
@@ -305,7 +288,7 @@ body::selection {
 
 .vc-doc-body {
   grid-template-columns: 1fr;
-  padding-top: 98px;
+  padding-top: var(--vc-doc-header-clearance);
 }
 
 .vc-doc-main {
@@ -492,8 +475,8 @@ body::selection {
   }
 
   .vc-doc-sidebar {
-    top: 98px;
-    height: calc(100vh - 98px);
+    top: var(--vc-doc-header-clearance);
+    height: calc(100vh - var(--vc-doc-header-clearance));
     border-right: 0;
     padding: 0 0.8rem 2rem clamp(1rem, 2vw, 1.5rem);
   }
@@ -527,6 +510,10 @@ body::selection {
 }
 
 @media (max-width: 760px) {
+  :root {
+    --vc-doc-header-clearance: 96px;
+  }
+
   .vc-doc-header {
     width: calc(100% - 16px);
     min-height: 56px;
@@ -573,11 +560,6 @@ body::selection {
     justify-content: center;
     padding-inline: 0;
   }
-
-  .vc-doc-body {
-    padding-top: 78px;
-  }
-
   .vc-doc-main {
     padding-inline: 1rem;
   }

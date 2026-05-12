@@ -214,5 +214,12 @@
         "description": "Input/output devices, sensitivity, denoising, AGC, and microphone tests."
       }
     ]
+  },
+  "footer": {
+    "caption": "VoiceCraft documentation, releases, and resources for Minecraft Bedrock.",
+    "contacts": "Contacts",
+    "email": "Email",
+    "resources": "Resources",
+    "docs": "Documentation"
   }
 }

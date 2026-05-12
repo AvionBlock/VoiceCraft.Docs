@@ -21,7 +21,8 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      titleTemplate: title => title ? `${title} · VoiceCraft Docs` : 'VoiceCraft Docs',
+      title: 'VoiceCraft Docs',
+      titleTemplate: '%s · VoiceCraft Docs',
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico?v=2' },
         { rel: 'icon', type: 'image/png', href: '/images/brand/voicecraft-icon.png?v=2' },
@@ -44,7 +45,6 @@ export default defineNuxtConfig({
   i18n: {
     defaultLocale: 'en',
     strategy: 'no_prefix',
-    lazy: true,
     langDir: 'locales',
     detectBrowserLanguage: {
       useCookie: true,
