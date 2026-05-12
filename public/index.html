@@ -21,7 +21,8 @@
           if (!value) return []
           const normalized = value.toLowerCase().replace('_', '-')
           const [base] = normalized.split('-')
-          return [normalized, base].filter(Boolean)
+          const underscored = normalized.replace('-', '_')
+          return [normalized, underscored, base].filter(Boolean)
         }
 
         const localeCandidates = []

@@ -7,7 +7,8 @@ type Slide = {
   image: string;
 };
 
-const { t, locale } = useI18n();
+const { t } = useI18n();
+const localePath = useLocalePath();
 
 const landingTitle = computed(() => t("landing.title"));
 const landingDescription = computed(() => t("landing.subtitle"));
@@ -17,12 +18,8 @@ defineOgImage("Landing", {
   description: landingDescription,
 });
 
-const quickStartPath = computed(() =>
-  locale.value === "ru" ? "/ru/start/quick-start" : "/en/start/quick-start",
-);
-const downloadPath = computed(() =>
-  locale.value === "ru" ? "/ru/download" : "/en/download",
-);
+const quickStartPath = computed(() => localePath("/start/quick-start"));
+const downloadPath = computed(() => localePath("/download"));
 
 const slideImages = [
   "/images/voicecraft/main-page.png",

@@ -9,6 +9,11 @@ export default defineAppConfig({
         paths: {
           en: '/en',
           ru: '/ru',
+          nl: '/nl',
+          de: '/de',
+          pl: '/pl',
+          zh_cn: '/zh_cn',
+          zh_tw: '/zh_tw',
         },
       },
     ],
@@ -43,7 +48,7 @@ export default defineAppConfig({
     branch: 'main',
   },
   navigation: {
-    sub: 'aside',
+    sub: 'header',
   },
   toc: {
     title: 'On this page',

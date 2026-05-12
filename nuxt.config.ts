@@ -1,7 +1,64 @@
+const voiceCraftLocales = [
+  {
+    code: 'en',
+    name: 'English',
+    file: 'en.json',
+  },
+  {
+    code: 'ru',
+    name: 'Русский',
+    file: 'ru.json',
+  },
+  {
+    code: 'nl',
+    name: 'Nederlands',
+    language: 'nl-NL',
+    file: 'nl.json',
+  },
+  {
+    code: 'de',
+    name: 'Deutsch',
+    language: 'de-DE',
+    file: 'de.json',
+  },
+  {
+    code: 'pl',
+    name: 'Polski',
+    language: 'pl-PL',
+    file: 'pl.json',
+  },
+  {
+    code: 'zh_cn',
+    name: '简体中文',
+    language: 'zh-CN',
+    file: 'zh_cn.json',
+  },
+  {
+    code: 'zh_tw',
+    name: '繁體中文',
+    language: 'zh-TW',
+    file: 'zh_tw.json',
+  },
+]
+
+const voiceCraftDocusLocaleModule = (_options: unknown, nuxt: any) => {
+  nuxt.hook('modules:done', () => {
+    const publicConfig = nuxt.options.runtimeConfig.public as Record<string, unknown>
+    const docusConfig = typeof publicConfig.docus === 'object' && publicConfig.docus !== null
+      ? publicConfig.docus as Record<string, unknown>
+      : {}
+
+    publicConfig.docus = {
+      ...docusConfig,
+      filteredLocales: voiceCraftLocales,
+    }
+  })
+}
+
 export default defineNuxtConfig({
   extends: ['docus'],
   ssr: true,
-  modules: ['@nuxtjs/i18n', '@nuxtjs/google-fonts'],
+  modules: [voiceCraftDocusLocaleModule, '@nuxtjs/i18n', '@nuxtjs/google-fonts'],
   site: {
     name: 'VoiceCraft Docs',
     url: process.env.NUXT_SITE_URL || process.env.SITE_URL || process.env.COOLIFY_URL || 'https://voicecraft.avion.team',
@@ -45,17 +102,6 @@ export default defineNuxtConfig({
       alwaysRedirect: false,
       fallbackLocale: 'en',
     },
-    locales: [
-      {
-        code: 'en',
-        name: 'English',
-        file: 'en.json',
-      },
-      {
-        code: 'ru',
-        name: 'Русский',
-        file: 'ru.json',
-      },
-    ],
+    locales: voiceCraftLocales,
   },
 })

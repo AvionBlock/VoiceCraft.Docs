@@ -6,6 +6,7 @@ type VersionConfig = {
   paths?: {
     en?: string
     ru?: string
+    [locale: string]: string | undefined
   }
 }
 
@@ -23,9 +24,9 @@ const versions = computed(() => appConfig.docsVersioning?.versions || [])
 const currentVersion = computed(() => appConfig.docsVersioning?.current || '')
 
 const versionOptions = computed(() => {
-  const localeCode = locale.value === 'ru' ? 'ru' : 'en'
+  const localeCode = locale.value || 'en'
   return versions.value.map((item) => {
-    const path = item.paths?.[localeCode]
+    const path = item.paths?.[localeCode] || item.paths?.en
     return {
       label: item.current
         ? `${item.label} (${t('ui.versionCurrent')})`

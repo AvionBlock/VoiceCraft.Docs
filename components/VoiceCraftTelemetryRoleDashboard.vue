@@ -236,7 +236,17 @@ const { data, status, error, refresh } = await useAsyncData<DashboardSnapshot>(
 const dashboard = computed(() => data.value ?? emptyDashboard())
 
 function currentLocale() {
-  return locale.value === 'ru' ? 'ru-RU' : 'en-US'
+  const localeMap: Record<string, string> = {
+    de: 'de-DE',
+    en: 'en-US',
+    nl: 'nl-NL',
+    pl: 'pl-PL',
+    ru: 'ru-RU',
+    zh_cn: 'zh-CN',
+    zh_tw: 'zh-TW',
+  }
+
+  return localeMap[locale.value] || 'en-US'
 }
 
 function formatNumber(value: number) {

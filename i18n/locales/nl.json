@@ -1,0 +1,276 @@
+{
+  "ui": {
+    "siteTitle": "VoiceCraft-documentatie",
+    "seoDescription": "VoiceCraft Client/Server installatie en configuratie voor Minecraft Bedrock.",
+    "docsVersionLabel": "Documenten",
+    "versionSwitcher": "Versie",
+    "versionCurrent": "huidig",
+    "toc": {
+      "onThisPage": "Op deze pagina",
+      "usefulLinks": "Nuttige links"
+    },
+    "links": {
+      "latestRelease": "Nieuwste uitgave",
+      "downloadPage": "Downloads"
+    }
+  },
+  "download": {
+    "kicker": "Downloadcentrum",
+    "title": "VoiceCraft downloaden",
+    "subtitle": "Kies de nieuwste client- of serverbuild voor uw platform. Clientdownloads worden automatisch gemarkeerd voor uw huidige besturingssysteem wanneer detectie beschikbaar is.",
+    "detected": "Er is een aanbevolen clientbuild gemarkeerd voor uw apparaat.",
+    "recommended": "Aanbevolen",
+    "clientKicker": "Cliënt",
+    "clientTitle": "VoiceCraft-client",
+    "clientSubtitle": "Desktop- en mobiele client-builds voor spelers. Android 32-bit wordt niet langer gepubliceerd.",
+    "serverKicker": "Server",
+    "serverTitle": "VoiceCraft-server",
+    "serverSubtitle": "Standalone serverbuilds voor zelfhosting en implementatie.",
+    "platformLabel": "Platform",
+    "platforms": {
+      "windows": "Ramen",
+      "linux": "Linux",
+      "macos": "macOS",
+      "android": "Android",
+      "ios": "iOS"
+    },
+    "androidNote": "Android 32-bit is niet langer beschikbaar. Gebruik de arm64 Android-build.",
+    "serverSourceNote": "Als je een platform nodig hebt dat hier niet wordt vermeld, bekijk dan de volledige releasepagina of bouw vanaf de bron.",
+    "allReleases": "Open alle releases",
+    "addonKicker": "Add-on",
+    "addonTitle": "VoiceCraft-add-on",
+    "addonSubtitle": "Bouw een wereldklaar add-onarchief of open verpakte releases.",
+    "addonConfigurator": "Configurator openen",
+    "addonReleases": "Add-on-releases",
+    "worldReady": "Wereldklaar archief",
+    "addonNote": "Gebruik de configurator als u een kant-en-klaar wereldarchief wilt met gepatchte level.dat en gegenereerde pack-manifesten. Gebruik releases als u de onbewerkte add-onpakketten wilt.",
+    "addonRepo": "Addonrepository openen"
+  },
+  "telemetry": {
+    "kicker": "Openbare telemetrie",
+    "title": "VoiceCraft-gebruiksdashboard",
+    "subtitle": "Live aggregaten van de openbare telemetrie-API, opgesplitst in leesbare client- en servertelemetrieweergaven.",
+    "openApi": "API openen",
+    "refresh": "Gegevens vernieuwen",
+    "roleSwitchLabel": "Telemetriegegevensset",
+    "roles": {
+      "client": "Telemetrie van klanten",
+      "clientShort": "VoiceCraft-app-installaties, apparaten en clientinstellingen",
+      "clientDescription": "Klantgegevens zijn afkomstig van opstartrapporten en diagnostische uploads van VoiceCraft-clients. De pagina richt zich op installaties, besturingssystemen, runtime-details, apparaatfamilies, positioneringsmodus en push-to-talk-gebruik.",
+      "server": "Servertelemetrie",
+      "serverShort": "VoiceCraft.Server runtime-, host- en transportrapporten",
+      "serverDescription": "Servergegevens zijn afkomstig van opstart-, hartslag- en diagnostische rapporten van VoiceCraft.Server. De pagina richt zich op installaties, hostplatforms, runtimedetails, capaciteit, verbonden clients, positioneringsmodus en ingeschakelde transporten."
+    },
+    "loadingTitle": "Live telemetrie-momentopname ophalen",
+    "loadingSubtitle": "Het dashboard haalt huidige aggregaten op van vc-api.avion.team.",
+    "emptyTitle": "Telemetrie is online, maar er zijn nog geen gebruiksgegevens",
+    "emptySubtitle": "Zodra VoiceCraft-clients of -servers gebeurtenissen beginnen te rapporteren, worden de grafieken hier automatisch gevuld.",
+    "noChartData": "Er zijn nog geen gegevens voor deze grafiek.",
+    "neverUpdated": "Nog geen evenementen",
+    "unknown": "Onbekend",
+    "other": "Ander",
+    "ofTop": "van boven",
+    "enabled": "Ingeschakeld",
+    "disabled": "Gehandicapt",
+    "partialData": "Sommige secundaire diagrammen konden niet worden geladen, dus het dashboard toont de gegevens die beschikbaar waren.",
+    "cards": {
+      "events": "Telemetrie-gebeurtenissen",
+      "instances": "Unieke installaties",
+      "dumps": "Diagnostische dumps",
+      "lastEvent": "Laatste evenement ontvangen"
+    },
+    "charts": {
+      "osShare": "Besturingssystemen",
+      "osShareSubtitle": "Waar VoiceCraft momenteel actief is.",
+      "uniqueOsShare": "Unieke installaties per besturingssysteem",
+      "uniqueOsShareSubtitle": "Laatst bekende besturingssysteem opgesplitst op unieke vingerafdruk.",
+      "channelShare": "Kanalen vrijgeven",
+      "channelShareSubtitle": "Hoe het gebruik wordt verdeeld over stabiele en andere kanalen.",
+      "roleShare": "Klant versus server",
+      "roleShareSubtitle": "Waargenomen rollen in de telemetriestroom.",
+      "versionShare": "Topversies",
+      "versionShareSubtitle": "Meest actieve app-versies in de huidige momentopname.",
+      "osVersionShare": "OS-versies",
+      "osVersionShareSubtitle": "Gerapporteerde besturingssysteemversies voor de geselecteerde telemetriegegevensset.",
+      "osBuildShare": "OS-builds",
+      "osBuildShareSubtitle": "Bouw ID's gerapporteerd door clientapparaten.",
+      "osDescriptionShare": "OS-beschrijvingen",
+      "osDescriptionShareSubtitle": "Volledige beschrijvingen van het besturingssysteem gerapporteerd door clients.",
+      "architectureShare": "CPU-architecturen",
+      "architectureShareSubtitle": "Verdeling van gerapporteerde hardware-architecturen.",
+      "processArchitectureShare": "Procesarchitecturen",
+      "processArchitectureShareSubtitle": "Procesarchitectuur waaronder de app momenteel draait.",
+      "localeShare": "Landinstellingen",
+      "localeShareSubtitle": "Meest voorkomende gebruikerslandinstellingen gerapporteerd door clients.",
+      "vendorShare": "Leveranciers van apparaten",
+      "vendorShareSubtitle": "Hardwareleveranciers gezien in anonieme rapporten.",
+      "modelShare": "Apparaatmodellen",
+      "modelShareSubtitle": "Meest voorkomende gerapporteerde apparaatmodellen.",
+      "serverPlatformShare": "Serverplatforms",
+      "serverPlatformShareSubtitle": "Hostplatforms gerapporteerd door servertelemetrie.",
+      "serverArchitectureShare": "Server-architecturen",
+      "serverArchitectureShareSubtitle": "CPU-architecturen gerapporteerd door servers.",
+      "serverLocaleShare": "Serverlandinstellingen",
+      "serverLocaleShareSubtitle": "Landinstellingen die door serverinstallaties worden gerapporteerd.",
+      "serverConnectedClients": "Verbonden klanten",
+      "serverConnectedClientsSubtitle": "Hoeveel clientservers melden momenteel dat ze verbonden zijn.",
+      "serverMaxClients": "Maximale clientcapaciteit",
+      "serverMaxClientsSubtitle": "Geconfigureerde capaciteitsbuckets gerapporteerd door servers.",
+      "dumpCategoryShare": "Categorieën dumpen",
+      "dumpCategoryShareSubtitle": "Distributie van crash-, log- en diagnostische dumps.",
+      "positioningTypes": "Positioneringstypen",
+      "positioningTypesSubtitle": "Waardeverdeling voor de `positioning_type`-statistiek.",
+      "pushToTalk": "Push-to-talk",
+      "pushToTalkSubtitle": "Waardeverdeling voor de `push_to_talk_enabled`-statistiek.",
+      "transportHttp": "McHttp ingeschakeld",
+      "transportHttpSubtitle": "Waardeverdeling voor de `mc_http_enabled`-serverstatistiek.",
+      "transportTcp": "McTcp ingeschakeld",
+      "transportTcpSubtitle": "Waardeverdeling voor de `mc_tcp_enabled`-serverstatistiek.",
+      "transportWss": "McWss ingeschakeld",
+      "transportWssSubtitle": "Waardeverdeling voor de `mc_wss_enabled`-serverstatistiek."
+    }
+  },
+  "addonConfigurator": {
+    "kicker": "Add-on-configurator",
+    "title": "Wereldklare VoiceCraft Addon Builder",
+    "subtitle": "Kies de basisadd-on en transportpakketten, upload uw wereld level.dat, voeg optioneel level.dat_old toe en download een kant-en-klaar archief voor de wereldmap.",
+    "transport": {
+      "none": "Alleen basis-add-on",
+      "http": "Basis + McHttp",
+      "wss": "Basis + McWss",
+      "both": "Basis + McHttp + McWss"
+    },
+    "packNames": {
+      "base": "Basis-add-on",
+      "http": "McHttp-transport",
+      "wss": "McWss-vervoer"
+    },
+    "steps": {
+      "version": "1. Kies de add-onversie",
+      "selection": "2. Kies de samenstelling van de add-on",
+      "levelDat": "3. Upload wereldniveau.dat-bestanden",
+      "build": "4. Bouw gereed archief"
+    },
+    "loadingVersions": "Beschikbare releases laden...",
+    "versionPlaceholder": "Kies releaseversie",
+    "versionSelected": "{version} gepubliceerd op {date}.",
+    "uploadTitle": "Kies niveau.dat",
+    "uploadSubtitle": "Het bestand wordt in het archief opgenomen nadat de Bedrock-experimenttags zijn gepatcht.",
+    "uploadOldTitle": "Kies level.dat_old (optioneel)",
+    "uploadOldSubtitle": "Indien aanwezig, wordt het back-upbestand op dezelfde manier gepatcht en aan het archief toegevoegd als level.dat_old.",
+    "betaApiStub": "De configurator schakelt de Bedrock-experimenttags in die nodig zijn voor de bèta-API rechtstreeks in level.dat.",
+    "building": "Archief opbouwen...",
+    "buildAction": "Bouwen en downloaden",
+    "summaryTitle": "Wat gaat er in het archief?",
+    "summarySubtitle": "De laatste ritssluiting is zo ingedeeld dat deze direct in een Bedrock-wereldmap kan worden uitgepakt.",
+    "outputs": {
+      "levelDat": "Metagegevens wereldwijd opslaan met Bedrock bèta-API-experimenttags ingeschakeld.",
+      "levelDatOldIncluded": "Optioneel back-upwereld-metagegevensbestand, gepatcht en opgenomen in het archief.",
+      "levelDatOldOptional": "Optioneel back-upwereldmetagegevensbestand. Wordt alleen toegevoegd wanneer u het uploadt.",
+      "behaviorJson": "Gegenereerd pakketregistratiebestand voor gedragspakketten.",
+      "resourceJson": "Gegenereerd pakketregistratiebestand voor bronpakketten.",
+      "behaviorFolder": "Gedragspakketten gekopieerd uit de geselecteerde add-onbundels.",
+      "resourceFolder": "Bronpakketten gekopieerd uit de geselecteerde add-onbundels."
+    },
+    "progressTitle": "Bouw vooruitgang",
+    "progress": {
+      "levelDat": "Geüploade level.dat voorbereiden",
+      "levelDatOld": "Geüploade level.dat_old voorbereiden",
+      "release": "Gebruikmakend van release: {version}",
+      "request": "Aanvragen van server-side build van GitHub-release-assets",
+      "bundle": "Bundel laden: {name}",
+      "metadata": "JSON-bestanden voor wereldpakketregistratie genereren",
+      "archive": "Het laatste wereldarchief inpakken",
+      "done": "Archief is gereed"
+    },
+    "archiveNote": "Het archief is zo samengesteld dat de inhoud rechtstreeks in de wereldmap kan worden uitgepakt.",
+    "success": "Archief is succesvol aangemaakt.",
+    "errors": {
+      "generic": "Kon het geconfigureerde add-on-archief niet bouwen.",
+      "releases": "Kan beschikbare add-on-releases niet laden."
+    }
+  },
+  "landing": {
+    "title": "VoiceCraft-documentatie",
+    "subtitle": "Cross-platform nabijheidsvoicechat voor Minecraft Bedrock Edition. Installatie, configuratie, bediening en McHttp/McWss-integratie in één documentatiehub.",
+    "quickStart": "Snel beginnen",
+    "downloadRelease": "Versie downloaden",
+    "productTour": "Productrondleiding",
+    "interfaceTitle": "VoiceCraft-interface",
+    "slides": [
+      {
+        "title": "Beginscherm van de klant",
+        "description": "Serveroverzicht, snelle verbindingsstroom en huidige sessiestatus op één plek."
+      },
+      {
+        "title": "Instellingen en netwerk",
+        "description": "Positioneringsparameters, McWss-eindpunt en geavanceerde afstemming van clientgedrag."
+      },
+      {
+        "title": "Audiopijplijn",
+        "description": "Invoer-/uitvoerapparaten, gevoeligheid, ruisonderdrukking, AGC en microfoontests."
+      }
+    ]
+  },
+  "common": {
+    "or": "of",
+    "error": {
+      "title": "Pagina niet gevonden",
+      "description": "Sorry, maar deze pagina is niet gevonden."
+    }
+  },
+  "docs": {
+    "copy": {
+      "page": "Kopieer pagina",
+      "link": "Kopieer Markdown pagina",
+      "view": "Bekijk als Markdown",
+      "gpt": "Open in ChatGPT",
+      "claude": "Open in Claude"
+    },
+    "links": "Community",
+    "toc": "Op deze pagina",
+    "menu": "Menu",
+    "report": "Rapporteer een probleem",
+    "edit": "Bewerk deze pagina"
+  },
+  "logo": {
+    "copyLogo": "Logo kopiëren",
+    "copyWordmark": "Woordmerk kopiëren",
+    "downloadLogo": "Logo downloaden",
+    "downloadWordmark": "Woordmerk downloaden",
+    "brandAssets": "Merkmaterialen",
+    "logoCopied": "Logo gekopieerd",
+    "wordmarkCopied": "Woordmerk gekopieerd",
+    "logoDownloaded": "Logo gedownload",
+    "wordmarkDownloaded": "Woordmerk gedownload",
+    "copyLogoFailed": "Logo kopiëren mislukt",
+    "copyWordmarkFailed": "Woordmerk kopiëren mislukt"
+  },
+  "assistant": {
+    "title": "Vraag AI",
+    "placeholder": "Stel een vraag...",
+    "tooltip": "Stel een vraag aan AI",
+    "tryAsking": "Probeer een vraag te stellen",
+    "askAnything": "Vraag maar raak...",
+    "clearChat": "Chat wissen",
+    "close": "Sluiten",
+    "expand": "Uitvouwen",
+    "collapse": "Inklappen",
+    "thinking": "Aan het nadenken...",
+    "askMeAnything": "Vraag maar raak",
+    "askMeAnythingDescription": "Krijg hulp bij het navigeren door de documentatie, het begrijpen van concepten en het vinden van antwoorden.",
+    "faq": "Veelgestelde vragen",
+    "chatCleared": "De chat wordt gewist bij verversen",
+    "lineBreak": "Regelafbreking",
+    "explainWithAi": "Uitleggen met AI",
+    "toolListPages": "Vermelde documentatiepagina's",
+    "toolReadPage": "Lezen",
+    "loading": {
+      "searching": "De documentatie doorzoeken",
+      "reading": "De documentatie doornemen",
+      "analyzing": "De inhoud analyseren",
+      "finding": "Het beste antwoord vinden",
+      "finished": "Gebruikte bronnen"
+    }
+  }
+}
