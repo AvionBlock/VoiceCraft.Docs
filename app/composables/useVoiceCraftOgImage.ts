@@ -22,7 +22,11 @@ export function useVoiceCraftOgImage(input: VoiceCraftOgImageInput) {
   const alt = computed(() => `${title.value} - VoiceCraft Docs`)
 
   useSeoMeta({
+    ogTitle: title,
+    ogDescription: description,
     ogType: 'website',
+    twitterTitle: title,
+    twitterDescription: description,
     twitterCard: 'summary_large_image',
   })
 

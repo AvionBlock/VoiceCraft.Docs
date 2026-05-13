@@ -99,8 +99,10 @@
 }
 
 .vc-version-select {
-  max-width: 145px;
-  padding: 0 0.8rem;
+  width: 8.15rem;
+  min-width: 8.15rem;
+  max-width: 8.15rem;
+  padding: 0 1.45rem 0 0.65rem;
 }
 
 .vc-version-select:focus,
