@@ -50,9 +50,36 @@ const description = computed(() => {
   return seo?.description || page.value?.description || t('ui.seoDescription')
 })
 
+const ogSection = computed(() => {
+  const [section] = routePath.value.split('/').filter(Boolean)
+  const labels: Record<string, string> = {
+    architecture: 'Architecture',
+    client: 'Client',
+    download: String(t('download.kicker')),
+    ecosystem: 'Ecosystem',
+    faq: 'FAQ',
+    minecraft: 'Minecraft',
+    operations: 'Operations',
+    server: 'Server',
+    start: 'Start',
+    telemetry: String(t('telemetry.kicker')),
+  }
+
+  return section ? labels[section] || section : String(t('ui.docsVersionLabel'))
+})
+
+const ogPath = computed(() => routePath.value || '/')
+
 useSeoMeta({
   title,
   description,
+})
+
+useVoiceCraftOgImage({
+  title,
+  description,
+  section: ogSection,
+  path: ogPath,
 })
 </script>
 

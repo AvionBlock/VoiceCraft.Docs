@@ -18,7 +18,12 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxtjs/i18n',
     '@nuxtjs/google-fonts',
+    'nuxt-og-image',
   ],
+  site: {
+    url: 'https://voicecraft.avion.team',
+    name: 'VoiceCraft Docs',
+  },
   app: {
     head: {
       title: 'VoiceCraft Docs',
@@ -41,6 +46,26 @@ export default defineNuxtConfig({
     preconnect: true,
     preload: true,
     download: true,
+  },
+  ogImage: {
+    defaults: {
+      width: 1200,
+      height: 630,
+      extension: 'png',
+      cacheMaxAgeSeconds: 60 * 60 * 24 * 14,
+    },
+    componentDirs: ['OgImage'],
+    compatibility: {
+      dev: { takumi: 'node-dev' },
+      runtime: { takumi: 'node' },
+      prerender: { takumi: 'node' },
+    },
+    security: {
+      maxDimension: 1400,
+      maxDpr: 2,
+      renderTimeout: 12000,
+      imageFetchTimeout: 2500,
+    },
   },
   i18n: {
     defaultLocale: 'en',

@@ -46,6 +46,13 @@ useSeoMeta({
   title,
   description,
 })
+
+useVoiceCraftOgImage({
+  title,
+  description,
+  section: computed(() => String(t('ui.docsVersionLabel'))),
+  path: '/',
+})
 </script>
 
 <template>

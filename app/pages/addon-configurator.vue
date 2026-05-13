@@ -1,9 +1,19 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const title = computed(() => String(t('addonConfigurator.title')))
+const description = computed(() => String(t('addonConfigurator.subtitle')))
+const section = computed(() => String(t('addonConfigurator.kicker')))
 
 useSeoMeta({
-  title: () => String(t('addonConfigurator.title')),
-  description: () => String(t('addonConfigurator.subtitle')),
+  title,
+  description,
+})
+
+useVoiceCraftOgImage({
+  title,
+  description,
+  section,
+  path: '/addon-configurator',
 })
 </script>
 
