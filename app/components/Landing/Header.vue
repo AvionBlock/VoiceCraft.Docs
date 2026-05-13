@@ -51,19 +51,22 @@
 </template>
 
 <script setup lang="ts">
-import { topNavigation } from '~/utils/docs-navigation'
+import { resolveNavigationLabel, topNavigation } from '~/utils/docs-navigation'
 
-const { locale, locales, setLocale } = useI18n()
+const { locale, locales, setLocale, t } = useI18n()
 const route = useRoute()
 const docsVersioning = useVoiceCraftDocsVersioning()
 const isScrolled = ref(false)
 const activeVersionId = computed(() => getDocsVersionFromRoute(route.path) || docsVersioning.currentVersionId.value)
-const versionedTopNavigation = computed(() => topNavigation.map(item => ({
-  ...item,
-  to: item.versioned
-    ? docsVersioning.buildDocsPath(item.to, activeVersionId.value)
-    : item.to,
-})))
+const versionedTopNavigation = computed(() => {
+  return topNavigation.map(item => ({
+    ...item,
+    label: resolveNavigationLabel(t, item.labelKey, item.label),
+    to: item.versioned
+      ? docsVersioning.buildDocsPath(item.to, activeVersionId.value)
+      : item.to,
+  }))
+})
 
 type LocaleCode = 'en' | 'ru' | 'de' | 'nl' | 'pl' | 'zh_cn' | 'zh_tw'
 

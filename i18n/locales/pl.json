@@ -17,6 +17,61 @@
     "notFoundDescription": "Ta strona dokumentacji nie istnieje jeszcze w wybranym jezyku.",
     "backHome": "Wroc do strony glownej"
   },
+  "navigation": {
+    "aria": {
+      "docs": "Dokumentacja"
+    },
+    "top": {
+      "docs": "Dokumentacja",
+      "download": "Pobierz",
+      "telemetry": "Telemetria",
+      "addonConfigurator": "Konfigurator dodatku"
+    },
+    "groups": {
+      "start": "Start",
+      "client": "Klient",
+      "server": "Serwer",
+      "minecraft": "Minecraft",
+      "operations": "Operacje",
+      "ecosystem": "Ekosystem",
+      "architecture": "Architektura",
+      "reference": "Referencje"
+    },
+    "items": {
+      "overview": "Przegląd",
+      "quickStart": "Szybki start",
+      "installation": "Instalacja",
+      "settings": "Ustawienia",
+      "settingsJson": "Settings.json",
+      "firstRun": "Pierwsze uruchomienie",
+      "serverProperties": "ServerProperties.json",
+      "commands": "Komendy",
+      "runtimeOverrides": "Nadpisania runtime",
+      "transports": "Transporty",
+      "mcHttpBds": "McHttp dla BDS",
+      "mcWssSingleplayer": "McWss singleplayer",
+      "updateBackup": "Aktualizacja i kopia",
+      "troubleshooting": "Rozwiązywanie problemów",
+      "securityHardening": "Wzmocnienie bezpieczeństwa",
+      "hostingCaveats": "Uwagi o hostingu",
+      "backupRestore": "Kopia i przywracanie",
+      "upgradeRunbook": "Runbook aktualizacji",
+      "troubleshootingMatrix": "Macierz diagnostyczna",
+      "voiceCraftRepository": "Repozytorium VoiceCraft",
+      "geyserVoice": "GeyserVoice",
+      "voiceCraftAddon": "VoiceCraft.Addon",
+      "integrationRecipes": "Przepisy integracji",
+      "directPaper": "Direct Paper",
+      "proxy": "Proxy",
+      "addonApi": "Addon API",
+      "productionBlueprints": "Schematy produkcyjne",
+      "systemArchitecture": "Architektura systemu",
+      "packetFlow": "Przepływ pakietów",
+      "authenticationTrust": "Uwierzytelnianie i zaufanie",
+      "positioningModel": "Model pozycjonowania",
+      "faq": "FAQ"
+    }
+  },
   "download": {
     "kicker": "Centrum pobierania",
     "title": "Pobierz VoiceCraft",

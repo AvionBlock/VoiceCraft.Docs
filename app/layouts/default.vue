@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { docsNavigation } from '~/utils/docs-navigation'
+import { docsNavigation, resolveNavigationLabel } from '~/utils/docs-navigation'
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const route = useRoute()
 const docsVersioning = useVoiceCraftDocsVersioning()
 
@@ -9,13 +9,17 @@ const widePagePaths = ['/download', '/telemetry', '/addon-configurator']
 const logicalRoutePath = computed(() => getDocsPathFromRoute(route.path))
 const activeVersionId = computed(() => getDocsVersionFromRoute(route.path) || docsVersioning.currentVersionId.value)
 const showDocsSidebar = computed(() => !widePagePaths.includes(logicalRoutePath.value))
-const versionedDocsNavigation = computed(() => docsNavigation.map(group => ({
-  ...group,
-  items: group.items.map(item => ({
-    ...item,
-    to: docsVersioning.buildDocsPath(item.to, activeVersionId.value),
-  })),
-})))
+const versionedDocsNavigation = computed(() => {
+  return docsNavigation.map(group => ({
+    ...group,
+    title: resolveNavigationLabel(t, group.titleKey, group.title),
+    items: group.items.map(item => ({
+      ...item,
+      label: resolveNavigationLabel(t, item.labelKey, item.label),
+      to: docsVersioning.buildDocsPath(item.to, activeVersionId.value),
+    })),
+  }))
+})
 
 const isActive = (path: string) => {
   const logicalPath = getDocsPathFromRoute(path)
@@ -37,7 +41,7 @@ useHead({
 
     <div class="vc-doc-body" :class="{ 'vc-doc-body-wide': !showDocsSidebar }">
       <aside v-if="showDocsSidebar" class="vc-doc-sidebar">
-        <nav aria-label="Documentation">
+        <nav :aria-label="t('navigation.aria.docs')">
           <section
             v-for="group in versionedDocsNavigation"
             :key="group.title"

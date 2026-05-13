@@ -17,6 +17,61 @@
     "notFoundDescription": "Такой страницы документации пока нет для выбранного языка.",
     "backHome": "На главную"
   },
+  "navigation": {
+    "aria": {
+      "docs": "Документация"
+    },
+    "top": {
+      "docs": "Документация",
+      "download": "Скачать",
+      "telemetry": "Телеметрия",
+      "addonConfigurator": "Конфигуратор аддона"
+    },
+    "groups": {
+      "start": "Старт",
+      "client": "Клиент",
+      "server": "Сервер",
+      "minecraft": "Minecraft",
+      "operations": "Операции",
+      "ecosystem": "Экосистема",
+      "architecture": "Архитектура",
+      "reference": "Справка"
+    },
+    "items": {
+      "overview": "Обзор",
+      "quickStart": "Быстрый старт",
+      "installation": "Установка",
+      "settings": "Настройки",
+      "settingsJson": "Settings.json",
+      "firstRun": "Первый запуск",
+      "serverProperties": "ServerProperties.json",
+      "commands": "Команды",
+      "runtimeOverrides": "Переопределения runtime",
+      "transports": "Транспорты",
+      "mcHttpBds": "McHttp для BDS",
+      "mcWssSingleplayer": "McWss для одиночного мира",
+      "updateBackup": "Обновление и резервная копия",
+      "troubleshooting": "Диагностика",
+      "securityHardening": "Усиление безопасности",
+      "hostingCaveats": "Нюансы хостинга",
+      "backupRestore": "Резервное копирование",
+      "upgradeRunbook": "Порядок обновления",
+      "troubleshootingMatrix": "Матрица диагностики",
+      "voiceCraftRepository": "Репозиторий VoiceCraft",
+      "geyserVoice": "GeyserVoice",
+      "voiceCraftAddon": "VoiceCraft.Addon",
+      "integrationRecipes": "Рецепты интеграции",
+      "directPaper": "Direct Paper",
+      "proxy": "Proxy",
+      "addonApi": "Addon API",
+      "productionBlueprints": "Production-схемы",
+      "systemArchitecture": "Системная архитектура",
+      "packetFlow": "Поток пакетов",
+      "authenticationTrust": "Аутентификация и доверие",
+      "positioningModel": "Модель позиционирования",
+      "faq": "FAQ"
+    }
+  },
   "download": {
     "kicker": "Центр загрузок",
     "title": "Скачать VoiceCraft",

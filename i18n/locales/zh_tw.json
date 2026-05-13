@@ -17,6 +17,61 @@
     "notFoundDescription": "目前語言中尚無此文件頁面。",
     "backHome": "返回首頁"
   },
+  "navigation": {
+    "aria": {
+      "docs": "文件"
+    },
+    "top": {
+      "docs": "文件",
+      "download": "下載",
+      "telemetry": "遙測",
+      "addonConfigurator": "附加元件設定器"
+    },
+    "groups": {
+      "start": "入門",
+      "client": "用戶端",
+      "server": "伺服器",
+      "minecraft": "Minecraft",
+      "operations": "維運",
+      "ecosystem": "生態系",
+      "architecture": "架構",
+      "reference": "參考"
+    },
+    "items": {
+      "overview": "概覽",
+      "quickStart": "快速開始",
+      "installation": "安裝",
+      "settings": "設定",
+      "settingsJson": "Settings.json",
+      "firstRun": "首次執行",
+      "serverProperties": "ServerProperties.json",
+      "commands": "指令",
+      "runtimeOverrides": "Runtime 覆寫",
+      "transports": "傳輸",
+      "mcHttpBds": "McHttp for BDS",
+      "mcWssSingleplayer": "McWss 單人模式",
+      "updateBackup": "更新與備份",
+      "troubleshooting": "疑難排解",
+      "securityHardening": "安全性強化",
+      "hostingCaveats": "託管注意事項",
+      "backupRestore": "備份與還原",
+      "upgradeRunbook": "升級手冊",
+      "troubleshootingMatrix": "疑難排解矩陣",
+      "voiceCraftRepository": "VoiceCraft 儲存庫",
+      "geyserVoice": "GeyserVoice",
+      "voiceCraftAddon": "VoiceCraft.Addon",
+      "integrationRecipes": "整合方案",
+      "directPaper": "Direct Paper",
+      "proxy": "Proxy",
+      "addonApi": "Addon API",
+      "productionBlueprints": "正式環境藍圖",
+      "systemArchitecture": "系統架構",
+      "packetFlow": "封包流程",
+      "authenticationTrust": "驗證與信任",
+      "positioningModel": "定位模型",
+      "faq": "FAQ"
+    }
+  },
   "download": {
     "kicker": "下載中心",
     "title": "下載 VoiceCraft",

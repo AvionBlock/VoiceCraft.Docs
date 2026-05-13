@@ -17,6 +17,61 @@
     "notFoundDescription": "Deze documentatiepagina bestaat nog niet voor de huidige taal.",
     "backHome": "Terug naar start"
   },
+  "navigation": {
+    "aria": {
+      "docs": "Documentatie"
+    },
+    "top": {
+      "docs": "Documentatie",
+      "download": "Downloaden",
+      "telemetry": "Telemetrie",
+      "addonConfigurator": "Addon-configurator"
+    },
+    "groups": {
+      "start": "Start",
+      "client": "Client",
+      "server": "Server",
+      "minecraft": "Minecraft",
+      "operations": "Beheer",
+      "ecosystem": "Ecosysteem",
+      "architecture": "Architectuur",
+      "reference": "Referentie"
+    },
+    "items": {
+      "overview": "Overzicht",
+      "quickStart": "Snel starten",
+      "installation": "Installatie",
+      "settings": "Instellingen",
+      "settingsJson": "Settings.json",
+      "firstRun": "Eerste start",
+      "serverProperties": "ServerProperties.json",
+      "commands": "Commando's",
+      "runtimeOverrides": "Runtime-overrides",
+      "transports": "Transports",
+      "mcHttpBds": "McHttp voor BDS",
+      "mcWssSingleplayer": "McWss singleplayer",
+      "updateBackup": "Update & back-up",
+      "troubleshooting": "Problemen oplossen",
+      "securityHardening": "Beveiliging versterken",
+      "hostingCaveats": "Hosting-aandachtspunten",
+      "backupRestore": "Back-up & herstel",
+      "upgradeRunbook": "Upgrade-runbook",
+      "troubleshootingMatrix": "Probleemmatrix",
+      "voiceCraftRepository": "VoiceCraft Repository",
+      "geyserVoice": "GeyserVoice",
+      "voiceCraftAddon": "VoiceCraft.Addon",
+      "integrationRecipes": "Integratierecepten",
+      "directPaper": "Direct Paper",
+      "proxy": "Proxy",
+      "addonApi": "Addon API",
+      "productionBlueprints": "Productieblauwdrukken",
+      "systemArchitecture": "Systeemarchitectuur",
+      "packetFlow": "Pakketstroom",
+      "authenticationTrust": "Authenticatie & vertrouwen",
+      "positioningModel": "Positioneringsmodel",
+      "faq": "FAQ"
+    }
+  },
   "download": {
     "kicker": "Downloadcentrum",
     "title": "VoiceCraft downloaden",

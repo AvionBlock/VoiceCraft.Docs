@@ -17,6 +17,61 @@
     "notFoundDescription": "当前语言中还没有这个文档页面。",
     "backHome": "返回首页"
   },
+  "navigation": {
+    "aria": {
+      "docs": "文档"
+    },
+    "top": {
+      "docs": "文档",
+      "download": "下载",
+      "telemetry": "遥测",
+      "addonConfigurator": "插件配置器"
+    },
+    "groups": {
+      "start": "入门",
+      "client": "客户端",
+      "server": "服务器",
+      "minecraft": "Minecraft",
+      "operations": "运维",
+      "ecosystem": "生态",
+      "architecture": "架构",
+      "reference": "参考"
+    },
+    "items": {
+      "overview": "概览",
+      "quickStart": "快速开始",
+      "installation": "安装",
+      "settings": "设置",
+      "settingsJson": "Settings.json",
+      "firstRun": "首次运行",
+      "serverProperties": "ServerProperties.json",
+      "commands": "命令",
+      "runtimeOverrides": "运行时覆盖",
+      "transports": "传输",
+      "mcHttpBds": "McHttp for BDS",
+      "mcWssSingleplayer": "McWss 单人模式",
+      "updateBackup": "更新与备份",
+      "troubleshooting": "故障排查",
+      "securityHardening": "安全加固",
+      "hostingCaveats": "托管注意事项",
+      "backupRestore": "备份与恢复",
+      "upgradeRunbook": "升级手册",
+      "troubleshootingMatrix": "故障排查矩阵",
+      "voiceCraftRepository": "VoiceCraft 仓库",
+      "geyserVoice": "GeyserVoice",
+      "voiceCraftAddon": "VoiceCraft.Addon",
+      "integrationRecipes": "集成方案",
+      "directPaper": "Direct Paper",
+      "proxy": "Proxy",
+      "addonApi": "Addon API",
+      "productionBlueprints": "生产蓝图",
+      "systemArchitecture": "系统架构",
+      "packetFlow": "数据包流",
+      "authenticationTrust": "身份验证与信任",
+      "positioningModel": "定位模型",
+      "faq": "FAQ"
+    }
+  },
   "download": {
     "kicker": "下载中心",
     "title": "下载 VoiceCraft",
