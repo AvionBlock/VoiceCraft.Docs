@@ -65,8 +65,17 @@
 }
 
 .vc-doc-content pre code .line,
-.vc-doc-content pre code span {
+.vc-doc-content pre code span.line {
   color: inherit !important;
+}
+
+html.dark .vc-doc-content .shiki span,
+html[data-bs-theme="dark"] .vc-doc-content .shiki span {
+  color: var(--shiki-dark, var(--vc-doc-code-block-text)) !important;
+  background: var(--shiki-dark-bg, transparent) !important;
+  font-style: var(--shiki-dark-font-style, inherit) !important;
+  font-weight: var(--shiki-dark-font-weight, inherit) !important;
+  text-decoration: var(--shiki-dark-text-decoration, none) !important;
 }
 
 .vc-doc-content code {
