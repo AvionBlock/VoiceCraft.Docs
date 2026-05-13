@@ -1,0 +1,157 @@
+.btn-lang,
+.nav-bg :deep(.btn-lang),
+.nav-bg :deep(.btn-lang.btn),
+.nav-bg :deep(button.btn-lang) {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  max-width: 44px;
+  min-height: 44px;
+  aspect-ratio: 1 / 1;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: linear-gradient(45deg, #992dfd, #ca89ff) !important;
+  box-shadow: 0 0.5rem 1.4rem rgba(153, 45, 253, 0.24);
+  color: #fff !important;
+  padding: 0;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.btn-lang:hover,
+.btn-lang:focus-visible,
+.nav-bg :deep(.btn-lang:hover),
+.nav-bg :deep(.btn-lang:focus-visible),
+.nav-bg :deep(.btn-lang.btn:hover),
+.nav-bg :deep(.btn-lang.btn:focus-visible),
+.nav-bg :deep(button.btn-lang:hover),
+.nav-bg :deep(button.btn-lang:focus-visible) {
+  background: linear-gradient(45deg, #e6d600, #fffd85) !important;
+  box-shadow: 0 0.65rem 1.55rem rgba(230, 214, 0, 0.2);
+  color: #000 !important;
+}
+
+.nav-compact .btn-lang,
+.nav-compact :deep(.btn-lang),
+.nav-compact :deep(.btn-lang.btn),
+.nav-compact :deep(button.btn-lang) {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  max-width: 38px;
+  min-height: 38px;
+}
+
+.nav-bg :deep(.btn-lang .iconify),
+.nav-bg :deep(.btn-lang svg) {
+  display: block;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+}
+
+.flag-icon {
+  position: relative;
+  display: inline-block;
+  width: 26px;
+  height: 18px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+}
+
+.menu-flag {
+  width: 28px;
+  height: 19px;
+  margin-right: 12px;
+}
+
+.flag-ru {
+  background: linear-gradient(
+    to bottom,
+    #fff 0 33.333%,
+    #1d57d8 33.333% 66.666%,
+    #d52b1e 66.666% 100%
+  );
+}
+
+.flag-en {
+  background: repeating-linear-gradient(
+    to bottom,
+    #b22234 0 7.69%,
+    #fff 7.69% 15.38%
+  );
+}
+
+.flag-en::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46%;
+  height: 54%;
+  background: #3c3b6e;
+  content: "";
+}
+
+.flag-de {
+  background: linear-gradient(
+    to bottom,
+    #000 0 33.333%,
+    #dd0000 33.333% 66.666%,
+    #ffce00 66.666% 100%
+  );
+}
+
+.flag-nl {
+  background: linear-gradient(
+    to bottom,
+    #ae1c28 0 33.333%,
+    #fff 33.333% 66.666%,
+    #21468b 66.666% 100%
+  );
+}
+
+.flag-pl {
+  background: linear-gradient(
+    to bottom,
+    #fff 0 50%,
+    #dc143c 50% 100%
+  );
+}
+
+.flag-zh-cn {
+  background: #de2910;
+}
+
+.flag-zh-cn::before,
+.flag-zh-tw::before {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffde00;
+  content: "";
+}
+
+.flag-zh-cn::before {
+  top: 4px;
+  left: 5px;
+  width: 7px;
+  height: 7px;
+}
+
+.flag-zh-tw {
+  background: #fe0000;
+}
+
+.flag-zh-tw::before {
+  top: 3px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  box-shadow: 0 0 0 8px #000095;
+}

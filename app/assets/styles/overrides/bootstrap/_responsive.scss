@@ -1,0 +1,100 @@
+@media (min-width: 960px) {
+  .vc-doc-body {
+    grid-template-columns: minmax(236px, 292px) 1fr;
+  }
+
+  .vc-doc-body-wide {
+    grid-template-columns: 1fr;
+  }
+
+  .vc-doc-sidebar {
+    top: var(--vc-doc-header-clearance);
+    height: calc(100vh - var(--vc-doc-header-clearance));
+    border-right: 0;
+    padding: 0 0.8rem 2rem clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .vc-doc-sidebar nav {
+    border: 1px solid rgba(255, 255, 255, 0.085);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.28);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.26);
+    backdrop-filter: blur(10px);
+    padding: 0.85rem;
+  }
+
+  .vc-doc-nav-group h2 {
+    color: var(--vc-mint);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+  }
+
+  .vc-doc-nav-link {
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.72);
+    padding: 0.42rem 0.55rem;
+  }
+
+  .vc-doc-nav-link:hover,
+  .vc-doc-nav-link-active {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --vc-doc-header-clearance: 96px;
+  }
+
+  .vc-doc-header {
+    width: calc(100% - 16px);
+    min-height: 56px;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    padding: 0.4rem 0.48rem 0.4rem 0.65rem;
+  }
+
+  .vc-doc-brand {
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .vc-doc-brand-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .vc-doc-brand-mark {
+    font-size: 1.35rem;
+  }
+
+  .vc-doc-brand-suffix,
+  .vc-locale-current {
+    display: none;
+  }
+
+  .vc-doc-header-actions {
+    width: auto;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    gap: 0.35rem;
+  }
+
+  .vc-version-select {
+    width: 82px;
+    max-width: 82px;
+    padding-inline: 0.55rem;
+  }
+
+  .vc-locale-toggle {
+    width: 38px;
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  .vc-doc-main {
+    padding-inline: 1rem;
+  }
+}

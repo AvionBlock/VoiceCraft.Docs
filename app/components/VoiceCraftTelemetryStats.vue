@@ -19,43 +19,25 @@ const roleTabs = computed(() => [
   },
 ])
 
-const apiLinks = computed(() => [
-  {
-    label: '/v1/public/stats?role=client',
-    to: `${TELEMETRY_API_BASE}/v1/public/stats?role=client`,
-  },
-  {
-    label: '/v1/public/stats?role=server',
-    to: `${TELEMETRY_API_BASE}/v1/public/stats?role=server`,
-  },
-  {
-    label: '/v1/public/breakdown',
-    to: `${TELEMETRY_API_BASE}/v1/public/breakdown?field=device.osName&limit=20&role=client`,
-  },
-  {
-    label: '/v1/public/metric-values',
-    to: `${TELEMETRY_API_BASE}/v1/public/metric-values?key=positioning_type&limit=20&role=server`,
-  },
-])
 </script>
 
 <template>
-  <section class="vc-telemetry-wrap space-y-8 md:space-y-10">
-    <div class="vc-telemetry-hero vc-reveal rounded-3xl p-6 md:p-10">
-      <div class="grid gap-8 xl:grid-cols-[1.25fr_0.75fr] xl:items-end">
-        <div class="space-y-5">
-          <p class="comf-500-20 uppercase tracking-wider text-cyan-300/90">
+  <section class="vc-telemetry-wrap">
+    <div class="vc-telemetry-hero vc-reveal rounded-4 p-4 p-md-5">
+      <div class="vc-telemetry-hero-layout">
+        <div class="d-grid gap-4">
+          <p class="comf-500-20 text-uppercase vc-page-kicker">
             {{ t('telemetry.kicker') }}
           </p>
-          <div class="space-y-4">
-            <h1 class="nuni-800-50 tracking-tight md:nuni-800-60">
+          <div class="d-grid gap-3">
+            <h1 class="nuni-800-50">
               {{ t('telemetry.title') }}
             </h1>
-            <p class="max-w-3xl comf-500-20 text-muted">
+            <p class="vc-page-subtitle comf-500-20 text-muted">
               {{ t('telemetry.subtitle') }}
             </p>
           </div>
-          <div class="flex flex-wrap gap-3">
+          <div class="d-flex flex-wrap gap-3">
             <UButton
               size="lg"
               class="btn-main comf-500-20"

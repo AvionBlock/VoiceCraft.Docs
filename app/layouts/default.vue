@@ -4,6 +4,9 @@ import { docsNavigation } from '~/utils/docs-navigation'
 const { locale } = useI18n()
 const route = useRoute()
 
+const widePagePaths = ['/download', '/telemetry', '/addon-configurator']
+const showDocsSidebar = computed(() => !widePagePaths.includes(route.path))
+
 const isActive = (path: string) => {
   if (path === '/') return route.path === '/'
   return route.path === path || route.path.startsWith(`${path}/`)
@@ -21,8 +24,8 @@ useHead({
   <div class="vc-app-shell">
     <LandingHeader />
 
-    <div class="vc-doc-body">
-      <aside class="vc-doc-sidebar">
+    <div class="vc-doc-body" :class="{ 'vc-doc-body-wide': !showDocsSidebar }">
+      <aside v-if="showDocsSidebar" class="vc-doc-sidebar">
         <nav aria-label="Documentation">
           <section
             v-for="group in docsNavigation"

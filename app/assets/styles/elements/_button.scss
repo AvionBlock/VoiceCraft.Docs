@@ -72,6 +72,46 @@ $gradient-hover: linear-gradient(45deg, #e6d600, #fffd85);
   }
 }
 
+.btn.btn-outline,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.58) !important;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.035) !important;
+  color: #fff !important;
+  text-decoration: none;
+  text-shadow: none;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.btn.btn-outline:hover,
+.btn.btn-outline:focus-visible,
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  border-color: rgba(95, 255, 224, 0.48) !important;
+  background:
+    linear-gradient(135deg, rgba(95, 255, 224, 0.12), rgba(202, 137, 255, 0.12)),
+    rgba(255, 255, 255, 0.04) !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 0.18rem rgba(95, 255, 224, 0.14);
+  transform: translateY(-1px);
+}
+
+.btn.btn-outline *,
+.btn-outline * {
+  color: currentcolor !important;
+}
+
+.btn.btn-outline.disabled,
+.btn.btn-outline:disabled,
+.btn-outline.disabled,
+.btn-outline:disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
 /* Shared button row */
 .button-row {
   display: flex;

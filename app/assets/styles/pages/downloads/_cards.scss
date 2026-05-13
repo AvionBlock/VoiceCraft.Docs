@@ -1,0 +1,68 @@
+.vc-download-button {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 108px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.15rem;
+  background: linear-gradient(135deg, rgba(8, 13, 24, 0.96), rgba(10, 10, 18, 0.92));
+  color: #fff !important;
+  padding: 1rem 1rem 1rem 1.1rem;
+  text-decoration: none !important;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.vc-download-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(95, 255, 224, 0.45);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+}
+
+.vc-download-button:focus-visible {
+  border-color: rgba(95, 255, 224, 0.62);
+  outline: none;
+  box-shadow: 0 0 0 0.18rem rgba(95, 255, 224, 0.14), 0 14px 32px rgba(0, 0, 0, 0.35);
+}
+
+.vc-download-button-active {
+  border-color: rgba(202, 137, 255, 0.6);
+  background:
+    radial-gradient(500px 180px at 0% 0%, rgba(202, 137, 255, 0.18), transparent 75%),
+    linear-gradient(135deg, rgba(19, 13, 31, 0.98), rgba(9, 12, 24, 0.94));
+  box-shadow: 0 18px 40px rgba(108, 40, 184, 0.26);
+}
+
+.vc-download-button-server:hover {
+  border-color: rgba(52, 211, 153, 0.45);
+}
+
+.vc-download-button-title {
+  overflow-wrap: anywhere;
+  font-family: "Nunito", "Comfortaa", sans-serif;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.vc-download-button-meta {
+  color: rgba(226, 232, 240, 0.88);
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.vc-download-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  border-radius: 9999px;
+  background: linear-gradient(45deg, #992dfd, #ca89ff);
+  color: #fff;
+  padding: 0.24rem 0.7rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+  white-space: nowrap;
+}

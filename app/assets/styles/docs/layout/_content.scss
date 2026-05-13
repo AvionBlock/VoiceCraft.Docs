@@ -1,0 +1,88 @@
+.vc-doc-content {
+  color: rgba(248, 250, 252, 0.94);
+}
+
+.vc-doc-content > :first-child {
+  margin-top: 0;
+}
+
+.vc-doc-content h1,
+.vc-doc-content h2,
+.vc-doc-content h3,
+.vc-doc-content h4 {
+  color: #fff;
+  scroll-margin-top: 5.5rem;
+}
+
+.vc-doc-content h1 {
+  margin-bottom: 1.2rem;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.04;
+}
+
+.vc-doc-content h2 {
+  margin-top: 2.4rem;
+  margin-bottom: 0.9rem;
+  font-size: clamp(1.55rem, 3vw, 2.3rem);
+}
+
+.vc-doc-content h3 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.35rem;
+}
+
+.vc-doc-content p,
+.vc-doc-content li {
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.vc-doc-content a {
+  color: #5fffe0;
+}
+
+.vc-doc-content a:hover {
+  color: #fffd85;
+}
+
+.vc-doc-content pre {
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.85rem;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 1rem;
+}
+
+.vc-doc-content code {
+  color: #fffd85;
+}
+
+.vc-doc-content :not(pre) > code {
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.1rem 0.35rem;
+}
+
+.vc-doc-content blockquote {
+  margin-inline: 0;
+  border-left: 3px solid rgba(95, 255, 224, 0.7);
+  background: rgba(95, 255, 224, 0.06);
+  padding: 0.75rem 1rem;
+}
+
+.vc-doc-content table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.vc-doc-content th,
+.vc-doc-content td {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.65rem 0.8rem;
+}
+
+.vc-doc-content th {
+  background: rgba(255, 255, 255, 0.08);
+}

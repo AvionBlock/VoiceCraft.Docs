@@ -8,7 +8,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <UContainer class="py-8 md:py-12">
+  <UContainer class="py-4 py-md-5">
     <VoiceCraftAddonConfigurator />
   </UContainer>
 </template>

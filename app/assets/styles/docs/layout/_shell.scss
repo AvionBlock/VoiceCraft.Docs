@@ -1,0 +1,115 @@
+.vc-app-shell {
+  min-height: 100vh;
+}
+
+.vc-doc-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  min-height: 4.25rem;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 3, 12, 0.86);
+  padding: 0.75rem clamp(1rem, 3vw, 2rem);
+  backdrop-filter: blur(16px);
+}
+
+.vc-doc-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #fff;
+  font-family: "Nunito", "Comfortaa", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.vc-doc-brand:hover {
+  color: #fff;
+}
+
+.vc-doc-brand-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.65rem;
+}
+
+.vc-doc-top-nav {
+  display: none;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.vc-doc-top-link,
+.vc-doc-nav-link {
+  color: rgba(226, 232, 240, 0.78);
+  text-decoration: none;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.vc-doc-top-link {
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.vc-doc-top-link:hover,
+.vc-doc-top-link-active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.vc-doc-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-left: auto;
+}
+
+.vc-locale-select {
+  height: 2rem;
+  max-width: 10rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(14, 20, 32, 0.92);
+  color: #fff;
+  padding: 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.vc-doc-body {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.vc-doc-body-wide {
+  grid-template-columns: 1fr;
+}
+
+.vc-doc-sidebar {
+  display: none;
+}
+
+.vc-doc-main {
+  min-width: 0;
+  padding: 0 clamp(1rem, 4vw, 3rem) 4rem;
+}
+
+.vc-doc-article {
+  width: 100%;
+  max-width: 980px;
+  margin-inline: auto;
+  padding-top: 2rem;
+}
+
+.vc-doc-body-wide .vc-doc-article {
+  max-width: 1240px;
+}

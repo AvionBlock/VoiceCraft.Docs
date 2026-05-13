@@ -1,262 +1,32 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-
-type ClientOs = 'windows' | 'linux' | 'macos' | 'android' | 'ios'
-type ClientArch = 'x64' | 'x86' | 'arm' | 'arm64'
-type ServerOs = 'windows' | 'linux'
-
-type ClientDownloadItem = {
-  key: string
-  label: string
-  meta: string
-  href: string
-  os: ClientOs
-  arch: ClientArch
-}
-
-type ServerDownloadItem = {
-  key: string
-  label: string
-  meta: string
-  href: string
-  os: ServerOs
-}
-
-const { t } = useI18n()
-const localePath = useLocalePath()
-
-const releaseBase = 'https://github.com/AvionBlock/VoiceCraft/releases/latest/download'
-const releasePage = 'https://github.com/AvionBlock/VoiceCraft/releases/latest'
-const addonReleasePage = 'https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest'
-const addonRepo = 'https://github.com/AvionBlock/VoiceCraft.Addon'
-const addonConfiguratorPath = computed(() => localePath('/addon-configurator'))
-
-const clientItems: ClientDownloadItem[] = [
-  {
-    key: 'client-windows-x64',
-    label: 'Windows x64',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Client.Windows.x64.zip`,
-    os: 'windows',
-    arch: 'x64',
-  },
-  {
-    key: 'client-windows-arm64',
-    label: 'Windows arm64',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Client.Windows.arm64.zip`,
-    os: 'windows',
-    arch: 'arm64',
-  },
-  {
-    key: 'client-windows-x86',
-    label: 'Windows x86',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Client.Windows.x86.zip`,
-    os: 'windows',
-    arch: 'x86',
-  },
-  {
-    key: 'client-linux-x64',
-    label: 'Linux x64',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Client.Linux.x64.zip`,
-    os: 'linux',
-    arch: 'x64',
-  },
-  {
-    key: 'client-linux-arm64',
-    label: 'Linux arm64',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Client.Linux.arm64.zip`,
-    os: 'linux',
-    arch: 'arm64',
-  },
-  {
-    key: 'client-linux-arm',
-    label: 'Linux arm32',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Client.Linux.arm.zip`,
-    os: 'linux',
-    arch: 'arm',
-  },
-  {
-    key: 'client-macos-arm64',
-    label: 'macOS arm64',
-    meta: '.dmg',
-    href: `${releaseBase}/VoiceCraft.Client.MacOS.arm64.dmg`,
-    os: 'macos',
-    arch: 'arm64',
-  },
-  {
-    key: 'client-macos-x64',
-    label: 'macOS x64',
-    meta: '.dmg',
-    href: `${releaseBase}/VoiceCraft.Client.MacOS.x64.dmg`,
-    os: 'macos',
-    arch: 'x64',
-  },
-  {
-    key: 'client-android-arm64',
-    label: 'Android arm64',
-    meta: '.zip / APK inside',
-    href: `${releaseBase}/VoiceCraft.Client.Android.arm64.zip`,
-    os: 'android',
-    arch: 'arm64',
-  },
-  {
-    key: 'client-ios-arm64',
-    label: 'iOS arm64',
-    meta: '.ipa',
-    href: `${releaseBase}/VoiceCraft.Client.iOS.arm64.ipa`,
-    os: 'ios',
-    arch: 'arm64',
-  },
-]
-
-const serverItems: ServerDownloadItem[] = [
-  {
-    key: 'server-windows-x64',
-    label: 'Windows x64',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Server.Windows.x64.zip`,
-    os: 'windows',
-  },
-  {
-    key: 'server-windows-arm64',
-    label: 'Windows arm64',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Server.Windows.arm64.zip`,
-    os: 'windows',
-  },
-  {
-    key: 'server-windows-x86',
-    label: 'Windows x86',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Server.Windows.x86.zip`,
-    os: 'windows',
-  },
-  {
-    key: 'server-linux-x64',
-    label: 'Linux x64',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Server.Linux.x64.zip`,
-    os: 'linux',
-  },
-  {
-    key: 'server-linux-arm64',
-    label: 'Linux arm64',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Server.Linux.arm64.zip`,
-    os: 'linux',
-  },
-  {
-    key: 'server-linux-arm',
-    label: 'Linux arm32',
-    meta: '.zip',
-    href: `${releaseBase}/VoiceCraft.Server.Linux.arm.zip`,
-    os: 'linux',
-  },
-]
-
-const clientPlatforms: { key: ClientOs, labelKey: string }[] = [
-  { key: 'windows', labelKey: 'download.platforms.windows' },
-  { key: 'linux', labelKey: 'download.platforms.linux' },
-  { key: 'macos', labelKey: 'download.platforms.macos' },
-  { key: 'android', labelKey: 'download.platforms.android' },
-  { key: 'ios', labelKey: 'download.platforms.ios' },
-]
-
-const serverPlatforms: { key: ServerOs, labelKey: string }[] = [
-  { key: 'windows', labelKey: 'download.platforms.windows' },
-  { key: 'linux', labelKey: 'download.platforms.linux' },
-]
-
-const selectedClientOs = ref<ClientOs>('windows')
-const selectedServerOs = ref<ServerOs>('windows')
-const platform = ref<ClientOs | 'unknown'>('unknown')
-const architecture = ref<ClientArch | 'unknown'>('unknown')
-const hydrated = ref(false)
-
-function detectClient() {
-  if (typeof navigator === 'undefined') return
-
-  const userAgent = navigator.userAgent.toLowerCase()
-  const platformString = String((navigator as Navigator & { userAgentData?: { platform?: string } }).userAgentData?.platform || navigator.platform || '').toLowerCase()
-
-  if (userAgent.includes('android')) {
-    platform.value = 'android'
-  } else if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod')) {
-    platform.value = 'ios'
-  } else if (platformString.includes('win')) {
-    platform.value = 'windows'
-  } else if (platformString.includes('mac')) {
-    platform.value = 'macos'
-  } else if (platformString.includes('linux')) {
-    platform.value = 'linux'
-  }
-
-  if (userAgent.includes('arm64') || userAgent.includes('aarch64')) {
-    architecture.value = 'arm64'
-  } else if (userAgent.includes('arm')) {
-    architecture.value = 'arm'
-  } else if (userAgent.includes('x86_64') || userAgent.includes('win64') || userAgent.includes('x64') || userAgent.includes('amd64')) {
-    architecture.value = 'x64'
-  } else if (userAgent.includes('i686') || userAgent.includes('i386') || userAgent.includes('x86')) {
-    architecture.value = 'x86'
-  } else if (platform.value === 'android' || platform.value === 'ios') {
-    architecture.value = 'arm64'
-  }
-}
-
-const recommendedClientKey = computed(() => {
-  if (!hydrated.value) return null
-
-  const exactMatch = clientItems.find(item => item.os === platform.value && item.arch === architecture.value)
-  if (exactMatch) return exactMatch.key
-
-  const osFallback = clientItems.find(item => item.os === platform.value)
-  return osFallback?.key ?? null
-})
-
-const clientItemsForSelectedOs = computed(() =>
-  clientItems.filter(item => item.os === selectedClientOs.value),
-)
-
-const serverItemsForSelectedOs = computed(() =>
-  serverItems.filter(item => item.os === selectedServerOs.value),
-)
-
-function isRecommended(key: string) {
-  return key === recommendedClientKey.value
-}
-
-onMounted(() => {
-  detectClient()
-  if (platform.value !== 'unknown') {
-    const hasClientPlatform = clientPlatforms.some(item => item.key === platform.value)
-    if (hasClientPlatform) {
-      selectedClientOs.value = platform.value
-    }
-    if (platform.value === 'linux' || platform.value === 'windows') {
-      selectedServerOs.value = platform.value
-    }
-  }
-  hydrated.value = true
-})
+const {
+  t,
+  releasePage,
+  addonReleasePage,
+  addonRepo,
+  addonConfiguratorPath,
+  clientPlatforms,
+  serverPlatforms,
+  selectedClientOs,
+  selectedServerOs,
+  recommendedClientKey,
+  clientItemsForSelectedOs,
+  serverItemsForSelectedOs,
+  isRecommended,
+} = useVoiceCraftDownloads()
 </script>
 
 <template>
-  <section class="vc-downloads-wrap space-y-8 md:space-y-10">
-    <div class="vc-hero vc-reveal rounded-2xl p-6 md:p-10">
-      <div class="mx-auto max-w-4xl text-center space-y-5">
-        <p class="comf-500-20 uppercase tracking-wider text-violet-300/90">
+  <section class="vc-downloads-wrap">
+    <div class="vc-hero vc-reveal rounded-4 p-4 p-md-5">
+      <div class="vc-page-hero-copy mx-auto text-center d-grid gap-3">
+        <p class="comf-500-20 text-uppercase vc-page-kicker vc-page-kicker-violet">
           {{ t('download.kicker') }}
         </p>
-        <h1 class="nuni-800-50 tracking-tight md:nuni-800-60">
+        <h1 class="nuni-800-50">
           {{ t('download.title') }}
         </h1>
-        <p class="mx-auto max-w-3xl comf-500-20 text-muted">
+        <p class="vc-page-subtitle mx-auto comf-500-20 text-muted">
           {{ t('download.subtitle') }}
         </p>
         <p v-if="recommendedClientKey" class="comf-500-20 vc-downloads-detected">
@@ -265,10 +35,10 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="grid gap-6 xl:grid-cols-3">
-      <section class="vc-glass vc-download-card vc-reveal rounded-2xl p-5 md:p-7 space-y-5">
-        <div class="space-y-2">
-          <p class="comf-500-20 uppercase tracking-wider text-cyan-300/90">
+    <div class="vc-downloads-grid">
+      <section class="vc-glass vc-download-card vc-reveal rounded-4 p-4">
+        <div class="d-grid gap-2">
+          <p class="comf-500-20 text-uppercase vc-page-kicker">
             {{ t('download.clientKicker') }}
           </p>
           <h2 class="nuni-800-40">
@@ -279,7 +49,7 @@ onMounted(() => {
           </p>
         </div>
 
-        <div class="space-y-2">
+        <div class="d-grid gap-2">
           <p class="comf-500-20 text-muted">
             {{ t('download.platformLabel') }}
           </p>
@@ -319,9 +89,9 @@ onMounted(() => {
         </p>
       </section>
 
-      <section class="vc-glass vc-download-card vc-reveal vc-delay-1 rounded-2xl p-5 md:p-7 space-y-5">
-        <div class="space-y-2">
-          <p class="comf-500-20 uppercase tracking-wider text-emerald-300/90">
+      <section class="vc-glass vc-download-card vc-reveal vc-delay-1 rounded-4 p-4">
+        <div class="d-grid gap-2">
+          <p class="comf-500-20 text-uppercase vc-page-kicker vc-page-kicker-emerald">
             {{ t('download.serverKicker') }}
           </p>
           <h2 class="nuni-800-40">
@@ -332,7 +102,7 @@ onMounted(() => {
           </p>
         </div>
 
-        <div class="space-y-2">
+        <div class="d-grid gap-2">
           <p class="comf-500-20 text-muted">
             {{ t('download.platformLabel') }}
           </p>
@@ -363,7 +133,7 @@ onMounted(() => {
           </a>
         </div>
 
-        <div class="vc-download-footer space-y-3">
+        <div class="vc-download-footer d-grid gap-3">
           <p class="comf-500-20 text-muted">
             {{ t('download.serverSourceNote') }}
           </p>
@@ -380,9 +150,9 @@ onMounted(() => {
         </div>
       </section>
 
-      <section class="vc-glass vc-download-card vc-reveal vc-delay-2 rounded-2xl p-5 md:p-7 space-y-5">
-        <div class="space-y-2">
-          <p class="comf-500-20 uppercase tracking-wider text-amber-300/90">
+      <section class="vc-glass vc-download-card vc-reveal vc-delay-2 rounded-4 p-4">
+        <div class="d-grid gap-2">
+          <p class="comf-500-20 text-uppercase vc-page-kicker vc-page-kicker-amber">
             {{ t('download.addonKicker') }}
           </p>
           <h2 class="nuni-800-40">
@@ -412,7 +182,7 @@ onMounted(() => {
           </a>
         </div>
 
-        <div class="vc-download-footer space-y-3">
+        <div class="vc-download-footer d-grid gap-3">
           <p class="comf-500-20 text-muted">
             {{ t('download.addonNote') }}
           </p>

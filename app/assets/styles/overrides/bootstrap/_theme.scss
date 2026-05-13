@@ -1,0 +1,83 @@
+/* VoiceCraft services visual sync */
+:root {
+  --vc-bg-1: #00030c;
+  --vc-bg-2: #000d08;
+  --vc-accent: #992dfd;
+  --vc-accent-soft: #ca89ff;
+  --vc-mint: #5fffe0;
+  --vc-yellow: #e6d600;
+  --vc-yellow-soft: #fffd85;
+  --vc-glass-bg: rgba(0, 0, 0, 0.445);
+  --vc-glass-border: rgba(255, 255, 255, 0.1);
+  --vc-glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+  --vc-doc-header-clearance: 148px;
+}
+
+html,
+body,
+#__nuxt {
+  min-height: 100%;
+}
+
+body,
+.dark body {
+  color: #f8fafc;
+  background: linear-gradient(45deg, var(--vc-bg-1), var(--vc-bg-2)) fixed !important;
+}
+
+body::selection {
+  color: #05060b;
+  background: var(--vc-mint);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--vc-accent-soft), var(--vc-mint));
+}
+
+.vc-app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.vc-app-shell::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 34%),
+    linear-gradient(90deg, rgba(153, 45, 253, 0.07), transparent 28%, rgba(95, 255, 224, 0.055));
+}
+
+.glass,
+.vc-glass,
+.card {
+  border: 1px solid var(--vc-glass-border) !important;
+  border-radius: 8px !important;
+  background: var(--vc-glass-bg) !important;
+  box-shadow: var(--vc-glass-shadow) !important;
+  backdrop-filter: blur(10px);
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}

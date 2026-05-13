@@ -23,6 +23,31 @@
 .vc-delay-2 { animation-delay: 180ms; }
 .vc-delay-3 { animation-delay: 270ms; }
 
+.vc-page-hero-copy {
+  max-width: 56rem;
+}
+
+.vc-page-subtitle {
+  max-width: 48rem;
+}
+
+.vc-page-kicker {
+  color: rgba(103, 232, 249, 0.9);
+  letter-spacing: 0.08em;
+}
+
+.vc-page-kicker-violet {
+  color: rgba(216, 180, 254, 0.9);
+}
+
+.vc-page-kicker-emerald {
+  color: rgba(110, 231, 183, 0.9);
+}
+
+.vc-page-kicker-amber {
+  color: rgba(252, 211, 77, 0.9);
+}
+
 .vc-card-tilt {
   transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
 }
