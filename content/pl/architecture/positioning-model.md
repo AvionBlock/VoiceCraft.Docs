@@ -2,7 +2,7 @@
 
 VoiceCraft obsługuje modele pozycjonowania zarówno po stronie serwera, jak i po stronie klienta.
 
-Pozycjonowanie decyduje o tym, kto dostarcza dane o lokalizacji, od których zależy dźwięk zbliżeniowy. Jeśli zostanie wybrany niewłaściwy tryb, klienci będą mogli pomyślnie nawiązać połączenie, ale nadal słyszą niewłaściwe osoby, nie słyszą nikogo lub ignorują zmiany odległości.
+Pozycjonowanie decyduje o tym, kto dostarcza dane o lokalizacji, od których zależy dźwięk zależny od odległości. Jeśli zostanie wybrany niewłaściwy tryb, klienci mogą pomyślnie nawiązać połączenie, ale nadal słyszeć niewłaściwe osoby, nie słyszeć nikogo albo ignorować zmiany odległości.
 
 ## `PositioningType`
 
@@ -29,7 +29,7 @@ Najlepiej, gdy:
 - uruchamiasz Java/Geyser z `GeyserVoice`
 - chcesz, aby narzędzia personelu/moderacji analizowały stan jednostki będącej własnością serwera
 
-W tym modelu integracja po stronie Minecrafta wysyła aktualizacje pozycji i świata do `VoiceCraft.Server`. Klient otrzymuje wystarczający stan, aby lokalnie renderować dźwięk zbliżeniowy.
+W tym modelu integracja po stronie Minecrafta wysyła aktualizacje pozycji i świata do `VoiceCraft.Server`. Klient otrzymuje wystarczający stan, aby lokalnie odtwarzać dźwięk zależny od odległości.
 
 Użyj tego jako domyślnego w przypadku wdrożeń produkcyjnych.
 

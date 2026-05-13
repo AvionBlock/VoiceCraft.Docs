@@ -38,8 +38,8 @@ Jeśli używasz prawdziwego serwera dedykowanego Bedrock, użyj zamiast tego [Mc
 
 Pomocne linki:
 
-- [Download Page](/download) dla surowego pakietu wydania `Core.McWss`
-- [Addon Configurator](/addon-configurator) dla gotowego do rozpakowania archiwum świata
+- [Strona pobierania](/download) dla pakietu wydania `Core.McWss`
+- [Konfigurator dodatku](/addon-configurator) dla gotowego do rozpakowania archiwum świata
 
 ## Konfiguracja serwera VoiceCraft
 

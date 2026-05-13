@@ -1,6 +1,6 @@
-# 第一個伺服器運行
+# 伺服器首次執行
 
-此頁面在您下載並啟動 `VoiceCraft.Server` 一次後啟動。目標是將首次啟動轉變為客戶端和 Minecraft 可以實際使用的工作伺服器。
+此頁面從您已經下載並啟動過一次 `VoiceCraft.Server` 的位置開始。目標是把第一次啟動變成客戶端和 Minecraft 都能實際使用的伺服器。
 
 ## 第一次啟動時會發生什麼
 
@@ -11,13 +11,13 @@
 - `config/`
 - `config/ServerProperties.json`
 
-該文件成為伺服器行為的主要持久事實來源。
+該檔案會成為伺服器行為的主要持久配置來源。
 
-文件出現後，停止伺服器，編輯配置，然後再次啟動。第一次啟動僅建立基線；設定尚未完成。
+檔案出現後，停止伺服器，編輯配置，然後再次啟動。第一次啟動只會建立基礎配置；設定尚未完成。
 
 ## 預設連接埠和端點
 
-預設情況下，產生的配置是這樣對齊的：
+預設情況下，產生的配置如下：
 
 - VoiceCraft UDP：`9050`
 - `McHttp`：`http://127.0.0.1:9050/`
@@ -30,9 +30,9 @@
 - `McWss` 預設在 `9051` 上分隔
 - `McTcp` 與 `GeyserVoice` 特別相關
 
-## 線性首次運行路徑
+## 線性的首次執行流程
 
-### 1.停止並開啟產生的config
+### 1. 停止伺服器並開啟產生的配置
 
 打開：
 
@@ -42,9 +42,9 @@ config/ServerProperties.json
 
 將此檔案儲存在同一安裝資料夾中並將其包含在備份中。
 
-### 2.替換生成的token
+### 2. 替換產生的令牌
 
-在任何插件、插件或玩家用戶端連接之前，替換：
+在任何附加包、外掛程式或玩家用戶端連接之前，替換：
 
 - `McHttpConfig.LoginToken`
 - `McWssConfig.LoginToken`
@@ -52,7 +52,7 @@ config/ServerProperties.json
 
 使用您稍後實際連接的傳輸中的令牌。例如，BDS `vcconnect` 指令必須使用 `McHttpConfig.LoginToken`，而 GeyserVoice 必須使用 `McTcpConfig.LoginToken`。
 
-### 3. 選擇一種主要的 Minecraft 交通工具
+### 3. 選擇一個主要的 Minecraft 傳輸
 
 使用拓撲來決定應啟用什麼：
 
@@ -62,11 +62,11 @@ config/ServerProperties.json
 | 本地 Bedrock 世界 | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
 | Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
 
-您可以運行多個傳輸，但當僅公開所需的傳輸時，第一個設定更容易調試。
+您可以執行多個傳輸，但首次設定只開放所需傳輸時更容易調試。
 
 ### 4. 設定主機綁定
 
-當一切都在一台機器上運行時使用本地綁定：
+當一切都在一台機器上執行時使用本地綁定：
 
 - `McHttpConfig.Hostname = http://127.0.0.1:9050/`
 - `McWssConfig.Hostname = ws://127.0.0.1:9051/`
@@ -82,11 +82,11 @@ config/ServerProperties.json
 - 連接埠已在使用錯誤
 - 偵聽器失敗或綁定錯誤
 
-在繼續之前修復這些問題。當伺服器報告啟動錯誤時，Minecraft 外掛程式或外掛程式無法可靠連線。
+繼續之前先修復這些問題。只要伺服器仍在報告啟動錯誤，Minecraft 附加包或外掛程式就無法可靠連線。
 
 ### 6. 連接 VoiceCraft 用戶端
 
-從 [Download Page](/download) 安裝客戶端，然後新增伺服器項目：
+從 [下載頁面](/download) 安裝客戶端，然後新增伺服器項目：
 
 - 主機：VoiceCraft 伺服器位址
 - 連接埠：`VoiceCraftConfig.Port`，通常為 `9050`
@@ -118,7 +118,7 @@ config/ServerProperties.json
 - Minecraft 透過選定的傳輸方式進行身份驗證
 - 遊戲內綁定流程有效
 - VoiceCraft 收到玩家位置更新
-- 接近語音在預期範圍內工作
+- 距離感語音在預期範圍內工作
 
 ## 啟動參數
 
@@ -127,15 +127,15 @@ VoiceCraft 伺服器支援這些根參數：
 - `--exit-on-invalid-properties`
   如果無法解析 `ServerProperties.json` 則退出。
 - `--language <culture>`
-  覆蓋目前運行的伺服器日誌語言。
+  覆蓋目前執行的伺服器日誌語言。
 - `--transport-mode <mode>`
-  為目前運行啟用 Minecraft 傳輸的子集。
+  為目前執行啟用 Minecraft 傳輸的子集。
 - `--transport-host <host>`
   覆蓋配置的 Minecraft 傳輸主機。
 - `--transport-port <port>`
   覆蓋配置的 Minecraft 傳輸連接埠。
 - `--server-key <token>`
-  覆蓋目前運行的共享 Minecraft 端登入令牌。
+  覆蓋目前執行的共享 Minecraft 端登入令牌。
 
 程式碼中也存在短別名：
 
@@ -148,7 +148,7 @@ VoiceCraft 伺服器支援這些根參數：
 
 ## 範例
 
-### 使用啟動語言覆蓋運行
+### 使用啟動語言覆蓋執行
 
 ```bash
 ./VoiceCraft.Server --language en-US
@@ -180,11 +180,11 @@ VoiceCraft 伺服器支援這些根參數：
 
 ## 傳輸覆蓋的行為方式
 
-運行時覆蓋不會永久重寫 `ServerProperties.json`。
+執行時間覆蓋不會永久重寫 `ServerProperties.json`。
 
-它們僅適用於當前流程，並且在以下情況下很有用：
+它們僅適用於目前流程，並且在以下情況下很有用：
 
-- 從一個映像運行多個環境
+- 從同一個映像執行多個環境
 - 使用面板或 systemd 插件
 - 測試直接與代理拓撲
 - 讓另一個工具（例如 `GeyserVoice`）使用產生的值啟動運行時
@@ -194,23 +194,23 @@ VoiceCraft 伺服器支援這些根參數：
 1. 運行伺服器一次以產生 `config/ServerProperties.json`。
 2. 在編輯產生的配置之前停止伺服器。
 3. 更改所有產生的登入令牌。
-4. 確認您實際需要哪種交通工具：
+4. 確認您實際需要哪種傳輸：
    - BDS 的 `McHttp`
    - `McWss` 用於本地世界
    - `McTcp` 用於 `GeyserVoice`
 5. 驗證主機綁定。
 6. 僅開啟您需要的連接埠。
 7. 從同一安裝資料夾重新啟動伺服器。
-8. 與您的客戶確認 `PositioningType`。
+8. 與客戶端確認 `PositioningType`。
 9. 在連接 Minecraft 自動化之前測試客戶端連線。
-10. 連接 Minecraft 插件或插件並驗證綁定流程。
+10. 連接 Minecraft 附加包或外掛程式並驗證綁定流程。
 
 ## 常見的首次運行錯誤
 
 - 保持產生的令牌不變
 - 將 `127.0.0.1` 端點暴露給遠端節點
 - 忘記 Java 端橋可能需要 `McTcp`
-- 無需實際需要即可實現生產中的每種傳輸
+- 在生產環境中啟用每種傳輸，即使並不需要
 - 編輯 `ServerProperties.json` 而進程管理器立即重新啟動舊的損壞的配置
 - 使用 Minecraft 指南期望傳輸端點的 UDP 用戶端端口
 

@@ -2,7 +2,7 @@
 
 Diese Seite fasst vernünftige Produktionsansätze statt roher Funktionslisten zusammen.
 
-Verwenden Sie diese Blaupausen, wenn Sie entscheiden, auf welche Topologie Sie standardisieren möchten. Sie sind bewusst rechthaberisch: Das Ziel besteht darin, bewegliche Teile zu reduzieren und nicht alle möglichen Transportmittel auf einmal freizulegen.
+Verwenden Sie diese Blaupausen, wenn Sie entscheiden, auf welche Topologie Sie standardisieren möchten. Sie sind bewusst meinungsstark: Das Ziel besteht darin, Komponenten zu reduzieren und nicht alle möglichen Transporte auf einmal freizugeben.
 
 ## Blueprint 1: Nur-Bedrock-Server
 

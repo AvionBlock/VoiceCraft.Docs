@@ -8,7 +8,7 @@ Empfohlene Reihenfolge:
 2. Bestätigen Sie, dass ein VoiceCraft-Client eine Verbindung zum UDP-Endpunkt herstellen kann.
 3. Bestätigen Sie die Authentifizierung des Minecraft-seitigen Transports.
 4. Bestätigen Sie, dass der Bindungsfluss abgeschlossen ist.
-5. Bestätigen Sie, dass Positions-/Weltaktualisierungen das Näherungsverhalten ändern.
+5. Bestätigen Sie, dass Positions-/Weltaktualisierungen das Proximity-Verhalten ändern.
 6. Passen Sie erst dann Mikrofon, Lautstärke, Effekte oder die benutzerdefinierte Add-On-Logik an.
 
 ## Server startet nicht

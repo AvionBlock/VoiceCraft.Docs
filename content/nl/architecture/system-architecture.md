@@ -1,6 +1,6 @@
 # Systeemarchitectuur
 
-VoiceCraft is een proximity-stemstapel, geen enkele Minecraft-mod. De client draagt ​​microfoonaudio over, de server is eigenaar van stemsessies en gedeelde status, en de Minecraft-integratielaag vertelt de server waar spelers zijn en hoe ze moeten worden weergegeven.
+VoiceCraft is een proximity-voice-stack, geen enkele Minecraft-mod. De client draagt microfoonaudio over, de server beheert spraaksessies en gedeelde status, en de Minecraft-integratielaag vertelt de server waar spelers zijn en hoe ze moeten worden weergegeven.
 
 De scheiding is opzettelijk: dezelfde stemserver kan werken met Bedrock Dedicated Server, lokale Bedrock-werelden, directe Paper-servers en proxynetwerken, zolang het juiste Minecraft-gerichte transport is verbonden.
 
@@ -22,7 +22,7 @@ De scheiding is opzettelijk: dezelfde stemserver kan werken met Bedrock Dedicate
 - afspelen van stemmen in de buurt op basis van de serverstatus
 - lokaal volume per gebruiker en lokale mute-voorkeuren
 
-De client ontdekt de Minecraft-spelerposities niet zelf in het normale server-side model. Het hangt af van de server- en Minecraft-integratie om een ​​entiteit en een wereldstaat te bieden.
+De client ontdekt de Minecraft-spelerposities niet zelf in het normale server-side model. Het hangt af van de server- en Minecraft-integratie om een entiteit en wereldstatus te bieden.
 
 ### Serverlaag
 

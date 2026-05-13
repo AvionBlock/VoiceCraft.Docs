@@ -1,6 +1,6 @@
-# 運輸方式
+# 傳輸模式
 
-VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的產品對於穩定性和部署簡單性非常重要。
+VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的傳輸對於穩定性和部署簡單性非常重要。
 
 傳輸是 Minecraft 自動化將狀態傳送到 `VoiceCraft.Server` 的路徑。它與玩家客戶端使用的 UDP 語音端點分開。
 
@@ -8,17 +8,17 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的產品對於�
 
 ## 快速比較
 
-| 交通 | 典型消費者 | 端點形狀 | 最適合 | 令牌字段 |
+| 傳輸 | 典型使用方 | 端點形式 | 最適合 | 令牌欄位 |
 |-----------|------------------|----------------|----------|-------------|
-| `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP端點 | Bedrock 專用伺服器 | `McHttpConfig.LoginToken` |
-| `McWss` | `VoiceCraft.Addon.Core.McWss` | websocket + 指令隧道 | 本地 Bedrock 世界和測試 | `McWssConfig.LoginToken` |
+| `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP 端點 | Bedrock 專用伺服器 | `McHttpConfig.LoginToken` |
+| `McWss` | `VoiceCraft.Addon.Core.McWss` | WebSocket + 指令隧道 | 本地 Bedrock 世界和測試 | `McWssConfig.LoginToken` |
 | `McTcp` | `GeyserVoice` | 原始 TCP 橋 | Java、Geyser、代理或 Paper 橋接方案 | `McTcpConfig.LoginToken` |
 
 不要僅根據連接埠號選擇傳輸。根據將連接的 Minecraft 端組件進行選擇。
 
-## 麥克HTTP
+## McHttp
 
-`McHttp` 公開了一個 Bedrock 專用伺服器外掛程式可以呼叫的 HTTP 端點。
+`McHttp` 公開一個 Bedrock 專用伺服器附加包可以呼叫的 HTTP 端點。
 
 ### 最佳用例
 
@@ -28,7 +28,7 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的產品對於�
 
 ### 優勢
 
-- 最簡單的北斗系統生產傳輸
+- 最簡單的 BDS 生產傳輸
 - 簡單端點模型
 - 非常適合面板、反向網路佈局和專用主機
 
@@ -36,7 +36,7 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的產品對於�
 
 - 需要從 Bedrock 伺服器到 VoiceCraft 的網路可及性
 - 可能會被某些託管提供者阻止
-- 需要插件所需的 BDS 腳本/模組權限
+- 需要附加包所需的 BDS 腳本/模組權限
 
 ### 典型配置
 
@@ -52,9 +52,9 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的產品對於�
 
 僅當 BDS 和 VoiceCraft 在同一主機上運作時才使用 `http://127.0.0.1:9050/`。
 
-## 麥克瓦斯
+## McWss
 
-`McWss` 公開一個 websocket 端點並在 Bedrock 世界中使用指令隧道。
+`McWss` 公開一個 WebSocket 端點，並在 Bedrock 世界中使用指令隧道。
 
 ### 最佳用例
 
@@ -88,7 +88,7 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的產品對於�
 
 當您需要本機 `/connect` 流時，請使用此選項。對於真正的 BDS 生產伺服器，首選 `McHttp`。
 
-## 麥克Tcp
+## McTcp
 
 `McTcp` 公開 Java 端基礎架構所使用的原始 TCP 橋。
 
@@ -96,11 +96,11 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的產品對於�
 
 - `GeyserVoice`
 - Java 伺服器或代理橋
-- 直接 Paper 運行時集成
+- 直接 Paper 執行時間整合
 
 ### 優勢
 
-- Java 端插件的直接橋接傳輸
+- Java 端外掛程式的直接橋接傳輸
 - 當本機 TCP 橋接更好時避免 HTTP 端點語義
 - 與目前 `GeyserVoice` 架構保持一致
 
@@ -108,7 +108,7 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的產品對於�
 
 - 另一個要管理的端口
 - 當您實際執行 Java 端橋時最有用
-- Bedrock插件包不使用
+- Bedrock 附加包不使用
 
 ### 典型配置
 
@@ -123,7 +123,7 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的產品對於�
 }
 ```
 
-如果 `GeyserVoice` 與 VoiceCraft 在同一台電腦上執行，則綁定至 `127.0.0.1`。如果它在其他地方運行，請綁定到插件可以到達並限制防火牆的位址。
+如果 `GeyserVoice` 與 VoiceCraft 在同一台電腦上執行，則綁定至 `127.0.0.1`。如果它在其他地方執行，請綁定到外掛程式可以到達的位址，並限制防火牆規則。
 
 ## 你應該選擇哪一個？
 
@@ -131,30 +131,30 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的產品對於�
 
 使用 `McHttp`。
 
-繼續[McHttp for BDS](/minecraft/mchttp-bds)。
+繼續閱讀 [McHttp for BDS](/minecraft/mchttp-bds)。
 
-### Bedrock單人/本地世界
+### Bedrock 單人/本地世界
 
 使用 `McWss`。
 
-繼續[McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)。
+繼續閱讀 [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)。
 
 ### Java + Geyser/Floodgate
 
 使用 `McTcp` 到 `GeyserVoice`。
 
-繼續[GeyserVoice](/ecosystem/geyservoice)。
+繼續閱讀 [GeyserVoice](/ecosystem/geyservoice)。
 
 ### 混合網路
 
-您可以運行多種傳輸，但隻公開您真正需要的。
+您可以執行多種傳輸，但只公開您真正需要的。
 
 常見的混合情況：
 
 - Bedrock BDS 加 Java 橋：
   啟用 `McHttp` 和 `McTcp`
 - 本地測試，而生產仍在 BDS 上：
-  運行單獨的測試伺服器資料夾而不是重複使用生產令牌
+  執行單獨的測試伺服器資料夾，而不是重複使用生產令牌
 - 代理網絡：
   通常僅向代理所有者公開 `McTcp`
 
@@ -169,8 +169,8 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的產品對於�
 ## 驗證清單
 
 - 選擇的傳輸 `Enabled` 欄位是 `true`
-- 相符的插件/插件已安裝
-- 端點主機/連接埠可從 Minecraft 端運行時存取
-- 插件/插件令牌與正確的 `LoginToken` 匹配
-- 伺服器日誌顯示傳輸消費者連接
+- 相符的附加包或外掛程式已安裝
+- 端點主機/連接埠可從 Minecraft 端執行時間存取
+- 附加包或外掛程式令牌與正確的 `LoginToken` 相符
+- 伺服器日誌顯示傳輸使用方已連接
 - 綁定流程在傳輸登入後起作用

@@ -32,7 +32,7 @@ Durchfluss:
 4. `Core.McHttp` installieren
 5. Führen Sie `voicecraft:vcconnect <hostname> <token>` aus
 6. validieren `voicecraft:vcbind <key>`
-7. Verbinden Sie einen Client und bestätigen Sie Näherungsänderungen durch Bewegung
+7. Verbinden Sie einen Client und bestätigen Sie Proximity-Änderungen durch Bewegung
 
 ## Szenario B: Lokale/Einzelspieler-Bedrock-Welt
 
@@ -171,5 +171,5 @@ Ein Rezept ist erst dann vollständig, wenn alle diese Punkte zutreffen:
 - Mindestens ein VoiceCraft-Client stellt eine Verbindung her
 - Der Minecraft-seitige Transport wird authentifiziert
 - Der Bindungsfluss ist abgeschlossen
-- Sich im Spiel zu bewegen verändert das Näherungsverhalten
+- Sich im Spiel zu bewegen verändert das Proximity-Verhalten
 - Mitarbeiter können verbundene Clients/Entitäten zur Fehlerbehebung identifizieren

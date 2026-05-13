@@ -81,7 +81,7 @@ Jeśli `auto-start` to `true`, upewnij się, że `install-directory` można zapi
 ## Kiedy `auto-start` jest dobrym pomysłem
 
 - konfiguracja na jednym serwerze
-- chcesz mniej ruchomych elementów
+- chcesz zarządzać mniejszą liczbą części
 - nie zarządzasz już VoiceCraft za pomocą systemd / Docker / panel
 
 ## Kiedy zewnętrzne środowisko wykonawcze jest lepsze

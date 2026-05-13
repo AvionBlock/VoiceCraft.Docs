@@ -1,6 +1,6 @@
 # Pierwsze uruchomienie serwera
 
-Ta strona uruchamia się po jednokrotnym pobraniu i uruchomieniu `VoiceCraft.Server`. Celem jest przekształcenie tego pierwszego uruchomienia w działający serwer, z którego będą mogli faktycznie korzystać klienci i Minecraft.
+Ta strona zaczyna się w miejscu, w którym `VoiceCraft.Server` został już raz pobrany i uruchomiony. Celem jest przekształcenie pierwszego uruchomienia w działający serwer, z którego faktycznie mogą korzystać klienci i Minecraft.
 
 ## Co się dzieje przy pierwszym uruchomieniu
 
@@ -11,13 +11,13 @@ Jeśli plik nie zostanie znaleziony, serwer automatycznie utworzy:
 - `config/`
 - `config/ServerProperties.json`
 
-Plik ten staje się głównym, trwałym źródłem prawdy o zachowaniu serwera.
+Ten plik staje się głównym, trwałym źródłem konfiguracji zachowania serwera.
 
-Po pojawieniu się pliku zatrzymaj serwer, edytuj konfigurację, a następnie uruchom go ponownie. Pierwsze uruchomienie tworzy jedynie linię bazową; konfiguracja nie została jeszcze ukończona.
+Po pojawieniu się pliku zatrzymaj serwer, edytuj konfigurację, a następnie uruchom go ponownie. Pierwsze uruchomienie tworzy jedynie bazę; konfiguracja nie została jeszcze ukończona.
 
 ## Domyślne porty i punkty końcowe
 
-Domyślnie wygenerowana konfiguracja jest wyrównana w następujący sposób:
+Domyślnie wygenerowana konfiguracja wygląda następująco:
 
 - VoiceCraft UDP: `9050`
 - `McHttp`: `http://127.0.0.1:9050/`
@@ -32,7 +32,7 @@ Uwagi:
 
 ## Liniowa ścieżka pierwszego uruchomienia
 
-### 1. Zatrzymaj się i otwórz wygenerowaną konfigurację
+### 1. Zatrzymaj serwer i otwórz wygenerowaną konfigurację
 
 Otwórz:
 
@@ -50,7 +50,7 @@ Zanim połączy się jakikolwiek dodatek, wtyczka lub klient gracza, zamień:
 - `McWssConfig.LoginToken`
 - `McTcpConfig.LoginToken`
 
-Użyj żetonu z transportu, z którym faktycznie łączysz się później. Na przykład polecenie BDS `vcconnect` musi używać `McHttpConfig.LoginToken`, podczas gdy GeyserVoice musi używać `McTcpConfig.LoginToken`.
+Użyj tokenu transportu, który faktycznie podłączysz później. Na przykład polecenie BDS `vcconnect` musi używać `McHttpConfig.LoginToken`, podczas gdy GeyserVoice musi używać `McTcpConfig.LoginToken`.
 
 ### 3. Wybierz jeden podstawowy transport Minecraft
 
@@ -62,7 +62,7 @@ Użyj topologii, aby zdecydować, co powinno być włączone:
 | Lokalny świat Bedrock | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
 | Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
 
-Możesz uruchomić wiele transportów, ale pierwsza konfiguracja jest łatwiejsza do debugowania, gdy ujawniona jest tylko wymagana.
+Możesz uruchomić wiele transportów, ale pierwszą konfigurację łatwiej debugować, gdy udostępniony jest tylko wymagany transport.
 
 ### 4. Ustaw powiązania hosta
 
@@ -78,15 +78,15 @@ Używaj `0.0.0.0` tylko wtedy, gdy inna maszyna, kontener lub host gry musi dotr
 
 Uruchom ponownie `VoiceCraft.Server` z tego samego folderu. Uważaj na:
 
-- nieprawidłowe błędy JSON
-- port już używany, błędy
-- nieudany odbiornik lub błędy wiązania
+- błędy nieprawidłowego JSON
+- błędy zajętego portu
+- błędy listenera lub wiązania
 
 Napraw je, zanim przejdziesz dalej. Dodatek lub wtyczka Minecraft nie może niezawodnie łączyć się, gdy serwer zgłasza błędy uruchamiania.
 
 ### 6. Podłącz klienta VoiceCraft
 
-Zainstaluj klienta z [Download Page](/download), a następnie dodaj wpis serwera:
+Zainstaluj klienta ze [strony pobierania](/download), a następnie dodaj wpis serwera:
 
 - host: adres serwera VoiceCraft
 - port: `VoiceCraftConfig.Port`, zwykle `9050`
@@ -113,12 +113,12 @@ Po wyświetleniu monitu o token użyj pasującego tokenu transportowego z `Serve
 
 Pierwsza konfiguracja jest zakończona, gdy:
 
-- dzienniki serwera nie wykazują żadnych błędów konfiguracji ani odbiornika
+- dzienniki serwera nie pokazują błędów konfiguracji ani listenera
 - klient VoiceCraft łączy się z punktem końcowym UDP
 - Minecraft uwierzytelnia się poprzez wybrany transport
 - działa przepływ wiązania w grze
 - aktualizacje pozycji gracza docierają do VoiceCraft
-- głos zbliżeniowy działa w oczekiwanym zasięgu
+- głos zależny od odległości działa w oczekiwanym zasięgu
 
 ## Argumenty startowe
 
@@ -201,7 +201,7 @@ Dotyczą tylko bieżącego procesu i są przydatne, gdy:
 5. Sprawdź powiązania hosta.
 6. Otwórz tylko te porty, których potrzebujesz.
 7. Uruchom ponownie serwer z tego samego folderu instalacyjnego.
-8. Potwierdź `PositioningType` ze swoimi klientami.
+8. Potwierdź `PositioningType` z klientami.
 9. Przetestuj połączenie klienta przed podłączeniem automatyzacji Minecrafta.
 10. Podłącz dodatek lub wtyczkę Minecraft i sprawdź przepływ powiązania.
 
@@ -209,9 +209,9 @@ Dotyczą tylko bieżącego procesu i są przydatne, gdy:
 
 - pozostawienie wygenerowanych tokenów bez zmian
 - udostępnianie punktów końcowych `127.0.0.1` zdalnym węzłom
-- zapominając, że mosty po stronie Java mogą wymagać `McTcp`
-- umożliwienie każdego transportu w produkcji bez ich faktycznej potrzeby
-- edytowanie `ServerProperties.json`, podczas gdy menedżer procesów natychmiast uruchamia ponownie starą, uszkodzoną konfigurację
-- przy użyciu portu klienta UDP, gdzie przewodnik Minecraft oczekuje punktu końcowego transportu
+- zapominanie, że mosty po stronie Java mogą wymagać `McTcp`
+- włączanie każdego transportu w produkcji bez faktycznej potrzeby
+- edytowanie `ServerProperties.json`, gdy menedżer procesów natychmiast uruchamia ponownie starą, uszkodzoną konfigurację
+- używanie portu klienta UDP tam, gdzie przewodnik Minecraft oczekuje punktu końcowego transportu
 
 Pełne informacje dotyczące konfiguracji można znaleźć w artykule [ServerProperties.json](/server/server-properties).

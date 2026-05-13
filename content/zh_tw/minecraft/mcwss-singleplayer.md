@@ -38,8 +38,8 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 
 有用的連結：
 
-- [Download Page](/download) 用於原始 `Core.McWss` 發行包
-- [Addon Configurator](/addon-configurator) 用於準備解壓縮世界檔案
+- [下載頁面](/download) 用於 `Core.McWss` 發行包
+- [附加包設定器](/addon-configurator) 用於可直接解壓縮的世界歸檔
 
 ## VoiceCraft 伺服器配置
 
@@ -135,7 +135,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 - 調整時保持本地設定
 - 如果世界變成長期運作的共享伺服器，則切換到 `McHttp`
 
-## 何時切換至其他交通工具
+## 何時切換到其他傳輸
 
 在下列情況下移至 `McHttp`：
 
@@ -153,7 +153,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 - VoiceCraft 用戶端連接到 UDP 端點
 - `PositioningType` 用戶端與伺服器之間的匹配
 - 綁定流程在遊戲中有效
-- 移動玩家會改變接近行為
+- 移動玩家會改變距離感行為
 
 ## 常見問題
 
@@ -163,5 +163,5 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
   確認您使用了 `McWssConfig.LoginToken`。
 - 資料隧道錯誤：
   確認 `DataTunnelCommand` 與插件包相符。
-- 音訊已連接，但接近度錯誤：
+- 音訊已連接，但距離感效果錯誤：
   檢查綁定流程、定位模式以及位置更新是否到達。

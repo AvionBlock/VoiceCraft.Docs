@@ -8,8 +8,8 @@ Gebruik het wanneer Minecraft Bedrock de bron is van de speler/entiteitsstatus. 
 
 Snelle links:
 
-- [Download Page](/download)
-- [Addon Configurator](/addon-configurator)
+- [Downloadpagina](/download)
+- [Add-onconfigurator](/addon-configurator)
 - [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
 
 ## Pakketten

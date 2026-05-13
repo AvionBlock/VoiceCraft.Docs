@@ -73,7 +73,7 @@ Door deze splitsing kan elk project zich rond zijn runtime ontwikkelen: C# clien
 ## Kiezen waar te beginnen
 
 - Nieuwe Bedrock dedicated server:
-  begin met [Quick Start](/start/quick-start) en vervolgens [McHttp for BDS](/minecraft/mchttp-bds).
+  begin met [Snelstart](/start/quick-start) en vervolgens [McHttp for BDS](/minecraft/mchttp-bds).
 - Lokale Bedrock-tests:
   beginnen met [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 - Java + Geyser/Floodgate:
@@ -83,7 +83,7 @@ Door deze splitsing kan elk project zich rond zijn runtime ontwikkelen: C# clien
 
 ## Ga verder met
 
-- [VoiceCraft repository and build](/ecosystem/voicecraft-repository)
+- [VoiceCraft-repository en build](/ecosystem/voicecraft-repository)
 - [GeyserVoice overview](/ecosystem/geyservoice)
 - [VoiceCraft.Addon overview](/ecosystem/voicecraft-addon)
 - [Addon API](/ecosystem/addon-api)

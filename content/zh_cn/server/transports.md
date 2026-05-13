@@ -1,6 +1,6 @@
-# 运输方式
+# 传输模式
 
-VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于稳定性和部署简单性非常重要。
+VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的传输对于稳定性和部署简单性非常重要。
 
 传输是 Minecraft 自动化将状态发送到 `VoiceCraft.Server` 的路径。它与玩家客户端使用的 UDP 语音端点分开。
 
@@ -8,17 +8,17 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 ## 快速比较
 
-| 交通 | 典型消费者 | 端点形状 | 最适合 | 令牌字段 |
+| 传输 | 典型使用方 | 端点形式 | 最适合 | 令牌字段 |
 |-----------|------------------|----------------|----------|-------------|
-| `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP端点 | Bedrock 专用服务器 | `McHttpConfig.LoginToken` |
-| `McWss` | `VoiceCraft.Addon.Core.McWss` | websocket + 命令隧道 | 本地 Bedrock 世界和测试 | `McWssConfig.LoginToken` |
+| `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP 端点 | Bedrock 专用服务器 | `McHttpConfig.LoginToken` |
+| `McWss` | `VoiceCraft.Addon.Core.McWss` | WebSocket + 命令隧道 | 本地 Bedrock 世界和测试 | `McWssConfig.LoginToken` |
 | `McTcp` | `GeyserVoice` | 原始 TCP 桥 | Java、Geyser、代理或 Paper 桥接方案 | `McTcpConfig.LoginToken` |
 
 不要仅根据端口号选择传输。根据将连接的 Minecraft 端组件进行选择。
 
-## 麦克HTTP
+## McHttp
 
-`McHttp` 公开了一个 Bedrock 专用服务器插件可以调用的 HTTP 端点。
+`McHttp` 公开一个 Bedrock 专用服务器附加包可以调用的 HTTP 端点。
 
 ### 最佳用例
 
@@ -28,7 +28,7 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 ### 优势
 
-- 最简单的北斗系统生产传输
+- 最简单的 BDS 生产传输
 - 简单端点模型
 - 非常适合面板、反向网络布局和专用主机
 
@@ -52,9 +52,9 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 仅当 BDS 和 VoiceCraft 在同一主机上运行时才使用 `http://127.0.0.1:9050/`。
 
-## 麦克瓦斯
+## McWss
 
-`McWss` 公开一个 websocket 端点并在 Bedrock 世界中使用命令隧道。
+`McWss` 公开一个 WebSocket 端点，并在 Bedrock 世界中使用命令隧道。
 
 ### 最佳用例
 
@@ -88,7 +88,7 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 当您需要本地 `/connect` 流时，请使用此选项。对于真正的 BDS 生产服务器，首选 `McHttp`。
 
-## 麦克Tcp
+## McTcp
 
 `McTcp` 公开 Java 端基础设施使用的原始 TCP 桥。
 
@@ -108,7 +108,7 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 - 另一个要管理的端口
 - 当您实际运行 Java 端桥时最有用
-- Bedrock插件包不使用
+- Bedrock 附加包不使用
 
 ### 典型配置
 
@@ -131,19 +131,19 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 使用 `McHttp`。
 
-继续[McHttp for BDS](/minecraft/mchttp-bds)。
+继续阅读 [McHttp for BDS](/minecraft/mchttp-bds)。
 
-### Bedrock单人/本地世界
+### Bedrock 单人/本地世界
 
 使用 `McWss`。
 
-继续[McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)。
+继续阅读 [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)。
 
 ### Java + Geyser/Floodgate
 
 使用 `McTcp` 到 `GeyserVoice`。
 
-继续[GeyserVoice](/ecosystem/geyservoice)。
+继续阅读 [GeyserVoice](/ecosystem/geyservoice)。
 
 ### 混合网络
 
@@ -169,8 +169,8 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 ## 验证清单
 
 - 选择的传输 `Enabled` 字段是 `true`
-- 匹配的插件/插件已安装
+- 匹配的附加包或插件已安装
 - 端点主机/端口可从 Minecraft 端运行时访问
-- 插件/插件令牌与正确的 `LoginToken` 匹配
-- 服务器日志显示传输消费者连接
+- 附加包或插件令牌与正确的 `LoginToken` 匹配
+- 服务器日志显示传输使用方已连接
 - 绑定流程在传输登录后起作用

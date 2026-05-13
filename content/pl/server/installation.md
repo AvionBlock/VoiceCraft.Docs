@@ -1,6 +1,6 @@
 # Instalacja serwera
 
-`VoiceCraft.Server` to samodzielny backend, który akceptuje ruch głosowy klienta i udostępnia transporty skierowane do Minecrafta.
+`VoiceCraft.Server` to samodzielny backend, który akceptuje ruch głosowy klientów i udostępnia transporty po stronie Minecrafta.
 
 Użyj tej strony jako ścieżki konfiguracji serwera. Na koniec powinieneś mieć działający serwer, wygenerowaną konfigurację, wybrany jeden transport Minecraft i przejrzystą następną stronę do integracji z Minecraftem.
 
@@ -10,7 +10,7 @@ Serwer VoiceCraft udostępnia wiele warstw jednocześnie:
 
 - Serwer głosowy VoiceCraft UDP
 - `McHttp` transport dla integracji Bedrock
-- `McWss` transport dla przepływów w gnieździe internetowym/tunelu poleceń Bedrock
+- `McWss` transport dla przepływów WebSocket/tunelu poleceń Bedrock
 - Transport `McTcp` dla mostów po stronie Java, takich jak `GeyserVoice`
 
 Możesz pozostawić wszystkie włączone lub wybrać transporty w czasie wykonywania.
@@ -36,7 +36,7 @@ Strona wydania zazwyczaj zawiera:
 - Linux:
   `VoiceCraft.Server.Linux.x64.zip`, `arm`, `arm64`
 
-Pobierz: [Download Page](/download)
+Pobierz: [strona pobierania](/download)
 
 ## Windows
 
@@ -76,24 +76,24 @@ Najpierw wykonaj te zmiany:
 2. Wybierz jeden podstawowy transport Minecraft:
    - Serwer dedykowany Bedrock: włącz `McHttpConfig`
    - lokalny świat Bedrock: włącz `McWssConfig`
-   - Java + gejzer/zastawka: włącz `McTcpConfig`
+   - Java + Geyser/Floodgate: włącz `McTcpConfig`
 3. Ustaw hosta transportu:
    - użyj `127.0.0.1`, gdy Minecraft działa na tym samym komputerze
    - używaj `0.0.0.0` lub adresu LAN/publicznego tylko wtedy, gdy musi połączyć się inna maszyna
 4. Zachowaj dostępność `VoiceCraftConfig.Port` dla klientów graczy.
 5. Uruchom ponownie `VoiceCraft.Server` po zapisaniu konfiguracji.
 
-W przypadku wszystkich pól konfiguracyjnych kontynuuj [First Server Run](/server/first-run) i [ServerProperties.json](/server/server-properties).
+W przypadku wszystkich pól konfiguracyjnych kontynuuj [pierwsze uruchomienie serwera](/server/first-run) i [ServerProperties.json](/server/server-properties).
 
 ## Połącz resztę stosu
 
 Po czystym ponownym uruchomieniu serwera:
 
-1. Zainstaluj klienta VoiceCraft dla każdego gracza z [Download Page](/download).
+1. Zainstaluj klienta VoiceCraft dla każdego gracza ze [strony pobierania](/download).
 2. Dodaj wpis serwera w kliencie:
    - host: adres twojego serwera VoiceCraft
    - port: `VoiceCraftConfig.Port`, zwykle `9050`
-3. Postępuj zgodnie z przewodnikiem Minecraft dotyczącym wybranego środka transportu:
+3. Postępuj zgodnie z przewodnikiem Minecraft dotyczącym wybranego transportu:
    - [McHttp for BDS](/minecraft/mchttp-bds)
    - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
    - [GeyserVoice](/ecosystem/geyservoice)
@@ -152,9 +152,9 @@ Zanim udostępnisz graczom konfigurację, potwierdź:
 - `VoiceCraft.Server` uruchamia się bez błędów konfiguracji i portu
 - wszystkie wygenerowane wartości `LoginToken` zostały zastąpione
 - odsłonięty jest tylko niezbędny transport
-- Host klienta i port są zgodne `VoiceCraftConfig.Port`
+- Host klienta i port są zgodne z `VoiceCraftConfig.Port`
 - Dodatek lub wtyczka Minecraft używa pasującego tokena transportowego
-- bind flow działa w grze
+- przepływ powiązania działa w grze
 
 ## Uruchom jako usługę systemową (Linux)
 
@@ -187,7 +187,7 @@ sudo systemctl status voicecraft
 
 ## Kompiluj ze źródła
 
-Zobacz [VoiceCraft repository and build](/ecosystem/voicecraft-repository), aby uzyskać szczegółowe informacje na temat pakietu SDK i projektu.
+Zobacz [repozytorium i budowanie VoiceCraft](/ecosystem/voicecraft-repository), aby uzyskać szczegółowe informacje na temat SDK i projektu.
 
 Minimalny przepływ:
 
@@ -201,10 +201,10 @@ dotnet run --project VoiceCraft.Server
 
 ## Co czytać dalej
 
-- [First Server Run](/server/first-run)
+- [Pierwsze uruchomienie serwera](/server/first-run)
 - [ServerProperties.json](/server/server-properties)
-- [Transport Modes](/server/transports)
-- [Client Installation](/client/installation)
+- [Tryby transportu](/server/transports)
+- [Instalacja klienta](/client/installation)
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
 - [GeyserVoice](/ecosystem/geyservoice)

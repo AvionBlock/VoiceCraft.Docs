@@ -2,9 +2,9 @@
 
 主服务器配置文件：`config/ServerProperties.json`。
 
-该文件是在第一个服务器启动后创建的，并成为服务器的持久事实来源。在编辑服务器之前停止服务器，除非您的进程管理器设计为安全地重新加载配置。
+该文件会在服务器首次启动后创建，并成为服务器行为的持久配置来源。编辑之前请停止服务器，除非您的进程管理器支持安全重新加载配置。
 
-当您需要了解字段控制什么以及哪些字段必须与客户端、插件或插件匹配时，请使用此页面。
+当您需要了解字段控制什么，以及哪些字段必须与客户端、附加包或插件匹配时，请使用此页面。
 
 ## 编辑工作流程
 
@@ -107,9 +107,9 @@
 
 `PositioningType` 必须与客户端设置匹配。在大多数 BDS 和 GeyserVoice 设置中，以 `0 = Server` 开头。
 
-## 麦克WSS配置
+## McWss 配置
 
-用于 websocket / 命令隧道Bedrock流。
+用于 WebSocket/命令隧道 Bedrock 流程。
 
 - `Enabled`：
   启用或禁用 McWss。
@@ -130,11 +130,11 @@
 - `DisabledPacketTypes`：
   此传输上阻止的数据包类型。
 
-使用 `McWss` 进行本地世界和测试。命令隧道依赖于`DataTunnelCommand`；仅在一侧更改它会破坏传输。
+使用 `McWss` 进行本地世界和测试。命令隧道依赖于 `DataTunnelCommand`；只在一侧更改它会破坏传输。
 
-## 麦克HTTP配置
+## McHttp 配置
 
-用于Bedrock 专用服务器和基于 HTTP 的集成。
+用于 Bedrock 专用服务器和基于 HTTP 的集成。
 
 - `Enabled`
 - `LoginToken`
@@ -156,9 +156,9 @@
 }
 ```
 
-当 BDS 可以到达 VoiceCraft HTTP 端点时，请使用 `McHttp`。如果 BDS 和 VoiceCraft 在不同的计算机上运行，​​从 BDS 的角度来看 `127.0.0.1` 将指向错误的主机。
+当 BDS 可以到达 VoiceCraft HTTP 端点时，请使用 `McHttp`。如果 BDS 和 VoiceCraft 在不同的计算机上运行，从 BDS 的角度来看 `127.0.0.1` 将指向错误的主机。
 
-## McTcp配置
+## McTcp 配置
 
 由 Java 端桥使用，尤其是 `GeyserVoice`。
 
@@ -171,7 +171,7 @@
 - `Port`：
   TCP 监听端口。
 - `MaxClients`：
-  最大的运输客户。
+  最大传输客户端数。
 - `MaxTimeoutMs`：
   不活动超时。
 - `DisabledPacketTypes`：
@@ -202,7 +202,7 @@
 
 您可以覆盖或扩展字典以更改新实体的默认效果行为。
 
-仅当您了解效果管道时才更改这些。对于大多数部署，请在更改默认效果之前验证基本绑定和接近行为。
+仅当您了解效果管线时才更改这些。对于大多数部署，请在更改默认效果之前验证基本绑定和距离感行为。
 
 ## 禁用数据包类型
 
@@ -237,7 +237,7 @@
 
 ## 最小拓扑示例
 
-### 仅北斗系统
+### 仅 BDS
 
 ```json
 {
@@ -293,5 +293,5 @@
 
 另请参阅：
 
-- [Runtime Overrides](/server/runtime-overrides)
-- [Transport Modes](/server/transports)
+- [运行时覆盖](/server/runtime-overrides)
+- [传输模式](/server/transports)

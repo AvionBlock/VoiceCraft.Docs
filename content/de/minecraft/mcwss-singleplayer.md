@@ -38,8 +38,8 @@ Wenn Sie einen echten Bedrock Dedicated Server betreiben, verwenden Sie stattdes
 
 Hilfreiche Links:
 
-- [Download Page](/download) für das Rohversionspaket `Core.McWss`
-- [Addon Configurator](/addon-configurator) für ein sofort entpackbares Weltarchiv
+- [Download-Seite](/download) für das Rohversionspaket `Core.McWss`
+- [Add-on-Konfigurator](/addon-configurator) für ein sofort entpackbares Weltarchiv
 
 ## VoiceCraft-Serverkonfiguration
 
@@ -152,8 +152,8 @@ Fahren Sie in diesem Fall mit [McHttp for BDS](/minecraft/mchttp-bds) fort.
 - `/voicecraft:vcconnect <LOGIN_TOKEN>` ist erfolgreich
 - Der VoiceCraft-Client stellt eine Verbindung zum UDP-Endpunkt her
 - `PositioningType` stimmt überein zwischen Client und Server
-- Bind Flow funktioniert im Spiel
-- Durch Bewegen des Players ändert sich das Annäherungsverhalten
+- Bindungsablauf funktioniert im Spiel
+- Durch Bewegen des Spielers ändert sich das Proximity-Verhalten
 
 ## Häufige Probleme
 

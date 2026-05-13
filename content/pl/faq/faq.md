@@ -32,7 +32,7 @@ Jeśli chcesz przewidywalnej konfiguracji produkcyjnej, użyj BDS z `McHttp` lub
   `McHttp`
 - lokalny świat Bedrock:
   `McWss`
-- Java + gejzer / śluza:
+- Java + Geyser/Floodgate:
   `McTcp` do `GeyserVoice`
 
 Transport dotyczy stanu po stronie Minecrafta. Klienci gracza nadal łączą się z punktem końcowym UDP VoiceCraft.

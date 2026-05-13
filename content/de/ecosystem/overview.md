@@ -73,7 +73,7 @@ Durch diese Aufteilung kann sich jedes Projekt rund um seine Laufzeit weiterentw
 ## Wählen Sie, wo Sie beginnen möchten
 
 - Neuer dedizierter Bedrock-Server:
-  Beginnen Sie mit [Quick Start](/start/quick-start), dann [McHttp for BDS](/minecraft/mchttp-bds).
+  Beginnen Sie mit [Schnellstart](/start/quick-start), dann [McHttp for BDS](/minecraft/mchttp-bds).
 - Lokale Bedrock-Tests:
   Beginnen Sie mit [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 - Java + Geyser/Floodgate:
@@ -83,7 +83,7 @@ Durch diese Aufteilung kann sich jedes Projekt rund um seine Laufzeit weiterentw
 
 ## Weiter mit
 
-- [VoiceCraft repository and build](/ecosystem/voicecraft-repository)
+- [VoiceCraft-Repository und Build](/ecosystem/voicecraft-repository)
 - [GeyserVoice overview](/ecosystem/geyservoice)
 - [VoiceCraft.Addon overview](/ecosystem/voicecraft-addon)
 - [Addon API](/ecosystem/addon-api)

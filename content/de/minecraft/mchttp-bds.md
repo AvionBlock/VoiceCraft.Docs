@@ -23,7 +23,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 
 1. Ausführen von `VoiceCraft.Server`
 2. `McHttpConfig.Enabled = true`
-3. `VoiceCraft.Addon.Core.McHttp.zip` aus Veröffentlichungen oder ein fertiges Weltarchiv aus dem [Addon Configurator](/addon-configurator)
+3. `VoiceCraft.Addon.Core.McHttp.zip` aus Veröffentlichungen oder ein fertiges Weltarchiv aus dem [Add-on-Konfigurator](/addon-configurator)
 4. BDS mit erforderlichen Modulen und Skript-API-Unterstützung
 5. Netzwerkerreichbarkeit vom BDS-Gerät zum VoiceCraft `McHttpConfig.Hostname`
 6. Von Spielern installierte VoiceCraft-Clients
@@ -56,8 +56,8 @@ Wichtig:
 
 Schnellster Weg:
 
-- [Addon Configurator](/addon-configurator), wenn Sie ein sofort entpackbares Weltarchiv wünschen
-- [Download Page](/download), wenn Sie das Roh-Add-on-Release-Paket wünschen
+- [Add-on-Konfigurator](/addon-configurator), wenn Sie ein sofort entpackbares Weltarchiv wünschen
+- [Download-Seite](/download), wenn Sie das Roh-Add-on-Release-Paket wünschen
 
 Manueller Pfad:
 
@@ -167,5 +167,5 @@ Zu diesem Zeitpunkt ist die Übertragung verbunden, aber jeder Spieler benötigt
 
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
 - [Addon API](/ecosystem/addon-api)
-- [Download Page](/download)
-- [Addon Configurator](/addon-configurator)
+- [Download-Seite](/download)
+- [Add-on-Konfigurator](/addon-configurator)

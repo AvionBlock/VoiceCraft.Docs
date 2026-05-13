@@ -27,7 +27,7 @@ players -> VoiceCraft UDP endpoint
 
 Houd `McWss` en `McTcp` uitgeschakeld tenzij u een specifieke reden hebt om ze uit te voeren.
 
-## Blauwdruk 2: Lokale gemeenschap / SMP met geiser
+## Blauwdruk 2: Lokale community / SMP met Geyser
 
 Gebruik:
 

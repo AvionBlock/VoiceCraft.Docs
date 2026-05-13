@@ -11,9 +11,9 @@ Als het bestand niet wordt gevonden, maakt de server automatisch:
 - `config/`
 - `config/ServerProperties.json`
 
-Dit bestand wordt de belangrijkste blijvende bron van waarheid voor servergedrag.
+Dit bestand wordt de belangrijkste blijvende bron voor servergedrag.
 
-Nadat het bestand verschijnt, stopt u de server, bewerkt u de configuratie en start u deze opnieuw. De eerste lancering creëert alleen de basislijn; de installatie is nog niet voltooid.
+Nadat het bestand verschijnt, stopt u de server, bewerkt u de configuratie en start u deze opnieuw. De eerste start maakt alleen de basisconfiguratie aan; de installatie is nog niet voltooid.
 
 ## Standaardpoorten en eindpunten
 
@@ -30,7 +30,7 @@ Opmerkingen:
 - `McWss` wordt standaard gescheiden op `9051`
 - `McTcp` is vooral relevant voor `GeyserVoice`
 
-## Lineair eerste run-pad
+## Lineair pad voor de eerste run
 
 ### 1. Stop en open de gegenereerde configuratie
 
@@ -50,7 +50,7 @@ Voordat een add-on, plug-in of speler-client verbinding maakt, vervangt u:
 - `McWssConfig.LoginToken`
 - `McTcpConfig.LoginToken`
 
-Gebruik het token van het transportmiddel dat je later daadwerkelijk aansluit. Een BDS `vcconnect`-opdracht moet bijvoorbeeld `McHttpConfig.LoginToken` gebruiken, terwijl GeyserVoice `McTcpConfig.LoginToken` moet gebruiken.
+Gebruik het token van het transport dat u later daadwerkelijk aansluit. Een BDS `vcconnect`-opdracht moet bijvoorbeeld `McHttpConfig.LoginToken` gebruiken, terwijl GeyserVoice `McTcpConfig.LoginToken` moet gebruiken.
 
 ### 3. Kies één primair Minecraft-transport
 
@@ -62,7 +62,7 @@ Gebruik de topologie om te beslissen wat moet worden ingeschakeld:
 | Lokale Bedrock-wereld | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
 | Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
 
-U kunt meerdere transporten uitvoeren, maar een eerste configuratie is gemakkelijker te debuggen als alleen de vereiste wordt weergegeven.
+U kunt meerdere transporten uitvoeren, maar een eerste configuratie is gemakkelijker te debuggen als alleen het vereiste transport wordt geopend.
 
 ### 4. Stel hostbindingen in
 
@@ -79,14 +79,14 @@ Gebruik `0.0.0.0` alleen wanneer een andere machine, container of gamehost Voice
 Start `VoiceCraft.Server` opnieuw vanuit dezelfde map. Let op:
 
 - ongeldige JSON-fouten
-- poort al in gebruik fouten
-- mislukte luisteraar of bindingsfouten
+- fouten doordat de poort al in gebruik is
+- mislukte listeners of bindingsfouten
 
 Los deze op voordat u verder gaat. Een Minecraft-add-on of plug-in kan geen betrouwbare verbinding maken terwijl de server opstartfouten meldt.
 
 ### 6. Sluit een VoiceCraft-client aan
 
-Installeer de client vanaf [Download Page](/download) en voeg vervolgens een serververmelding toe:
+Installeer de client vanaf de [downloadpagina](/download) en voeg vervolgens een serververmelding toe:
 
 - host: het VoiceCraft-serveradres
 - poort: `VoiceCraftConfig.Port`, meestal `9050`
@@ -113,12 +113,12 @@ Wanneer u om een token wordt gevraagd, gebruikt u het overeenkomende transportto
 
 De eerste installatie is voltooid wanneer:
 
-- serverlogboeken tonen geen configuratie- of luisteraarfouten
+- serverlogboeken tonen geen configuratie- of listenerfouten
 - de VoiceCraft-client maakt verbinding met het UDP-eindpunt
 - Minecraft authenticeert via het geselecteerde transport
 - in-game bindstroom werkt
-- Updates van spelersposities bereiken VoiceCraft
-- proximity voice werkt op het verwachte bereik
+- positie-updates van spelers bereiken VoiceCraft
+- proximity voice werkt binnen het verwachte bereik
 
 ## Opstartargumenten
 
@@ -135,7 +135,7 @@ VoiceCraft-server ondersteunt deze hoofdargumenten:
 - `--transport-port <port>`
   Overschrijf de geconfigureerde Minecraft-transportpoort.
 - `--server-key <token>`
-  Overschrijf het gedeelde Minecraft-inlogtoken voor de huidige uitvoering.
+  Overschrijf het gedeelde Minecraft-login-token voor de huidige uitvoering.
 
 Er bestaan ook korte aliassen in de code:
 
@@ -194,14 +194,14 @@ Ze zijn alleen van toepassing op het huidige proces en zijn nuttig wanneer:
 1. Voer de server één keer uit om `config/ServerProperties.json` te genereren.
 2. Stop de server voordat u de gegenereerde configuratie bewerkt.
 3. Wijzig alle gegenereerde inlogtokens.
-4. Bevestig welk vervoer je daadwerkelijk nodig hebt:
+4. Bevestig welk transport u daadwerkelijk nodig hebt:
    - `McHttp` voor BDS
    - `McWss` voor lokale werelden
    - `McTcp` voor `GeyserVoice`
 5. Controleer hostbindingen.
 6. Open alleen de poorten die u nodig heeft.
 7. Start de server opnieuw op vanuit dezelfde installatiemap.
-8. Bevestig `PositioningType` bij uw klanten.
+8. Bevestig `PositioningType` met uw clients.
 9. Test de clientverbinding voordat u Minecraft-automatisering aansluit.
 10. Sluit de Minecraft-add-on of plug-in aan en valideer de bindstroom.
 
@@ -209,8 +209,8 @@ Ze zijn alleen van toepassing op het huidige proces en zijn nuttig wanneer:
 
 - de gegenereerde tokens ongewijzigd laten
 - het blootstellen van `127.0.0.1` eindpunten aan externe knooppunten
-- we vergeten dat `McTcp` mogelijk vereist is voor bruggen aan Java-zijde
-- waardoor elk transport in de productie mogelijk wordt gemaakt zonder dat het daadwerkelijk nodig is
+- vergeten dat `McTcp` mogelijk vereist is voor bridges aan Java-zijde
+- elk transport in productie inschakelen zonder dat het daadwerkelijk nodig is
 - bewerken van `ServerProperties.json` terwijl een procesmanager onmiddellijk de oude kapotte configuratie opnieuw opstart
 - met behulp van de UDP-clientpoort waar de Minecraft-gids een transporteindpunt verwacht
 

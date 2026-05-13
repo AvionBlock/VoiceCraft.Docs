@@ -27,7 +27,7 @@ players -> VoiceCraft UDP endpoint
 
 Pozostaw `McWss` i `McTcp` wyłączone, chyba że masz konkretny powód, aby je uruchomić.
 
-## Plan 2: Społeczność lokalna / SMP z gejzerem
+## Plan 2: Lokalna społeczność / SMP z Geyser
 
 Użyj:
 

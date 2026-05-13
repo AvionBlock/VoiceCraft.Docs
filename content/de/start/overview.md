@@ -1,23 +1,23 @@
 # Übersicht
 
-VoiceCraft ist eine Proximity-Sprachplattform für Minecraft Bedrock Edition und verwandte Bridge-Szenarien.
+VoiceCraft ist eine Plattform für positionsabhängigen Sprachchat in Minecraft Bedrock Edition und verwandten Bridge-Szenarien.
 
 Damit können Spieler einen separaten Sprachclient ausführen, während die Minecraft-seitige Automatisierung dem Sprachserver mitteilt, wo sich jeder Spieler befindet, in welcher Welt er sich befindet und welche Effekte oder Sichtbarkeitsregeln gelten sollen.
 
-VoiceCraft ist nützlich, wenn Sie Proximity Voice wünschen, ohne von einer genauen Minecraft-Serverform abhängig zu sein. Die gleiche Kernlaufzeit kann mit Bedrock-Add-ons, Java/Geyser-Bridges oder Proxy-Bereitstellungen kombiniert werden.
+VoiceCraft ist nützlich, wenn Sie positionsabhängigen Sprachchat benötigen, ohne an eine bestimmte Minecraft-Server-Topologie gebunden zu sein. Dieselbe Kernlaufzeit kann mit Bedrock-Add-ons, Java/Geyser-Bridges oder Proxy-Bereitstellungen kombiniert werden.
 
 ## Was Sie einrichten
 
-Die meisten Bereitstellungen bestehen aus drei beweglichen Teilen:
+Die meisten Bereitstellungen bestehen aus drei Komponenten:
 
 1. `VoiceCraft.Client`
    Desktop- und mobile App, die von jedem Spieler installiert wird
 2. `VoiceCraft.Server`
    eigenständiges Backend für Sprachverkehr, Statussynchronisierung, Moderation und Transportendpunkte
-3. Minecraft-orientierte Transporte
+3. Minecraft-seitige Transporte
    `McHttp`, `McWss` und `McTcp`
 
-Ökosystemintegrationen verbinden Minecraft mit diesen Transportmitteln:
+Ökosystemintegrationen verbinden Minecraft mit diesen Transporten:
 
 - `VoiceCraft.Addon` für Bedrock Worlds und BDS
 - `GeyserVoice` für Java/Geyser/Proxy-Stacks
@@ -30,9 +30,9 @@ Die meisten Bereitstellungen bestehen aus drei beweglichen Teilen:
    - `McHttp` für BDS
    - `McWss` für lokale Bedrock-Welten
    - `McTcp` für `GeyserVoice`
-4. Der Client rendert Proximity-Audio entsprechend dem Serverstatus und den ausgewählten lokalen Einstellungen.
+4. Der Client spielt Proximity-Audio entsprechend dem Serverstatus und den ausgewählten lokalen Einstellungen ab.
 
-Die Sprachverbindung und die Minecraft-Transportverbindung sind getrennt. Wenn nur eine Seite angeschlossen ist, sieht das Setup möglicherweise teilweise fehlerfrei aus, das Näherungsverhalten ist jedoch immer noch unvollständig.
+Die Sprachverbindung und die Minecraft-Transportverbindung sind getrennt. Wenn nur eine Seite verbunden ist, kann das Setup teilweise funktionsfähig wirken, das Proximity-Verhalten bleibt jedoch unvollständig.
 
 ## Unterstützte Client-Plattformen
 
@@ -54,7 +54,7 @@ Diese Flexibilität bedeutet auch, dass die erste Entscheidung zählt: Wählen S
 
 ## Gängige Topologieoptionen
 
-| Wenn du rennst... | Beginnen Sie mit... | Warum |
+| Wenn Sie ... betreiben | Beginnen Sie mit... | Warum |
 |---------------|---------------|-----|
 | Dedizierter Bedrock-Server | [McHttp for BDS](/minecraft/mchttp-bds) | BDS kann einen stabilen HTTP-Endpunkt aufrufen |
 | Lokale Bedrock-Welt | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | Funktioniert über den lokalen Websocket-/Befehlstunnelfluss |
@@ -63,8 +63,8 @@ Diese Flexibilität bedeutet auch, dass die erste Entscheidung zählt: Wählen S
 
 ## Was Sie als nächstes lesen sollten
 
-- [Quick Start](/start/quick-start)
-- [Download](/download)
-- [Transport Modes](/server/transports)
-- [System Architecture](/architecture/system-architecture)
-- [Ecosystem Overview](/ecosystem/overview)
+- [Schnellstart](/start/quick-start)
+- [Downloads](/download)
+- [Transportmodi](/server/transports)
+- [Systemarchitektur](/architecture/system-architecture)
+- [Ökosystem-Überblick](/ecosystem/overview)

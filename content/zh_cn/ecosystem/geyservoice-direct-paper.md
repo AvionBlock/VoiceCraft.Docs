@@ -101,7 +101,7 @@ config:
   验证令牌、主机、端口和绑定流程
 - 外部 VoiceCraft 永远不会看到该插件：
   确认 `McTcpConfig.Enabled = true`、主机绑定、防火墙和 `config.voicecraft.transport.*`
-- 客户端已连接，但 Java 状态不影响邻近度：
+- 客户端已连接，但 Java 状态不影响距离感效果：
   检查`/voice bind`、位置更新间隔、服务器端定位模式
 
 ## 验证清单
@@ -111,4 +111,4 @@ config:
 - `McTcpConfig.LoginToken` 匹配 `config.voicecraft.transport.login-token`
 - 玩家可以连接 VoiceCraft 客户端
 - 玩家可以完成 `/voice bind <key>`
-- 游戏中的移动会改变邻近行为
+- 游戏中的移动会改变距离感行为

@@ -120,7 +120,7 @@ setworldid 12 overworld
 setposition 12 100 64 100
 ```
 
-Używaj tego tylko do izolowania zachowania. Jeśli integracja wyśle ​​później nową aktualizację, może to spowodować nadpisanie wprowadzonych ręcznie wartości.
+Używaj tego tylko do izolowania zachowania. Jeśli integracja wyśle później nową aktualizację, może to spowodować nadpisanie wprowadzonych ręcznie wartości.
 
 ## Uwagi dotyczące bezpieczeństwa
 

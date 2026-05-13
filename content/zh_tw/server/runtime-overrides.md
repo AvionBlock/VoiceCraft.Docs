@@ -1,15 +1,15 @@
-# 運行時覆蓋
+# 執行時間覆蓋
 
 VoiceCraft 伺服器透過根 CLI 選項支援執行時間覆蓋。
 
-執行時間覆蓋會變更正在執行的進程，而無需永久重寫 `config/ServerProperties.json`。當面板、容器、systemd 單元或插件啟動伺服器並需要注入特定於環境的值時，它們非常有用。
+執行時間覆蓋會變更正在執行的進程，但不會永久重寫 `config/ServerProperties.json`。當面板、容器、systemd 單元或外掛程式啟動伺服器，並需要注入特定環境的值時，它們很有用。
 
 這些選項在以下情況下非常理想：
 
 - 您想要環境特定的值而不編輯 JSON
 - 流程管理器在啟動時注入值
-- `GeyserVoice` 自動啟動 VoiceCraft 運轉時
-- 您可以從同一安裝資料夾測試多種傳輸拓撲
+- `GeyserVoice` 會自動啟動 VoiceCraft 執行時間
+- 您從同一安裝資料夾測試多種傳輸拓撲
 
 如果您正在進行簡單的手動安裝，請先編輯 `ServerProperties.json` 並僅在覆蓋使部署更清晰時才使用覆蓋。
 
@@ -29,7 +29,7 @@ VoiceCraft 伺服器透過根 CLI 選項支援執行時間覆蓋。
 這意味著：
 
 - JSON 檔案保持持久預設值
-- CLI 值在該運行中獲勝
+- CLI 值在該次執行中優先
 - 在沒有相同 CLI 標誌的情況下重新啟動會傳回 JSON 值
 - 即使您的生產過程使用覆蓋，備份仍應包含 JSON 配置
 
@@ -37,7 +37,7 @@ VoiceCraft 伺服器透過根 CLI 選項支援執行時間覆蓋。
 
 ### `--language`
 
-覆蓋目前進程的 `VoiceCraftConfig.Language` 。
+覆蓋目前進程的 `VoiceCraftConfig.Language`。
 
 範例：
 
@@ -49,7 +49,7 @@ VoiceCraft 伺服器透過根 CLI 選項支援執行時間覆蓋。
 
 ### `--transport-mode`
 
-僅為目前運行啟用選定的 Minecraft 傳輸。
+僅為目前執行啟用選定的 Minecraft 傳輸。
 
 接受的值：
 
@@ -69,7 +69,7 @@ VoiceCraft 伺服器透過根 CLI 選項支援執行時間覆蓋。
 
 設定後，VoiceCraft 首先停用所有 Minecraft 傳輸，然後僅重新啟用選定的傳輸。
 
-這是運行單一用途進程最安全的方法。例如，僅 BDS 主機可以以 `--transport-mode http` 開頭，即使 JSON 設定仍包含其他傳輸的預設值。
+這是執行單用途進程最安全的方式。例如，即使 JSON 設定中仍保留其他傳輸的預設值，僅用於 BDS 的主機也可以用 `--transport-mode http` 啟動。
 
 ### `--transport-host`
 
@@ -85,7 +85,7 @@ VoiceCraft 伺服器透過根 CLI 選項支援執行時間覆蓋。
 ./VoiceCraft.Server --transport-host 0.0.0.0
 ```
 
-對於 `McHttp` 和 `McWss`，VoiceCraft 將主機套用到 URI 樣式的主機名稱。對於 `McTcp`，它會套用普通主機欄位。
+對於 `McHttp` 和 `McWss`，VoiceCraft 會把主機套用到 URI 形式的主機名稱。對於 `McTcp`，它會套用到普通主機欄位。
 
 ### `--transport-port`
 
@@ -160,8 +160,8 @@ Restart=always
 
 ## 重要行為
 
-- 運行時覆蓋是進程本地的
-- 他們不會永久重寫 `ServerProperties.json`
+- 執行時間覆蓋是進程本地的
+- 它們不會永久重寫 `ServerProperties.json`
 - 它們非常適合測試和自動化
 - 它們減少了對多個配置副本的需求
 - 如果進程管理器重新啟動伺服器，則每次都必須傳遞相同的覆蓋
@@ -171,7 +171,7 @@ Restart=always
 
 在以下情況下避免覆蓋：
 
-- 你還在學習配置形狀
+- 您還在熟悉配置結構
 - 您希望另一位管理員僅檢查 `ServerProperties.json`
 - 您在設定檔之外沒有可靠的地方來儲存機密
 - 覆蓋使得不清楚實際啟用了哪種傳輸

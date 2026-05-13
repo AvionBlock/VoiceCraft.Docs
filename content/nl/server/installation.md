@@ -1,6 +1,6 @@
 # Serverinstallatie
 
-`VoiceCraft.Server` is de zelfstandige backend die spraakverkeer van klanten accepteert en Minecraft-gerichte transporten beschikbaar maakt.
+`VoiceCraft.Server` is de zelfstandige backend die spraakverkeer van clients accepteert en Minecraft-transporten beschikbaar maakt.
 
 Gebruik deze pagina als het serverinstallatiepad. Tegen het einde zou je een actieve server moeten hebben, een gegenereerde configuratie, één Minecraft-transport geselecteerd en een duidelijke volgende pagina voor je Minecraft-integratie.
 
@@ -36,7 +36,7 @@ De releasepagina bevat meestal:
 - Linux:
   `VoiceCraft.Server.Linux.x64.zip`, `arm`, `arm64`
 
-Downloaden: [Download Page](/download)
+Downloaden: [downloadpagina](/download)
 
 ## Windows
 
@@ -80,20 +80,20 @@ Voer eerst deze bewerkingen uit:
 3. Stel de transporthost in:
    - gebruik `127.0.0.1` wanneer Minecraft op dezelfde machine draait
    - gebruik `0.0.0.0` of een LAN/openbaar adres alleen als een andere machine verbinding moet maken
-4. Houd `VoiceCraftConfig.Port` beschikbaar voor spelerklanten.
+4. Houd `VoiceCraftConfig.Port` beschikbaar voor spelersclients.
 5. Start `VoiceCraft.Server` opnieuw nadat u de configuratie hebt opgeslagen.
 
-Ga voor alle configuratievelden verder met [First Server Run](/server/first-run) en [ServerProperties.json](/server/server-properties).
+Ga voor alle configuratievelden verder met [Eerste serverrun](/server/first-run) en [ServerProperties.json](/server/server-properties).
 
 ## Verbind de rest van de stapel
 
 Zodra de server netjes opnieuw is opgestart:
 
-1. Installeer de VoiceCraft-client voor elke speler vanaf de [Download Page](/download).
+1. Installeer de VoiceCraft-client voor elke speler vanaf de [downloadpagina](/download).
 2. Voeg een serververmelding toe in de client:
    - host: uw VoiceCraft-serveradres
    - poort: `VoiceCraftConfig.Port`, meestal `9050`
-3. Volg de Minecraft-gids voor het door jou gekozen transportmiddel:
+3. Volg de Minecraft-gids voor het gekozen transport:
    - [McHttp for BDS](/minecraft/mchttp-bds)
    - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
    - [GeyserVoice](/ecosystem/geyservoice)
@@ -187,7 +187,7 @@ sudo systemctl status voicecraft
 
 ## Bouw vanuit de bron
 
-Zie [VoiceCraft repository and build](/ecosystem/voicecraft-repository) voor SDK- en projectdetails.
+Zie [VoiceCraft-repository en build](/ecosystem/voicecraft-repository) voor SDK- en projectdetails.
 
 Minimale stroom:
 
@@ -199,12 +199,12 @@ dotnet build -c Release
 dotnet run --project VoiceCraft.Server
 ```
 
-## Wat moet je nu lezen?
+## Wat u hierna kunt lezen
 
-- [First Server Run](/server/first-run)
+- [Eerste serverrun](/server/first-run)
 - [ServerProperties.json](/server/server-properties)
-- [Transport Modes](/server/transports)
-- [Client Installation](/client/installation)
+- [Transportmodi](/server/transports)
+- [Clientinstallatie](/client/installation)
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
 - [GeyserVoice](/ecosystem/geyservoice)

@@ -8,8 +8,8 @@
 
 快速連結：
 
-- [Download Page](/download)
-- [Addon Configurator](/addon-configurator)
+- [下載頁面](/download)
+- [附加包設定器](/addon-configurator)
 - [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
 
 ## 套餐
@@ -88,13 +88,13 @@ VoiceCraft `v1.6.1` 也廣播更多插件端生命週期和資料包事件，因
 
 `voicecraft:vcsettings` 目前公開：
 
-- 能見度
-- 鄰近性
+- 可見性
+- 距離感
 - 定向
-- 接近回波
+- 距離感回聲
 - 迴音
-- 接近消音器
-- 馬弗爐
+- 距離感悶音
+- 悶音
 
 效果透過 `McApiSetEffectRequestPacket` 發送。
 

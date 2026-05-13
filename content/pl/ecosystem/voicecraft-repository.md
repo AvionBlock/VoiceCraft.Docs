@@ -128,6 +128,6 @@ Aktualne osadzone ustawienia regionalne obejmują:
 
 - [Server Installation](/server/installation)
 - [ServerProperties.json](/server/server-properties)
-- [Transport Modes](/server/transports)
+- [Tryby transportu](/server/transports)
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
 - [GeyserVoice](/ecosystem/geyservoice)

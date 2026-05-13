@@ -2,7 +2,7 @@
 
 Diese Anleitung ist der schnellste Weg, um einen funktionierenden VoiceCraft-Stack zu erhalten.
 
-Es durchläuft absichtlich den gesamten Pfad: Server, generierte Konfiguration, Client, Minecraft-Transport und Validierung. Stoppen Sie nicht, nachdem die Server-Binärdatei gestartet wurde. Zu diesem Zeitpunkt existiert das Sprach-Backend, aber Minecraft hat noch keine Verbindung hergestellt.
+Die Anleitung führt bewusst durch den gesamten Ablauf: Server, generierte Konfiguration, Client, Minecraft-Transport und Validierung. Stoppen Sie nicht, nachdem die Server-Binärdatei gestartet wurde. Zu diesem Zeitpunkt existiert das Sprach-Backend, aber Minecraft ist noch nicht verbunden.
 
 ## Wählen Sie zunächst Ihre Topologie
 
@@ -18,11 +18,11 @@ Wenn Sie sich nicht sicher sind, beginnen Sie mit einem dieser Schritte:
 - Dedizierter Bedrock-Server: lesen Sie [McHttp for BDS](/minecraft/mchttp-bds)
 - Java + Geyser-Server: [GeyserVoice](/ecosystem/geyservoice) lesen
 
-Wählen Sie für eine erste Einrichtung eine Topologie aus und stellen Sie nur den Transport bereit, den sie benötigt. Sie können später gemischte Setups hinzufügen, nachdem der grundlegende Bindungs- und Proximity-Flow funktioniert.
+Wählen Sie für die erste Einrichtung eine Topologie aus und stellen Sie nur den Transport bereit, den sie benötigt. Sie können später gemischte Setups hinzufügen, nachdem der grundlegende Bindungs- und Proximity-Ablauf funktioniert.
 
 ## 1. Laden Sie den Server herunter
 
-1. Öffnen Sie [download page](/download).
+1. Öffnen Sie die [Download-Seite](/download).
 2. Laden Sie das Serverarchiv für Ihre Plattform herunter:
    - `VoiceCraft.Server.Windows.x64.zip`
    - `VoiceCraft.Server.Windows.x86.zip`
@@ -31,7 +31,7 @@ Wählen Sie für eine erste Einrichtung eine Topologie aus und stellen Sie nur d
    - `VoiceCraft.Server.Linux.arm.zip`
    - `VoiceCraft.Server.Linux.arm64.zip`
 
-Wenn Sie aus dem Quellcode erstellen, lesen Sie [VoiceCraft repository and build](/ecosystem/voicecraft-repository).
+Wenn Sie aus dem Quellcode erstellen, lesen Sie [VoiceCraft-Repository und Build](/ecosystem/voicecraft-repository).
 
 ## 2. Führen Sie den Server einmal aus
 
@@ -70,9 +70,9 @@ Der Token, den Sie später verwenden, muss mit dem Transport übereinstimmen:
 - Das lokale Bedrock `McWss`-Add-on verwendet `McWssConfig.LoginToken`
 - `GeyserVoice` verwendet `McTcpConfig.LoginToken`
 
-## 4. Wählen Sie den Minecraft-Transporter
+## 4. Wählen Sie den Minecraft-Transport
 
-VoiceCraft verfügt derzeit über drei Minecraft-orientierte Transportmittel:
+VoiceCraft verfügt derzeit über drei Minecraft-seitige Transporte:
 
 - `McHttp`:
   Am besten geeignet für dedizierte Bedrock-Server und die stabilste Bedrock-Automatisierung.
@@ -81,13 +81,13 @@ VoiceCraft verfügt derzeit über drei Minecraft-orientierte Transportmittel:
 - `McTcp`:
   Am besten für Java-seitige Bridges wie `GeyserVoice` geeignet.
 
-Den vollständigen Vergleich finden Sie unter [Transport Modes](/server/transports).
+Den vollständigen Vergleich finden Sie unter [Transportmodi](/server/transports).
 
 Stellen Sie sicher, dass der ausgewählte Transport aktiviert und an eine Adresse gebunden ist, die die Minecraft-seitige Laufzeit erreichen kann.
 
 ## 5. Laden Sie den Client herunter
 
-Laden Sie von [download page](/download) das Paket für Ihre Spieler herunter:
+Laden Sie von der [Download-Seite](/download) das Paket für Ihre Spieler herunter:
 
 - Windows: `VoiceCraft.Client.Windows.<arch>.zip`
 - Linux: `VoiceCraft.Client.Linux.<arch>.zip`
@@ -105,7 +105,7 @@ Laden Sie von [download page](/download) das Paket für Ihre Spieler herunter:
 
 Typisches lokales Setup:
 
-- Gastgeber: `127.0.0.1`
+- Host: `127.0.0.1`
 - Port: `9050`
 
 ## 7. Verbinden Sie die Minecraft-Seite
@@ -118,8 +118,8 @@ Durch diesen Schritt erhält VoiceCraft den In-Game-Status, der für Proximity-A
 
 Wenn Sie auf Bedrock bereitstellen, bewahren Sie diese beiden Seiten in der Nähe auf:
 
-- [Download Page](/download) für Rohversionsdateien für Client/Server/Add-On
-- [Addon Configurator](/addon-configurator) für ein sofort entpackbares Weltarchiv
+- [Download-Seite](/download) für Rohdateien der Client-/Server-/Add-on-Releases
+- [Add-on-Konfigurator](/addon-configurator) für ein sofort entpackbares Weltarchiv
 
 ## 8. Überprüfen Sie den Stapel
 
@@ -128,17 +128,17 @@ Wenn alles richtig konfiguriert ist:
 - Der VoiceCraft-Server startet ohne Konfigurations- oder Portfehler
 - Der Client stellt eine Verbindung ohne Transportfehler her
 - Die Minecraft-Integration authentifiziert sich mit dem erwarteten Token
-- Entitätserstellung und Bindungsflussarbeit
-- Spieler hören eine Annäherungsstimme, wenn sie sich in Reichweite befinden
+- Entitätserstellung und Bindungsablauf funktionieren
+- Spieler hören Proximity-Voice, wenn sie sich in Reichweite befinden
 
 Wenn der Client eine Verbindung herstellt, die Nähe jedoch nicht funktioniert, debuggen Sie den Minecraft-Transport- und Bindungsfluss, bevor Sie die Audioeinstellungen ändern.
 
 ## Empfohlene nächste Lektüre
 
-- [Server Installation](/server/installation)
-- [First Server Run](/server/first-run)
+- [Serverinstallation](/server/installation)
+- [Erster Serverlauf](/server/first-run)
 - [ServerProperties.json](/server/server-properties)
-- [Runtime Overrides](/server/runtime-overrides)
-- [Transport Modes](/server/transports)
-- [Download Page](/download)
-- [Addon Configurator](/addon-configurator)
+- [Laufzeitüberschreibungen](/server/runtime-overrides)
+- [Transportmodi](/server/transports)
+- [Download-Seite](/download)
+- [Add-on-Konfigurator](/addon-configurator)

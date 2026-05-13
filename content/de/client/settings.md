@@ -118,7 +118,7 @@ VoiceCraft speichert auch lokale Präferenzen pro Benutzer:
 
 Diese werden in `UserSettings.Users` gespeichert und clientseitig angewendet.
 
-Verwenden Sie die lokale Stummschaltung oder Lautstärke pro Benutzer, wenn nur ein Player zu laut oder störend für Sie ist. Verwenden Sie Befehle zum Stummschalten/Tauben des Servers, wenn das Personal die Moderation für alle erzwingen muss.
+Verwenden Sie die lokale Stummschaltung oder Lautstärke pro Benutzer, wenn nur ein Spieler zu laut oder störend für Sie ist. Verwenden Sie serverseitige Moderationsbefehle, wenn das Team eine Stummschaltung oder Deaktivierung des Hörens für alle erzwingen muss.
 
 ## Fortgeschritten
 

@@ -8,8 +8,8 @@ Verwenden Sie es, wenn Minecraft Bedrock die Quelle des Spieler-/Entitätsstatus
 
 Quicklinks:
 
-- [Download Page](/download)
-- [Addon Configurator](/addon-configurator)
+- [Download-Seite](/download)
+- [Add-on-Konfigurator](/addon-configurator)
 - [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
 
 ## Pakete
@@ -58,7 +58,7 @@ Paketübergreifend:
 ## Was Ihnen das Basic-Paket bietet
 
 - Bindungsfluss / entbinden
-- Benutzeroberfläche für Player-Einstellungen
+- Benutzeroberfläche für Spielereinstellungen
 - Effekt schaltet um
 - Skriptereignisse für die Automatisierung
 - In-Game-Indikatoren, die von unterstützten Versionen verwendet werden

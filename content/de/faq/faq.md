@@ -26,7 +26,7 @@ Es kann in begrenzten Szenarien funktionieren, insbesondere wenn die clientseiti
 
 Wenn Sie ein vorhersehbares Produktionssetup wünschen, verwenden Sie BDS mit `McHttp` oder eine Java/Geyser-Topologie mit `GeyserVoice`.
 
-## Welches Transportmittel soll ich nutzen?
+## Welchen Transport soll ich nutzen?
 
 - Dedizierter Bedrock-Server:
   `McHttp`
@@ -94,7 +94,7 @@ Dies wird für die Produktion empfohlen. Machen Sie nur den Transport verfügbar
 4. erfolgreicher Bindungsfluss
 5. Entitäten, die Positions- und Weltaktualisierungen erhalten
 
-Wenn `list --clientsOnly` den Player anzeigt, `list` jedoch keine sich ändernde Entitätsposition, debuggen Sie die Minecraft-Integration und nicht die Mikrofoneinstellungen.
+Wenn `list --clientsOnly` den Spieler anzeigt, `list` jedoch keine sich ändernde Entitätsposition, debuggen Sie die Minecraft-Integration und nicht die Mikrofoneinstellungen.
 
 ## Ist `McWss` gut für die Produktion?
 

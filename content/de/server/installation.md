@@ -36,7 +36,7 @@ Die Veröffentlichungsseite enthält normalerweise Folgendes:
 - Linux:
   `VoiceCraft.Server.Linux.x64.zip`, `arm`, `arm64`
 
-Herunterladen: [Download Page](/download)
+Herunterladen: [Download-Seite](/download)
 
 ## Windows
 
@@ -73,7 +73,7 @@ Führen Sie zuerst diese Änderungen durch:
    - `McHttpConfig.LoginToken`
    - `McWssConfig.LoginToken`
    - `McTcpConfig.LoginToken`
-2. Wählen Sie ein primäres Minecraft-Transportmittel aus:
+2. Wählen Sie einen primären Minecraft-Transport aus:
    - Dedizierter Bedrock-Server: `McHttpConfig` aktivieren
    - lokale Bedrock-Welt: `McWssConfig` aktivieren
    - Java + Geyser/Floodgate: `McTcpConfig` aktivieren
@@ -83,17 +83,17 @@ Führen Sie zuerst diese Änderungen durch:
 4. Halten Sie `VoiceCraftConfig.Port` für Spieler-Clients verfügbar.
 5. Starten Sie `VoiceCraft.Server` neu, nachdem Sie die Konfiguration gespeichert haben.
 
-Fahren Sie für alle Konfigurationsfelder mit [First Server Run](/server/first-run) und [ServerProperties.json](/server/server-properties) fort.
+Fahren Sie für alle Konfigurationsfelder mit [Erster Serverlauf](/server/first-run) und [ServerProperties.json](/server/server-properties) fort.
 
 ## Verbinden Sie den Rest des Stapels
 
 Sobald der Server sauber neu startet:
 
-1. Installieren Sie den VoiceCraft-Client für jeden Player von [Download Page](/download).
+1. Installieren Sie den VoiceCraft-Client für jeden Spieler von der [Download-Seite](/download).
 2. Fügen Sie im Client einen Servereintrag hinzu:
-   - host: Ihre VoiceCraft-Serveradresse
+   - Host: Ihre VoiceCraft-Serveradresse
    - Port: `VoiceCraftConfig.Port`, normalerweise `9050`
-3. Befolgen Sie die Minecraft-Anleitung für Ihr ausgewähltes Transportmittel:
+3. Befolgen Sie die Minecraft-Anleitung für den ausgewählten Transport:
    - [McHttp for BDS](/minecraft/mchttp-bds)
    - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
    - [GeyserVoice](/ecosystem/geyservoice)
@@ -154,7 +154,7 @@ Bevor Sie das Setup für Spieler öffnen, bestätigen Sie Folgendes:
 - Nur der Transport, den Sie benötigen, wird angezeigt
 - Client-Host und Port stimmen überein: `VoiceCraftConfig.Port`
 - Das Minecraft-Add-on oder -Plugin verwendet das passende Transport-Token
-- Bind Flow funktioniert im Spiel
+- Bindungsablauf funktioniert im Spiel
 
 ## Als systemd-Dienst ausführen (Linux)
 
@@ -187,7 +187,7 @@ sudo systemctl status voicecraft
 
 ## Aus dem Quellcode erstellen
 
-SDK- und Projektdetails finden Sie unter [VoiceCraft repository and build](/ecosystem/voicecraft-repository).
+SDK- und Projektdetails finden Sie unter [VoiceCraft-Repository und Build](/ecosystem/voicecraft-repository).
 
 Minimaler Durchfluss:
 
@@ -201,10 +201,10 @@ dotnet run --project VoiceCraft.Server
 
 ## Was Sie als nächstes lesen sollten
 
-- [First Server Run](/server/first-run)
+- [Erster Serverlauf](/server/first-run)
 - [ServerProperties.json](/server/server-properties)
-- [Transport Modes](/server/transports)
-- [Client Installation](/client/installation)
+- [Transportmodi](/server/transports)
+- [Clientinstallation](/client/installation)
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
 - [GeyserVoice](/ecosystem/geyservoice)

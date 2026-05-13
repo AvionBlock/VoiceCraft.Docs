@@ -98,13 +98,13 @@ xattr -dr com.apple.quarantine /Applications/VoiceCraft.app
 5. 确认 `Positioning Type` 与服务器匹配。
 6. 在开始 Minecraft 绑定流程之前进行连接。
 
-客户端连接成功仅证明语音端点可达。 Minecraft 的接近度仍然取决于连接到匹配传输的插件或插件。
+客户端连接成功仅证明语音端点可达。Minecraft 的距离感行为仍然取决于附加包或插件是否连接到匹配的传输。
 
 ## 常见的首次启动问题
 
 - 无麦克风输入：
   检查操作系统麦克风权限和选定的输入设备。
-- 客户端已连接但没有接近：
+- 客户端已连接但没有距离感效果：
   检查 Minecraft 传输、绑定流程和 `Positioning Type`。
 - 远程服务器无法连接：
   确认玩家和 `VoiceCraft.Server` 之间的 UDP 端口已打开。

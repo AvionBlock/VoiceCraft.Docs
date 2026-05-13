@@ -202,7 +202,7 @@ Standardmatrix:
 
 Sie können das Wörterbuch überschreiben oder erweitern, um das Standardeffektverhalten für neue Entitäten zu ändern.
 
-Ändern Sie diese nur, wenn Sie die Effektpipeline verstehen. Überprüfen Sie bei den meisten Bereitstellungen das grundlegende Bindungs- und Näherungsverhalten, bevor Sie Standardeffekte ändern.
+Ändern Sie diese nur, wenn Sie die Effektpipeline verstehen. Überprüfen Sie bei den meisten Bereitstellungen den grundlegenden Bindungsablauf und das Proximity-Verhalten, bevor Sie Standardeffekte ändern.
 
 ## DisabledPacketTypes
 
@@ -293,5 +293,5 @@ Wenn ein Transport erst nach dem Deaktivieren von Pakettypen funktioniert, betra
 
 Siehe auch:
 
-- [Runtime Overrides](/server/runtime-overrides)
-- [Transport Modes](/server/transports)
+- [Laufzeitüberschreibungen](/server/runtime-overrides)
+- [Transportmodi](/server/transports)

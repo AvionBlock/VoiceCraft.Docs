@@ -73,7 +73,7 @@ flowchart LR
 ## 选择从哪里开始
 
 - 新Bedrock 专用服务器：
-  从 [Quick Start](/start/quick-start) 开始，然后是 [McHttp for BDS](/minecraft/mchttp-bds)。
+  从 [快速入门](/start/quick-start) 开始，然后阅读 [McHttp for BDS](/minecraft/mchttp-bds)。
 - 本地 Bedrock测试：
   以 [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) 开头。
 - Java + Geyser/Floodgate：
@@ -83,7 +83,7 @@ flowchart LR
 
 ## 继续
 
-- [VoiceCraft repository and build](/ecosystem/voicecraft-repository)
+- [VoiceCraft 仓库和构建](/ecosystem/voicecraft-repository)
 - [GeyserVoice overview](/ecosystem/geyservoice)
 - [VoiceCraft.Addon overview](/ecosystem/voicecraft-addon)
 - [Addon API](/ecosystem/addon-api)

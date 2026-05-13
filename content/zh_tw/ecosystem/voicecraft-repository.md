@@ -25,12 +25,12 @@
 
 - 完整的客戶端設定模型
 - 嵌入式語言環境
-- 面向 Minecraft 的運輸：
+- 面向 Minecraft 的傳輸：
   `McHttp`、`McWss`、`McTcp`
 - VoiceCraft 和 McApi 層的資料包定義
 - 音訊效果和可視性系統
 
-了解這個儲存庫不是什麼也很重要：VoiceCraft 不是一個單一的 Minecraft 模組或插件。核心運行時與客戶端和 Minecraft 端整合（例如 `VoiceCraft.Addon` 或 `GeyserVoice`）協同工作。
+了解這個儲存庫不是什麼也很重要：VoiceCraft 不是一個單一的 Minecraft 模組或外掛程式。核心執行時間會與客戶端和 Minecraft 端整合（例如 `VoiceCraft.Addon` 或 `GeyserVoice`）協同工作。
 
 ## 建置要求
 
@@ -59,7 +59,7 @@ dotnet build -c Release
 
 如果復原失敗，請確認已安裝的 .NET SDK 與儲存庫 `global.json` 期望相符。
 
-## 運行伺服器
+## 執行伺服器
 
 ```bash
 dotnet run --project VoiceCraft.Server -- --language en-US
@@ -108,7 +108,7 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 
 1. 執行 `VoiceCraft.Server` 一次以產生配置。
 2. 取代所有產生的傳輸令牌。
-3. 決定您實際上需要哪種交通工具：
+3. 決定您實際需要哪種傳輸：
    - `McHttp`
    - `McWss`
    - `McTcp`
@@ -126,8 +126,8 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 
 ## 相關文件
 
-- [Server Installation](/server/installation)
+- [伺服器安裝](/server/installation)
 - [ServerProperties.json](/server/server-properties)
-- [Transport Modes](/server/transports)
+- [傳輸模式](/server/transports)
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
 - [GeyserVoice](/ecosystem/geyservoice)

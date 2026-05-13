@@ -8,8 +8,8 @@ Użyj go, gdy Minecraft Bedrock jest źródłem stanu gracza/bytu. Dodatek łąc
 
 Szybkie linki:
 
-- [Download Page](/download)
-- [Addon Configurator](/addon-configurator)
+- [Strona pobierania](/download)
+- [Konfigurator dodatku](/addon-configurator)
 - [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
 
 ## Pakiety
@@ -93,7 +93,7 @@ Klucz wiążący jest celowo krótki, ponieważ jest wpisywany w grze. Traktuj g
 - Kierunkowy
 - Echo bliskości
 - Echo
-- Mufa zbliżeniowa
+- Tłumienie zależne od odległości
 - Mufla
 
 Efekty są przesyłane poprzez `McApiSetEffectRequestPacket`.

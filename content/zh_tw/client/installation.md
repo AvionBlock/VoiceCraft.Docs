@@ -1,6 +1,6 @@
 # 客戶端安裝
 
-`VoiceCraft.Client` 是玩家的應用程式。每個想要說話或聽到近距離語音的玩家都需要在自己的裝置上運行它。
+`VoiceCraft.Client` 是玩家使用的應用程式。每個想要說話或聽到距離感語音的玩家都需要在自己的裝置上執行它。
 
 在 `VoiceCraft.Server` 可達後安裝客戶端。首次啟動期間，您將新增一個指向 VoiceCraft UDP 端點（通常為 `host:9050`）的伺服器項目。
 
@@ -98,13 +98,13 @@ xattr -dr com.apple.quarantine /Applications/VoiceCraft.app
 5. 確認 `Positioning Type` 與伺服器相符。
 6. 在開始 Minecraft 綁定流程之前進行連線。
 
-客戶端連線成功僅證明語音端點可達。 Minecraft 的接近度仍然取決於連接到匹配傳輸的插件或插件。
+客戶端連線成功僅證明語音端點可達。Minecraft 的距離感行為仍然取決於附加包或外掛程式是否連接到相符的傳輸。
 
 ## 常見的首次啟動問題
 
 - 無麥克風輸入：
   檢查作業系統麥克風權限和選定的輸入裝置。
-- 客戶端已連線但沒有接近：
+- 客戶端已連線但沒有距離感效果：
   檢查 Minecraft 傳輸、綁定流程和 `Positioning Type`。
 - 遠端伺服器無法連線：
   確認玩家和 `VoiceCraft.Server` 之間的 UDP 連接埠已開啟。

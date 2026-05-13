@@ -1,6 +1,6 @@
 # Instalacja klienta
 
-`VoiceCraft.Client` to aplikacja przeznaczona dla graczy. Każdy gracz, który chce mówić lub słyszeć głos zbliżeniowy, potrzebuje go działającego na swoim urządzeniu.
+`VoiceCraft.Client` to aplikacja przeznaczona dla graczy. Każdy gracz, który chce mówić lub słyszeć głos zależny od odległości, musi uruchomić ją na swoim urządzeniu.
 
 Zainstaluj klienta, gdy `VoiceCraft.Server` będzie osiągalny. Podczas pierwszego uruchomienia dodasz wpis serwera wskazujący punkt końcowy UDP VoiceCraft, zwykle `host:9050`.
 

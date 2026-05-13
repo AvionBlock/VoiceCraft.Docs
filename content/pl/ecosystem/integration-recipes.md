@@ -2,7 +2,7 @@
 
 Są to praktyczne wzorce wdrażania dla najpopularniejszych scenariuszy VoiceCraft.
 
-Użyj tej strony, jeśli zrozumiesz podstawowe komponenty i potrzebujesz konkretnego przepisu na topologię. Każdy scenariusz zawiera listę stosu, główny powód jego wyboru, konfigurację, która ma największe znaczenie oraz punkt weryfikacji, który potwierdza, że ​​działa.
+Użyj tej strony, jeśli rozumiesz podstawowe komponenty i potrzebujesz konkretnego przepisu na topologię. Każdy scenariusz zawiera listę stosu, główny powód jego wyboru, konfigurację, która ma największe znaczenie oraz punkt weryfikacji, który potwierdza, że działa.
 
 ## Scenariusz A: Serwer dedykowany Bedrock
 

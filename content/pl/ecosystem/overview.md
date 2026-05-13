@@ -73,7 +73,7 @@ Ten podział umożliwia ewolucję każdego projektu wokół jego środowiska wyk
 ## Wybór od czego zacząć
 
 - Nowy serwer dedykowany Bedrock:
-  zacznij od [Quick Start](/start/quick-start), następnie [McHttp for BDS](/minecraft/mchttp-bds).
+  zacznij od [szybkiego startu](/start/quick-start), następnie [McHttp for BDS](/minecraft/mchttp-bds).
 - Lokalne testy Bedrock:
   zacznij od [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 - Java + Geyser/Floodgate:
@@ -83,7 +83,7 @@ Ten podział umożliwia ewolucję każdego projektu wokół jego środowiska wyk
 
 ## Kontynuuj z
 
-- [VoiceCraft repository and build](/ecosystem/voicecraft-repository)
+- [Repozytorium i budowanie VoiceCraft](/ecosystem/voicecraft-repository)
 - [GeyserVoice overview](/ecosystem/geyservoice)
 - [VoiceCraft.Addon overview](/ecosystem/voicecraft-addon)
 - [Addon API](/ecosystem/addon-api)

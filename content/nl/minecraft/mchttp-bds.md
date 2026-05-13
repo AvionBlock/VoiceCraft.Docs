@@ -23,7 +23,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 
 1. `VoiceCraft.Server` uitvoeren
 2. `McHttpConfig.Enabled = true`
-3. `VoiceCraft.Addon.Core.McHttp.zip` uit releases, of een kant-en-klaar wereldarchief uit de [Addon Configurator](/addon-configurator)
+3. `VoiceCraft.Addon.Core.McHttp.zip` uit releases, of een kant-en-klaar wereldarchief uit de [add-onconfigurator](/addon-configurator)
 4. BDS met vereiste modules en script-API-ondersteuning
 5. Netwerkbereikbaarheid van de BDS-machine naar de VoiceCraft `McHttpConfig.Hostname`
 6. VoiceCraft-clients geïnstalleerd door spelers
@@ -56,8 +56,8 @@ Belangrijk:
 
 Snelste pad:
 
-- [Addon Configurator](/addon-configurator) als je een kant-en-klaar wereldarchief wilt
-- [Download Page](/download) als u het onbewerkte add-on-releasepakket wilt
+- [Add-onconfigurator](/addon-configurator) als u een kant-en-klaar wereldarchief wilt
+- [Downloadpagina](/download) als u het losse add-on-releasepakket wilt
 
 Handmatig pad:
 
@@ -167,5 +167,5 @@ In dit stadium is het transport verbonden, maar elke speler heeft nog steeds de 
 
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
 - [Addon API](/ecosystem/addon-api)
-- [Download Page](/download)
-- [Addon Configurator](/addon-configurator)
+- [Downloadpagina](/download)
+- [Add-onconfigurator](/addon-configurator)

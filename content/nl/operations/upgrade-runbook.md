@@ -2,7 +2,7 @@
 
 Gebruik dit bij het upgraden van VoiceCraft of een gerelateerde bridge zoals `GeyserVoice`.
 
-Dit runbook is bedoeld voor upgrades die van invloed kunnen zijn op de compatibiliteit tussen server-, client-, Bedrock-add-on en Java-plug-ins. Het doel is om een ​​rollback-pad te behouden en tegelijkertijd te bewijzen dat de hele stapel nog steeds werkt.
+Dit runbook is bedoeld voor upgrades die van invloed kunnen zijn op de compatibiliteit tussen server, client, Bedrock-add-on en Java-plug-ins. Het doel is om een rollback-pad te behouden en tegelijk te bewijzen dat de hele stack nog steeds werkt.
 
 ## Upgrade-bestelling
 

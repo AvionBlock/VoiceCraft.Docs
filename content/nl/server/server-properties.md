@@ -293,5 +293,5 @@ Als een transport alleen werkt nadat pakkettypen zijn uitgeschakeld, beschouw di
 
 Zie ook:
 
-- [Runtime Overrides](/server/runtime-overrides)
-- [Transport Modes](/server/transports)
+- [Runtime-overschrijvingen](/server/runtime-overrides)
+- [Transportmodi](/server/transports)

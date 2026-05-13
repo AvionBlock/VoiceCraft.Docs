@@ -128,6 +128,6 @@ Zu den aktuellen eingebetteten Gebietsschemata gehören:
 
 - [Server Installation](/server/installation)
 - [ServerProperties.json](/server/server-properties)
-- [Transport Modes](/server/transports)
+- [Transportmodi](/server/transports)
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
 - [GeyserVoice](/ecosystem/geyservoice)

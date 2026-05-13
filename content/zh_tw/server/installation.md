@@ -1,31 +1,31 @@
 # 伺服器安裝
 
-`VoiceCraft.Server` 是獨立後端，接受客戶端語音流量並公開針對 Minecraft 的傳輸。
+`VoiceCraft.Server` 是獨立後端，用於接收客戶端語音流量，並公開面向 Minecraft 的傳輸。
 
-使用此頁面作為伺服器設定路徑。最後，您應該擁有一個正在運行的伺服器、一個產生的配置、一個選擇的 Minecraft 傳輸，以及一個用於 Minecraft 整合的清晰的下一頁。
+使用此頁面作為伺服器設定路徑。完成後，您應該擁有一個正在執行的伺服器、一份產生的配置、一個已選擇的 Minecraft 傳輸，以及下一步 Minecraft 整合指南。
 
 ## 伺服器實際包含什麼
 
 VoiceCraft 伺服器同時公開多個層：
 
 - VoiceCraft UDP 語音伺服器
-- `McHttp` 用於Bedrock整合的傳輸
-- `McWss` 用於 websocket / 指令隧道Bedrock流的傳輸
+- `McHttp`，用於 Bedrock 整合的傳輸
+- `McWss`，用於 WebSocket/指令隧道 Bedrock 流程的傳輸
 - `McTcp` 用於 Java 端橋的傳輸，例如 `GeyserVoice`
 
-您可以將它們全部啟用，或在運行時選擇傳輸。
+您可以將它們全部啟用，或在執行時選擇傳輸。
 
 ## 設定流程
 
 1. 下載並解壓縮適合您平台的伺服器。
-2. 從要保留配置的資料夾運行一次。
+2. 從要保留配置的資料夾執行一次。
 3. 產生 `config/ServerProperties.json` 後停止該程序。
 4. 取代生成的登入令牌。
 5. 啟用與您的拓撲相符的 Minecraft 傳輸。
 6. 設定主機綁定和防火牆規則。
 7. 再次啟動伺服器。
 8. 在客戶端中加入 VoiceCraft UDP 端點。
-9. 將 Minecraft 端與相符的插件或插件指南連接起來。
+9. 將 Minecraft 端接到相符的附加包或外掛程式指南。
 
 ## 預先建置的二進位版本
 
@@ -36,11 +36,11 @@ VoiceCraft 伺服器同時公開多個層：
 - Linux：
   `VoiceCraft.Server.Linux.x64.zip`、`arm`、`arm64`
 
-下載：[Download Page](/download)
+下載：[下載頁面](/download)
 
 ## Windows
 
-1. 下載`VoiceCraft.Server.Windows.<arch>.zip`。
+1. 下載 `VoiceCraft.Server.Windows.<arch>.zip`。
 2. 將存檔解壓縮到專用資料夾。
 3. 從該資料夾啟動伺服器：
 
@@ -52,7 +52,7 @@ VoiceCraft 伺服器同時公開多個層：
 
 ## Linux
 
-1. 下載`VoiceCraft.Server.Linux.<arch>.zip`。
+1. 下載 `VoiceCraft.Server.Linux.<arch>.zip`。
 2. 將存檔解壓縮到專用資料夾。
 3. 從該資料夾啟動伺服器：
 
@@ -73,7 +73,7 @@ chmod +x ./VoiceCraft.Server
    - `McHttpConfig.LoginToken`
    - `McWssConfig.LoginToken`
    - `McTcpConfig.LoginToken`
-2. 選擇一種主要的 Minecraft 交通工具：
+2. 選擇一個主要的 Minecraft 傳輸：
    - Bedrock 專用伺服器：啟用 `McHttpConfig`
    - 本地 Bedrock 世界：啟用 `McWssConfig`
    - Java + Geyser/Floodgate：啟用 `McTcpConfig`
@@ -83,17 +83,17 @@ chmod +x ./VoiceCraft.Server
 4. 保持 `VoiceCraftConfig.Port` 對玩家用戶端可用。
 5. 儲存配置後重新啟動 `VoiceCraft.Server`。
 
-對於所有設定字段，請繼續使用 [First Server Run](/server/first-run) 和 [ServerProperties.json](/server/server-properties)。
+所有設定欄位請繼續閱讀 [伺服器首次執行](/server/first-run) 和 [ServerProperties.json](/server/server-properties)。
 
 ## 連接堆疊的其餘部分
 
 一旦伺服器乾淨地重新啟動：
 
-1. 從 [Download Page](/download) 為每位玩家安裝 VoiceCraft 用戶端。
+1. 從 [下載頁面](/download) 為每位玩家安裝 VoiceCraft 用戶端。
 2. 在客戶端新增伺服器條目：
    - 主機：您的 VoiceCraft 伺服器位址
    - 連接埠：`VoiceCraftConfig.Port`，通常為 `9050`
-3. 按照您選擇的交通工具的 Minecraft 指南進行操作：
+3. 按照所選傳輸對應的 Minecraft 指南操作：
    - [McHttp for BDS](/minecraft/mchttp-bds)
    - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
    - [GeyserVoice](/ecosystem/geyservoice)
@@ -113,7 +113,7 @@ dotnet publish -c Release -r osx-arm64 -p:PublishSingleFile=true
 
 對於 Intel macOS，請將 `osx-arm64` 替換為 `osx-x64`。
 
-## 碼頭工人/容器
+## Docker / 容器
 
 容器鏡像是從主儲存庫自述文件中引用的：
 
@@ -141,8 +141,8 @@ Linux 佈局範例：
 推薦做法：
 
 - 將 VoiceCraft 保存在自己的目錄中
-- 堅持`config/`
-- 備份`ServerProperties.json`
+- 保留 `config/`
+- 備份 `ServerProperties.json`
 - 不要在同一資料夾中混合多個環境
 
 ## 準備清單
@@ -151,12 +151,12 @@ Linux 佈局範例：
 
 - `VoiceCraft.Server` 啟動時沒有設定或連接埠錯誤
 - 所有產生的 `LoginToken` 值已替換
-- 僅暴露您需要的運輸
+- 僅暴露您需要的傳輸
 - 用戶端主機和連接埠匹配 `VoiceCraftConfig.Port`
-- Minecraft 外掛程式或外掛程式使用相符的傳輸令牌
+- Minecraft 附加包或外掛程式使用相符的傳輸令牌
 - 綁定流程在遊戲中有效
 
-## 作為 systemd 服務運行 (Linux)
+## 作為 systemd 服務執行 (Linux)
 
 範例 `/etc/systemd/system/voicecraft.service`：
 
@@ -185,11 +185,11 @@ sudo systemctl enable --now voicecraft
 sudo systemctl status voicecraft
 ```
 
-## 從原始碼構建
+## 從原始碼建置
 
-有關 SDK 和項目詳細信息，請參閱 [VoiceCraft repository and build](/ecosystem/voicecraft-repository)。
+有關 SDK 和專案詳細資訊，請參閱 [VoiceCraft 儲存庫和建置](/ecosystem/voicecraft-repository)。
 
-最小流量：
+最小流程：
 
 ```bash
 git clone https://github.com/AvionBlock/VoiceCraft.git
@@ -199,12 +199,12 @@ dotnet build -c Release
 dotnet run --project VoiceCraft.Server
 ```
 
-## 接下來讀什麼
+## 接下來閱讀
 
-- [First Server Run](/server/first-run)
+- [伺服器首次執行](/server/first-run)
 - [ServerProperties.json](/server/server-properties)
-- [Transport Modes](/server/transports)
-- [Client Installation](/client/installation)
+- [傳輸模式](/server/transports)
+- [客戶端安裝](/client/installation)
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
 - [GeyserVoice](/ecosystem/geyservoice)

@@ -1,26 +1,26 @@
 # 概述
 
-VoiceCraft 是适用于 Minecraft Bedrock版和相关桥梁场景的近距离语音平台。
+VoiceCraft 是适用于 Minecraft Bedrock 版和相关桥接场景的距离感语音平台。
 
 它允许玩家运行单独的语音客户端，而 Minecraft 端自动化告诉语音服务器每个玩家在哪里、他们位于哪个世界以及应应用哪些效果或可见性规则。
 
-当您想要近距离语音而不依赖于一种确切的 Minecraft 服务器形状时，VoiceCraft 非常有用。相同的核心运行时可以与 Bedrock 插件、Java/Geyser 桥或代理部署相结合。
+当您需要距离感语音，但不想被某一种固定的 Minecraft 服务器拓扑限制时，VoiceCraft 非常有用。相同的核心运行时可以与 Bedrock 附加包、Java/Geyser 桥接或代理部署组合使用。
 
 ## 您正在设置什么
 
-大多数部署都具有三个移动部分：
+大多数部署都包含三个组成部分：
 
 1. `VoiceCraft.Client`
    每个玩家安装的桌面和移动应用程序
 2. `VoiceCraft.Server`
    用于语音流量、状态同步、审核和传输端点的独立后端
-3. 面向 Minecraft 的运输
+3. 面向 Minecraft 的传输
    `McHttp`、`McWss` 和 `McTcp`
 
 生态系统集成将 Minecraft 连接到这些传输：
 
-- `VoiceCraft.Addon` 适用于 Bedrock 世界和 BDS
-- `GeyserVoice` 用于 Java / Geyser / 代理堆栈
+- `VoiceCraft.Addon`，适用于 Bedrock 世界和 BDS
+- `GeyserVoice`，用于 Java / Geyser / 代理堆栈
 
 ## 它是如何运作的
 
@@ -30,9 +30,9 @@ VoiceCraft 是适用于 Minecraft Bedrock版和相关桥梁场景的近距离语
    - BDS 的 `McHttp`
    - `McWss` 适用于本地 Bedrock 世界
    - `McTcp` 用于 `GeyserVoice`
-4. 客户端根据服务器状态和选定的本地设置呈现邻近音频。
+4. 客户端根据服务器状态和选定的本地设置播放距离感音频。
 
-语音连接和 Minecraft 传输连接是分开的。如果仅连接一侧，设置可能看起来部分正常，但接近行为仍然不完整。
+语音连接和 Minecraft 传输连接是分开的。如果只连接其中一侧，设置可能看起来部分正常，但距离感行为仍然不完整。
 
 ## 支持的客户端平台
 
@@ -44,9 +44,9 @@ VoiceCraft 是适用于 Minecraft Bedrock版和相关桥梁场景的近距离语
 
 ## 是什么让 VoiceCraft 变得灵活
 
-- 多种 Minecraft 运输工具
-- Bedrock插件 API 表面
-- 通过 `GeyserVoice` 的 Java 端桥
+- 多种 Minecraft 传输方式
+- Bedrock 附加包 API
+- 通过 `GeyserVoice` 的 Java 端桥接
 - 可配置的效果和实体元数据
 - 服务器端和客户端两种定位模式
 
@@ -54,17 +54,17 @@ VoiceCraft 是适用于 Minecraft Bedrock版和相关桥梁场景的近距离语
 
 ## 常见的拓扑选择
 
-| 如果你跑... | 从...开始 | 为什么 |
+| 如果您运行... | 从...开始 | 为什么 |
 |---------------|---------------|-----|
 | Bedrock 专用服务器 | [McHttp for BDS](/minecraft/mchttp-bds) | BDS可以调用稳定的HTTP端点 |
-| 本地 Bedrock 世界 | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | 通过本地 websocket/命令隧道流工作 |
+| 本地 Bedrock 世界 | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | 通过本地 WebSocket/命令隧道流程工作 |
 | 带有 Geyser/Floodgate 的 Java 服务器 | [GeyserVoice](/ecosystem/geyservoice) | Java 端插件通过 `McTcp` 桥接至 VoiceCraft |
 | Direct Paper 服务器 | [GeyserVoice Direct Paper](/ecosystem/geyservoice-direct-paper) | 插件可以使用外部服务器或管理运行时 |
 
-## 接下来读什么
+## 接下来阅读
 
-- [Quick Start](/start/quick-start)
-- [Download](/download)
-- [Transport Modes](/server/transports)
-- [System Architecture](/architecture/system-architecture)
-- [Ecosystem Overview](/ecosystem/overview)
+- [快速入门](/start/quick-start)
+- [下载](/download)
+- [传输模式](/server/transports)
+- [系统架构](/architecture/system-architecture)
+- [生态系统概览](/ecosystem/overview)

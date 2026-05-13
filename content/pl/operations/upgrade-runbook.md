@@ -37,7 +37,7 @@ Minimalnie:
 4. Dodatek lub wtyczka uwierzytelnia.
 5. Przepływ wiązania działa.
 6. Ikony głosowe w grze lub zdarzenia związane z dodatkami pojawiają się wtedy, gdy są oczekiwane.
-7. Dźwięk zbliżeniowy działa.
+7. Dźwięk zależny od odległości działa.
 8. Polecenia serwera, takie jak `list --clientsOnly`, pokazują oczekiwanych klientów.
 
 ## W przypadku aktualizacji GeyserVoice

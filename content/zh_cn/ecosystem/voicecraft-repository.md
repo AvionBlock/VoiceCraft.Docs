@@ -25,7 +25,7 @@
 
 - 完整的客户端设置模型
 - 嵌入式语言环境
-- 面向 Minecraft 的运输：
+- 面向 Minecraft 的传输：
   `McHttp`、`McWss`、`McTcp`
 - VoiceCraft 和 McApi 层的数据包定义
 - 音频效果和可视性系统
@@ -108,7 +108,7 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 
 1. 运行 `VoiceCraft.Server` 一次以生成配置。
 2. 替换所有生成的传输令牌。
-3. 决定您实际需要哪种交通工具：
+3. 决定您实际需要哪种传输：
    - `McHttp`
    - `McWss`
    - `McTcp`
@@ -126,8 +126,8 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 
 ## 相关文档
 
-- [Server Installation](/server/installation)
+- [服务器安装](/server/installation)
 - [ServerProperties.json](/server/server-properties)
-- [Transport Modes](/server/transports)
+- [传输模式](/server/transports)
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
 - [GeyserVoice](/ecosystem/geyservoice)

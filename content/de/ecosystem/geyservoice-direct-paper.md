@@ -111,4 +111,4 @@ Wenn `auto-start` gleich `true` ist, stellen Sie sicher, dass `install-directory
 - `McTcpConfig.LoginToken` entspricht `config.voicecraft.transport.login-token`
 - Der Spieler kann sich mit dem VoiceCraft-Client verbinden
 - Spieler kann `/voice bind <key>` abschließen
-- Sich im Spiel zu bewegen verändert das Näherungsverhalten
+- Sich im Spiel zu bewegen verändert das Proximity-Verhalten

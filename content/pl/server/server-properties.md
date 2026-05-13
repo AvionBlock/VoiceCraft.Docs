@@ -109,7 +109,7 @@ Jeśli nie chcesz telemetrii, ustaw:
 
 ## McWssConfig
 
-Używany do przepływów Bedrock w gnieździe internetowym/tunelu poleceń.
+Używany do przepływów Bedrock przez WebSocket/tunel poleceń.
 
 - `Enabled`:
   włączyć lub wyłączyć McWss.
@@ -293,5 +293,5 @@ Jeśli transport działa dopiero po wyłączeniu typów pakietów, potraktuj to 
 
 Zobacz także:
 
-- [Runtime Overrides](/server/runtime-overrides)
-- [Transport Modes](/server/transports)
+- [Nadpisania w czasie wykonywania](/server/runtime-overrides)
+- [Tryby transportu](/server/transports)

@@ -9,7 +9,7 @@ VoiceCraft ma dwie powiązane płaszczyzny:
 - płaszczyzna stanu Minecraft:
   Dodatki Bedrock lub wtyczki po stronie Java wysyłają aktualizacje jednostek, pozycji, świata, powiązań i efektów za pośrednictwem `McHttp`, `McWss` lub `McTcp`
 
-Obie płaszczyzny muszą być sprawne, aby głos zbliżeniowy działał prawidłowo.
+Obie płaszczyzny muszą być sprawne, aby głos zależny od odległości działał prawidłowo.
 
 ## Przepływ wysokiego poziomu
 
@@ -60,8 +60,8 @@ Jeśli powiązanie się nie powiedzie, najpierw sprawdź dopasowanie tokena i do
 |---------|----------------------|---------------|
 | Klient nie może się połączyć | Płaszczyzna głosowa | Zły host serwera, port UDP zamknięty, serwer nie działa |
 | Dodatek/wtyczka nie może się połączyć | Płaszczyzna stanu Minecraft | Zły token transportowy, nieprawidłowe powiązanie, zablokowana ścieżka TCP/HTTP/WebSocket |
-| Klient łączy się, ale nie słyszy proximity audio | Stan jednostki/pozycji | Brak powiązania, niezgodność `PositioningType`, brak aktualizacji pozycji |
-| Dźwięk istnieje, ale zakres/efekty wydają się nieprawidłowe | Synchronizacja efektów/stanu | Niewłaściwa maska ​​bitowa efektu, nieaktualne metadane jednostki, niedopasowane ustawienia klienta |
+| Klient łączy się, ale nie słyszy dźwięku zależnego od odległości | Stan encji/pozycji | Brak powiązania, niezgodność `PositioningType`, brak aktualizacji pozycji |
+| Dźwięk istnieje, ale zakres/efekty wydają się nieprawidłowe | Synchronizacja efektów/stanu | Niewłaściwa maska bitowa efektu, nieaktualne metadane jednostki, niedopasowane ustawienia klienta |
 
 ## Dlaczego to ma znaczenie
 

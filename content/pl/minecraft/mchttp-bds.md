@@ -23,7 +23,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 
 1. Bieganie `VoiceCraft.Server`
 2. `McHttpConfig.Enabled = true`
-3. `VoiceCraft.Addon.Core.McHttp.zip` z wydań, lub gotowe archiwum świata z [Addon Configurator](/addon-configurator)
+3. `VoiceCraft.Addon.Core.McHttp.zip` z wydań albo gotowe archiwum świata z [konfiguratora dodatku](/addon-configurator)
 4. BDS z wymaganymi modułami i obsługą API skryptów
 5. Dostępność sieci od urządzenia BDS do VoiceCraft `McHttpConfig.Hostname`
 6. Klienci VoiceCraft instalowani przez graczy
@@ -56,8 +56,8 @@ Ważne:
 
 Najszybsza ścieżka:
 
-- [Addon Configurator](/addon-configurator), jeśli chcesz mieć gotowe do rozpakowania archiwum świata
-- [Download Page](/download), jeśli chcesz otrzymać pakiet surowego dodatku
+- [Konfigurator dodatku](/addon-configurator), jeśli chcesz mieć gotowe do rozpakowania archiwum świata
+- [Strona pobierania](/download), jeśli chcesz pobrać pakiet wydania dodatku
 
 Ścieżka ręczna:
 
@@ -145,7 +145,7 @@ Na tym etapie transport jest podłączony, ale każdy gracz nadal potrzebuje kli
 4. Upewnij się, że nie jest wyświetlany błąd uwierzytelniania.
 5. Połącz klienta VoiceCraft z `VoiceCraftConfig.Port`.
 6. Użyj `voicecraft:vcbind <key>`.
-7. Przesuń gracza w grze i potwierdź, że aktualizacje pozycji wpływają na proximity audio.
+7. Przesuń gracza w grze i potwierdź, że aktualizacje pozycji wpływają na dźwięk zależny od odległości.
 8. Upewnij się, że inni gracze słyszą w oczekiwanym zakresie.
 
 ## Typowe problemy
@@ -167,5 +167,5 @@ Na tym etapie transport jest podłączony, ale każdy gracz nadal potrzebuje kli
 
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
 - [Addon API](/ecosystem/addon-api)
-- [Download Page](/download)
-- [Addon Configurator](/addon-configurator)
+- [Strona pobierania](/download)
+- [Konfigurator dodatku](/addon-configurator)

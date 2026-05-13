@@ -38,8 +38,8 @@ Als u een echte Bedrock Dedicated Server gebruikt, gebruik dan [McHttp for BDS](
 
 Handige links:
 
-- [Download Page](/download) voor het onbewerkte releasepakket `Core.McWss`
-- [Addon Configurator](/addon-configurator) voor een kant-en-klaar wereldarchief
+- [Downloadpagina](/download) voor het losse releasepakket `Core.McWss`
+- [Add-onconfigurator](/addon-configurator) voor een wereldarchief dat direct kan worden uitgepakt
 
 ## VoiceCraft-serverconfiguratie
 

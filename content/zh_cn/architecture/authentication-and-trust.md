@@ -1,6 +1,6 @@
 # 认证和信任模型
 
-VoiceCraft 在 Minecraft 传输端使用共享令牌。这些令牌决定是否允许插件、插件或桥将 Minecraft 状态发送到 `VoiceCraft.Server`。
+VoiceCraft 在 Minecraft 传输端使用共享令牌。这些令牌决定是否允许附加包、插件或桥接组件将 Minecraft 状态发送到 `VoiceCraft.Server`。
 
 它们不是玩家密码。它们是受信任的运行时组件之间的操作秘密。
 
@@ -14,7 +14,7 @@ VoiceCraft 在 Minecraft 传输端使用共享令牌。这些令牌决定是否�
 - `McWss` 世界通过 `McWssConfig.LoginToken` 进行身份验证
 - `GeyserVoice` 使用 `McTcpConfig.LoginToken` 进行身份验证
 
-| 交通 | 消费者 | 令牌字段 |
+| 传输 | 使用方 | 令牌字段 |
 |-----------|----------|-------------|
 | `McHttp` | BDS插件包 | `McHttpConfig.LoginToken` |
 | `McWss` | 本地 Bedrock 世界插件 | `McWssConfig.LoginToken` |
@@ -24,7 +24,7 @@ VoiceCraft 在 Minecraft 传输端使用共享令牌。这些令牌决定是否�
 
 你应该分层思考：
 
-- 玩家客户信任
+- 玩家客户端信任
 - Minecraft 集成信任
 - 后端运行时信任
 

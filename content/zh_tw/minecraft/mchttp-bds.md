@@ -23,7 +23,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 
 1. 運行 `VoiceCraft.Server`
 2. `McHttpConfig.Enabled = true`
-3. 版本中的 `VoiceCraft.Addon.Core.McHttp.zip`，或 [Addon Configurator](/addon-configurator) 中的現成檔案
+3. 發行版本中的 `VoiceCraft.Addon.Core.McHttp.zip`，或 [附加包設定器](/addon-configurator) 中的現成歸檔
 4. BDS 具有所需的模組和腳本 API 支持
 5. 從 BDS 計算機到 VoiceCraft `McHttpConfig.Hostname` 的網路可及性
 6. 由玩家安裝的 VoiceCraft 用戶端
@@ -56,8 +56,8 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 
 最快路徑：
 
-- [Addon Configurator](/addon-configurator) 如果您想要一個可立即解壓縮的世界存檔
-- [Download Page](/download) 如果您想要原始插件發布包
+- [附加包設定器](/addon-configurator)，如果您想要可立即解壓縮的世界歸檔
+- [下載頁面](/download)，如果您想要附加包發行檔案
 
 手動路徑：
 
@@ -135,7 +135,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 - 綁定流程透過 `voicecraft:vcbind` 變得可用
 - 效果 UI 和資料包驅動的狀態同步變得可用
 
-在此階段，傳輸已連接，但每個玩家仍然需要 VoiceCraft 用戶端和用於鄰近音訊的工作綁定串流。
+在此階段，傳輸已連接，但每個玩家仍然需要 VoiceCraft 用戶端，以及用於距離感音訊的正常綁定流程。
 
 ## 推薦的驗證流程
 
@@ -145,7 +145,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 4. 確認沒有顯示身份驗證錯誤。
 5. 將 VoiceCraft 用戶端連接到 `VoiceCraftConfig.Port`。
 6. 使用 `voicecraft:vcbind <key>`。
-7. 在遊戲中移動玩家並確認位置更新會影響接近度。
+7. 在遊戲中移動玩家並確認位置更新會影響距離感效果。
 8. 確認其他玩家可以在預期範圍內聽到聲音。
 
 ## 常見問題
@@ -155,17 +155,17 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 - 容器或虛擬機器網路：
   使用 `http://0.0.0.0:9050/` 或正確的 LAN 位址
 - 託管提供者封鎖來自 BDS 的出站 HTTP：
-  該交通工具可能無法在那裡使用
+  該傳輸可能無法在那裡使用
 - 身份驗證失敗：
   確認指令使用 `McHttpConfig.LoginToken`，而非 `McWss` 或 `McTcp` 標記
 - 插件加載但缺少命令：
   確認行為和資源包均已附加到世界並且 BDS 已重新啟動
-- 客戶端已連線但沒有接近：
+- 客戶端已連線但沒有距離感效果：
   確認綁定流程、`PositioningType` 和玩家位置更新
 
 ## 閱讀下一篇
 
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
 - [Addon API](/ecosystem/addon-api)
-- [Download Page](/download)
-- [Addon Configurator](/addon-configurator)
+- [下載頁面](/download)
+- [附加包設定器](/addon-configurator)

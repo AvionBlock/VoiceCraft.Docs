@@ -11,9 +11,9 @@ Wenn die Datei nicht gefunden wird, erstellt der Server automatisch Folgendes:
 - `config/`
 - `config/ServerProperties.json`
 
-Diese Datei wird zur wichtigsten dauerhaften Wahrheitsquelle für das Serververhalten.
+Diese Datei wird zur wichtigsten dauerhaften Quelle für das Serververhalten.
 
-Nachdem die Datei angezeigt wird, stoppen Sie den Server, bearbeiten Sie die Konfiguration und starten Sie ihn dann erneut. Beim ersten Start wird nur die Grundlinie erstellt; Die Einrichtung ist noch nicht abgeschlossen.
+Nachdem die Datei angezeigt wird, stoppen Sie den Server, bearbeiten Sie die Konfiguration und starten Sie ihn dann erneut. Beim ersten Start wird nur die Basis erstellt; die Einrichtung ist noch nicht abgeschlossen.
 
 ## Standardports und Endpunkte
 
@@ -30,11 +30,11 @@ Hinweise:
 - `McWss` wird standardmäßig durch `9051` getrennt.
 - `McTcp` ist besonders relevant für `GeyserVoice`
 
-## Linearer Erstlaufpfad
+## Linearer Ablauf für den ersten Start
 
 ### 1. Stoppen Sie und öffnen Sie die generierte Konfiguration
 
-Geöffnet:
+Öffnen Sie:
 
 ```text
 config/ServerProperties.json
@@ -50,9 +50,9 @@ Bevor ein Add-on, Plugin oder Spieler-Client eine Verbindung herstellt, ersetzen
 - `McWssConfig.LoginToken`
 - `McTcpConfig.LoginToken`
 
-Verwenden Sie den Token des Transportmittels, das Sie später tatsächlich verbinden. Beispielsweise muss ein BDS-Befehl `vcconnect` `McHttpConfig.LoginToken` verwenden, während GeyserVoice `McTcpConfig.LoginToken` verwenden muss.
+Verwenden Sie den Token des Transports, den Sie später tatsächlich verbinden. Beispielsweise muss ein BDS-Befehl `vcconnect` `McHttpConfig.LoginToken` verwenden, während GeyserVoice `McTcpConfig.LoginToken` verwenden muss.
 
-### 3. Wählen Sie einen primären Minecraft-Transporter
+### 3. Wählen Sie einen primären Minecraft-Transport
 
 Entscheiden Sie anhand der Topologie, was aktiviert werden soll:
 
@@ -79,16 +79,16 @@ Verwenden Sie `0.0.0.0` nur, wenn ein anderer Computer, Container oder Spielhost
 Starten Sie `VoiceCraft.Server` erneut aus demselben Ordner. Achten Sie auf:
 
 - ungültige JSON-Fehler
-- Port wird bereits verwendet. Fehler
+- Fehler wegen bereits belegtem Port
 - fehlgeschlagener Listener oder Bindungsfehler
 
 Beheben Sie diese, bevor Sie fortfahren. Ein Minecraft-Addon oder -Plugin kann keine zuverlässige Verbindung herstellen, während der Server Startfehler meldet.
 
 ### 6. Verbinden Sie einen VoiceCraft-Client
 
-Installieren Sie den Client von [Download Page](/download) und fügen Sie dann einen Servereintrag hinzu:
+Installieren Sie den Client von der [Download-Seite](/download) und fügen Sie dann einen Servereintrag hinzu:
 
-- host: die VoiceCraft-Serveradresse
+- Host: die VoiceCraft-Serveradresse
 - Port: `VoiceCraftConfig.Port`, normalerweise `9050`
 
 Für lokale Tests verwenden Sie:
@@ -114,11 +114,11 @@ Wenn Sie zur Eingabe eines Tokens aufgefordert werden, verwenden Sie das passend
 Die erste Einrichtung ist abgeschlossen, wenn:
 
 - Serverprotokolle zeigen keine Konfigurations- oder Listener-Fehler
-- Der VoiceCraft-Client stellt eine Verbindung zum UDP-Endpunkt her
+- der VoiceCraft-Client stellt eine Verbindung zum UDP-Endpunkt her
 - Minecraft authentifiziert sich über den ausgewählten Transport
 - Der Bindungsfluss im Spiel funktioniert
 - Aktualisierungen der Spielerpositionen erreichen VoiceCraft
-- Proximity Voice funktioniert im erwarteten Bereich
+- Proximity-Voice funktioniert im erwarteten Bereich
 
 ## Startargumente
 
@@ -201,7 +201,7 @@ Sie gelten nur für den aktuellen Prozess und sind nützlich, wenn:
 5. Überprüfen Sie die Hostbindungen.
 6. Öffnen Sie nur die Ports, die Sie benötigen.
 7. Starten Sie den Server aus demselben Installationsordner neu.
-8. Bestätigen Sie `PositioningType` mit Ihren Kunden.
+8. Bestätigen Sie `PositioningType` mit Ihren Clients.
 9. Testen Sie die Client-Verbindung, bevor Sie die Minecraft-Automatisierung verbinden.
 10. Verbinden Sie das Minecraft-Addon oder -Plugin und validieren Sie den Bindungsfluss.
 

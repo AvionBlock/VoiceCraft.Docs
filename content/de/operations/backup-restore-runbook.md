@@ -59,7 +59,7 @@ Machen Sie einen Schnappschuss, wenn Sie Folgendes tun möchten:
 1. Server startet sauber
 2. Der gewählte Transport ist aktiviert
 3. Token entspricht dem integrierenden Knoten
-4. Player-Bindung und Audiofluss funktionieren wieder
+4. Spielerbindung und Audiofluss funktionieren wieder
 5. Serverbefehle zeigen erwartete Clients/Entitäten an
 6. In den Protokollen wird der Fehler, der die Wiederherstellung ausgelöst hat, nicht mehr angezeigt
 

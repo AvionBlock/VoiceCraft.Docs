@@ -2,16 +2,16 @@
 
 VoiceCraft 服务器通过根 CLI 选项支持运行时覆盖。
 
-Runtime overrides change the running process without permanently rewriting `config/ServerProperties.json`. They are useful when a panel, container, systemd unit, or plugin launches the server and needs to inject environment-specific values.
+运行时覆盖会改变当前运行的进程，但不会永久重写 `config/ServerProperties.json`。当面板、容器、systemd 单元或插件启动服务器，并需要注入特定环境的值时，它们很有用。
 
 这些选项在以下情况下非常理想：
 
-- you want environment-specific values without editing JSON
+- 您希望使用特定环境的值，但不想编辑 JSON
 - 流程管理器在启动时注入值
-- `GeyserVoice` launches the VoiceCraft runtime automatically
-- you test several transport topologies from the same install folder
+- `GeyserVoice` 会自动启动 VoiceCraft 运行时
+- 您从同一个安装文件夹测试多种传输拓扑
 
-If you are doing a simple manual install, edit `ServerProperties.json` first and use overrides only when they make deployment clearer.
+如果只是简单的手动安装，请先编辑 `ServerProperties.json`，只在覆盖能让部署更清晰时再使用覆盖。
 
 ## 支持的选项
 
@@ -24,20 +24,20 @@ If you are doing a simple manual install, edit `ServerProperties.json` first and
 
 ## 覆盖优先级
 
-At startup, VoiceCraft loads `ServerProperties.json`, then applies runtime overrides for the current process.
+启动时，VoiceCraft 会加载 `ServerProperties.json`，然后为当前进程应用运行时覆盖。
 
 这意味着：
 
 - JSON 文件保持持久默认值
 - CLI 值在该运行中获胜
-- restarting without the same CLI flag returns to the JSON value
-- backups should still include the JSON config, even if your production process uses overrides
+- 如果重启时没有传入相同的 CLI 标志，就会回到 JSON 中的值
+- 即使生产进程使用覆盖，备份中仍应包含 JSON 配置
 
 ## 每个选项的变化
 
 ### `--language`
 
-Overrides `VoiceCraftConfig.Language` for the current process.
+覆盖当前进程的 `VoiceCraftConfig.Language`。
 
 示例：
 
@@ -56,8 +56,8 @@ Overrides `VoiceCraftConfig.Language` for the current process.
 - `http`
 - `tcp`
 - `wss`
-- aliases such as `ws`, `websocket`, `websockets`
-- aliases such as `local-socket`, `tcp-socket` normalize to `tcp`
+- `ws`、`websocket`、`websockets` 等别名
+- `local-socket`、`tcp-socket` 等别名会规范化为 `tcp`
 
 示例：
 
@@ -69,7 +69,7 @@ Overrides `VoiceCraftConfig.Language` for the current process.
 
 设置后，VoiceCraft 首先禁用所有 Minecraft 传输，然后仅重新启用选定的传输。
 
-This is the safest way to run a single-purpose process. For example, a BDS-only host can start with `--transport-mode http` even if the JSON config still contains defaults for other transports.
+这是运行单用途进程最安全的方式。例如，即使 JSON 配置中仍保留其他传输的默认值，仅用于 BDS 的主机也可以用 `--transport-mode http` 启动。
 
 ### `--transport-host`
 
@@ -85,7 +85,7 @@ This is the safest way to run a single-purpose process. For example, a BDS-only 
 ./VoiceCraft.Server --transport-host 0.0.0.0
 ```
 
-For `McHttp` and `McWss`, VoiceCraft applies the host to the URI-style hostname.对于 `McTcp`，它应用普通主机字段。
+对于 `McHttp` 和 `McWss`，VoiceCraft 会把主机应用到 URI 形式的主机名。对于 `McTcp`，它会应用到普通主机字段。
 
 ### `--transport-port`
 

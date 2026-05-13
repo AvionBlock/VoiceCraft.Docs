@@ -81,7 +81,7 @@ Als `auto-start` `true` is, zorg er dan voor dat `install-directory` beschrijfba
 ## Wanneer `auto-start` een goed idee is
 
 - installatie met één server
-- je wilt minder bewegende stukken
+- u wilt minder onderdelen beheren
 - u beheert VoiceCraft nog niet met systemd / Docker / panel
 
 ## Wanneer een externe runtime beter is

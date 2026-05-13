@@ -37,7 +37,7 @@ VoiceCraft.Client -> VoiceCraft UDP endpoint
 在后端 Paper 服务器上：
 
 - Paper端节点启用代理模式
-- 不要将后端主机/端口/密钥视为事实来源
+- 不要将后端主机/端口/密钥视为唯一配置来源
 
 Paper 后端示例：
 

@@ -1,6 +1,6 @@
 # Client-Installation
 
-`VoiceCraft.Client` ist die spielerorientierte App. Jeder Spieler, der sprechen oder Annäherungsstimmen hören möchte, muss diese auf seinem eigenen Gerät ausführen.
+`VoiceCraft.Client` ist die spielerorientierte App. Jeder Spieler, der sprechen oder Proximity-Voice hören möchte, muss diese auf seinem eigenen Gerät ausführen.
 
 Installieren Sie den Client, nachdem `VoiceCraft.Server` erreichbar ist. Beim ersten Start fügen Sie einen Servereintrag hinzu, der auf den VoiceCraft UDP-Endpunkt verweist, normalerweise `host:9050`.
 
@@ -98,7 +98,7 @@ Für aktuelle eigenständige Builds ist dies normalerweise nicht erforderlich.
 5. Bestätigen Sie, dass `Positioning Type` mit dem Server übereinstimmt.
 6. Stellen Sie eine Verbindung her, bevor Sie den Minecraft-Bindungsfluss starten.
 
-Die erfolgreiche Verbindung des Clients beweist lediglich, dass der Sprachendpunkt erreichbar ist. Die Nähe zu Minecraft hängt immer noch davon ab, dass das Add-on oder Plugin eine Verbindung zum entsprechenden Transportmittel herstellt.
+Die erfolgreiche Verbindung des Clients beweist lediglich, dass der Sprachendpunkt erreichbar ist. Das Proximity-Verhalten in Minecraft hängt weiterhin davon ab, dass das Add-on oder Plugin eine Verbindung zum passenden Transport herstellt.
 
 ## Häufige Probleme beim ersten Start
 
@@ -107,7 +107,7 @@ Die erfolgreiche Verbindung des Clients beweist lediglich, dass der Sprachendpun
 - Der Client stellt eine Verbindung her, aber keine Nähe:
   Überprüfen Sie den Minecraft-Transport, den Bindungsfluss und `Positioning Type`.
 - Remote-Server stellt keine Verbindung her:
-  Vergewissern Sie sich, dass der UDP-Port zwischen dem Player und `VoiceCraft.Server` geöffnet ist.
+  Vergewissern Sie sich, dass der UDP-Port zwischen dem Spieler und `VoiceCraft.Server` geöffnet ist.
 - Der Spieler hört alle aus der falschen Entfernung:
   Überprüfen Sie Aktualisierungen der Entitätsposition und Welt-IDs.
 

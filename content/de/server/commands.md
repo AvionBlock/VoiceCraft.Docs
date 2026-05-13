@@ -102,7 +102,7 @@ Der Server gibt einen Fehler zurück, wenn:
 list --clientsOnly --limit 20
 ```
 
-Wenn der erwartete Player fehlt, überprüfen Sie die Client-Server-Adresse, den UDP-Port und die Firewall-Regeln, bevor Sie die Minecraft-Integration debuggen.
+Wenn der erwartete Spieler fehlt, überprüfen Sie die Client-Server-Adresse, den UDP-Port und die Firewall-Regeln, bevor Sie die Minecraft-Integration debuggen.
 
 ### Bestätigen Sie, dass Positionsaktualisierungen verschoben werden
 

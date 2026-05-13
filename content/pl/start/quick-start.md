@@ -18,11 +18,11 @@ Jeśli nie jesteś pewien, zacznij od jednego z poniższych:
 - Serwer dedykowany Bedrock: czytaj [McHttp for BDS](/minecraft/mchttp-bds)
 - Serwer Java + Geyser: czytaj [GeyserVoice](/ecosystem/geyservoice)
 
-W przypadku pierwszej konfiguracji wybierz jedną topologię i udostępnij tylko potrzebny jej transport. Możesz dodać konfiguracje mieszane później, gdy zadziała podstawowe wiązanie i przepływ zbliżeniowy.
+W przypadku pierwszej konfiguracji wybierz jedną topologię i udostępnij tylko potrzebny jej transport. Możesz dodać konfiguracje mieszane później, gdy zadziała podstawowe wiązanie i przepływ dźwięku zależnego od odległości.
 
 ## 1. Pobierz serwer
 
-1. Otwórz plik [download page](/download).
+1. Otwórz [stronę pobierania](/download).
 2. Pobierz archiwum serwera dla swojej platformy:
    - `VoiceCraft.Server.Windows.x64.zip`
    - `VoiceCraft.Server.Windows.x86.zip`
@@ -31,7 +31,7 @@ W przypadku pierwszej konfiguracji wybierz jedną topologię i udostępnij tylko
    - `VoiceCraft.Server.Linux.arm.zip`
    - `VoiceCraft.Server.Linux.arm64.zip`
 
-Jeśli budujesz ze źródła, zobacz [VoiceCraft repository and build](/ecosystem/voicecraft-repository).
+Jeśli budujesz ze źródła, zobacz [repozytorium i budowanie VoiceCraft](/ecosystem/voicecraft-repository).
 
 ## 2. Uruchom serwer raz
 
@@ -72,7 +72,7 @@ Token, którego później użyjesz, musi pasować do transportu:
 
 ## 4. Wybierz transport Minecraft
 
-VoiceCraft ma obecnie 3 transporty skierowane do Minecrafta:
+VoiceCraft ma obecnie 3 transporty po stronie Minecrafta:
 
 - `McHttp`:
   Najlepszy dla serwera dedykowanego Bedrock i najbardziej stabilna automatyzacja Bedrock.
@@ -81,13 +81,13 @@ VoiceCraft ma obecnie 3 transporty skierowane do Minecrafta:
 - `McTcp`:
   Najlepsze dla mostów po stronie Java, takich jak `GeyserVoice`.
 
-Pełne porównanie można znaleźć w [Transport Modes](/server/transports).
+Pełne porównanie można znaleźć w [trybach transportu](/server/transports).
 
 Upewnij się, że wybrany transport jest włączony i powiązany z adresem, do którego może dotrzeć środowisko wykonawcze po stronie Minecrafta.
 
 ## 5. Pobierz klienta
 
-Z [download page](/download) pobierz pakiet dla swoich graczy:
+Ze [strony pobierania](/download) pobierz pakiet dla swoich graczy:
 
 - Windows: `VoiceCraft.Client.Windows.<arch>.zip`
 - Linux: `VoiceCraft.Client.Linux.<arch>.zip`
@@ -105,7 +105,7 @@ Z [download page](/download) pobierz pakiet dla swoich graczy:
 
 Typowa konfiguracja lokalna:
 
-- gospodarz: `127.0.0.1`
+- host: `127.0.0.1`
 - port: `9050`
 
 ## 7. Podłącz stronę Minecraft
@@ -114,12 +114,12 @@ Typowa konfiguracja lokalna:
 - W przypadku lokalnego świata Bedrock użyj [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 - W przypadku Java + Geyser/Floodgate użyj [GeyserVoice](/ecosystem/geyservoice).
 
-Ten krok zapewnia VoiceCraftowi stan gry potrzebny do dźwięku zbliżeniowego: tożsamość gracza, dane powiązania, identyfikatory światów, aktualizacje pozycji i stan efektu.
+Ten krok zapewnia VoiceCraftowi stan gry potrzebny do dźwięku zależnego od odległości: tożsamość gracza, dane powiązania, identyfikatory światów, aktualizacje pozycji i stan efektu.
 
 Jeśli wdrażasz na Bedrock, trzymaj te dwie strony w pobliżu:
 
-- [Download Page](/download) dla surowych plików wersji klienta/serwera/dodatku
-- [Addon Configurator](/addon-configurator) dla gotowego do rozpakowania archiwum świata
+- [Strona pobierania](/download) dla plików wydań klienta, serwera i dodatku
+- [Konfigurator dodatku](/addon-configurator) dla gotowego do rozpakowania archiwum świata
 
 ## 8. Sprawdź stos
 
@@ -128,17 +128,17 @@ Jeśli wszystko jest poprawnie skonfigurowane:
 - Serwer VoiceCraft uruchamia się bez błędów konfiguracji i portu
 - klient łączy się bez błędów transportu
 - Integracja z Minecraftem uwierzytelnia się za pomocą oczekiwanego tokena
-- tworzenie jednostek i praca z przepływem powiązań
-- gracze słyszą głos zbliżeniowy, gdy znajdują się w zasięgu
+- tworzenie encji i przepływ powiązania działają
+- gracze słyszą głos zależny od odległości, gdy znajdują się w zasięgu
 
-Jeśli klient łączy się, ale proximity audio nie działa, przed zmianą ustawień audio zdebuguj transport Minecraft i przepływ powiązań.
+Jeśli klient łączy się, ale dźwięk zależny od odległości nie działa, przed zmianą ustawień audio zdebuguj transport Minecraft i przepływ powiązań.
 
 ## Polecane kolejne lektury
 
-- [Server Installation](/server/installation)
-- [First Server Run](/server/first-run)
+- [Instalacja serwera](/server/installation)
+- [Pierwsze uruchomienie serwera](/server/first-run)
 - [ServerProperties.json](/server/server-properties)
-- [Runtime Overrides](/server/runtime-overrides)
-- [Transport Modes](/server/transports)
-- [Download Page](/download)
-- [Addon Configurator](/addon-configurator)
+- [Nadpisania w czasie wykonywania](/server/runtime-overrides)
+- [Tryby transportu](/server/transports)
+- [Strona pobierania](/download)
+- [Konfigurator dodatku](/addon-configurator)

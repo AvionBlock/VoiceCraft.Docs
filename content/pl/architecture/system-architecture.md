@@ -1,6 +1,6 @@
 # Architektura systemu
 
-VoiceCraft to zbliżeniowy stos głosowy, a nie pojedynczy mod Minecraft. Klient przenosi dźwięk z mikrofonu, serwer jest właścicielem sesji głosowych i stanu współdzielonego, a warstwa integracji Minecrafta informuje serwer, gdzie znajdują się gracze i jak powinni być reprezentowani.
+VoiceCraft to stos głosu zależnego od odległości, a nie pojedynczy mod Minecrafta. Klient przesyła dźwięk z mikrofonu, serwer zarządza sesjami głosowymi i współdzielonym stanem, a warstwa integracji Minecrafta informuje serwer, gdzie są gracze i jak powinien wyglądać ich stan.
 
 Separacja jest zamierzona: ten sam serwer głosowy może współpracować z serwerem dedykowanym Bedrock, lokalnymi światami Bedrock, bezpośrednimi serwerami Paper i sieciami proxy, o ile podłączony jest właściwy transport obsługujący Minecraft.
 
