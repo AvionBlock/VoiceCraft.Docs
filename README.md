@@ -2,7 +2,7 @@
 
 Documentation site for **VoiceCraft**, built with **Nuxt 4 + Docus** and multilingual support via `@nuxtjs/i18n`.
 
-Live documentation: [voicecraft.avion.team](https://voicecraft.avion.team)
+Live documentation: [docs.avion.team](https://docs.avion.team)
 
 This docs project includes:
 
@@ -194,8 +194,8 @@ This repository includes an automated GitHub Pages workflow:
 
 1. Open `Settings -> Pages`.
 2. Set **Source** to **GitHub Actions**.
-3. Ensure your custom domain is set to `voicecraft.avion.team`.
-4. Verify DNS for `voicecraft.avion.team` points to GitHub Pages.
+3. Ensure your custom domain is set to `docs.avion.team`.
+4. Verify DNS for `docs.avion.team` points to GitHub Pages.
 
 ### Notes
 
@@ -204,6 +204,6 @@ This repository includes an automated GitHub Pages workflow:
 
 ## Useful Links
 
-- Docs: [voicecraft.avion.team](https://voicecraft.avion.team)
+- Docs: [docs.avion.team](https://docs.avion.team)
 - VoiceCraft: [GitHub](https://github.com/AvionBlock/VoiceCraft)
 - Releases: [Latest release](https://github.com/AvionBlock/VoiceCraft/releases/latest)
