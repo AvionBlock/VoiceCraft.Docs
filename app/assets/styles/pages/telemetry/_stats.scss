@@ -1,0 +1,50 @@
+.vc-telemetry-stat-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 152px;
+}
+
+.vc-telemetry-stat-card::after {
+  position: absolute;
+  inset: auto -24px -36px auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  opacity: 0.24;
+  filter: blur(4px);
+  content: "";
+}
+
+.vc-telemetry-stat-card[data-accent="violet"]::after {
+  background: radial-gradient(circle, rgba(202, 137, 255, 0.75), transparent 68%);
+}
+
+.vc-telemetry-stat-card[data-accent="cyan"]::after {
+  background: radial-gradient(circle, rgba(95, 255, 224, 0.75), transparent 68%);
+}
+
+.vc-telemetry-stat-card[data-accent="amber"]::after {
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.75), transparent 68%);
+}
+
+.vc-telemetry-stat-card[data-accent="emerald"]::after {
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.75), transparent 68%);
+}
+
+.vc-telemetry-stat-value {
+  position: relative;
+  z-index: 1;
+  font-family: "Nunito", "Comfortaa", sans-serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.vc-telemetry-mini-label {
+  color: rgba(165, 243, 252, 0.86);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}

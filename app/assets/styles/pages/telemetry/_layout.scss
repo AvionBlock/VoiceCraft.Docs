@@ -1,0 +1,70 @@
+.vc-telemetry-wrap {
+  display: grid;
+  width: 100%;
+  max-width: 1460px;
+  margin-inline: auto;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding-inline: 0.35rem;
+}
+
+.vc-telemetry-hero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(95, 255, 224, 0.16);
+  background:
+    radial-gradient(700px 300px at 0% 0%, rgba(95, 255, 224, 0.16), transparent 68%),
+    radial-gradient(820px 340px at 100% 0%, rgba(202, 137, 255, 0.17), transparent 72%),
+    linear-gradient(140deg, rgba(7, 12, 20, 0.96), rgba(5, 10, 17, 0.92));
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.46);
+}
+
+.vc-telemetry-hero-layout,
+.vc-telemetry-dashboard {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.vc-telemetry-hero-layout {
+  gap: clamp(1.5rem, 3vw, 2rem);
+}
+
+.vc-telemetry-grid,
+.vc-telemetry-donut-grid,
+.vc-telemetry-list-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.vc-telemetry-grid {
+  gap: 1rem;
+}
+
+.vc-telemetry-donut-grid,
+.vc-telemetry-list-grid {
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+@media (min-width: 768px) {
+  .vc-telemetry-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .vc-telemetry-hero-layout {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+    align-items: flex-end;
+  }
+
+  .vc-telemetry-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .vc-telemetry-donut-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .vc-telemetry-list-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

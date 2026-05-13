@@ -1,0 +1,27 @@
+.vc-addon-config-list-item,
+.vc-addon-config-log-item {
+  color: rgba(248, 250, 252, 0.95);
+  padding: 0.85rem 0.95rem;
+}
+
+.vc-addon-config-file-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.32rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 0.8rem 0.9rem;
+}
+
+.vc-addon-config-file-key {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(244, 244, 245, 0.94);
+  padding: 0.18rem 0.62rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.84rem;
+}

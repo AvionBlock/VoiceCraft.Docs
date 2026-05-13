@@ -1,0 +1,229 @@
+@media (min-width: 992px) {
+  .nav-bg :deep(.container) {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
+    align-items: center;
+    column-gap: clamp(14px, 1.7vw, 28px);
+  }
+
+  .brand-wrap {
+    min-width: 0;
+    margin-right: 0 !important;
+  }
+
+  .nav-collapse-panel {
+    display: flex !important;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: center;
+    overflow: visible;
+    width: auto !important;
+  }
+
+  .nav-links-wrap {
+    display: flex;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: center;
+    gap: clamp(10px, 1.25vw, 20px);
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .nav-links-wrap :deep(.nav-item) {
+    margin-left: 0 !important;
+  }
+
+  .nav-links-wrap :deep(.nav-link) {
+    display: inline-flex;
+    min-height: 44px;
+    max-width: none;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    padding: 6px 0;
+    line-height: 1.15;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .nav-controls {
+    gap: 14px;
+    min-width: max-content;
+    margin-left: auto;
+  }
+
+  .nav-controls :deep(.vc-version-cta) {
+    min-width: 0;
+  }
+
+  .nav-controls :deep(.vc-version-select) {
+    width: 8.15rem;
+    min-width: 8.15rem;
+    max-width: 8.15rem;
+  }
+
+  .nav-controls :deep(.nav-item),
+  .nav-controls :deep(.dropdown) {
+    margin-left: 0 !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .nav-bg {
+    width: min(1180px, calc(100% - 16px));
+  }
+
+  .brand-word {
+    font-size: 32px !important;
+  }
+
+  .nav-bg :deep(.container) {
+    column-gap: 20px;
+  }
+
+  .nav-links-wrap {
+    gap: 12px;
+  }
+
+  .nav-links-wrap :deep(.nav-link) {
+    font-size: 16px !important;
+    white-space: nowrap;
+  }
+
+  .nav-controls {
+    gap: 10px;
+  }
+
+  .nav-controls :deep(.vc-version-select) {
+    width: 8.15rem;
+    min-width: 8.15rem;
+    max-width: 8.15rem;
+  }
+
+  .nav-account-btn {
+    width: 128px;
+    min-width: 128px;
+    min-height: 50px;
+    font-size: 18px !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .nav-bg {
+    width: min(1360px, calc(100% - 18px));
+  }
+
+  .brand-word {
+    font-size: 36px !important;
+  }
+
+  .nav-links-wrap :deep(.nav-link) {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .nav-bg {
+    top: 8px;
+    width: calc(100% - 14px);
+    border-radius: 28px;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .nav-bg :deep(.container) {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .brand-wrap {
+    max-width: calc(100% - 108px);
+    overflow: hidden;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+
+  .brand-word {
+    font-size: clamp(24px, 8vw, 38px) !important;
+    line-height: 1;
+  }
+
+  .btn-lang,
+  .nav-bg :deep(.btn-lang),
+  .nav-bg :deep(.btn-lang.btn),
+  .nav-bg :deep(button.btn-lang) {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    max-width: 36px;
+    min-height: 36px;
+  }
+
+  .nav-bg :deep(.btn-lang .iconify),
+  .nav-bg :deep(.btn-lang svg) {
+    width: 25px;
+    height: 25px;
+  }
+
+  .nav-controls :deep(.navbar-toggler) {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    max-width: 36px;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
+    border-color: rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.24);
+    padding: 0 !important;
+    line-height: 1;
+  }
+
+  .nav-controls :deep(.navbar-toggler:focus) {
+    box-shadow: none;
+  }
+
+  .nav-controls :deep(.navbar-toggler-icon) {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    background-position: center;
+    background-size: 24px 24px;
+  }
+
+  .nav-collapse-panel {
+    width: 100%;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 10px;
+  }
+
+  .nav-links-wrap {
+    align-items: flex-start !important;
+    gap: 8px;
+  }
+
+  .nav-links-wrap :deep(.nav-link) {
+    display: inline-block;
+    padding: 8px 10px;
+  }
+
+  .nav-links-wrap :deep(.btn-main) {
+    width: auto;
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .brand-wrap {
+    max-width: calc(100% - 88px);
+  }
+
+  .brand-word {
+    font-size: clamp(25px, 8vw, 31px) !important;
+  }
+}

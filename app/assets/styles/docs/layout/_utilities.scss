@@ -1,0 +1,41 @@
+.vc-doc-missing {
+  max-width: 720px;
+  margin: 4rem auto 0;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.vc-doc-missing-kicker {
+  color: var(--vc-doc-accent);
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.vc-u-container {
+  width: 100%;
+  max-width: 1460px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.vc-u-btn-label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.vc-u-btn-lg {
+  padding: 0.65rem 1.05rem;
+}
+
+.vc-u-btn-xl {
+  padding: 0.85rem 1.25rem;
+}
+
+.vc-icon-btn {
+  display: inline-flex !important;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+}

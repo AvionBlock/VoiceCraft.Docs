@@ -1,0 +1,42 @@
+.flag-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+}
+
+.flag-en {
+  background:
+    linear-gradient(90deg, transparent 38%, #fff 38% 47%, #c8102e 47% 54%, #fff 54% 62%, transparent 62%),
+    linear-gradient(0deg, transparent 38%, #fff 38% 47%, #c8102e 47% 54%, #fff 54% 62%, transparent 62%),
+    #012169;
+}
+
+.flag-ru {
+  background: linear-gradient(#fff 0 33%, #0039a6 33% 66%, #d52b1e 66% 100%);
+}
+
+.flag-de {
+  background: linear-gradient(#000 0 33%, #dd0000 33% 66%, #ffce00 66% 100%);
+}
+
+.flag-nl {
+  background: linear-gradient(#ae1c28 0 33%, #fff 33% 66%, #21468b 66% 100%);
+}
+
+.flag-pl {
+  background: linear-gradient(#fff 0 50%, #dc143c 50% 100%);
+}
+
+.flag-zh-cn {
+  background: radial-gradient(circle at 35% 35%, #ffde00 0 15%, transparent 16%), #de2910;
+}
+
+.flag-zh-tw {
+  background:
+    radial-gradient(circle at 30% 32%, #fff 0 10%, transparent 11%),
+    linear-gradient(135deg, #000095 0 44%, transparent 45%),
+    #fe0000;
+}

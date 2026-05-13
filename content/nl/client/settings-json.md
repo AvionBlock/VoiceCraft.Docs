@@ -1,0 +1,242 @@
+# Instellingen.json
+
+Bestand met clientinstellingen: `Settings.json`.
+
+De client schrijft dit bestand automatisch. Gebruik de gebruikersinterface voor normale wijzigingen en bewerk de JSON alleen voor herstel, automatisering of geavanceerde probleemoplossing.
+
+Vóór handmatige bewerkingen:
+
+1. Sluit de klant.
+2. Maak een back-up van `Settings.json`.
+3. Verander één sectie tegelijk.
+4. Open de client opnieuw en controleer of de gebruikersinterface nog steeds wordt geladen.
+
+## Bestandslocatie
+
+- Windows: `%AppData%/voicecraft/Settings.json`
+- Linux: `~/.config/voicecraft/Settings.json`
+- macOS: `~/Library/Application Support/voicecraft/Settings.json`
+- Android / iOS: in de app-sandbox (`ApplicationData`)
+
+## Volledig voorbeeld
+
+```json
+{
+  "UserGuid": "7f303d4a-5105-4b4f-9de4-2448f5ddf703",
+  "ServerUserGuid": "6727d672-8f9f-4916-b960-26a3e0a9cd18",
+  "InputSettings": {
+    "InputDevice": "Default",
+    "InputCapturePreset": "VoiceCommunication",
+    "InputVolume": 1.0,
+    "MicrophoneSensitivity": 0.04,
+    "AutomaticGainController": "00000000-0000-0000-0000-000000000000",
+    "Denoiser": "00000000-0000-0000-0000-000000000000",
+    "EchoCanceler": "00000000-0000-0000-0000-000000000000",
+    "PushToTalkEnabled": false,
+    "PushToTalkCue": true
+  },
+  "OutputSettings": {
+    "OutputDevice": "Default",
+    "OutputVolume": 1.0,
+    "AudioClipper": "962fe030-08c3-4e21-a9c1-fcfea0745b6a"
+  },
+  "LocaleSettings": {
+    "Culture": "en-US"
+  },
+  "NotificationSettings": {
+    "DisableNotifications": false,
+    "DismissDelayMs": 2000
+  },
+  "ServersSettings": {
+    "HideServerAddresses": false,
+    "Servers": [
+      {
+        "Name": "Local",
+        "Ip": "127.0.0.1",
+        "Port": 9050
+      }
+    ]
+  },
+  "ThemeSettings": {
+    "SelectedBackgroundImage": "6b023e19-c9c5-4e06-84df-22833ccccd87",
+    "SelectedTheme": "cf8e39fe-21cc-4210-91e6-d206e22ca52e"
+  },
+  "NetworkSettings": {
+    "PositioningType": 0,
+    "McWssListenIp": "127.0.0.1",
+    "McWssHostPort": 8080
+  },
+  "HotKeySettings": {
+    "Bindings": {
+      "Mute": "LeftControl+LeftShift+M",
+      "Deafen": "LeftControl+LeftShift+D"
+    }
+  },
+  "UserSettings": {
+    "Users": {
+      "0f9716f4-08f1-4580-bb27-f8a4b730e89d": {
+        "Volume": 1.0,
+        "UserMuted": false
+      }
+    }
+  }
+}
+```
+
+## Velden op het hoogste niveau
+
+- `UserGuid`:
+  lokale klantidentiteit.
+- `ServerUserGuid`:
+  opgeslagen identiteit/compatibiliteits-GUID aan de serverzijde die door de client wordt gebruikt.
+- `InputSettings`:
+  microfoon en voorbewerking.
+- `OutputSettings`:
+  afspeelinstellingen.
+- `LocaleSettings`:
+  UI-taal.
+- `NotificationSettings`:
+  toast gedrag.
+- `ServersSettings`:
+  opgeslagen VoiceCraft-servers.
+- `ThemeSettings`:
+  gekozen thema en achtergrond.
+- `NetworkSettings`:
+  positioneringsmodus en McWss-luisteraarwaarden.
+- `HotKeySettings`:
+  configureerbare sneltoetsen.
+- `UserSettings`:
+  lokale voorkeuren per externe gebruiker.
+
+## Invoerinstellingen
+
+- `InputDevice`:
+  naam van het invoerapparaat.
+- `InputCapturePreset`:
+  voorinstelling voor platformopname, standaard `VoiceCommunication`.
+- `InputVolume`:
+  ingangsversterking `0..2`.
+- `MicrophoneSensitivity`:
+  activiteitsdrempel `0..1`.
+- `AutomaticGainController`:
+  geselecteerde AGC-implementatie-GUID.
+- `Denoiser`:
+  geselecteerde ruisonderdrukkings-GUID.
+- `EchoCanceler`:
+  geselecteerde echo-onderdrukker GUID.
+- `PushToTalkEnabled`:
+  Booleaanse vlag voor push-to-talk-modus.
+- `PushToTalkCue`:
+  Booleaanse vlag voor lokale signaalgeluiden.
+
+## Uitvoerinstellingen
+
+- `OutputDevice`:
+  naam van het uitvoerapparaat.
+- `OutputVolume`:
+  afspeelversterking `0..2`.
+- `AudioClipper`:
+  geselecteerde clipper-GUID.
+
+## Lokale instellingen
+
+- `Culture`:
+  landinstellingen zoals `en-US`, `ru-RU`, `nl-NL`, `de-DE`, `pl-PL`, `zh-CN`, `zh-TW`.
+
+## Meldingsinstellingen
+
+- `DisableNotifications`:
+  schakelt klantmeldingen uit.
+- `DismissDelayMs`:
+  time-out voor meldingen in milliseconden.
+
+## ServersInstellingen
+
+- `HideServerAddresses`:
+  maskeert de hostlijst in de gebruikersinterface.
+- `Servers`:
+  opgeslagen servergegevens.
+
+Elk `Servers[]`-artikel:
+
+- `Name`:
+  weergavenaam, max. `12` tekens.
+- `Ip`:
+  host / IP, max. `30` tekens.
+- `Port`:
+  UDP-poort `1..65535`.
+
+Servergegevens verwijzen naar het VoiceCraft UDP-eindpunt van `VoiceCraftConfig.Port`. Ze zijn niet hetzelfde als de `McHttp`, `McWss` of `McTcp` Minecraft-transporteindpunten.
+
+## ThemaInstellingen
+
+- `SelectedBackgroundImage`:
+  ingebouwde achtergrond-GUID.
+- `SelectedTheme`:
+  ingebouwde thema-GUID.
+
+## Netwerkinstellingen
+
+- `PositioningType`:
+  `0 = Server`, `1 = Client`
+- `McWssListenIp`:
+  lokaal websocket bind-/luisteradres.
+- `McWssHostPort`:
+  lokale websocket-hostpoort.
+
+Deze waarde moet overeenkomen met `VoiceCraftConfig.PositioningType` op de server.
+
+`McWssListenIp` en `McWssHostPort` zijn voor McWss-gerelateerd lokaal websocket-gedrag. Ze vervangen niet de opgeslagen VoiceCraft-serverlijst die wordt gebruikt voor spraakverkeer.
+
+## Sneltoetsinstellingen
+
+`HotKeySettings.Bindings` is een `Dictionary<string, string>`.
+
+Typische toetsen:
+
+- `Mute`
+- `Deafen`
+
+De exacte geserialiseerde waarde is afhankelijk van de backend van de desktopinvoer en de sleutelparser.
+
+## Gebruikersinstellingen
+
+`UserSettings.Users` is een woordenboek dat is ingetoetst door de externe gebruiker `Guid`.
+
+Elke waarde bevat:
+
+- `Volume`:
+  Volumevermenigvuldiger per gebruiker aan de clientzijde.
+- `UserMuted`:
+  Lokaal dempen aan de clientzijde.
+
+Deze waarden vervangen de servermoderatie niet; het zijn persoonlijke klantvoorkeuren.
+
+## Belangrijke bereiken
+
+- `InputVolume`: `0..2`
+- `OutputVolume`: `0..2`
+- `MicrophoneSensitivity`: `0..1`
+- `Servers[].Name`: maximaal `12` tekens
+- `Servers[].Ip`: maximaal `30` tekens
+- `Servers[].Port`: `1..65535`
+- `McWssHostPort`: `0..65535`
+
+## Goede praktijken
+
+- hergebruik `LoginToken`-waarden niet handmatig als gebruikersinstellingen
+- houd `PositioningType` uitgelijnd met de server
+- Als u problemen met de audio oplost, reset u `InputDevice` en `OutputDevice` naar `Default`
+- als een apparaat verdwijnt, laat de client dan het overeenkomende veld opnieuw genereren in plaats van de configuratie van een oude machine te kopiëren
+- deel `Settings.json` niet openbaar als het privéserveradressen bevat
+- vermijd het kopiëren van een volledig instellingenbestand tussen spelers; kopieer indien nodig alleen de serverhost/poort
+
+## Strategie opnieuw instellen
+
+Als de client onbruikbaar wordt na handmatige bewerkingen:
+
+1. Sluit de klant.
+2. Zet `Settings.json` opzij als back-up.
+3. Start de client en laat deze een nieuw bestand genereren.
+4. Voeg de serververmelding opnieuw toe.
+5. Configureer audioapparaten en sneltoetsen opnieuw.

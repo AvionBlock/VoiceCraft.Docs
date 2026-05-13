@@ -1,0 +1,162 @@
+.vc-doc-header {
+  position: fixed !important;
+  top: 12px !important;
+  left: 50%;
+  z-index: 1000;
+  display: flex;
+  width: min(1240px, calc(100% - 24px));
+  min-height: 64px;
+  align-items: center;
+  gap: clamp(0.75rem, 1.6vw, 1.5rem);
+  transform: translateX(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  background-color: rgba(3, 3, 3, 0.8);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(12px);
+  padding: 0.48rem 0.65rem 0.48rem 1rem;
+  transition:
+    min-height 0.22s ease,
+    padding 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.vc-doc-header.nav-compact {
+  min-height: 52px;
+  background-color: rgba(3, 3, 3, 0.9);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.42);
+  padding-block: 0.35rem;
+}
+
+.vc-doc-brand {
+  min-width: max-content;
+  gap: 0.5rem;
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.vc-doc-brand-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.vc-doc-brand-mark {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: "Nunito", "Comfortaa", sans-serif;
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.vc-doc-brand-suffix {
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.72);
+  padding-left: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.vc-doc-top-nav {
+  justify-content: center;
+  gap: 0.15rem;
+}
+
+.vc-doc-top-link {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  padding: 0.45rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.vc-doc-top-link:hover,
+.vc-doc-top-link-active {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--vc-doc-accent-strong);
+}
+
+.vc-doc-header-actions {
+  gap: 0.5rem;
+}
+
+.vc-version-select,
+.vc-locale-toggle {
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.34);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.vc-version-select {
+  width: 8.15rem;
+  min-width: 8.15rem;
+  max-width: 8.15rem;
+  padding: 0 1.45rem 0 0.65rem;
+}
+
+.vc-version-select:focus,
+.vc-locale-toggle:focus-visible {
+  border-color: var(--vc-doc-accent-border);
+  outline: none;
+  box-shadow: 0 0 0 0.18rem rgba(183, 196, 221, 0.14);
+}
+
+.vc-locale-menu {
+  position: relative;
+  display: inline-flex;
+}
+
+.vc-locale-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0 0.7rem;
+  text-transform: uppercase;
+}
+
+.vc-locale-dropdown {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  z-index: 20;
+  min-width: 190px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(5, 6, 10, 0.94);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  padding: 0.35rem;
+}
+
+.vc-locale-option {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.55rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.82);
+  padding: 0.55rem 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.vc-locale-option:hover,
+.vc-locale-option-active {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--vc-doc-accent-strong);
+}

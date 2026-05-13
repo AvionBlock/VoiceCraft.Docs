@@ -1,0 +1,130 @@
+/* Variables */
+$gradient-main: linear-gradient(45deg, #992dfd, #ca89ff);
+$gradient-hover: linear-gradient(45deg, #e6d600, #fffd85);
+
+/* Base style for all buttons */
+%base-button {
+  border: none;
+  border-radius: 9999px;
+  color: #fff;
+  background: $gradient-main;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  line-height: 1.2;
+  flex-shrink: 0;
+
+  &:hover {
+    background: $gradient-hover;
+    color: #000;
+  }
+}
+
+/* Primary button */
+.btn-main {
+  @extend %base-button;
+  padding: 12px 20px;
+  min-height: 56px;
+}
+
+/* Language button (round) */
+.btn-lang {
+  @extend %base-button;
+  width: 2.5em;
+  height: 2.5em;
+  min-height: 2.5em;
+  padding: 0;
+  border-radius: 50%;
+}
+
+/* Outlined button */
+.outlined-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+  padding: 12px 20px;
+  min-height: 56px;
+  border: 2px solid #e6d600;
+  border-radius: 9999px;
+  background: transparent;
+  color: #fff;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  &:hover {
+    background: $gradient-main;
+    border-color: #992dfd;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    color: #fff;
+  }
+}
+
+.btn.btn-outline,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.58) !important;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.035) !important;
+  color: #fff !important;
+  text-decoration: none;
+  text-shadow: none;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.btn.btn-outline:hover,
+.btn.btn-outline:focus-visible,
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  border-color: rgba(95, 255, 224, 0.48) !important;
+  background:
+    linear-gradient(135deg, rgba(95, 255, 224, 0.12), rgba(202, 137, 255, 0.12)),
+    rgba(255, 255, 255, 0.04) !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 0.18rem rgba(95, 255, 224, 0.14);
+  transform: translateY(-1px);
+}
+
+.btn.btn-outline *,
+.btn-outline * {
+  color: currentcolor !important;
+}
+
+.btn.btn-outline.disabled,
+.btn.btn-outline:disabled,
+.btn-outline.disabled,
+.btn-outline:disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Shared button row */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+  width: 100%;
+  justify-content: flex-start;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+}
+

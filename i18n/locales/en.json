@@ -12,6 +12,64 @@
     "links": {
       "latestRelease": "Latest release",
       "downloadPage": "Downloads"
+    },
+    "notFoundTitle": "Page not found",
+    "notFoundDescription": "This documentation page does not exist in the current language yet.",
+    "backHome": "Back home"
+  },
+  "navigation": {
+    "aria": {
+      "docs": "Documentation"
+    },
+    "top": {
+      "docs": "Docs",
+      "download": "Download",
+      "telemetry": "Telemetry",
+      "addonConfigurator": "Addon Configurator"
+    },
+    "groups": {
+      "start": "Start",
+      "client": "Client",
+      "server": "Server",
+      "minecraft": "Minecraft",
+      "operations": "Operations",
+      "ecosystem": "Ecosystem",
+      "architecture": "Architecture",
+      "reference": "Reference"
+    },
+    "items": {
+      "overview": "Overview",
+      "quickStart": "Quick Start",
+      "installation": "Installation",
+      "settings": "Settings",
+      "settingsJson": "Settings.json",
+      "firstRun": "First Run",
+      "serverProperties": "ServerProperties.json",
+      "commands": "Commands",
+      "runtimeOverrides": "Runtime Overrides",
+      "transports": "Transports",
+      "mcHttpBds": "McHttp for BDS",
+      "mcWssSingleplayer": "McWss Singleplayer",
+      "updateBackup": "Update & Backup",
+      "troubleshooting": "Troubleshooting",
+      "securityHardening": "Security Hardening",
+      "hostingCaveats": "Hosting Caveats",
+      "backupRestore": "Backup & Restore",
+      "upgradeRunbook": "Upgrade Runbook",
+      "troubleshootingMatrix": "Troubleshooting Matrix",
+      "voiceCraftRepository": "VoiceCraft Repository",
+      "geyserVoice": "GeyserVoice",
+      "voiceCraftAddon": "VoiceCraft.Addon",
+      "integrationRecipes": "Integration Recipes",
+      "directPaper": "Direct Paper",
+      "proxy": "Proxy",
+      "addonApi": "Addon API",
+      "productionBlueprints": "Production Blueprints",
+      "systemArchitecture": "System Architecture",
+      "packetFlow": "Packet Flow",
+      "authenticationTrust": "Authentication & Trust",
+      "positioningModel": "Positioning Model",
+      "faq": "FAQ"
     }
   },
   "download": {
@@ -211,5 +269,12 @@
         "description": "Input/output devices, sensitivity, denoising, AGC, and microphone tests."
       }
     ]
+  },
+  "footer": {
+    "caption": "VoiceCraft documentation, releases, and resources for Minecraft Bedrock.",
+    "contacts": "Contacts",
+    "email": "Email",
+    "resources": "Resources",
+    "docs": "Documentation"
   }
 }

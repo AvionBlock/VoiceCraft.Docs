@@ -1,0 +1,341 @@
+{
+  "ui": {
+    "siteTitle": "VoiceCraft 文件",
+    "seoDescription": "Minecraft Bedrock 的 VoiceCraft 用戶端/伺服器設定和配置。",
+    "docsVersionLabel": "文件",
+    "versionSwitcher": "版本",
+    "versionCurrent": "目前的",
+    "toc": {
+      "onThisPage": "在此頁面上",
+      "usefulLinks": "有用的連結"
+    },
+    "links": {
+      "latestRelease": "最新發布",
+      "downloadPage": "下載"
+    },
+    "notFoundTitle": "找不到頁面",
+    "notFoundDescription": "目前語言中尚無此文件頁面。",
+    "backHome": "返回首頁"
+  },
+  "navigation": {
+    "aria": {
+      "docs": "文件"
+    },
+    "top": {
+      "docs": "文件",
+      "download": "下載",
+      "telemetry": "遙測",
+      "addonConfigurator": "附加元件設定器"
+    },
+    "groups": {
+      "start": "入門",
+      "client": "用戶端",
+      "server": "伺服器",
+      "minecraft": "Minecraft",
+      "operations": "維運",
+      "ecosystem": "生態系",
+      "architecture": "架構",
+      "reference": "參考"
+    },
+    "items": {
+      "overview": "概覽",
+      "quickStart": "快速開始",
+      "installation": "安裝",
+      "settings": "設定",
+      "settingsJson": "Settings.json",
+      "firstRun": "首次執行",
+      "serverProperties": "ServerProperties.json",
+      "commands": "指令",
+      "runtimeOverrides": "Runtime 覆寫",
+      "transports": "傳輸",
+      "mcHttpBds": "McHttp for BDS",
+      "mcWssSingleplayer": "McWss 單人模式",
+      "updateBackup": "更新與備份",
+      "troubleshooting": "疑難排解",
+      "securityHardening": "安全性強化",
+      "hostingCaveats": "託管注意事項",
+      "backupRestore": "備份與還原",
+      "upgradeRunbook": "升級手冊",
+      "troubleshootingMatrix": "疑難排解矩陣",
+      "voiceCraftRepository": "VoiceCraft 儲存庫",
+      "geyserVoice": "GeyserVoice",
+      "voiceCraftAddon": "VoiceCraft.Addon",
+      "integrationRecipes": "整合方案",
+      "directPaper": "Direct Paper",
+      "proxy": "Proxy",
+      "addonApi": "Addon API",
+      "productionBlueprints": "正式環境藍圖",
+      "systemArchitecture": "系統架構",
+      "packetFlow": "封包流程",
+      "authenticationTrust": "驗證與信任",
+      "positioningModel": "定位模型",
+      "faq": "FAQ"
+    }
+  },
+  "download": {
+    "kicker": "下載中心",
+    "title": "下載 VoiceCraft",
+    "subtitle": "選擇適合您的平台的最新用戶端或伺服器版本。當偵測可用時，會自動反白顯示目前作業系統的用戶端下載。",
+    "detected": "已針對您的裝置反白顯示建議的用戶端版本。",
+    "recommended": "受到推崇的",
+    "clientKicker": "客戶",
+    "clientTitle": "VoiceCraft 用戶端",
+    "clientSubtitle": "為玩家建立桌面和行動用戶端。 Android 32 位元不再發布。",
+    "serverKicker": "伺服器",
+    "serverTitle": "VoiceCraft 伺服器",
+    "serverSubtitle": "獨立伺服器建置用於自託管和部署。",
+    "platformLabel": "平台",
+    "platforms": {
+      "windows": "視窗",
+      "linux": "Linux",
+      "macos": "macOS",
+      "android": "安卓",
+      "ios": "iOS系統"
+    },
+    "androidNote": "Android 32 位元不再可用。使用arm64 Android 版本。",
+    "serverSourceNote": "如果您需要此處未列出的平台，請查看完整版本頁面或從原始程式碼建置。",
+    "allReleases": "打開所有版本",
+    "addonKicker": "添加在",
+    "addonTitle": "VoiceCraft 外掛",
+    "addonSubtitle": "建立一個全球通用的插件存檔或開啟打包版本。",
+    "addonConfigurator": "開啟配置器",
+    "addonReleases": "插件發布",
+    "worldReady": "全球通用的存檔",
+    "addonNote": "當您想要一個可立即解壓縮的世界存檔（包含已修補的 level.dat 和產生的套件清單）時，請使用設定器。當您需要原始插件包時，請使用發行版。",
+    "addonRepo": "開啟插件倉庫"
+  },
+  "telemetry": {
+    "kicker": "公共遙測",
+    "title": "VoiceCraft 使用情況儀表板",
+    "subtitle": "來自公共遙測 API 的即時聚合，分為可讀的客戶端和伺服器遙測視圖。",
+    "openApi": "開放API",
+    "refresh": "重新整理數據",
+    "roleSwitchLabel": "遙測數據集",
+    "roles": {
+      "client": "客戶端遙測",
+      "clientShort": "VoiceCraft 應用程式安裝、裝置和用戶端設置",
+      "clientDescription": "客戶端資料來自 VoiceCraft 用戶端的啟動報告和診斷上傳。此頁面重點介紹安裝、作業系統、執行時間詳細資料、裝置系列、定位模式和一鍵通使用情況。",
+      "server": "伺服器遙測",
+      "serverShort": "VoiceCraft.Server 運行時、主機和傳輸報告",
+      "serverDescription": "伺服器資料來自 VoiceCraft.Server 的啟動、心跳和診斷報告。該頁面重點關注安裝、主機平台、運行時詳細資訊、容量、連接的客戶端、定位模式和啟用的傳輸。"
+    },
+    "loadingTitle": "取得即時遙測快照",
+    "loadingSubtitle": "儀表板正在從 vc-api.avion.team 提取當前聚合。",
+    "emptyTitle": "遙測已上線，但尚無使用數據",
+    "emptySubtitle": "一旦 VoiceCraft 用戶端或伺服器開始報告事件，此處的圖表就會自動填入。",
+    "noChartData": "該圖表還沒有數據。",
+    "neverUpdated": "還沒有活動",
+    "unknown": "未知",
+    "other": "其他",
+    "ofTop": "頂部的",
+    "enabled": "啟用",
+    "disabled": "殘障人士",
+    "partialData": "無法載入某些輔助圖表，因此儀表板顯示可用的資料。",
+    "cards": {
+      "events": "遙測事件",
+      "instances": "獨特的裝置",
+      "dumps": "診斷轉儲",
+      "lastEvent": "收到的最後一個事件"
+    },
+    "charts": {
+      "osShare": "作業系統",
+      "osShareSubtitle": "VoiceCraft 現在正在運行的位置。",
+      "uniqueOsShare": "按作業系統劃分的獨特安裝量",
+      "uniqueOsShareSubtitle": "最新已知的作業系統依唯一指紋劃分。",
+      "channelShare": "發布管道",
+      "channelShareSubtitle": "使用量如何在穩定通路和其他通路之間分配。",
+      "roleShare": "客戶端與伺服器",
+      "roleShareSubtitle": "遙測流中觀察到的角色。",
+      "versionShare": "熱門版本",
+      "versionShareSubtitle": "目前快照中最活躍的應用程式版本。",
+      "osVersionShare": "作業系統版本",
+      "osVersionShareSubtitle": "所選遙測資料集的報表作業系統版本。",
+      "osBuildShare": "作業系統建構",
+      "osBuildShareSubtitle": "建構客戶端設備報告的識別碼。",
+      "osDescriptionShare": "作業系統說明",
+      "osDescriptionShareSubtitle": "客戶報告的完整作業系統描述。",
+      "architectureShare": "CPU架構",
+      "architectureShareSubtitle": "報告的硬體架構的分佈。",
+      "processArchitectureShare": "流程架構",
+      "processArchitectureShareSubtitle": "應用程式目前運行的進程架構。",
+      "localeShare": "區域設置",
+      "localeShareSubtitle": "客戶端報告的最常見的使用者區域設定。",
+      "vendorShare": "設備供應商",
+      "vendorShareSubtitle": "匿名報告中出現的硬體供應商。",
+      "modelShare": "設備型號",
+      "modelShareSubtitle": "最常被報告的設備型號。",
+      "serverPlatformShare": "伺服器平台",
+      "serverPlatformShareSubtitle": "伺服器遙測報告的主機平台。",
+      "serverArchitectureShare": "伺服器架構",
+      "serverArchitectureShareSubtitle": "伺服器報告的CPU架構。",
+      "serverLocaleShare": "伺服器區域設定",
+      "serverLocaleShareSubtitle": "伺服器安裝報告的區域設定。",
+      "serverConnectedClients": "連接的客戶端",
+      "serverConnectedClientsSubtitle": "目前有多少客戶端伺服器報告已連線。",
+      "serverMaxClients": "最大客戶端容量",
+      "serverMaxClientsSubtitle": "伺服器報告的配置容量桶。",
+      "dumpCategoryShare": "轉儲類別",
+      "dumpCategoryShareSubtitle": "崩潰、日誌和診斷轉儲分發。",
+      "positioningTypes": "定位類型",
+      "positioningTypesSubtitle": "`positioning_type` 指標的值分佈。",
+      "pushToTalk": "一鍵通",
+      "pushToTalkSubtitle": "`push_to_talk_enabled` 指標的值分佈。",
+      "transportHttp": "啟用 McHttp",
+      "transportHttpSubtitle": "`mc_http_enabled` 伺服器指標的值分佈。",
+      "transportTcp": "啟用 McTcp",
+      "transportTcpSubtitle": "`mc_tcp_enabled` 伺服器指標的值分佈。",
+      "transportWss": "已啟用 McWss",
+      "transportWssSubtitle": "`mc_wss_enabled` 伺服器指標的值分佈。"
+    }
+  },
+  "addonConfigurator": {
+    "kicker": "插件配置器",
+    "title": "世界就緒的 VoiceCraft 插件產生器",
+    "subtitle": "選擇基本插件和傳輸包，上傳您的世界 level.dat，可選地添加 level.dat_old，並下載世界資料夾的準備解壓縮存檔。",
+    "transport": {
+      "none": "僅基礎插件",
+      "http": "基礎+McHttp",
+      "wss": "Bedrock + McWss",
+      "both": "基礎 + McHttp + McWss"
+    },
+    "packNames": {
+      "base": "基礎插件",
+      "http": "McHttp 傳輸",
+      "wss": "McWss 傳輸"
+    },
+    "steps": {
+      "version": "1.選擇插件版本",
+      "selection": "2. 選擇插件組合",
+      "levelDat": "3.上傳world level.dat文件",
+      "build": "4. 建立準備好的檔案"
+    },
+    "loadingVersions": "正在載入可用版本...",
+    "versionPlaceholder": "選擇發布版本",
+    "versionSelected": "{version} 於 {date} 發佈。",
+    "uploadTitle": "選擇level.dat",
+    "uploadSubtitle": "修補基岩實驗標籤後，該文件將包含在存檔中。",
+    "uploadOldTitle": "選擇level.dat_old（可選）",
+    "uploadOldSubtitle": "如果提供，備份檔案將以相同的方式修補並作為 level.dat_old 新增至檔案中。",
+    "betaApiStub": "配置器直接在 level.dat 內啟用 beta API 所需的 Bedrock 實驗標籤。",
+    "building": "建立檔案...",
+    "buildAction": "建置和下載",
+    "summaryTitle": "存檔包含哪些內容",
+    "summarySubtitle": "最終的 zip 已佈局好，因此可以直接將其解壓縮到基岩世界資料夾中。",
+    "outputs": {
+      "levelDat": "啟用 Bedrock beta API 實驗標籤後，世界會保存元資料。",
+      "levelDatOldIncluded": "可選的備份世界元資料文件，已修補並包含在存檔中。",
+      "levelDatOldOptional": "可選的備份世界元資料檔。僅在上傳時新增。",
+      "behaviorJson": "為行為包產生包註冊文件。",
+      "resourceJson": "為資源包產生包註冊文件。",
+      "behaviorFolder": "從所選插件包複製的行為包。",
+      "resourceFolder": "從選定的插件包複製的資源包。"
+    },
+    "progressTitle": "取得進展",
+    "progress": {
+      "levelDat": "準備上傳的level.dat",
+      "levelDatOld": "準備上傳的level.dat_old",
+      "release": "使用版本：{version}",
+      "request": "從 GitHub 請求伺服器端建立發布資產",
+      "bundle": "正在載入套件：{name}",
+      "metadata": "產生世界包註冊 JSON 文件",
+      "archive": "打包最終世界檔案",
+      "done": "存檔已準備好"
+    },
+    "archiveNote": "檔案已組裝，因此其內容可以直接解壓縮到 world 資料夾中。",
+    "success": "存檔建立成功。",
+    "errors": {
+      "generic": "無法建構配置的插件存檔。",
+      "releases": "無法載入可用的插件版本。"
+    }
+  },
+  "landing": {
+    "title": "VoiceCraft 文件",
+    "subtitle": "Minecraft 基岩版的跨平台近距離語音聊天。在單一文檔中心中安裝、設定、操作和 McHttp/McWss 整合。",
+    "quickStart": "快速入門",
+    "downloadRelease": "下載發布",
+    "productTour": "產品展示",
+    "interfaceTitle": "VoiceCraft 介面",
+    "slides": [
+      {
+        "title": "客戶端主螢幕",
+        "description": "伺服器概覽、快速連線流程和目前會話狀態集中在一個地方。"
+      },
+      {
+        "title": "設定和網路",
+        "description": "定位參數、McWss 端點和進階客戶端行為調整。"
+      },
+      {
+        "title": "音訊管道",
+        "description": "輸入/輸出設備、靈敏度、降噪、AGC 和麥克風測試。"
+      }
+    ]
+  },
+  "common": {
+    "or": "或",
+    "error": {
+      "title": "找不到頁面",
+      "description": "很抱歉，找不到此頁面。"
+    }
+  },
+  "docs": {
+    "copy": {
+      "page": "複製頁面",
+      "link": "複製 Markdown 頁面",
+      "view": "以 Markdown 檢視",
+      "gpt": "在 ChatGPT 中開啟",
+      "claude": "在 Claude 中開啟"
+    },
+    "links": "社群",
+    "toc": "本頁內容",
+    "menu": "選單",
+    "report": "回報問題",
+    "edit": "編輯此頁"
+  },
+  "logo": {
+    "copyLogo": "複製標誌",
+    "copyWordmark": "複製文字標誌",
+    "downloadLogo": "下載標誌",
+    "downloadWordmark": "下載文字標誌",
+    "brandAssets": "品牌素材",
+    "logoCopied": "標誌已複製",
+    "wordmarkCopied": "文字標誌已複製",
+    "logoDownloaded": "標誌已下載",
+    "wordmarkDownloaded": "文字標誌已下載",
+    "copyLogoFailed": "複製標誌失敗",
+    "copyWordmarkFailed": "複製文字標誌失敗"
+  },
+  "assistant": {
+    "title": "詢問 AI",
+    "placeholder": "輸入問題...",
+    "tooltip": "詢問 AI 問題",
+    "tryAsking": "試著提問",
+    "askAnything": "想問什麼都可以...",
+    "clearChat": "清除聊天",
+    "close": "關閉",
+    "expand": "展開",
+    "collapse": "收合",
+    "thinking": "思考中...",
+    "askMeAnything": "詢問任何問題",
+    "askMeAnythingDescription": "取得瀏覽文件、理解概念與尋找答案的協助。",
+    "faq": "常見問題",
+    "chatCleared": "重新整理時會清除聊天",
+    "lineBreak": "換行",
+    "explainWithAi": "用 AI 解釋",
+    "toolListPages": "已列出文件頁面",
+    "toolReadPage": "閱讀",
+    "loading": {
+      "searching": "正在搜尋文件",
+      "reading": "正在閱讀文件",
+      "analyzing": "正在分析內容",
+      "finding": "正在尋找最佳答案",
+      "finished": "使用的來源"
+    }
+  },
+  "footer": {
+    "caption": "適用於 Minecraft Bedrock 的 VoiceCraft 文件、發布與資源。",
+    "contacts": "聯絡方式",
+    "email": "電子郵件",
+    "resources": "資源",
+    "docs": "文件"
+  }
+}

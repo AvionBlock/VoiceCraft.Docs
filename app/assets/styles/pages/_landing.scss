@@ -1,0 +1,177 @@
+.vc-landing-wrap {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-top: 2.25rem;
+  padding-bottom: 1rem;
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+@media (min-width: 768px) {
+  .vc-landing-wrap {
+    padding-inline: 1.25rem;
+    padding-top: 3.75rem;
+  }
+}
+
+.vc-landing-hero {
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.vc-landing-hero-inner {
+  max-width: 980px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.vc-landing-title {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.vc-landing-subtitle {
+  max-width: 900px;
+  margin: 1.5rem auto 0;
+}
+
+.vc-landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 1.55rem;
+}
+
+.vc-landing-actions .btn,
+.vc-landing-actions .btn-main,
+.vc-landing-actions .btn-outline,
+.vc-landing-actions .outlined-btn {
+  color: #fff !important;
+}
+
+.vc-landing-actions .btn *,
+.vc-landing-actions .btn-main *,
+.vc-landing-actions .btn-outline *,
+.vc-landing-actions .outlined-btn * {
+  color: currentcolor !important;
+}
+
+.vc-landing-actions .btn-outline,
+.vc-landing-actions .outlined-btn {
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  background: transparent !important;
+}
+
+.vc-landing-actions .btn-outline:hover,
+.vc-landing-actions .btn-outline:focus-visible,
+.vc-landing-actions .outlined-btn:hover,
+.vc-landing-actions .outlined-btn:focus-visible {
+  border-color: #992dfd !important;
+  background: linear-gradient(45deg, #992dfd, #ca89ff) !important;
+  color: #fff !important;
+}
+
+.vc-tour {
+  min-height: 600px;
+  padding: clamp(1.5rem, 4vw, 2.25rem) !important;
+}
+
+.vc-tour-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.vc-tour-eyebrow {
+  margin: 0 0 0.9rem;
+  color: rgba(202, 137, 255, 0.88);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vc-tour-title {
+  margin: 0;
+  color: var(--vc-mint);
+}
+
+.vc-tour-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.vc-tour-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 2.4rem);
+  margin-top: 1.75rem;
+}
+
+.vc-tour-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.vc-tour-slide-title {
+  margin: 0;
+  color: #fff;
+  line-height: 1.18;
+}
+
+.vc-tour-slide-description {
+  margin: 0;
+}
+
+.vc-tour-dots {
+  display: flex;
+  gap: 0.55rem;
+  padding-top: 0.35rem;
+}
+
+.vc-tour-media {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.36);
+}
+
+.vc-tour-aspect {
+  aspect-ratio: 16 / 9;
+}
+
+.vc-tour-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 860px) {
+  .vc-tour-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .vc-tour-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .vc-landing-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .vc-landing-actions .btn {
+    width: 100%;
+  }
+}

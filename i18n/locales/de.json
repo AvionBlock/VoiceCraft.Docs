@@ -1,0 +1,341 @@
+{
+  "ui": {
+    "siteTitle": "VoiceCraft-Dokumentation",
+    "seoDescription": "VoiceCraft Client/Server-Setup und Konfiguration für Minecraft Bedrock.",
+    "docsVersionLabel": "Dokumente",
+    "versionSwitcher": "Version",
+    "versionCurrent": "aktuell",
+    "toc": {
+      "onThisPage": "Auf dieser Seite",
+      "usefulLinks": "Nützliche Links"
+    },
+    "links": {
+      "latestRelease": "Neueste Veröffentlichung",
+      "downloadPage": "Downloads"
+    },
+    "notFoundTitle": "Seite nicht gefunden",
+    "notFoundDescription": "Diese Dokumentationsseite existiert in der aktuellen Sprache noch nicht.",
+    "backHome": "Zur Startseite"
+  },
+  "navigation": {
+    "aria": {
+      "docs": "Dokumentation"
+    },
+    "top": {
+      "docs": "Dokumentation",
+      "download": "Download",
+      "telemetry": "Telemetrie",
+      "addonConfigurator": "Addon-Konfigurator"
+    },
+    "groups": {
+      "start": "Start",
+      "client": "Client",
+      "server": "Server",
+      "minecraft": "Minecraft",
+      "operations": "Betrieb",
+      "ecosystem": "Ökosystem",
+      "architecture": "Architektur",
+      "reference": "Referenz"
+    },
+    "items": {
+      "overview": "Übersicht",
+      "quickStart": "Schnellstart",
+      "installation": "Installation",
+      "settings": "Einstellungen",
+      "settingsJson": "Settings.json",
+      "firstRun": "Erster Start",
+      "serverProperties": "ServerProperties.json",
+      "commands": "Befehle",
+      "runtimeOverrides": "Runtime-Overrides",
+      "transports": "Transports",
+      "mcHttpBds": "McHttp für BDS",
+      "mcWssSingleplayer": "McWss Singleplayer",
+      "updateBackup": "Update & Backup",
+      "troubleshooting": "Fehlerbehebung",
+      "securityHardening": "Sicherheitshärtung",
+      "hostingCaveats": "Hosting-Hinweise",
+      "backupRestore": "Backup & Wiederherstellung",
+      "upgradeRunbook": "Upgrade-Runbook",
+      "troubleshootingMatrix": "Fehlerbehebungsmatrix",
+      "voiceCraftRepository": "VoiceCraft Repository",
+      "geyserVoice": "GeyserVoice",
+      "voiceCraftAddon": "VoiceCraft.Addon",
+      "integrationRecipes": "Integrationsrezepte",
+      "directPaper": "Direct Paper",
+      "proxy": "Proxy",
+      "addonApi": "Addon API",
+      "productionBlueprints": "Produktionspläne",
+      "systemArchitecture": "Systemarchitektur",
+      "packetFlow": "Paketfluss",
+      "authenticationTrust": "Authentifizierung & Vertrauen",
+      "positioningModel": "Positionierungsmodell",
+      "faq": "FAQ"
+    }
+  },
+  "download": {
+    "kicker": "Download-Center",
+    "title": "VoiceCraft herunterladen",
+    "subtitle": "Wählen Sie den neuesten Client- oder Server-Build für Ihre Plattform. Client-Downloads werden für Ihr aktuelles Betriebssystem automatisch hervorgehoben, wenn eine Erkennung verfügbar ist.",
+    "detected": "Für Ihr Gerät wurde ein empfohlener Client-Build hervorgehoben.",
+    "recommended": "Empfohlen",
+    "clientKicker": "Kunde",
+    "clientTitle": "VoiceCraft-Client",
+    "clientSubtitle": "Desktop- und mobile Client-Builds für Spieler. Android 32-Bit wird nicht mehr veröffentlicht.",
+    "serverKicker": "Server",
+    "serverTitle": "VoiceCraft-Server",
+    "serverSubtitle": "Eigenständige Server-Builds für Selbsthosting und Bereitstellung.",
+    "platformLabel": "Plattform",
+    "platforms": {
+      "windows": "Windows",
+      "linux": "Linux",
+      "macos": "macOS",
+      "android": "Android",
+      "ios": "iOS"
+    },
+    "androidNote": "Android 32-Bit ist nicht mehr verfügbar. Verwenden Sie den arm64-Android-Build.",
+    "serverSourceNote": "Wenn Sie eine Plattform benötigen, die hier nicht aufgeführt ist, sehen Sie sich die Seite mit den vollständigen Veröffentlichungen an oder erstellen Sie sie aus dem Quellcode.",
+    "allReleases": "Alle Veröffentlichungen öffnen",
+    "addonKicker": "Hinzufügen Auf",
+    "addonTitle": "VoiceCraft-Addon",
+    "addonSubtitle": "Erstellen Sie ein weltweit einsetzbares Add-on-Archiv oder öffnen Sie Paketversionen.",
+    "addonConfigurator": "Konfigurator öffnen",
+    "addonReleases": "Add-on-Versionen",
+    "worldReady": "Welttaugliches Archiv",
+    "addonNote": "Verwenden Sie den Konfigurator, wenn Sie ein sofort entpackbares Weltarchiv mit gepatchter level.dat und generierten Paketmanifesten wünschen. Verwenden Sie Releases, wenn Sie die Roh-Add-On-Pakete benötigen.",
+    "addonRepo": "Addon-Repository öffnen"
+  },
+  "telemetry": {
+    "kicker": "Öffentliche Telemetrie",
+    "title": "VoiceCraft-Nutzungs-Dashboard",
+    "subtitle": "Live-Aggregate aus der öffentlichen Telemetrie-API, aufgeteilt in lesbare Client- und Server-Telemetrieansichten.",
+    "openApi": "Offene API",
+    "refresh": "Daten aktualisieren",
+    "roleSwitchLabel": "Telemetriedatensatz",
+    "roles": {
+      "client": "Client-Telemetrie",
+      "clientShort": "VoiceCraft-App-Installationen, Geräte und Client-Einstellungen",
+      "clientDescription": "Kundendaten stammen aus Startberichten und Diagnose-Uploads von VoiceCraft-Kunden. Die Seite konzentriert sich auf Installationen, Betriebssysteme, Laufzeitdetails, Gerätefamilien, Positionierungsmodus und Push-to-Talk-Nutzung.",
+      "server": "Servertelemetrie",
+      "serverShort": "VoiceCraft.Server-Laufzeit-, Host- und Transportberichte",
+      "serverDescription": "Serverdaten stammen aus Startup-, Heartbeat- und Diagnoseberichten von VoiceCraft.Server. Die Seite konzentriert sich auf Installationen, Hostplattformen, Laufzeitdetails, Kapazität, verbundene Clients, Positionierungsmodus und aktivierte Transporte."
+    },
+    "loadingTitle": "Live-Telemetrie-Schnappschuss wird abgerufen",
+    "loadingSubtitle": "Das Dashboard ruft aktuelle Aggregate von vc-api.avion.team ab.",
+    "emptyTitle": "Die Telemetrie ist online, es liegen jedoch noch keine Nutzungsdaten vor",
+    "emptySubtitle": "Sobald VoiceCraft-Clients oder -Server mit der Meldung von Ereignissen beginnen, werden die Diagramme hier automatisch gefüllt.",
+    "noChartData": "Für dieses Diagramm liegen noch keine Daten vor.",
+    "neverUpdated": "Noch keine Veranstaltungen",
+    "unknown": "Unbekannt",
+    "other": "Andere",
+    "ofTop": "von oben",
+    "enabled": "Ermöglicht",
+    "disabled": "Deaktiviert",
+    "partialData": "Einige sekundäre Diagramme konnten nicht geladen werden, daher zeigt das Dashboard die verfügbaren Daten an.",
+    "cards": {
+      "events": "Telemetrieereignisse",
+      "instances": "Einzigartige Installationen",
+      "dumps": "Diagnose-Dumps",
+      "lastEvent": "Letztes empfangenes Ereignis"
+    },
+    "charts": {
+      "osShare": "Betriebssysteme",
+      "osShareSubtitle": "Wo VoiceCraft gerade läuft.",
+      "uniqueOsShare": "Einzigartige Installationen nach Betriebssystem",
+      "uniqueOsShareSubtitle": "Neuestes bekanntes Betriebssystem, aufgeteilt nach eindeutigem Fingerabdruck.",
+      "channelShare": "Release-Kanäle",
+      "channelShareSubtitle": "Wie die Nutzung auf stabile und andere Kanäle aufgeteilt wird.",
+      "roleShare": "Client vs. Server",
+      "roleShareSubtitle": "Beobachtete Rollen im Telemetrie-Stream.",
+      "versionShare": "Top-Versionen",
+      "versionShareSubtitle": "Die aktivsten App-Versionen im aktuellen Snapshot.",
+      "osVersionShare": "Betriebssystemversionen",
+      "osVersionShareSubtitle": "Gemeldete Betriebssystemversionen für den ausgewählten Telemetriedatensatz.",
+      "osBuildShare": "Betriebssystem-Builds",
+      "osBuildShareSubtitle": "Von Clientgeräten gemeldete Build-IDs.",
+      "osDescriptionShare": "Betriebssystembeschreibungen",
+      "osDescriptionShareSubtitle": "Vollständige Betriebssystembeschreibungen, die von Kunden gemeldet wurden.",
+      "architectureShare": "CPU-Architekturen",
+      "architectureShareSubtitle": "Verteilung der gemeldeten Hardwarearchitekturen.",
+      "processArchitectureShare": "Prozessarchitekturen",
+      "processArchitectureShareSubtitle": "Prozessarchitektur, unter der die App derzeit ausgeführt wird.",
+      "localeShare": "Orte",
+      "localeShareSubtitle": "Die häufigsten von Clients gemeldeten Benutzergebietsschemas.",
+      "vendorShare": "Geräteanbieter",
+      "vendorShareSubtitle": "Hardware-Anbieter in anonymen Berichten gesehen.",
+      "modelShare": "Gerätemodelle",
+      "modelShareSubtitle": "Am häufigsten gemeldete Gerätemodelle.",
+      "serverPlatformShare": "Serverplattformen",
+      "serverPlatformShareSubtitle": "Durch Servertelemetrie gemeldete Hostplattformen.",
+      "serverArchitectureShare": "Serverarchitekturen",
+      "serverArchitectureShareSubtitle": "Von Servern gemeldete CPU-Architekturen.",
+      "serverLocaleShare": "Server-Gebietsschemas",
+      "serverLocaleShareSubtitle": "Gebietsschemas, die von Serverinstallationen gemeldet werden.",
+      "serverConnectedClients": "Verbundene Clients",
+      "serverConnectedClientsSubtitle": "Wie viele Client-Server melden derzeit eine Verbindung?",
+      "serverMaxClients": "Maximale Client-Kapazität",
+      "serverMaxClientsSubtitle": "Von Servern gemeldete konfigurierte Kapazitäts-Buckets.",
+      "dumpCategoryShare": "Dump-Kategorien",
+      "dumpCategoryShareSubtitle": "Absturz-, Protokoll- und Diagnose-Dump-Verteilung.",
+      "positioningTypes": "Positionierungsarten",
+      "positioningTypesSubtitle": "Wertverteilung für die `positioning_type`-Metrik.",
+      "pushToTalk": "Push-to-Talk",
+      "pushToTalkSubtitle": "Wertverteilung für die `push_to_talk_enabled`-Metrik.",
+      "transportHttp": "McHttp aktiviert",
+      "transportHttpSubtitle": "Wertverteilung für die `mc_http_enabled`-Servermetrik.",
+      "transportTcp": "McTcp aktiviert",
+      "transportTcpSubtitle": "Wertverteilung für die `mc_tcp_enabled`-Servermetrik.",
+      "transportWss": "McWss aktiviert",
+      "transportWssSubtitle": "Wertverteilung für die `mc_wss_enabled`-Servermetrik."
+    }
+  },
+  "addonConfigurator": {
+    "kicker": "Addon-Konfigurator",
+    "title": "Weltbereiter VoiceCraft Addon Builder",
+    "subtitle": "Wählen Sie das Basis-Addon und die Transportpakete, laden Sie Ihre Welt level.dat hoch, fügen Sie optional level.dat_old hinzu und laden Sie ein fertig zum Entpacken bereites Archiv für den Weltordner herunter.",
+    "transport": {
+      "none": "Nur Basis-Add-on",
+      "http": "Basis + McHttp",
+      "wss": "Basis + McWss",
+      "both": "Basis + McHttp + McWss"
+    },
+    "packNames": {
+      "base": "Basis-Addon",
+      "http": "McHttp-Transport",
+      "wss": "McWss-Transport"
+    },
+    "steps": {
+      "version": "1. Wählen Sie die Add-on-Version",
+      "selection": "2. Wählen Sie die Add-on-Zusammensetzung",
+      "levelDat": "3. Laden Sie die Dateien world level.dat hoch",
+      "build": "4. Erstellen Sie ein fertiges Archiv"
+    },
+    "loadingVersions": "Verfügbare Veröffentlichungen werden geladen...",
+    "versionPlaceholder": "Wählen Sie die Release-Version",
+    "versionSelected": "{version} veröffentlicht am {date}.",
+    "uploadTitle": "Wählen Sie level.dat",
+    "uploadSubtitle": "Die Datei wird in das Archiv aufgenommen, nachdem die Bedrock-Experiment-Tags gepatcht wurden.",
+    "uploadOldTitle": "Wählen Sie level.dat_old (optional)",
+    "uploadOldSubtitle": "Sofern bereitgestellt, wird die Sicherungsdatei auf die gleiche Weise gepatcht und dem Archiv als level.dat_old hinzugefügt.",
+    "betaApiStub": "Der Konfigurator aktiviert die für die Beta-API benötigten Bedrock-Experiment-Tags direkt in level.dat.",
+    "building": "Bauarchiv...",
+    "buildAction": "Erstellen und herunterladen",
+    "summaryTitle": "Was kommt ins Archiv?",
+    "summarySubtitle": "Die endgültige Zip-Datei ist so ausgelegt, dass sie direkt in einen Bedrock-Weltordner entpackt werden kann.",
+    "outputs": {
+      "levelDat": "Weltweit gespeicherte Metadaten mit aktivierten Bedrock-Beta-API-Experiment-Tags.",
+      "levelDatOldIncluded": "Optionale Backup-Weltmetadatendatei, gepatcht und im Archiv enthalten.",
+      "levelDatOldOptional": "Optionale Backup-Weltmetadatendatei. Wird nur hinzugefügt, wenn Sie es hochladen.",
+      "behaviorJson": "Generierte Paketregistrierungsdatei für Verhaltenspakete.",
+      "resourceJson": "Generierte Paketregistrierungsdatei für Ressourcenpakete.",
+      "behaviorFolder": "Aus den ausgewählten Add-on-Bundles kopierte Verhaltenspakete.",
+      "resourceFolder": "Aus den ausgewählten Add-on-Bundles kopierte Ressourcenpakete."
+    },
+    "progressTitle": "Baufortschritt",
+    "progress": {
+      "levelDat": "Hochgeladene level.dat wird vorbereitet",
+      "levelDatOld": "Hochgeladenes level.dat_old wird vorbereitet",
+      "release": "Version wird verwendet: {version}",
+      "request": "Anfordern eines serverseitigen Builds aus GitHub-Release-Assets",
+      "bundle": "Bundle wird geladen: {name}",
+      "metadata": "Generieren von JSON-Dateien für die World Pack-Registrierung",
+      "archive": "Packen des endgültigen Weltarchivs",
+      "done": "Das Archiv ist fertig"
+    },
+    "archiveNote": "Das Archiv ist so zusammengestellt, dass sein Inhalt direkt in den Weltordner entpackt werden kann.",
+    "success": "Archiv erfolgreich erstellt.",
+    "errors": {
+      "generic": "Das konfigurierte Add-on-Archiv konnte nicht erstellt werden.",
+      "releases": "Die verfügbaren Add-on-Versionen konnten nicht geladen werden."
+    }
+  },
+  "landing": {
+    "title": "VoiceCraft-Dokumentation",
+    "subtitle": "Plattformübergreifender Proximity-Voice-Chat für Minecraft Bedrock Edition. Installation, Konfiguration, Betrieb und McHttp/McWss-Integration in einem einzigen Dokumentations-Hub.",
+    "quickStart": "Schnellstart",
+    "downloadRelease": "Veröffentlichung herunterladen",
+    "productTour": "Produkttour",
+    "interfaceTitle": "VoiceCraft-Schnittstelle",
+    "slides": [
+      {
+        "title": "Client-Startbildschirm",
+        "description": "Serverübersicht, Schnellverbindungsablauf und aktueller Sitzungsstatus an einem Ort."
+      },
+      {
+        "title": "Einstellungen und Netzwerk",
+        "description": "Positionierungsparameter, McWss-Endpunkt und erweiterte Optimierung des Client-Verhaltens."
+      },
+      {
+        "title": "Audio-Pipeline",
+        "description": "Ein-/Ausgabegeräte, Empfindlichkeit, Rauschunterdrückung, AGC und Mikrofontests."
+      }
+    ]
+  },
+  "common": {
+    "or": "oder",
+    "error": {
+      "title": "Seite nicht gefunden",
+      "description": "Es tut uns leid, aber diese Seite konnte nicht gefunden werden."
+    }
+  },
+  "docs": {
+    "copy": {
+      "page": "Seite kopieren",
+      "link": "Markdown-Seite kopieren",
+      "view": "Als Markdown anzeigen",
+      "gpt": "In ChatGPT öffnen",
+      "claude": "In Claude öffnen"
+    },
+    "links": "Community",
+    "toc": "Auf dieser Seite",
+    "menu": "Menü",
+    "report": "Problem melden",
+    "edit": "Diese Seite bearbeiten"
+  },
+  "logo": {
+    "copyLogo": "Logo kopieren",
+    "copyWordmark": "Wortmarke kopieren",
+    "downloadLogo": "Logo herunterladen",
+    "downloadWordmark": "Wortmarke herunterladen",
+    "brandAssets": "Markenmaterialien",
+    "logoCopied": "Logo kopiert",
+    "wordmarkCopied": "Wortmarke kopiert",
+    "logoDownloaded": "Logo heruntergeladen",
+    "wordmarkDownloaded": "Wortmarke heruntergeladen",
+    "copyLogoFailed": "Logo konnte nicht kopiert werden",
+    "copyWordmarkFailed": "Wortmarke konnte nicht kopiert werden"
+  },
+  "assistant": {
+    "title": "AI fragen",
+    "placeholder": "Stellen Sie eine Frage...",
+    "tooltip": "KI eine Frage stellen",
+    "tryAsking": "Versuchen Sie, eine Frage zu stellen",
+    "askAnything": "Fragen Sie alles...",
+    "clearChat": "Chat löschen",
+    "close": "Schließen",
+    "expand": "Erweitern",
+    "collapse": "Einklappen",
+    "thinking": "Denken...",
+    "askMeAnything": "Fragen Sie alles",
+    "askMeAnythingDescription": "Erhalten Sie Hilfe beim Navigieren durch die Dokumentation, beim Verstehen von Konzepten und beim Finden von Antworten.",
+    "faq": "FAQ",
+    "chatCleared": "Chat wird beim Aktualisieren gelöscht",
+    "lineBreak": "Zeilenumbruch",
+    "explainWithAi": "Mit KI erklären",
+    "toolListPages": "Aufgelistete Dokumentationsseiten",
+    "toolReadPage": "Lesen",
+    "loading": {
+      "searching": "Durchsuchen der Dokumentation",
+      "reading": "Lesen der Dokumente",
+      "analyzing": "Analysieren des Inhalts",
+      "finding": "Die beste Antwort finden",
+      "finished": "Verwendete Quellen"
+    }
+  },
+  "footer": {
+    "caption": "VoiceCraft-Dokumentation, Releases und Ressourcen fuer Minecraft Bedrock.",
+    "contacts": "Kontakt",
+    "email": "E-Mail",
+    "resources": "Ressourcen",
+    "docs": "Dokumentation"
+  }
+}

@@ -1,0 +1,125 @@
+.vc-doc-content {
+  color: var(--vc-doc-text);
+}
+
+.vc-doc-content > :first-child {
+  margin-top: 0;
+}
+
+.vc-doc-content h1,
+.vc-doc-content h2,
+.vc-doc-content h3,
+.vc-doc-content h4 {
+  color: var(--vc-doc-heading);
+  scroll-margin-top: 5.5rem;
+}
+
+.vc-doc-content h1 {
+  margin-bottom: 1.2rem;
+  font-size: 2.65rem;
+  line-height: 1.08;
+}
+
+.vc-doc-content h2 {
+  margin-top: 2.1rem;
+  margin-bottom: 0.9rem;
+  font-size: 1.55rem;
+}
+
+.vc-doc-content h3 {
+  margin-top: 1.65rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.18rem;
+}
+
+.vc-doc-content p,
+.vc-doc-content li {
+  color: var(--vc-doc-text);
+  font-size: 0.94rem;
+  line-height: 1.72;
+}
+
+.vc-doc-content a {
+  color: var(--vc-doc-accent);
+}
+
+.vc-doc-content a:hover {
+  color: var(--vc-doc-accent-strong);
+}
+
+.vc-doc-content pre {
+  overflow-x: auto;
+  border: 1px solid var(--vc-doc-code-block-border);
+  border-radius: 0.85rem;
+  background: var(--vc-doc-code-block-bg) !important;
+  color: var(--vc-doc-code-block-text) !important;
+  padding: 1rem;
+}
+
+.vc-doc-content pre code {
+  display: block;
+  background: transparent !important;
+  color: var(--vc-doc-code-block-text) !important;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.vc-doc-content pre code .line,
+.vc-doc-content pre code span.line {
+  color: inherit !important;
+}
+
+html.dark .vc-doc-content .shiki span,
+html[data-bs-theme="dark"] .vc-doc-content .shiki span {
+  color: var(--shiki-dark, var(--vc-doc-code-block-text)) !important;
+  background: var(--shiki-dark-bg, transparent) !important;
+  font-style: var(--shiki-dark-font-style, inherit) !important;
+  font-weight: var(--shiki-dark-font-weight, inherit) !important;
+  text-decoration: var(--shiki-dark-text-decoration, none) !important;
+}
+
+.vc-doc-content code {
+  color: var(--vc-doc-code);
+  font-size: 0.9em;
+}
+
+.vc-doc-content :not(pre) > code {
+  border-radius: 0.35rem;
+  background: var(--vc-doc-code-bg);
+  padding: 0.1rem 0.35rem;
+}
+
+.vc-doc-content blockquote {
+  margin-inline: 0;
+  border-left: 3px solid var(--vc-doc-accent-border);
+  background: var(--vc-doc-accent-bg);
+  padding: 0.75rem 1rem;
+}
+
+.vc-doc-content table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.vc-doc-content th,
+.vc-doc-content td {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.65rem 0.8rem;
+  font-size: 0.92rem;
+}
+
+.vc-doc-content th {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 640px) {
+  .vc-doc-content h1 {
+    font-size: 2.05rem;
+  }
+
+  .vc-doc-content h2 {
+    font-size: 1.35rem;
+  }
+}

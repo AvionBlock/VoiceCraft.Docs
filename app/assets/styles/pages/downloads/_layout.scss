@@ -1,0 +1,64 @@
+.vc-downloads-wrap {
+  display: grid;
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: 2.25rem 1rem 1rem;
+}
+
+.vc-downloads-grid,
+.vc-download-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.vc-downloads-grid {
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.vc-download-grid {
+  gap: 1rem;
+  margin-top: 0.2rem;
+}
+
+.vc-download-card {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+  gap: clamp(1.1rem, 2vw, 1.35rem);
+}
+
+.vc-download-footer {
+  margin-top: auto !important;
+}
+
+.vc-downloads-detected {
+  color: rgba(110, 231, 183, 0.96) !important;
+}
+
+@media (min-width: 520px) {
+  .vc-download-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .vc-downloads-wrap {
+    padding-inline: 1.25rem;
+    padding-top: 3.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .vc-downloads-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .vc-downloads-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

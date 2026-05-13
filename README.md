@@ -2,7 +2,7 @@
 
 Documentation site for **VoiceCraft**, built with **Nuxt 4 + Docus** and multilingual support via `@nuxtjs/i18n`.
 
-Live documentation: [voicecraft.avion.team](https://voicecraft.avion.team)
+Live documentation: [docs.voicecraft.chat](https://docs.voicecraft.chat)
 
 This docs project includes:
 
@@ -137,6 +137,37 @@ This file controls:
 - Head link configuration: `nuxt.config.ts`
 - Localized page title: `content/*/index.md` + `plugins/i18n-ui.ts`
 
+## Versioned Documentation
+
+The current legacy docs live in `content/<locale>/...` and are mapped to the
+version marked as `source: 'legacy'` in `app.config.ts`.
+
+New documentation versions should be added as overlay folders:
+
+```text
+content/docs/<version>/<locale>/<section>/<page>.md
+```
+
+Only add files that changed in the new version. Missing pages are resolved
+through the version chain declared with `extends` in `app.config.ts`, then fall
+back to English for the same version before trying the parent version.
+
+Example:
+
+```ts
+docsVersioning: {
+  current: '1.7.x',
+  legacy: '1.6.x',
+  versions: [
+    { id: '1.7.x', label: '1.7.x', current: true, extends: '1.6.x' },
+    { id: '1.6.x', label: '1.6.x', source: 'legacy' },
+  ],
+}
+```
+
+Fresh docs use regular URLs like `/server/transports`. Archived docs are
+available under `/v/<version>/server/transports`.
+
 ## Build and Deploy
 
 ```bash
@@ -163,8 +194,8 @@ This repository includes an automated GitHub Pages workflow:
 
 1. Open `Settings -> Pages`.
 2. Set **Source** to **GitHub Actions**.
-3. Ensure your custom domain is set to `voicecraft.avion.team`.
-4. Verify DNS for `voicecraft.avion.team` points to GitHub Pages.
+3. Ensure your custom domain is set to `docs.voicecraft.chat`.
+4. Verify DNS for `docs.voicecraft.chat` points to GitHub Pages.
 
 ### Notes
 
@@ -173,6 +204,6 @@ This repository includes an automated GitHub Pages workflow:
 
 ## Useful Links
 
-- Docs: [voicecraft.avion.team](https://voicecraft.avion.team)
+- Docs: [docs.voicecraft.chat](https://docs.voicecraft.chat)
 - VoiceCraft: [GitHub](https://github.com/AvionBlock/VoiceCraft)
 - Releases: [Latest release](https://github.com/AvionBlock/VoiceCraft/releases/latest)

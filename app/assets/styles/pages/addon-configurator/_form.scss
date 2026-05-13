@@ -1,0 +1,168 @@
+.vc-addon-config-select {
+  appearance: none;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1rem;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23e7fff9' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.4' d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 1rem center / 1.05rem no-repeat,
+    linear-gradient(135deg, rgba(9, 17, 28, 0.94), rgba(6, 13, 21, 0.9));
+  color: #fff;
+  color-scheme: dark;
+  cursor: pointer;
+  font-family: "Comfortaa", "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  padding: 0.9rem 3rem 0.9rem 1rem;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.vc-addon-config-select:focus {
+  border-color: rgba(95, 255, 224, 0.38);
+  box-shadow: 0 0 0 0.18rem rgba(95, 255, 224, 0.14);
+  outline: none;
+}
+
+.vc-addon-config-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.vc-addon-config-select::-ms-expand {
+  display: none;
+}
+
+.vc-addon-config-select option {
+  background-color: #07111d;
+  color: #f8fafc;
+  font-family: "Comfortaa", "Segoe UI", sans-serif;
+}
+
+.vc-addon-config-select option:checked {
+  background-color: #16313b;
+  color: #fff;
+}
+
+.vc-addon-config-select option:disabled {
+  color: rgba(226, 232, 240, 0.58);
+}
+
+.vc-addon-config-chip,
+.vc-addon-config-list-item,
+.vc-addon-config-log-item {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+}
+
+.vc-addon-config-chip {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  color: rgba(248, 250, 252, 0.96);
+  padding: 0.62rem 0.95rem;
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.vc-addon-config-chip-fixed {
+  box-shadow: inset 0 0 0 1px rgba(95, 255, 224, 0.08);
+}
+
+.vc-addon-config-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.vc-addon-config-choice {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(9, 17, 28, 0.86), rgba(6, 13, 21, 0.78));
+  color: rgba(226, 232, 240, 0.9);
+  padding: 1rem 1rem 0.95rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  text-align: left;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease, color 180ms ease;
+}
+
+.vc-addon-config-choice:hover,
+.vc-addon-config-choice:focus-visible,
+.vc-addon-config-choice-active {
+  transform: translateY(-1px);
+  border-color: rgba(95, 255, 224, 0.34);
+  background: linear-gradient(135deg, rgba(15, 31, 42, 0.94), rgba(13, 19, 35, 0.88));
+  color: #fff;
+}
+
+.vc-addon-config-choice:focus-visible,
+.vc-addon-config-upload:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 0.18rem rgba(95, 255, 224, 0.14);
+}
+
+.vc-addon-config-upload {
+  display: flex;
+  min-height: 148px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 1.2rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+  padding: 1.15rem 1.1rem;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.vc-addon-config-upload:hover {
+  transform: translateY(-1px);
+  border-color: rgba(95, 255, 224, 0.34);
+  background: linear-gradient(145deg, rgba(95, 255, 224, 0.06), rgba(255, 255, 255, 0.02));
+}
+
+.vc-addon-config-upload-title {
+  color: rgba(248, 250, 252, 0.98);
+  font-family: "Nunito", "Comfortaa", sans-serif;
+  font-size: clamp(1.2rem, 1.4vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.vc-addon-config-upload-subtitle,
+.vc-addon-config-note {
+  color: rgba(226, 232, 240, 0.74);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.vc-addon-config-note {
+  border-left: 2px solid rgba(95, 255, 224, 0.3);
+  padding-left: 0.8rem;
+}
+
+.vc-addon-config-error,
+.vc-addon-config-success {
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.vc-addon-config-error {
+  border: 1px solid rgba(248, 113, 113, 0.28);
+  background: rgba(127, 29, 29, 0.18);
+  color: rgba(254, 226, 226, 0.96);
+}
+
+.vc-addon-config-success {
+  border: 1px solid rgba(52, 211, 153, 0.24);
+  background: rgba(6, 95, 70, 0.18);
+  color: rgba(209, 250, 229, 0.96);
+}
+
+@media (min-width: 768px) {
+  .vc-addon-config-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
