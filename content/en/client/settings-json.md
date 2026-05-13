@@ -2,6 +2,15 @@
 
 Client settings file: `Settings.json`.
 
+The client writes this file automatically. Use the UI for normal changes and edit the JSON only for recovery, automation, or advanced troubleshooting.
+
+Before manual edits:
+
+1. Close the client.
+2. Back up `Settings.json`.
+3. Change one section at a time.
+4. Reopen the client and verify the UI still loads.
+
 ## File location
 
 - Windows: `%AppData%/voicecraft/Settings.json`
@@ -157,6 +166,8 @@ Each `Servers[]` item:
 - `Port`:
   UDP port `1..65535`.
 
+Server entries point to the VoiceCraft UDP endpoint from `VoiceCraftConfig.Port`. They are not the same as `McHttp`, `McWss`, or `McTcp` Minecraft transport endpoints.
+
 ## ThemeSettings
 
 - `SelectedBackgroundImage`:
@@ -174,6 +185,8 @@ Each `Servers[]` item:
   local websocket host port.
 
 This value must match `VoiceCraftConfig.PositioningType` on the server.
+
+`McWssListenIp` and `McWssHostPort` are for McWss-related local websocket behavior. They do not replace the saved VoiceCraft server list used for voice traffic.
 
 ## HotKeySettings
 
@@ -215,3 +228,15 @@ These values do not replace server moderation; they are personal client preferen
 - keep `PositioningType` aligned with server
 - if troubleshooting audio, reset `InputDevice` and `OutputDevice` to `Default`
 - if a device disappears, let the client regenerate the matching field instead of copying an old machine's config
+- do not share `Settings.json` publicly if it contains private server addresses
+- avoid copying a full settings file between players; copy only the server host/port if needed
+
+## Reset strategy
+
+If the client becomes unusable after manual edits:
+
+1. Close the client.
+2. Move `Settings.json` aside as a backup.
+3. Start the client and let it generate a fresh file.
+4. Re-add the server entry.
+5. Reconfigure audio devices and hotkeys.

@@ -4,6 +4,8 @@ Repository: [AvionBlock/GeyserVoice](https://github.com/AvionBlock/GeyserVoice)
 
 `GeyserVoice` connects Java-side infrastructure to `VoiceCraft.Server` through the `McTcp` transport.
 
+In the GeyserVoice project this path is also described as `McApi TCP`. In the VoiceCraft server config, it corresponds to `McTcpConfig`.
+
 It supports:
 
 - direct Paper / Folia deployment
@@ -38,6 +40,8 @@ That makes GeyserVoice suitable both for:
 
 - using an already-managed external `VoiceCraft.Server`
 - letting the plugin bootstrap and run VoiceCraft for you
+
+If GeyserVoice manages the runtime, it still connects through the same `McTcp`/`McApi TCP` path. The difference is who starts the VoiceCraft process.
 
 ## Supported plugin platforms
 
@@ -76,28 +80,54 @@ Whether the current Paper-side node is operating behind a proxy-managed relay.
 
 ### `config.voicecraft.*`
 
-Connection and runtime-management block:
+Connection and runtime-management block.
 
-- `host`
-- `port`
-- `login-token`
+Current nested shape:
+
+```yml
+config:
+  voicecraft:
+    transport:
+      host: "127.0.0.1"
+      port: 9050
+      login-token: "__GENERATED_LOGIN_TOKEN__"
+    voice:
+      port: 1111
+    auto-start: true
+    shutdown-on-disable: true
+    invariant-globalization: true
+    ready-timeout-ms: 20000
+    install-directory: "voicecraft-runtime"
+```
+
+- `transport.host`
+- `transport.port`
+- `transport.login-token`
+- `voice.port`
 - `auto-start`
 - `shutdown-on-disable`
+- `invariant-globalization`
 - `ready-timeout-ms`
 - `install-directory`
 
 Meaning:
 
-- `host` / `port` / `login-token`
+- `transport.host` / `transport.port` / `transport.login-token`
   target `VoiceCraft.Server` / `McTcp`
+- `voice.port`
+  VoiceCraft runtime voice port used by the managed runtime path
 - `auto-start`
   let the plugin start the VoiceCraft runtime automatically
 - `shutdown-on-disable`
   stop the managed runtime when the plugin unloads
+- `invariant-globalization`
+  runtime globalization option useful for managed server launches
 - `ready-timeout-ms`
   how long the plugin waits for the runtime to become ready
 - `install-directory`
   where the managed runtime is installed
+
+On Velocity and BungeeCord, the config keeps the `config.voicecraft.transport.*` and `config.voicecraft.voice.*` shape, but does not use the Paper-only managed runtime fields.
 
 ### `config.voice.*`
 
@@ -169,6 +199,8 @@ Best when:
 
 See [Proxy Guide](/ecosystem/geyservoice-proxy).
 
+In proxy mode, backend Paper servers should not be treated as the central VoiceCraft connection owner. The proxy owns the `McTcp` connection and backend nodes provide player snapshots.
+
 ## Technical notes
 
 - plugin messaging channel: `geyservoice:main`
@@ -184,6 +216,8 @@ See [Proxy Guide](/ecosystem/geyservoice-proxy).
 
 1. Decide whether Paper should manage VoiceCraft runtime itself.
 2. If yes, configure `auto-start`, `install-directory`, and `ready-timeout-ms`.
-3. If no, point `host`, `port`, and `login-token` at an external VoiceCraft server.
+3. If no, point `config.voicecraft.transport.host`, `config.voicecraft.transport.port`, and `config.voicecraft.transport.login-token` at an external VoiceCraft server.
 4. Restrict staff-only commands.
 5. Test bind flow and position updates before opening to players.
+6. Confirm `McTcpConfig.Enabled = true` on the VoiceCraft side.
+7. Confirm the token matches `McTcpConfig.LoginToken`.

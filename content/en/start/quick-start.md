@@ -2,6 +2,8 @@
 
 This guide is the fastest way to get a working VoiceCraft stack.
 
+It intentionally walks through the whole path: server, generated config, client, Minecraft transport, and validation. Do not stop after the server binary starts; at that point the voice backend exists, but Minecraft has not connected yet.
+
 ## Choose your topology first
 
 VoiceCraft can be deployed in several ways:
@@ -15,6 +17,8 @@ If you are unsure, start with one of these:
 
 - Bedrock dedicated server: read [McHttp for BDS](/minecraft/mchttp-bds)
 - Java + Geyser server: read [GeyserVoice](/ecosystem/geyservoice)
+
+For a first setup, choose one topology and expose only the transport it needs. You can add mixed setups later after the basic bind and proximity flow works.
 
 ## 1. Download the server
 
@@ -31,6 +35,8 @@ If you are building from source, see [VoiceCraft repository and build](/ecosyste
 
 ## 2. Run the server once
 
+Run from the folder where you want `config/ServerProperties.json` to live.
+
 ### Windows
 
 ```powershell
@@ -46,6 +52,8 @@ chmod +x ./VoiceCraft.Server
 
 After first launch, VoiceCraft generates `config/ServerProperties.json`.
 
+Stop the server before editing this file.
+
 ## 3. Secure the generated config
 
 Before connecting Minecraft or players, change every generated shared token:
@@ -55,6 +63,12 @@ Before connecting Minecraft or players, change every generated shared token:
 - `McTcpConfig.LoginToken`
 
 You usually want different values per environment.
+
+The token you use later must match the transport:
+
+- BDS `McHttp` addon uses `McHttpConfig.LoginToken`
+- local Bedrock `McWss` addon uses `McWssConfig.LoginToken`
+- `GeyserVoice` uses `McTcpConfig.LoginToken`
 
 ## 4. Pick the Minecraft transport
 
@@ -69,6 +83,8 @@ VoiceCraft currently has 3 Minecraft-facing transports:
 
 See [Transport Modes](/server/transports) for the full comparison.
 
+Make sure the chosen transport is enabled and bound to an address the Minecraft-side runtime can reach.
+
 ## 5. Download the client
 
 From the [download page](/download), download the package for your players:
@@ -82,8 +98,10 @@ From the [download page](/download), download the package for your players:
 ## 6. Add the server in the client
 
 1. Open the client.
-2. Add a server entry in the UI.
-3. Use the VoiceCraft UDP endpoint from `VoiceCraftConfig.Port`.
+2. Select microphone and playback devices.
+3. Add a server entry in the UI.
+4. Use the VoiceCraft UDP endpoint from `VoiceCraftConfig.Port`.
+5. Confirm client `Positioning Type` matches `VoiceCraftConfig.PositioningType`.
 
 Typical local setup:
 
@@ -95,6 +113,8 @@ Typical local setup:
 - For Bedrock Dedicated Server, use [McHttp for BDS](/minecraft/mchttp-bds).
 - For a local Bedrock world, use [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 - For Java + Geyser/Floodgate, use [GeyserVoice](/ecosystem/geyservoice).
+
+This step is what gives VoiceCraft the in-game state needed for proximity audio: player identity, bind data, world IDs, position updates, and effect state.
 
 If you are deploying on Bedrock, keep these two pages nearby:
 
@@ -110,6 +130,8 @@ If everything is configured correctly:
 - Minecraft integration authenticates with the expected token
 - entity creation and bind flow work
 - players hear proximity voice when they are in range
+
+If the client connects but proximity does not work, debug the Minecraft transport and bind flow before changing audio settings.
 
 ## Recommended next reads
 

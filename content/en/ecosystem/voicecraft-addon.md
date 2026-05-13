@@ -4,6 +4,8 @@ Repository: [AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCra
 
 This repository contains practical Bedrock addon packages and the script-side McApi surface for custom world logic.
 
+Use it when Minecraft Bedrock is the source of player/entity state. The addon connects Bedrock worlds to the VoiceCraft server through either `McHttp` or `McWss`, then exposes bind flow, UI, events, and packet helpers for world scripts.
+
 Quick links:
 
 - [Download Page](/download)
@@ -12,16 +14,19 @@ Quick links:
 
 ## Packages
 
-1. `Basic`
-   ready-to-use addon with bind flow, settings UI, and in-game voice indicators
-2. `Core.McHttp`
-   Bedrock transport package for HTTP-based integration
-3. `Core.McWss`
-   websocket / command-tunnel transport package
+| Package | Purpose | Use when |
+|---------|---------|----------|
+| `Basic` | ready-to-use bind flow, settings UI, in-game voice indicators, common script events | you want a working reference or default Bedrock behavior |
+| `Core.McHttp` | HTTP transport package | you run Bedrock Dedicated Server |
+| `Core.McWss` | websocket / command-tunnel transport package | you run a local Bedrock world or test setup |
+
+Most real Bedrock setups combine a transport package with the behavior/UI pieces needed by the world.
 
 ## Version alignment
 
 VoiceCraft `v1.6.1` requires updating the addon packages together with the client/server release. This release includes in-game voice icons, auto connection quality-of-life, broadcasted events, and McHttp/McWss disconnect fixes that depend on the matching addon-side packages.
+
+Do not upgrade the server/client and leave an old addon package in the world. Mismatched packages can connect but fail later during bind, event, or icon behavior.
 
 ## Namespace
 
@@ -56,6 +61,9 @@ Across packages:
 - player settings UI
 - effect toggles
 - script events for automation
+- in-game indicators used by supported releases
+
+Start from `Basic` if you want to understand the expected player experience before writing custom addon logic.
 
 ## Bind flow details
 
@@ -73,6 +81,8 @@ Script events:
 - `voicecraft:onPlayerUnbind`
 
 VoiceCraft `v1.6.1` also broadcasts more addon-side lifecycle and packet events so custom worlds can react without polling the transport layer directly.
+
+The binding key is intentionally short because it is typed in game. Treat it as a temporary link token, not as a long-term secret.
 
 ## Effects UI
 
@@ -97,9 +107,13 @@ Effects are sent through `McApiSetEffectRequestPacket`.
 - staff forms through `@minecraft/server-ui`
 - packet handlers around the McApi surface
 
+Customize only after a basic stock setup works. That gives you a known-good baseline for transport, bind, and position behavior.
+
 ## Current limitations
 
 - `Core.McWss` stability depends on command and payload limits
+- host/provider restrictions can block the network path required by `Core.McHttp`
+- custom packet handlers need testing on the target Bedrock version
 
 ## Recommended setup: BDS
 
@@ -116,6 +130,15 @@ Effects are sent through `McApiSetEffectRequestPacket`.
 3. run `/connect`
 4. run `voicecraft:vcconnect <token>`
 5. keep `voicecraft:data_tunnel` aligned with server config
+
+## Validation checklist
+
+- correct transport package is installed
+- both behavior and resource packs are active
+- `vcconnect` uses the token from the matching server config section
+- player can bind with `voicecraft:vcbind <key>`
+- player movement changes position data in VoiceCraft
+- effects UI opens for authorized users
 
 ## Read next
 

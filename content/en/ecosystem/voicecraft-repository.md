@@ -2,6 +2,10 @@
 
 Repository: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
 
+The `VoiceCraft` repository contains the core runtime. It is where the client, server, shared protocol, network model, and release builds come from.
+
+You do not need to build from source for a normal deployment. Use prebuilt releases unless you are developing VoiceCraft itself, debugging a specific build, or producing a custom runtime.
+
 ## Repository structure
 
 - `VoiceCraft.Client/*`
@@ -26,6 +30,8 @@ The repository is broader than "client + server":
 - packet definitions for VoiceCraft and McApi layers
 - audio effects and visibility systems
 
+It is also important to understand what this repository is not: VoiceCraft is not a single Minecraft mod or plugin. The core runtime works together with clients and Minecraft-side integrations such as `VoiceCraft.Addon` or `GeyserVoice`.
+
 ## Build requirements
 
 From source code:
@@ -41,6 +47,8 @@ dotnet --info
 
 ## Build the solution
 
+Use this when you want to validate the full solution or produce local binaries:
+
 ```bash
 git clone https://github.com/AvionBlock/VoiceCraft.git
 cd VoiceCraft
@@ -48,6 +56,8 @@ cd VoiceCraft
 dotnet restore
 dotnet build -c Release
 ```
+
+If restore fails, confirm the installed .NET SDK matches the repository `global.json` expectations.
 
 ## Run the server
 
@@ -64,6 +74,10 @@ Useful root options:
 - `--transport-port <port>`
 - `--server-key <token>`
 
+The extra `--` passes arguments to the server project rather than to `dotnet run` itself.
+
+For deployment, prefer the published release artifact or a `dotnet publish` output over running directly from source.
+
 ## Client builds
 
 Examples:
@@ -75,6 +89,8 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 ```
 
 Mobile targets usually require their own platform SDK toolchains.
+
+Desktop builds are simpler because the required SDKs are part of the .NET/Avalonia toolchain. Mobile builds may require platform-specific signing and packaging steps outside the core solution build.
 
 ## Embedded locales
 
@@ -98,6 +114,15 @@ Current embedded locales include:
    - `McTcp`
 4. Open only required ports.
 5. Keep backups of `ServerProperties.json`.
+6. Install the matching Minecraft-side integration.
+7. Confirm clients and Minecraft integration connect through their separate endpoints.
+
+## When to use this page
+
+- you want to build or debug core VoiceCraft
+- you need to understand which project owns client/server behavior
+- you are checking whether a feature belongs in core, addon, or GeyserVoice
+- you are preparing custom release artifacts
 
 ## Related docs
 
