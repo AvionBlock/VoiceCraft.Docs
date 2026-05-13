@@ -80,7 +80,7 @@
 .vc-doc-top-link-active {
   border-color: rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.08);
-  color: var(--vc-mint);
+  color: var(--vc-doc-accent-strong);
 }
 
 .vc-doc-header-actions {
@@ -105,9 +105,9 @@
 
 .vc-version-select:focus,
 .vc-locale-toggle:focus-visible {
-  border-color: rgba(95, 255, 224, 0.75);
+  border-color: var(--vc-doc-accent-border);
   outline: none;
-  box-shadow: 0 0 0 0.18rem rgba(95, 255, 224, 0.14);
+  box-shadow: 0 0 0 0.18rem rgba(183, 196, 221, 0.14);
 }
 
 .vc-locale-menu {
@@ -156,5 +156,5 @@
 .vc-locale-option:hover,
 .vc-locale-option-active {
   background: rgba(255, 255, 255, 0.08);
-  color: var(--vc-mint);
+  color: var(--vc-doc-accent-strong);
 }

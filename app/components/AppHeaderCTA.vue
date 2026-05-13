@@ -3,62 +3,57 @@ type VersionConfig = {
   id: string
   label: string
   current?: boolean
-  paths?: {
-    en?: string
-    ru?: string
-    [locale: string]: string | undefined
-  }
+  extends?: string
+  source?: 'legacy' | 'overlay'
 }
 
-const appConfig = useAppConfig() as {
-  docsVersioning?: {
-    current?: string
-    versions?: VersionConfig[]
-  }
-}
-
-const { locale, t } = useI18n()
+const { t } = useI18n()
 const router = useRouter()
+const route = useRoute()
+const docsVersioning = useVoiceCraftDocsVersioning()
 
-const versions = computed(() => appConfig.docsVersioning?.versions || [])
-const currentVersion = computed(() => appConfig.docsVersioning?.current || '')
+const versions = computed<VersionConfig[]>(() => docsVersioning.versions.value)
+const activeVersionId = computed(() => {
+  const routeVersion = getDocsVersionFromRoute(route.path)
+  return routeVersion && docsVersioning.findVersion(routeVersion)
+    ? routeVersion
+    : docsVersioning.currentVersionId.value
+})
+const currentDocsPath = computed(() => {
+  const path = getDocsPathFromRoute(route.path)
+  return path === '/addon-configurator' ? '/' : path
+})
 
 const versionOptions = computed(() => {
-  const localeCode = locale.value || 'en'
   return versions.value.map((item) => {
-    const path = item.paths?.[localeCode] || item.paths?.en
     return {
       label: item.current
         ? `${item.label} (${t('ui.versionCurrent')})`
         : item.label,
       value: item.id,
-      path: path || '',
     }
   })
 })
 
-const selectedVersionId = ref(currentVersion.value)
+const selectedVersionId = ref(activeVersionId.value)
 
-watch(currentVersion, (value) => {
+watch(activeVersionId, (value) => {
   selectedVersionId.value = value
 })
 
 async function onVersionChange() {
-  const selected = versionOptions.value.find(item => item.value === selectedVersionId.value)
-  if (!selected?.path) return
-  if (selected.path.startsWith('http://') || selected.path.startsWith('https://')) {
-    await navigateTo(selected.path, { external: true })
-    return
-  }
-  await router.push(selected.path)
+  const selected = versions.value.find(item => item.id === selectedVersionId.value)
+  if (!selected) return
+  await router.push(docsVersioning.buildDocsPath(currentDocsPath.value, selected.id))
 }
 </script>
 
 <template>
-  <div v-if="versionOptions.length > 1" class="vc-version-cta">
+  <div v-if="versionOptions.length" class="vc-version-cta">
     <select
       v-model="selectedVersionId"
       class="vc-version-select"
+      :disabled="versionOptions.length < 2"
       :aria-label="t('ui.versionSwitcher')"
       @change="onVersionChange"
     >

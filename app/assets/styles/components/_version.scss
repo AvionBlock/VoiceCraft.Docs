@@ -18,6 +18,10 @@
   white-space: nowrap;
 }
 
+.vc-version-select:disabled {
+  opacity: 0.82;
+}
+
 @media (min-width: 1024px) {
   .vc-version-cta {
     display: inline-flex;

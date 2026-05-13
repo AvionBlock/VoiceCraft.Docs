@@ -3,13 +3,24 @@ import { docsNavigation } from '~/utils/docs-navigation'
 
 const { locale } = useI18n()
 const route = useRoute()
+const docsVersioning = useVoiceCraftDocsVersioning()
 
 const widePagePaths = ['/download', '/telemetry', '/addon-configurator']
-const showDocsSidebar = computed(() => !widePagePaths.includes(route.path))
+const logicalRoutePath = computed(() => getDocsPathFromRoute(route.path))
+const activeVersionId = computed(() => getDocsVersionFromRoute(route.path) || docsVersioning.currentVersionId.value)
+const showDocsSidebar = computed(() => !widePagePaths.includes(logicalRoutePath.value))
+const versionedDocsNavigation = computed(() => docsNavigation.map(group => ({
+  ...group,
+  items: group.items.map(item => ({
+    ...item,
+    to: docsVersioning.buildDocsPath(item.to, activeVersionId.value),
+  })),
+})))
 
 const isActive = (path: string) => {
-  if (path === '/') return route.path === '/'
-  return route.path === path || route.path.startsWith(`${path}/`)
+  const logicalPath = getDocsPathFromRoute(path)
+  if (logicalPath === '/') return logicalRoutePath.value === '/'
+  return logicalRoutePath.value === logicalPath || logicalRoutePath.value.startsWith(`${logicalPath}/`)
 }
 
 useHead({
@@ -28,7 +39,7 @@ useHead({
       <aside v-if="showDocsSidebar" class="vc-doc-sidebar">
         <nav aria-label="Documentation">
           <section
-            v-for="group in docsNavigation"
+            v-for="group in versionedDocsNavigation"
             :key="group.title"
             class="vc-doc-nav-group"
           >

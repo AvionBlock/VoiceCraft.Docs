@@ -3,7 +3,14 @@ export type DocsNavigationGroup = {
   items: {
     label: string
     to: string
+    versioned?: boolean
   }[]
+}
+
+export type TopNavigationItem = {
+  label: string
+  to: string
+  versioned?: boolean
 }
 
 export const docsNavigation: DocsNavigationGroup[] = [
@@ -83,9 +90,9 @@ export const docsNavigation: DocsNavigationGroup[] = [
   },
 ]
 
-export const topNavigation = [
-  { label: 'Docs', to: '/start/overview' },
-  { label: 'Download', to: '/download' },
-  { label: 'Telemetry', to: '/telemetry' },
+export const topNavigation: TopNavigationItem[] = [
+  { label: 'Docs', to: '/start/overview', versioned: true },
+  { label: 'Download', to: '/download', versioned: true },
+  { label: 'Telemetry', to: '/telemetry', versioned: true },
   { label: 'Addon Configurator', to: '/addon-configurator' },
 ]

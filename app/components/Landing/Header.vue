@@ -12,6 +12,8 @@
       </NavbarBrand>
 
       <div class="nav-controls d-flex align-items-center ms-auto order-lg-3 ms-lg-0">
+        <AppHeaderCTA />
+
         <Dropdown class="ms-2 ms-lg-3 position-relative">
           <DropdownToggle class="no-caret btn-lang" color="light-subtle" :aria-label="currentLocaleMeta.name">
             <span :class="['flag-icon', currentLocaleMeta.flagClass]" aria-hidden="true"></span>
@@ -34,7 +36,7 @@
       <NavbarCollapse class="w-100 nav-collapse-panel order-lg-2 flex-lg-grow-1">
         <NavbarNavList class="mx-auto align-items-center nav-links-wrap">
           <NavItem
-            v-for="item in topNavigation"
+            v-for="item in versionedTopNavigation"
             :key="item.to"
             class="ms-3 ms-lg-3"
           >
@@ -52,7 +54,16 @@
 import { topNavigation } from '~/utils/docs-navigation'
 
 const { locale, locales, setLocale } = useI18n()
+const route = useRoute()
+const docsVersioning = useVoiceCraftDocsVersioning()
 const isScrolled = ref(false)
+const activeVersionId = computed(() => getDocsVersionFromRoute(route.path) || docsVersioning.currentVersionId.value)
+const versionedTopNavigation = computed(() => topNavigation.map(item => ({
+  ...item,
+  to: item.versioned
+    ? docsVersioning.buildDocsPath(item.to, activeVersionId.value)
+    : item.to,
+})))
 
 type LocaleCode = 'en' | 'ru' | 'de' | 'nl' | 'pl' | 'zh_cn' | 'zh_tw'
 

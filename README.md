@@ -137,6 +137,37 @@ This file controls:
 - Head link configuration: `nuxt.config.ts`
 - Localized page title: `content/*/index.md` + `plugins/i18n-ui.ts`
 
+## Versioned Documentation
+
+The current legacy docs live in `content/<locale>/...` and are mapped to the
+version marked as `source: 'legacy'` in `app.config.ts`.
+
+New documentation versions should be added as overlay folders:
+
+```text
+content/docs/<version>/<locale>/<section>/<page>.md
+```
+
+Only add files that changed in the new version. Missing pages are resolved
+through the version chain declared with `extends` in `app.config.ts`, then fall
+back to English for the same version before trying the parent version.
+
+Example:
+
+```ts
+docsVersioning: {
+  current: '1.7.x',
+  legacy: '1.6.x',
+  versions: [
+    { id: '1.7.x', label: '1.7.x', current: true, extends: '1.6.x' },
+    { id: '1.6.x', label: '1.6.x', source: 'legacy' },
+  ],
+}
+```
+
+Fresh docs use regular URLs like `/server/transports`. Archived docs are
+available under `/v/<version>/server/transports`.
+
 ## Build and Deploy
 
 ```bash
