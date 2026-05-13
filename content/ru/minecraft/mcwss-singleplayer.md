@@ -1,8 +1,8 @@
 # McWss для одиночных миров
 
-`McWss` — это транспорт WebSocket/командного туннеля, который в основном используется для локальных миров и облегченных установок Bedrock.
+`McWss` — это транспорт WebSocket/командного туннеля, который в основном используется для локальных миров и легких установок Bedrock.
 
-Используйте это руководство, если у вас не используется полноценный выделенный сервер Bedrock и вам нужен локальный мир Bedrock для связи с VoiceCraft через поток WebSocket `/connect`.
+Используйте это руководство, если у вас нет полноценного выделенного сервера Bedrock и вам нужно подключить локальный мир Bedrock к VoiceCraft через WebSocket-путь `/connect`.
 
 Форма цели:
 
@@ -15,7 +15,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 
 Используйте `McWss`, когда:
 
-- вы играете в местном мире Bedrock
+- вы играете в локальном мире Bedrock
 - вам нужна быстрая настройка одиночной игры
 - вы тестируете логику аддона без выделенного хоста BDS
 
@@ -25,21 +25,21 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 
 - обычно менее стабилен, чем `McHttp`
 - Пропускная способность команд и размер полезной нагрузки имеют большое значение
-- не рекомендация по умолчанию для крупных общедоступных производственных сред
+- не рекомендуемый вариант по умолчанию для крупных публичных production-сред
 - зависит от WebSocket Bedrock и поведения команд, доступных в вашей среде
 
 ## Требования
 
 1. `VoiceCraft.Server` с `McWssConfig.Enabled = true`
 2. `VoiceCraft.Addon.Core.McWss.zip`
-3. Сборка Bedrock, поддерживающая необходимые функции WebSocket/скрипта.
+3. Сборка Bedrock, поддерживающая необходимые функции WebSocket и скриптов.
 4. Клиент VoiceCraft установлен и настроен.
 5. соответствие `McWssConfig.LoginToken` для аутентификации аддоны
 
 Полезные ссылки:
 
-- [Download Page](/download) для исходного пакета выпуска `Core.McWss`
-- [Addon Configurator](/addon-configurator) для готового к распаковке мирового архива
+- [страница загрузки](/download) для исходного пакета выпуска `Core.McWss`
+- [конфигуратор аддона](/addon-configurator) для готового к распаковке архива мира
 
 ## Конфигурация сервера VoiceCraft
 
@@ -79,11 +79,11 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 2. Скопируйте `RP` и `BP` в каталоги Bedrock.
 3. Включите оба пакета в целевом мире.
 
-Пакет ресурсов предоставляет видимые ресурсы. Пакет поведения содержит команды, сценарии и логику моста.
+Пакет ресурсов предоставляет видимые ресурсы. Пакет поведения содержит команды, скрипты и логику моста.
 
 ## Порядок подключения
 
-### Шаг 1: подключите мировой WebSocket
+### Шаг 1: подключите WebSocket мира
 
 ```text
 /connect <VOICECRAFT_HOST>:<MCWSS_PORT>
@@ -95,7 +95,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 /connect 127.0.0.1:9051
 ```
 
-Это соединяет мир Bedrock с WebSocketным транспортом VoiceCraft. Он еще не аутентифицирует аддон.
+Это соединяет мир Bedrock с WebSocket-транспортом VoiceCraft. Этот шаг еще не аутентифицирует аддон.
 
 ### Шаг 2: аутентифицируйте аддон
 
@@ -105,7 +105,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 
 Используйте `McWssConfig.LoginToken`.
 
-После аутентификации аддон может отправлять объекты и привязывать данные через командный туннель.
+После аутентификации аддон может отправлять сущности и данные привязки через командный туннель.
 
 ## Туннель данных
 
@@ -115,7 +115,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 
 Это должно оставаться в соответствии с `McWssConfig.DataTunnelCommand`.
 
-Если вы переименуете одну сторону, а не другую, мост сломается.
+Если вы переименуете одну сторону, но не другую, мост перестанет работать.
 
 В настоящее время команда несет в себе:
 
@@ -131,7 +131,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 - нижний `CommandsPerTick`
 - просмотреть `MaxByteLengthPerCommand`
 - избегайте больших пакетных обновлений
-- протестируйте с меньшим количеством активных объектов
+- протестируйте с меньшим количеством активных сущностей
 - сохраняйте локальную настройку во время настройки
 - переключитесь на `McHttp`, если мир станет долгоживущим общим сервером
 
@@ -140,7 +140,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 Перейдите к `McHttp`, если:
 
 - у вас есть настоящий выделенный сервер Bedrock
-- вы хотите более чистое производственное развертывание
+- вы хотите более чистое production-развертывание
 - нестабильность командного туннеля становится проблемой
 
 В этом случае продолжайте с [McHttp for BDS](/minecraft/mchttp-bds).
@@ -150,10 +150,10 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 - `McWssConfig.Enabled = true`
 - мир может запустить `/connect <host>:<port>`
 - `/voicecraft:vcconnect <LOGIN_TOKEN>` успешно выполнено
-- Клиент VoiceCraft подключается к UDP endpoint
+- клиент VoiceCraft подключается к UDP-эндпоинту
 - `PositioningType` соответствует между клиентом и сервером
 - процесс привязки работает в игре
-- перемещение игрока меняет proximity-поведение
+- перемещение игрока меняет поведение звука с учетом расстояния
 
 ## Общие проблемы
 
@@ -163,5 +163,5 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
   подтвердите, что вы использовали `McWssConfig.LoginToken`.
 - ошибки туннеля данных:
   подтвердите, что `DataTunnelCommand` соответствует пакету аддона.
-- звук подключается, но proximity audio работает неправильно:
+- звук подключается, но звук с учетом расстояния работает неправильно:
   проверьте процесс привязки, режим позиционирования и поступают ли обновления местоположения.

@@ -23,7 +23,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 
 1. Запуск `VoiceCraft.Server`
 2. `McHttpConfig.Enabled = true`
-3. `VoiceCraft.Addon.Core.McHttp.zip` из релизов или готовый мировой архив из [Addon Configurator](/addon-configurator)
+3. `VoiceCraft.Addon.Core.McHttp.zip` из релизов или готовый архив мира из [Addon Configurator](/addon-configurator)
 4. BDS с необходимыми модулями и поддержкой скриптового API
 5. Доступность сети от компьютера BDS до VoiceCraft `McHttpConfig.Hostname`
 6. Клиенты VoiceCraft, установленные игроками
@@ -48,7 +48,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 Важно:
 
 - используйте настоящий токен, никогда не оставляйте сгенерированный в производстве
-- убедитесь, что хост BDS может достичь настроенного endpoint
+- убедитесь, что хост BDS может достичь настроенного эндпоинта
 - используйте `http://127.0.0.1:9050/` только в том случае, если BDS и VoiceCraft работают на одном хосте
 - используйте LAN/публичный адрес или привязку `0.0.0.0`, когда BDS подключается с другого компьютера
 
@@ -56,8 +56,8 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 
 Самый быстрый путь:
 
-- [Addon Configurator](/addon-configurator), если вам нужен готовый к распаковке мировой архив
-- [Download Page](/download), если вам нужен необработанный пакет выпуска аддона.
+- [Addon Configurator](/addon-configurator), если вам нужен готовый к распаковке архив мира
+- [страница загрузки](/download), если вам нужен исходный пакет выпуска аддона.
 
 Ручной путь:
 
@@ -67,9 +67,9 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 4. Прикрепите оба пакета к целевому миру.
 5. Перезапустите BDS после изменения пакетов или разрешений.
 
-Пакет ресурсов предоставляет видимые клиенту ресурсы, такие как значки. Пакет поведения запускает сценарии и команды, которые подключают BDS к VoiceCraft.
+Пакет ресурсов предоставляет видимые клиенту ресурсы, такие как значки. Пакет поведения запускает скрипты и команды, которые подключают BDS к VoiceCraft.
 
-## Разрешения модуля
+## Разрешения модулей
 
 Откройте `<MCServer>/config/default/permissions.json` и убедитесь, что он содержит необходимые модули:
 
@@ -86,7 +86,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 }
 ```
 
-Аддону требуются разрешения для сценариев, связанных с сетью, поскольку он вызывает HTTP endpoint VoiceCraft из среды выполнения BDS.
+Аддону требуются разрешения для сетевых скриптов, поскольку он вызывает HTTP-эндпоинт VoiceCraft из среды выполнения BDS.
 
 ## Прикрепляйте пакеты к миру
 
@@ -135,7 +135,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 - процесс привязки становится доступным через `voicecraft:vcbind`
 - Становится доступным UI эффектов и синхронизация состояния на основе пакетов.
 
-На этом этапе транспорт подключен, но каждому игроку по-прежнему нужен клиент VoiceCraft и работающий процесс привязки для proximity audio.
+На этом этапе транспорт подключен, но каждому игроку по-прежнему нужен клиент VoiceCraft и работающий процесс привязки для звука с учетом расстояния.
 
 ## Рекомендуемый порядок проверки
 
@@ -145,7 +145,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 4. Убедитесь, что ошибка аутентификации не отображается.
 5. Подключите клиент VoiceCraft к `VoiceCraftConfig.Port`.
 6. Используйте `voicecraft:vcbind <key>`.
-7. Переместите игрока в игру и убедитесь, что обновления местоположения влияют на proximity audio.
+7. Переместите игрока в игру и убедитесь, что обновления местоположения влияют на звук с учетом расстояния.
 8. Убедитесь, что другие игроки слышат на ожидаемом расстоянии.
 
 ## Общие проблемы
@@ -160,12 +160,12 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
   убедитесь, что команда использует `McHttpConfig.LoginToken`, а не токен `McWss` или `McTcp`
 - Аддон загружается, но команды отсутствуют:
   убедитесь, что к миру подключены пакеты поведения и ресурсов, а BDS был перезапущен.
-- клиент подключается, но нет proximity audio:
+- клиент подключается, но нет звука с учетом расстояния:
   подтвердите процесс привязки, `PositioningType` и обновления позиции игрока
 
 ## Читать далее
 
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
-- [Addon API](/ecosystem/addon-api)
-- [Download Page](/download)
-- [Addon Configurator](/addon-configurator)
+- [API аддонов](/ecosystem/addon-api)
+- [страница загрузки](/download)
+- [конфигуратор аддона](/addon-configurator)

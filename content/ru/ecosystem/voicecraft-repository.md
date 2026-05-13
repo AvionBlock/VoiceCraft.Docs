@@ -45,7 +45,7 @@
 dotnet --info
 ```
 
-## Создайте решение
+## Соберите решение
 
 Используйте это, если хотите проверить полное решение или создать локальные двоичные файлы:
 
@@ -65,7 +65,7 @@ dotnet build -c Release
 dotnet run --project VoiceCraft.Server -- --language en-US
 ```
 
-Полезные параметры root:
+Полезные корневые параметры:
 
 - `--language <locale>`
 - `--exit-on-invalid-properties`
@@ -104,7 +104,7 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 - `zh-CN`
 - `zh-TW`
 
-## Контрольный список производства
+## Production-чек-лист
 
 1. Запустите `VoiceCraft.Server` один раз, чтобы сгенерировать конфигурацию.
 2. Замените все сгенерированные транспортные токены.
@@ -114,8 +114,8 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
    - `McTcp`
 4. Открывайте только необходимые порты.
 5. Сохраняйте резервные копии `ServerProperties.json`.
-6. Установите соответствующую интеграцию со стороной Minecraft.
-7. Убедитесь, что клиенты и интеграция Minecraft подключаются через отдельные endpoints.
+6. Установите соответствующую интеграцию на стороне Minecraft.
+7. Убедитесь, что клиенты и интеграция Minecraft подключаются через отдельные эндпоинты.
 
 ## Когда использовать эту страницу
 
@@ -126,8 +126,8 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 
 ## Связанные документы
 
-- [Server Installation](/server/installation)
+- [Установка сервера](/server/installation)
 - [ServerProperties.json](/server/server-properties)
-- [Transport Modes](/server/transports)
+- [Режимы транспорта](/server/transports)
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
 - [GeyserVoice](/ecosystem/geyservoice)

@@ -10,7 +10,7 @@
 
 - Голосовой сервер VoiceCraft UDP
 - `McHttp` транспорт для интеграции с Bedrock
-- `McWss` транспорт для потоков WebSocket/командных туннелей Bedrock
+- транспорт `McWss` для сценариев Bedrock на основе WebSocket и командного туннеля
 - Транспорт `McTcp` для мостов на стороне Java, таких как `GeyserVoice`
 
 Вы можете оставить их все включенными или выбрать транспорты во время выполнения.
@@ -24,7 +24,7 @@
 5. Включите транспорт Minecraft, соответствующий вашей топологии.
 6. Установите привязки хоста и правила брандмауэра.
 7. Запустите сервер снова.
-8. Добавьте UDP endpoint VoiceCraft в клиенте.
+8. Добавьте UDP-эндпоинт VoiceCraft в клиенте.
 9. Подключите сторону Minecraft с помощью соответствующего аддона или руководства по плагину.
 
 ## Готовые бинарные выпуски
@@ -36,7 +36,7 @@
 - Linux:
   `VoiceCraft.Server.Linux.x64.zip`, `arm`, `arm64`
 
-Скачать: [Download Page](/download)
+Скачать: [страница загрузки](/download)
 
 ## Windows
 
@@ -83,13 +83,13 @@ chmod +x ./VoiceCraft.Server
 4. Оставьте `VoiceCraftConfig.Port` доступным для клиентов игроков.
 5. Перезапустите `VoiceCraft.Server` после сохранения конфигурации.
 
-Для всех полей конфигурации продолжайте с [First Server Run](/server/first-run) и [ServerProperties.json](/server/server-properties).
+Для всех полей конфигурации продолжайте с [первым запуском сервера](/server/first-run) и [ServerProperties.json](/server/server-properties).
 
 ## Подключите остальную часть стека
 
 Как только сервер перезапустится без ошибок:
 
-1. Установите клиент VoiceCraft для каждого игрока из файла [Download Page](/download).
+1. Установите клиент VoiceCraft для каждого игрока со [страницы загрузки](/download).
 2. Добавьте запись сервера в клиенте:
    - хост: адрес вашего сервера VoiceCraft.
    - порт: `VoiceCraftConfig.Port`, обычно `9050`
@@ -151,9 +151,9 @@ dotnet publish -c Release -r osx-arm64 -p:PublishSingleFile=true
 
 - `VoiceCraft.Server` запускается без ошибок конфигурации или порта
 - все сгенерированные значения `LoginToken` были заменены
-- выставлен только тот транспорт, который вам нужен
-- соответствие хоста и порта клиента `VoiceCraftConfig.Port`
-- Аддон или плагин Minecraft использует соответствующий транспортный токен.
+- открыт наружу только тот транспорт, который вам нужен
+- хост и порт клиента соответствуют `VoiceCraftConfig.Port`
+- аддон или плагин Minecraft использует соответствующий транспортный токен
 - процесс привязки работает в игре
 
 ## Запуск от имени службы systemd (Linux)
@@ -187,9 +187,9 @@ sudo systemctl status voicecraft
 
 ## Сборка из исходного кода
 
-См. [VoiceCraft repository and build](/ecosystem/voicecraft-repository) для получения подробной информации о SDK и проекте.
+См. [репозиторий и сборку VoiceCraft](/ecosystem/voicecraft-repository) для получения подробной информации о SDK и проекте.
 
-Минимальный поток:
+Минимальный порядок:
 
 ```bash
 git clone https://github.com/AvionBlock/VoiceCraft.git
@@ -201,10 +201,10 @@ dotnet run --project VoiceCraft.Server
 
 ## Что читать дальше
 
-- [First Server Run](/server/first-run)
+- [Первый запуск сервера](/server/first-run)
 - [ServerProperties.json](/server/server-properties)
-- [Transport Modes](/server/transports)
-- [Client Installation](/client/installation)
+- [Режимы транспорта](/server/transports)
+- [Установка клиента](/client/installation)
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
 - [GeyserVoice](/ecosystem/geyservoice)
