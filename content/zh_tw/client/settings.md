@@ -78,7 +78,7 @@
 - `Test Output`：
   向所選設備發送本地測試訊號。
 
-如果您可以聽到測試輸出但聽不到其他播放器的聲音，則播放裝置可能沒問題。接下來檢查伺服器連線、綁定流和位置更新。
+如果您可以聽到測試輸出但聽不到其他玩家的聲音，則播放裝置可能沒問題。接下來檢查伺服器連線、綁定流程和位置更新。
 
 ## 網路
 
@@ -91,7 +91,7 @@
 
 `Positioning Type` 是最重要的客戶端/伺服器相容性設定。在正常的 BDS 和 GeyserVoice 部署中，使用 `ServerProperties.json` 中配置的相同伺服器端模式。
 
-`McWss Listen Ip` 和 `McWss Host Port` 僅適用於 McWss 風格的本地基岩設置。它們不會取代用於語音 UDP 流量的 VoiceCraft 伺服器條目。
+`McWss Listen Ip` 和 `McWss Host Port` 僅適用於 McWss 風格的本地 Bedrock 設置。它們不會取代用於語音 UDP 流量的 VoiceCraft 伺服器條目。
 
 ## 熱鍵
 

@@ -28,11 +28,11 @@ Als u een voorspelbare productie-opstelling wilt, gebruik dan BDS met `McHttp` o
 
 ## Welk vervoer moet ik gebruiken?
 
-- Bedrock speciale server:
+- Bedrock Dedicated Server:
   `McHttp`
 - lokale Bedrock-wereld:
   `McWss`
-- Java + Geiser / Sluizen:
+- Java + Geyser/Floodgate:
   `McTcp` tot en met `GeyserVoice`
 
 Het transport is voor de Minecraft-kant. Spelerclients maken nog steeds verbinding met het VoiceCraft UDP-eindpunt.
@@ -100,7 +100,7 @@ Als `list --clientsOnly` de speler toont, maar `list` geen veranderende entiteit
 
 Meestal niet de eerste keuze voor grotere openbare omgevingen.
 
-Het is het beste voor lokale werelden, testen en lichtgewicht opstellingen. `McHttp` is meestal een beter gesteenteproductietransport.
+Het is het beste voor lokale werelden, testen en lichtgewicht opstellingen. `McHttp` is meestal een beter Bedrock-productietransport.
 
 ## Wat is het verschil tussen servermute en lokale mute?
 

@@ -17,7 +17,7 @@ Behandeln Sie sie als gemeinsame Geheimnisse.
 Verwenden Sie den Token nur mit der passenden Integration:
 
 - `McHttpConfig.LoginToken` für BDS `McHttp`
-- `McWssConfig.LoginToken` für lokales Grundgestein `McWss`
+- `McWssConfig.LoginToken` für lokales Bedrock `McWss`
 - `McTcpConfig.LoginToken` für GeyserVoice / Java Bridge
 
 ## 2. Legen Sie nur die erforderlichen Transporte frei
@@ -98,7 +98,7 @@ Behalten Sie für `GeyserVoice` diese nur für Mitarbeiter bei:
 - `/voice disconnect`
 - `/voice reload`
 
-Beschränken Sie den Zugriff für die VoiceCraft-Serverkonsole nur auf vertrauenswürdige Operatoren. Befehle wie `kick`, `mute`, `deafen` und Metadatenänderungen können sich auf Live-Player auswirken.
+Beschränken Sie den Zugriff für die VoiceCraft-Serverkonsole nur auf vertrauenswürdige Operatoren. Befehle wie `kick`, `mute`, `deafen` und Metadatenänderungen können sich auf Live-Spieler auswirken.
 
 ## 9. Schützen Sie den Backup-Inhalt
 

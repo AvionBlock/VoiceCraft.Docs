@@ -41,7 +41,7 @@ Zrób migawkę, gdy masz zamiar:
 4. Przywróć pasujący pakiet dodatków/wtyczek, jeśli zgodność wersji ma znaczenie.
 5. Uruchom ponownie VoiceCrafta.
 6. Uruchom ponownie lub załaduj ponownie integrację po stronie Minecrafta.
-7. Sprawdź autoryzację transportu i powiąż przepływ.
+7. Sprawdź autoryzację transportu i sprawdź przepływ powiązania.
 
 ## Jakie przywracanie nie naprawia automatycznie
 
@@ -59,7 +59,7 @@ Sprawdź:
 1. serwer uruchamia się czysto
 2. wybrany transport jest włączony
 3. token pasuje do węzła integrującego
-4. powiązanie odtwarzacza i przepływ dźwięku znów działają
+4. powiązanie gracza i przepływ dźwięku znów działają
 5. polecenia serwera pokazują oczekiwanych klientów/jednostki
 6. dzienniki nie pokazują już błędu, który spowodował przywrócenie
 

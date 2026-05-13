@@ -58,9 +58,9 @@ Gebruik de topologie om te beslissen wat moet worden ingeschakeld:
 
 | Installatie | Inschakelen | Ga verder met |
 |-------|--------|---------------|
-| Bedrock speciale server | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
+| Bedrock Dedicated Server | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
 | Lokale Bedrock-wereld | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
-| Java + Geiser/Sluizen | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+| Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
 
 U kunt meerdere transporten uitvoeren, maar een eerste configuratie is gemakkelijker te debuggen als alleen de vereiste wordt weergegeven.
 
@@ -118,7 +118,7 @@ De eerste installatie is voltooid wanneer:
 - Minecraft authenticeert via het geselecteerde transport
 - in-game bindstroom werkt
 - Updates van spelersposities bereiken VoiceCraft
-- nabijheidsstem werkt op het verwachte bereik
+- proximity voice werkt op het verwachte bereik
 
 ## Opstartargumenten
 

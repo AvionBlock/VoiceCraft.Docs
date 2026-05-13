@@ -9,7 +9,7 @@ Bevor Sie eine Topologie auswählen, bestätigen Sie zwei Netzwerkpfade:
 
 Viele Hosting-Probleme entstehen dadurch, dass einer dieser Pfade blockiert wird, während der andere noch funktioniert.
 
-## Grundgesteinswirte
+## Bedrock-Hosts
 
 `McHttp` ist normalerweise der beste Bedrock-Transport, aber nur, wenn der BDS-Knoten den VoiceCraft-Endpunkt erreichen kann.
 

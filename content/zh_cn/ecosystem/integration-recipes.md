@@ -4,7 +4,7 @@
 
 在了解基本组件并需要具体的拓扑方案后，请使用此页面。每个场景都列出了堆栈、选择它的主要原因、最重要的配置以及证明其有效的验证点。
 
-## 场景 A：基岩专用服务器
+## 场景 A：Bedrock 专用服务器
 
 堆栈：
 
@@ -16,7 +16,7 @@
 
 - BDS是主要的游戏服务器
 - BDS 可以到达 VoiceCraft HTTP 端点
-- 您想要最稳定的基岩生产路径
+- 您想要最稳定的Bedrock生产路径
 
 推荐配置：
 
@@ -34,7 +34,7 @@
 6. 验证 `voicecraft:vcbind <key>`
 7. 连接客户端并确认距离随着移动而变化
 
-## 场景 B：本地/单人基岩世界
+## 场景 B：本地/单人 Bedrock 世界
 
 堆栈：
 
@@ -76,7 +76,7 @@
 2. 设置 `config.proxy.enabled = false`
 3. 配置 `config.voicecraft.transport.login-token`
 4. 启用 `config.voicecraft.auto-start`
-5. 重新加载并验证绑定流
+5. 重新加载并验证绑定流程
 
 当您希望插件在后台运行 VoiceCraft 时，这是最简单的 Java 端设置。
 

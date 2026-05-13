@@ -2,7 +2,7 @@
 
 Verwenden Sie diesen Modus, wenn Sie Velocity oder BungeeCord mit einem oder mehreren Backend-Paper-Servern ausführen.
 
-Im Proxy-Modus bleibt eine zentrale VoiceCraft-Verbindung auf dem Proxy, während Back-End-Paper-Server Player-Snapshots über Plugin-Messaging streamen.
+Im Proxy-Modus bleibt eine zentrale VoiceCraft-Verbindung auf dem Proxy, während Back-End-Paper-Server Spieler-Snapshots über Plugin-Messaging streamen.
 
 Zielform:
 

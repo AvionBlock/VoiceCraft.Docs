@@ -107,7 +107,7 @@ Pomyślne połączenie klienta potwierdza jedynie, że punkt końcowy głosu jes
 - Klient łączy się, ale nie ma bliskości:
   sprawdź transport Minecraft, przepływ powiązań i `Positioning Type`.
 - Serwer zdalny nie łączy się:
-  sprawdź, czy port UDP między odtwarzaczem a `VoiceCraft.Server` jest otwarty.
+  sprawdź, czy port UDP między graczem a `VoiceCraft.Server` jest otwarty.
 - Gracz słyszy wszystkich w niewłaściwej odległości:
   sprawdzaj aktualizacje pozycji jednostek i identyfikatory światów.
 

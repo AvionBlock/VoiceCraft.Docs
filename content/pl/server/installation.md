@@ -80,7 +80,7 @@ Najpierw wykonaj te zmiany:
 3. Ustaw hosta transportu:
    - użyj `127.0.0.1`, gdy Minecraft działa na tym samym komputerze
    - używaj `0.0.0.0` lub adresu LAN/publicznego tylko wtedy, gdy musi połączyć się inna maszyna
-4. Zachowaj dostępność `VoiceCraftConfig.Port` dla klientów odtwarzaczy.
+4. Zachowaj dostępność `VoiceCraftConfig.Port` dla klientów graczy.
 5. Uruchom ponownie `VoiceCraft.Server` po zapisaniu konfiguracji.
 
 W przypadku wszystkich pól konfiguracyjnych kontynuuj [First Server Run](/server/first-run) i [ServerProperties.json](/server/server-properties).
@@ -89,7 +89,7 @@ W przypadku wszystkich pól konfiguracyjnych kontynuuj [First Server Run](/serve
 
 Po czystym ponownym uruchomieniu serwera:
 
-1. Zainstaluj klienta VoiceCraft dla każdego odtwarzacza z [Download Page](/download).
+1. Zainstaluj klienta VoiceCraft dla każdego gracza z [Download Page](/download).
 2. Dodaj wpis serwera w kliencie:
    - host: adres twojego serwera VoiceCraft
    - port: `VoiceCraftConfig.Port`, zwykle `9050`

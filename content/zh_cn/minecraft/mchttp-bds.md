@@ -1,8 +1,8 @@
-# 用于基岩专用服务器的 McHttp
+# 用于Bedrock 专用服务器的 McHttp
 
 `McHttp` 是推荐的 BDS VoiceCraft 集成模式。
 
-当您运行基岩专用服务器并希望服务器端插件将玩家状态发送到 `VoiceCraft.Server` 时，请使用本指南。
+当您运行Bedrock 专用服务器并希望服务器端插件将玩家状态发送到 `VoiceCraft.Server` 时，请使用本指南。
 
 目标形状：
 
@@ -132,10 +132,10 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 
 - 该插件通过 VoiceCraft 进行身份验证
 - 世界可以通过McApi创建/更新实体
-- 绑定流通过 `voicecraft:vcbind` 变得可用
+- 绑定流程通过 `voicecraft:vcbind` 变得可用
 - 效果 UI 和数据包驱动的状态同步变得可用
 
-在此阶段，传输已连接，但每个播放器仍然需要 VoiceCraft 客户端和用于邻近音频的工作绑定流。
+在此阶段，传输已连接，但每个玩家仍然需要 VoiceCraft 客户端和用于邻近音频的工作绑定流程。
 
 ## 推荐的验证流程
 

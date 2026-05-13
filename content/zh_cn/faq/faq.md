@@ -28,14 +28,14 @@
 
 ## 我应该使用哪种交通工具？
 
-- 基岩专用服务器：
+- Bedrock 专用服务器：
   `McHttp`
-- 当地基岩世界：
+- 本地 Bedrock 世界：
   `McWss`
-- Java + Geyser/水闸：
+- Java + Geyser/Floodgate：
   `McTcp` 到 `GeyserVoice`
 
-该传输用于 Minecraft 端状态。播放器客户端仍连接到 VoiceCraft UDP 端点。
+该传输用于 Minecraft 端状态。玩家客户端仍连接到 VoiceCraft UDP 端点。
 
 ## GeyserVoice 是否需要单独管理的 VoiceCraft 服务器？
 
@@ -94,13 +94,13 @@
 4. 成功绑定流程
 5. 接收位置和世界更新的实体
 
-如果 `list --clientsOnly` 显示播放器，但 `list` 不显示更改的实体位置，请调试 Minecraft 集成而不是麦克风设置。
+如果 `list --clientsOnly` 显示玩家，但 `list` 不显示更改的实体位置，请调试 Minecraft 集成而不是麦克风设置。
 
 ## `McWss` 适合生产吗？
 
 通常不是较大公共环境的首选。
 
-它最适合本地世界、测试和轻量级设置。 `McHttp` 通常是更好的基岩生产运输。
+它最适合本地世界、测试和轻量级设置。 `McHttp` 通常是更好的Bedrock生产运输。
 
 ## 服务器静音和本地静音有什么区别？
 
@@ -113,11 +113,11 @@
 
 在 `UserSettings.Users` 下的 `Settings.json` 中。
 
-## 我用 Geyser 运行 Java。我还需要基岩插件吗？
+## 我用 Geyser 运行 Java。我还需要Bedrock插件吗？
 
 不会。在 Java + Geyser 拓扑中，桥通常是 `GeyserVoice`，而不是 Bedrock 插件。
 
-使用基岩世界/BDS 的基岩插件。当 Java 端基础设施是玩家状态的来源时，请使用 GeyserVoice。
+使用Bedrock 世界/BDS 的Bedrock插件。当 Java 端基础设施是玩家状态的来源时，请使用 GeyserVoice。
 
 ## VoiceCraft 是第三方托管语音服务吗？
 

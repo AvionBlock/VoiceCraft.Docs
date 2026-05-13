@@ -1,6 +1,6 @@
 # 單人世界的 McWss
 
-`McWss` 是 websocket / 指令隧道傳輸，主要用於本地世界和輕量級基岩設定。
+`McWss` 是 websocket / 指令隧道傳輸，主要用於本地世界和輕量級Bedrock設定。
 
 當您未執行完整的 Bedrock 專用伺服器並且需要本地 Bedrock 世界透過 `/connect` websocket 串流與 VoiceCraft 對話時，請使用本指南。
 
@@ -15,11 +15,11 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 
 在下列情況下使用 `McWss`：
 
-- 你在當地的基岩世界中玩
+- 你在本地 Bedrock 世界中玩
 - 你想要快速的單人遊戲設置
 - 您正在沒有專用 BDS 主機的情況下測試插件邏輯
 
-如果您執行真正的基岩專用伺服器，請改用 [McHttp for BDS](/minecraft/mchttp-bds)。
+如果您執行真正的Bedrock 專用伺服器，請改用 [McHttp for BDS](/minecraft/mchttp-bds)。
 
 ## 重要限制
 
@@ -32,7 +32,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 
 1. `VoiceCraft.Server` 與 `McWssConfig.Enabled = true`
 2. `VoiceCraft.Addon.Core.McWss.zip`
-3. 支援所需的 websocket/腳本功能的基岩構建
+3. 支援所需的 websocket/腳本功能的Bedrock構建
 4. VoiceCraft 用戶端已安裝並配置
 5. 匹配 `McWssConfig.LoginToken` 用於插件驗證
 
@@ -63,7 +63,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 
 保持 `DataTunnelCommand` 與插件包保持一致。如果您在伺服器設定中更改它，則插件必須使用相同的命令名稱。
 
-對於本地單人遊戲測試，請將 websocket 主機保留在 `127.0.0.1` 上。僅當基岩世界從另一台機器連接時才使用更寬的綁定。
+對於本地單人遊戲測試，請將 websocket 主機保留在 `127.0.0.1` 上。僅當Bedrock 世界從另一台機器連接時才使用更寬的綁定。
 
 ## 安裝
 
@@ -95,7 +95,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 /connect 127.0.0.1:9051
 ```
 
-這將基岩世界連接到 VoiceCraft Websocket 傳輸。它尚未驗證該插件。
+這將Bedrock 世界連接到 VoiceCraft Websocket 傳輸。它尚未驗證該插件。
 
 ### 第 2 步：驗證插件
 
@@ -139,7 +139,7 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 
 在下列情況下移至 `McHttp`：
 
-- 您運行真正的專用基岩伺服器
+- 您運行真正的專用Bedrock伺服器
 - 您想要清潔生產部署
 - 命令隧道不穩定成為問題
 
@@ -164,4 +164,4 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 - 資料隧道錯誤：
   確認 `DataTunnelCommand` 與插件包相符。
 - 音訊已連接，但接近度錯誤：
-  檢查綁定流、定位模式以及位置更新是否到達。
+  檢查綁定流程、定位模式以及位置更新是否到達。

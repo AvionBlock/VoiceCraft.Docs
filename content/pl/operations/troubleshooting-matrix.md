@@ -31,7 +31,7 @@ Najczęstsze przyczyny:
 
 - gracz skopiował wygasły lub zregenerowany klucz wiążący
 - Wersja pakietu dodatków nie jest zgodna z wersją serwera/klienta
-- niestandardowa logika dodatków przechwytuje lub omija przepływ wiązania zapasów
+- niestandardowa logika dodatków przechwytuje lub omija domyślny przepływ wiązania
 
 ## Objaw: zainstalowano GeyserVoice, ale most po stronie Java nigdy nie staje się użyteczny
 

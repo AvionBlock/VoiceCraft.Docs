@@ -21,7 +21,7 @@ Die addonseitige API stellt Folgendes bereit:
 
 Die API existiert, damit die Welt entscheiden kann, was Stimme in ihrem Gameplay bedeuten soll. VoiceCraft stellt das Transport- und Zustandsmodell bereit; Ihre Add-on-Logik kann entscheiden, wie Tags, Rollen, Regionen, Dimensionen oder Skript-Entitäten diesem Modell zugeordnet werden.
 
-## Veranstaltungen auf hohem Niveau
+## High-Level-Ereignisse
 
 Von der aktuellen API-Ebene:
 

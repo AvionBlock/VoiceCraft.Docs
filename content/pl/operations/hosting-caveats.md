@@ -9,7 +9,7 @@ Przed wybraniem topologii potwierdź dwie ścieżki sieciowe:
 
 Wiele problemów z hostingiem wynika z zablokowania jednej z tych ścieżek, podczas gdy druga nadal działa.
 
-## Gospodarze skały macierzystej
+## Hostingi Bedrock
 
 `McHttp` jest zwykle najlepszym transportem Bedrock, ale tylko wtedy, gdy węzeł BDS może dotrzeć do punktu końcowego VoiceCraft.
 

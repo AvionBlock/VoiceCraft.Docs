@@ -57,7 +57,7 @@ Diese Flexibilität bedeutet auch, dass die erste Entscheidung zählt: Wählen S
 | Wenn du rennst... | Beginnen Sie mit... | Warum |
 |---------------|---------------|-----|
 | Dedizierter Bedrock-Server | [McHttp for BDS](/minecraft/mchttp-bds) | BDS kann einen stabilen HTTP-Endpunkt aufrufen |
-| Lokale Grundgesteinswelt | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | Funktioniert über den lokalen Websocket-/Befehlstunnelfluss |
+| Lokale Bedrock-Welt | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | Funktioniert über den lokalen Websocket-/Befehlstunnelfluss |
 | Java-Server mit Geyser/Floodgate | [GeyserVoice](/ecosystem/geyservoice) | Java-seitiges Plugin stellt über `McTcp` eine Brücke zu VoiceCraft |
 | Direkter Paper-Server | [GeyserVoice Direct Paper](/ecosystem/geyservoice-direct-paper) | Das Plugin kann entweder einen externen Server nutzen oder die Laufzeit verwalten |
 

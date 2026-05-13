@@ -2,7 +2,7 @@
 
 `McHttp` ist der empfohlene VoiceCraft-Integrationsmodus für BDS.
 
-Verwenden Sie diese Anleitung, wenn Sie einen Bedrock Dedicated Server betreiben und möchten, dass das serverseitige Add-on den Player-Status an `VoiceCraft.Server` sendet.
+Verwenden Sie diese Anleitung, wenn Sie einen Bedrock Dedicated Server betreiben und möchten, dass das serverseitige Add-on den Spielerstatus an `VoiceCraft.Server` sendet.
 
 Zielform:
 

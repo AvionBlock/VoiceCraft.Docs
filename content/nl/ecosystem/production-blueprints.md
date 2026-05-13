@@ -98,7 +98,7 @@ Beschouw dit niet als het standaardproductieontwerp voor een openbare Bedrock-se
 
 | Behoefte | Kies |
 |------|--------|
-| Stabiele productie van gesteente | Blauwdruk 1 |
+| Stabiele Bedrock-productie | Blauwdruk 1 |
 | Eén Java/Geyser-server | Blauwdruk 2 |
 | Snelheid/Bungee-netwerk | Blauwdruk 3 |
 | Lokaal testen of add-on-ontwikkeling | Blauwdruk 4 |

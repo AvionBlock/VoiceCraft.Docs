@@ -4,7 +4,7 @@
 
 當您決定要標準化的拓撲時，請使用這些藍圖。他們故意固執己見：目標是減少移動部件，而不是一次暴露所有可能的傳輸。
 
-## 藍圖 1：基岩專用伺服器
+## 藍圖 1：Bedrock 專用伺服器
 
 用途：
 
@@ -14,7 +14,7 @@
 
 為什麼：
 
-- 最乾淨穩定的基岩部署
+- 最乾淨穩定的Bedrock部署
 - 最容易監控
 - 最容易向服務生解釋
 
@@ -27,13 +27,13 @@ players -> VoiceCraft UDP endpoint
 
 保持 `McWss` 和 `McTcp` 處於停用狀態，除非您有特定原因要執行它們。
 
-## 藍圖 2：當地社區/有 Geyser 的 SMP
+## 藍圖 2：本地社區/有 Geyser 的 SMP
 
 用途：
 
 - `VoiceCraft.Server`
 - `McTcp`
-- `GeyserVoice` Direct Paper模式
+- `GeyserVoice` Direct Paper 模式
 
 可選：
 
@@ -92,13 +92,13 @@ local Bedrock world -> McWss -> local VoiceCraft.Server
 local client -> local VoiceCraft UDP endpoint
 ```
 
-不要將此視為公共基岩伺服器的預設生產設計。當世界變得長時間運作或共享時，移至 `McHttp`。
+不要將此視為公共Bedrock伺服器的預設生產設計。當世界變得長時間運作或共享時，移至 `McHttp`。
 
 ## 選擇藍圖
 
 | 需要 | 選擇 |
 |------|--------|
-| 穩定的基岩產量 | 藍圖1 |
+| 穩定的Bedrock產量 | 藍圖1 |
 | 一台 Java/Geyser 伺服器 | 藍圖2 |
 | 速度/高空彈跳網絡 | 藍圖3 |
 | 本地測試或外掛程式開發 | 藍圖4 |
@@ -108,7 +108,7 @@ local client -> local VoiceCraft UDP endpoint
 - 盡可能將 VoiceCraft 日誌與遊戲日誌分開存儲
 - 在大型升級之前輪換或存檔配置
 - 保持傳輸令牌的秘密
-- 每次拓撲更改後測試綁定流
+- 每次拓撲更改後測試綁定流程
 - 僅公開所選藍圖所需的傳輸
 - 在更改連接埠或令牌之前保留 `ServerProperties.json` 的回溯副本
 - 記錄您的環境中哪個服務擁有 VoiceCraft 進程

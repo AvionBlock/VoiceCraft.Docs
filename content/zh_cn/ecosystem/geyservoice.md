@@ -19,7 +19,7 @@
 
 - 玩家生命周期
 - 位置/世界快照
-- 绑定流
+- 绑定流程
 - 多服务器网络的代理中继
 
 它不仅仅是一个简单的数据包转发器。在直接 Paper 模式下，它还可以管理本地 VoiceCraft 运行时。
@@ -146,7 +146,7 @@ config:
 
 ### `config.players`
 
-存储自动绑定/播放器端缓存数据。
+存储自动绑定/玩家端缓存数据。
 
 ### `config.player-links`
 
@@ -179,7 +179,7 @@ config:
 - `voice.bindfake`
 - `voice.reload`
 
-## Direct Paper模式
+## Direct Paper 模式
 
 最佳时间：
 

@@ -74,11 +74,11 @@ Ten podział umożliwia ewolucję każdego projektu wokół jego środowiska wyk
 
 - Nowy serwer dedykowany Bedrock:
   zacznij od [Quick Start](/start/quick-start), następnie [McHttp for BDS](/minecraft/mchttp-bds).
-- Lokalne testy podłoża skalnego:
+- Lokalne testy Bedrock:
   zacznij od [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
-- Java + Gejzer/Powodzia:
+- Java + Geyser/Floodgate:
   zacznij od [GeyserVoice](/ecosystem/geyservoice).
-- Niestandardowe zachowanie podłoża skalnego:
+- Niestandardowe zachowanie Bedrock:
   przeczytaj [VoiceCraft.Addon](/ecosystem/voicecraft-addon), a następnie [Addon API](/ecosystem/addon-api).
 
 ## Kontynuuj z

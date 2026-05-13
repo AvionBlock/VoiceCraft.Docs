@@ -20,7 +20,7 @@ Większość wdrożeń składa się z trzech ruchomych elementów:
 Integracje ekosystemów łączą Minecraft z tymi transportami:
 
 - `VoiceCraft.Addon` dla światów Bedrock i BDS
-- `GeyserVoice` dla stosów Java/Gejzer/proxy
+- `GeyserVoice` dla stosów Java/Geyser/proxy
 
 ## Jak to działa
 

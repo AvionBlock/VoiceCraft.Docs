@@ -58,7 +58,7 @@ W ramach pakietów:
 ## Co daje Ci pakiet Basic
 
 - wiązanie/rozłączanie przepływu
-- Interfejs ustawień odtwarzacza
+- Interfejs ustawień gracza
 - efekt przełącza
 - zdarzenia skryptowe dla automatyzacji
 - wskaźniki w grze używane przez obsługiwane wydania

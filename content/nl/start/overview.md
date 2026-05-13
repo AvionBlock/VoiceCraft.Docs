@@ -1,10 +1,10 @@
 # Overzicht
 
-VoiceCraft is een nabijheidsstemplatform voor Minecraft Bedrock Edition en gerelateerde bridge-scenario's.
+VoiceCraft is een proximity voiceplatform voor Minecraft Bedrock Edition en gerelateerde bridge-scenario's.
 
 Spelers kunnen een aparte stemclient gebruiken, terwijl de Minecraft-automatisering de stemserver vertelt waar elke speler zich bevindt, in welke wereld hij of zij zich bevindt en welke effecten of zichtbaarheidsregels van toepassing moeten zijn.
 
-VoiceCraft is handig als u nabijheidsstem wilt zonder afhankelijk te zijn van één exacte Minecraft-servervorm. Dezelfde core-runtime kan worden gecombineerd met Bedrock-add-ons, Java/Geyser-bridges of proxy-implementaties.
+VoiceCraft is handig als u proximity voice wilt zonder afhankelijk te zijn van één exacte Minecraft-servervorm. Dezelfde core-runtime kan worden gecombineerd met Bedrock-add-ons, Java/Geyser-bridges of proxy-implementaties.
 
 ## Wat je aan het opzetten bent
 
@@ -30,7 +30,7 @@ Ecosysteemintegraties verbinden Minecraft met deze transporten:
    - `McHttp` voor BDS
    - `McWss` voor lokale Bedrock-werelden
    - `McTcp` voor `GeyserVoice`
-4. De client geeft nabijheidsaudio weer op basis van de serverstatus en geselecteerde lokale instellingen.
+4. De client geeft proximity audio weer op basis van de serverstatus en geselecteerde lokale instellingen.
 
 De spraakverbinding en de Minecraft transportverbinding zijn gescheiden. Als slechts één zijde is aangesloten, kan de opstelling er gedeeltelijk gezond uitzien, maar zal het nabijheidsgedrag nog steeds onvolledig zijn.
 
@@ -56,7 +56,7 @@ Die flexibiliteit betekent ook dat de eerste beslissing ertoe doet: kies eerst d
 
 | Als je rent... | Begin met... | Waarom |
 |---------------|---------------|-----|
-| Bedrock speciale server | [McHttp for BDS](/minecraft/mchttp-bds) | BDS kan een stabiel HTTP-eindpunt aanroepen |
+| Bedrock Dedicated Server | [McHttp for BDS](/minecraft/mchttp-bds) | BDS kan een stabiel HTTP-eindpunt aanroepen |
 | Lokale Bedrock-wereld | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | Werkt via de lokale websocket/opdrachttunnelstroom |
 | Java-server met Geyser/Floodgate | [GeyserVoice](/ecosystem/geyservoice) | Plugin aan Java-zijde verbindt met VoiceCraft via `McTcp` |
 | Direct Paper-server | [GeyserVoice Direct Paper](/ecosystem/geyservoice-direct-paper) | De plug-in kan een externe server gebruiken of de runtime beheren |

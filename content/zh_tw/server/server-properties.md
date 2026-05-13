@@ -109,7 +109,7 @@
 
 ## 麥克WSS配置
 
-用於 websocket / 指令隧道基岩流。
+用於 websocket / 指令隧道Bedrock流。
 
 - `Enabled`：
   啟用或停用 McWss。
@@ -134,7 +134,7 @@
 
 ## 麥克HTTP配置
 
-用於基岩專用伺服器和基於 HTTP 的整合。
+用於Bedrock 專用伺服器和基於 HTTP 的整合。
 
 - `Enabled`
 - `LoginToken`
@@ -218,7 +218,7 @@
 
 ## 實際生產模式
 
-### 基岩專用伺服器
+### Bedrock 專用伺服器
 
 - `McHttpConfig.Enabled = true`
 - `McWssConfig.Enabled = false`

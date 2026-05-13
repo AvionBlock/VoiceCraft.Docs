@@ -31,7 +31,7 @@ Sprawdź:
 - adres serwera w kliencie wskazuje na `VoiceCraftConfig.Port`
 - proces serwera jest uruchomiony
 - Ruch UDP jest dozwolony przez zaporę sieciową/NAT
-- adres publiczny jest poprawny z sieci odtwarzacza
+- adres publiczny jest poprawny z sieci gracza
 - `MaxClients` nie jest wyczerpany
 
 `PositioningType` zwykle nie blokuje nieprzetworzonego połączenia, ale niedopasowanie może sprawić, że zachowanie bliskości będzie wyglądało na uszkodzone po nawiązaniu połączenia przez klienta.

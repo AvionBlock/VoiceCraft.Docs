@@ -103,7 +103,7 @@ Wenn Sie keine Telemetrie wünschen, stellen Sie Folgendes ein:
 - `EnableVisibilityDisplay`:
   ob Sichtbarkeitsindikatoren an Kunden gesendet werden.
 
-`Port` ist der Endpunkt, den Player-Clients in der VoiceCraft-Client-Benutzeroberfläche hinzufügen. Es ist nicht automatisch dasselbe wie jeder Minecraft-Transportendpunkt, auch wenn standardmäßig `9050` wiederverwendet wird.
+`Port` ist der Endpunkt, den Spieler-Clients in der VoiceCraft-Client-Benutzeroberfläche hinzufügen. Es ist nicht automatisch dasselbe wie jeder Minecraft-Transportendpunkt, auch wenn standardmäßig `9050` wiederverwendet wird.
 
 `PositioningType` muss mit der Client-Einstellung übereinstimmen. Beginnen Sie in den meisten BDS- und GeyserVoice-Setups mit `0 = Server`.
 

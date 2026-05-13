@@ -51,7 +51,7 @@ Używaj tej opcji tylko wtedy, gdy wiesz, dlaczego pozycjonowanie po stronie ser
 |-------|------------------|--------|
 | Serwer dedykowany Bedrock + `McHttp` | `0 = Server` | Dodatek BDS może zgłosić autorytatywny stan świata |
 | Lokalny świat Bedrock + `McWss` | Zwykle `0 = Server` | Addon nadal może przesyłać stan przez tunel |
-| Java + Gejzer/Zasuwa + `GeyserVoice` | `0 = Server` | Wtyczka śledzi cykl życia i pozycję odtwarzacza |
+| Java + Geyser/Floodgate + `GeyserVoice` | `0 = Server` | Wtyczka śledzi cykl życia i pozycję gracza |
 | Eksperymentalna konfiguracja wyłącznie lokalna | Zależy | Używaj po stronie klienta tylko wtedy, gdy integracja nie może zapewnić stanu |
 
 ## Dlaczego niedopasowania psują oczekiwania audio

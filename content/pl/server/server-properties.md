@@ -103,7 +103,7 @@ Jeśli nie chcesz telemetrii, ustaw:
 - `EnableVisibilityDisplay`:
   czy wskaźniki widoczności są wysyłane do klientów.
 
-`Port` to punkt końcowy, który klienci odtwarzacza dodają w interfejsie klienta VoiceCraft. Nie jest to automatycznie to samo, co każdy punkt końcowy transportu w Minecraft, nawet jeśli domyślnie używa się ponownie `9050`.
+`Port` to punkt końcowy, który klienci graczy dodają w interfejsie klienta VoiceCraft. Nie jest to automatycznie to samo, co każdy punkt końcowy transportu w Minecraft, nawet jeśli domyślnie używa się ponownie `9050`.
 
 `PositioningType` musi odpowiadać ustawieniom klienta. W większości konfiguracji BDS i GeyserVoice zacznij od `0 = Server`.
 

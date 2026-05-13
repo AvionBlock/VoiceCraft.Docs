@@ -50,7 +50,7 @@ Verwenden Sie dies nur, wenn Sie wissen, warum die serverseitige Positionierung 
 | Einrichtung | Empfohlener Modus | Grund |
 |-------|------------------|--------|
 | Dedizierter Bedrock-Server + `McHttp` | `0 = Server` | Das BDS-Add-on kann den maßgeblichen Weltzustand melden |
-| Lokale Grundgesteinswelt + `McWss` | Normalerweise `0 = Server` | Das Add-on kann weiterhin Status über den Tunnel senden |
+| Lokale Bedrock-Welt + `McWss` | Normalerweise `0 = Server` | Das Add-on kann weiterhin Status über den Tunnel senden |
 | Java + Geyser/Floodgate + `GeyserVoice` | `0 = Server` | Das Plugin verfolgt den Lebenszyklus und die Position des Spielers |
 | Experimentelles, nur lokales Setup | Hängt davon ab | Verwenden Sie die Clientseite nur, wenn die Integration keinen Status bereitstellen kann |
 

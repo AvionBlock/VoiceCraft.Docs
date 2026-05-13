@@ -8,7 +8,7 @@ Die Trennung ist beabsichtigt: Derselbe Sprachserver kann mit Bedrock Dedicated 
 
 | Schicht | Hauptverantwortung | Typischer Installationsort |
 |-------|---------------------|--------------------------|
-| `VoiceCraft.Client` | Erfasst Mikrofoneingaben, sendet Sprachpakete, spielt Stimmen in der Nähe ab und speichert lokale Audioeinstellungen. | Player-Gerät |
+| `VoiceCraft.Client` | Erfasst Mikrofoneingaben, sendet Sprachpakete, spielt Stimmen in der Nähe ab und speichert lokale Audioeinstellungen. | Spielergerät |
 | `VoiceCraft.Server` | Akzeptiert Sprachclients, speichert den Entitätsstatus, wendet Moderationsflags und Audioeffektstandards an und macht Minecraft-Transporte verfügbar. | VPS, Spielehost, lokaler PC oder per Plugin verwaltete Laufzeit |
 | Minecraft-Integration | Sendet Spieler-/Entitätspositions- und Lebenszyklusdaten von Minecraft an VoiceCraft. | Bedrock-Add-on, Paper-Plugin oder Proxy-Plugin |
 
@@ -70,7 +70,7 @@ VoiceCraft-Sprachverkehr und Minecraft-Automatisierung befinden sich nicht immer
 
 Deshalb:
 
-- Der Player-Client kommuniziert mit dem zentralen UDP-Sprachserver
+- Der Spieler-Client kommuniziert mit dem zentralen UDP-Sprachserver
 - Bedrock- oder Java-Integration erfolgt über einen Minecraft-Transport
 - Jeder Transport kann sein eigenes Token, seine eigene Hostbindung und sein eigenes maximales Client-Limit haben
 
@@ -87,7 +87,7 @@ BDS + VoiceCraft.Addon.Core.McHttp -> McHttp endpoint
 
 Verwenden Sie dies, wenn der Bedrock-Server einen durch `VoiceCraft.Server` bereitgestellten HTTP-Endpunkt erreichen kann.
 
-### Lokale Grundgesteinswelt
+### Lokale Bedrock-Welt
 
 ```text
 VoiceCraft.Client -> VoiceCraft UDP server

@@ -44,7 +44,7 @@ config/ServerProperties.json
 
 ### 2.替换生成的token
 
-在任何插件、插件或播放器客户端连接之前，替换：
+在任何插件、插件或玩家客户端连接之前，替换：
 
 - `McHttpConfig.LoginToken`
 - `McWssConfig.LoginToken`
@@ -58,9 +58,9 @@ config/ServerProperties.json
 
 | 设置 | 启用 | 继续 |
 |-------|--------|---------------|
-| 基岩专用服务器 | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
-| 当地基岩世界 | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
-| Java + Geyser/水闸 | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+| Bedrock 专用服务器 | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
+| 本地 Bedrock 世界 | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
+| Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
 
 您可以运行多个传输，但当仅公开所需的传输时，第一个设置更容易调试。
 
@@ -99,7 +99,7 @@ Fix these before moving on.当服务器报告启动错误时，Minecraft 插件�
 
 确保客户端 `Positioning Type` 与 `VoiceCraftConfig.PositioningType` 匹配。
 
-### 7. 连接我的世界
+### 7. 连接 Minecraft
 
 继续阅读与您启用的传输相匹配的指南：
 
@@ -203,7 +203,7 @@ VoiceCraft 服务器支持这些根参数：
 7. 从同一安装文件夹重新启动服务器。
 8. 与您的客户确认 `PositioningType`。
 9. 在连接 Minecraft 自动化之前测试客户端连接。
-10. 连接 Minecraft 插件或插件并验证绑定流。
+10. 连接 Minecraft 插件或插件并验证绑定流程。
 
 ## 常见的首次运行错误
 

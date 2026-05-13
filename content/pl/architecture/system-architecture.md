@@ -8,7 +8,7 @@ Separacja jest zamierzona: ten sam serwer głosowy może współpracować z serw
 
 | Warstwa | Główna odpowiedzialność | Typowe miejsce instalacji |
 |-------|---------------------|--------------------------|
-| `VoiceCraft.Client` | Przechwytuje sygnał wejściowy mikrofonu, wysyła pakiety głosowe, odtwarza głosy w pobliżu, przechowuje lokalne preferencje audio. | Urządzenie odtwarzacza |
+| `VoiceCraft.Client` | Przechwytuje sygnał wejściowy mikrofonu, wysyła pakiety głosowe, odtwarza głosy w pobliżu, przechowuje lokalne preferencje audio. | Urządzenie gracza |
 | `VoiceCraft.Server` | Akceptuje klientów głosowych, przechowuje stan jednostki, stosuje flagi moderacji i domyślne ustawienia efektów dźwiękowych, ujawnia transporty Minecrafta. | VPS, host gry, komputer lokalny lub środowisko wykonawcze zarządzane przez wtyczki |
 | Integracja z Minecraftem | Wysyła dane dotyczące pozycji gracza/bytu i cyklu życia z gry Minecraft do VoiceCraft. | Dodatek Bedrock, wtyczka Paper lub wtyczka proxy |
 
@@ -35,7 +35,7 @@ Klient nie wykrywa sam pozycji graczy Minecraft w normalnym modelu po stronie se
 - Transporty skierowane do Minecrafta: `McHttp`, `McWss` i `McTcp`
 - trwała konfiguracja w `config/ServerProperties.json`
 
-Serwer to współdzielone środowisko wykonawcze, na które muszą zgodzić się zarówno klienci odtwarzacza, jak i integracja po stronie Minecrafta. Jeśli klient się połączy, ale Minecraft nie, gracze mogą pojawić się w sesjach głosowych bez przydatnych danych o pozycji na świecie.
+Serwer to współdzielone środowisko wykonawcze, na które muszą zgodzić się zarówno klienci graczy, jak i integracja po stronie Minecrafta. Jeśli klient się połączy, ale Minecraft nie, gracze mogą pojawić się w sesjach głosowych bez przydatnych danych o pozycji na świecie.
 
 ### Warstwa integracji Minecrafta
 
@@ -70,7 +70,7 @@ Ruch głosowy VoiceCraft i automatyzacja Minecrafta nie zawsze funkcjonują w ty
 
 Dlatego:
 
-- klient odtwarzacza rozmawia z głównym serwerem głosowym UDP
+- klient gracza rozmawia z głównym serwerem głosowym UDP
 - Integracja Bedrock lub Java odbywa się za pośrednictwem transportu Minecraft
 - każdy transport może mieć swój własny token, powiązanie hosta i maksymalny limit klientów
 
@@ -96,7 +96,7 @@ Minecraft local world + Core.McWss -> McWss websocket endpoint
 
 Użyj tego do lokalnych testów lub na światach dla jednego gracza, gdzie akceptowalny jest tunel poleceń.
 
-### Java + Gejzer/Powodzia
+### Java + Geyser/Floodgate
 
 ```text
 VoiceCraft.Client -> VoiceCraft UDP server

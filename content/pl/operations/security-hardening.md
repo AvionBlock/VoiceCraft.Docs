@@ -17,7 +17,7 @@ Traktuj je jako wspólne tajemnice.
 Używaj tokena tylko z pasującą integracją:
 
 - `McHttpConfig.LoginToken` dla BDS `McHttp`
-- `McWssConfig.LoginToken` dla lokalnego podłoża skalnego `McWss`
+- `McWssConfig.LoginToken` dla lokalnego Bedrock `McWss`
 - `McTcpConfig.LoginToken` dla mostu GeyserVoice/Java
 
 ## 2. Odsłoń tylko wymagane transporty

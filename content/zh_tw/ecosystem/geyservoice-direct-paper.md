@@ -1,4 +1,4 @@
-# GeyserVoice Direct Paper指南
+# GeyserVoice Direct Paper 指南
 
 當一台 Paper / Folia 伺服器應直接與 VoiceCraft 對話時，請使用此模式。
 
@@ -98,7 +98,7 @@ config:
 - 插件可以手動連接，但不能在啟動時連接：
   檢查 `auto-start` 和 `install-directory`
 - 玩家加入但語音資料未綁定：
-  驗證令牌、主機、連接埠和綁定流
+  驗證令牌、主機、連接埠和綁定流程
 - 外部 VoiceCraft 永遠不會看到該插件：
   確認 `McTcpConfig.Enabled = true`、主機綁定、防火牆和 `config.voicecraft.transport.*`
 - 客戶端已連接，但 Java 狀態不影響鄰近度：

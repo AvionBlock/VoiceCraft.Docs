@@ -102,7 +102,7 @@ Serwer zwraca błąd, gdy:
 list --clientsOnly --limit 20
 ```
 
-Jeśli brakuje oczekiwanego odtwarzacza, sprawdź adres serwera klienta, port UDP i reguły zapory przed debugowaniem integracji z Minecraftem.
+Jeśli brakuje oczekiwanego gracza, sprawdź adres serwera klienta, port UDP i reguły zapory przed debugowaniem integracji z Minecraftem.
 
 ### Potwierdź, że aktualizacje pozycji się przesuwają
 

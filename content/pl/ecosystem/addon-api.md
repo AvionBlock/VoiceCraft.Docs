@@ -48,7 +48,7 @@ Aktualne ujawnione zdarzenia pakietowe obejmują kategorie takie jak:
 
 - zaloguj się / wyloguj / pinguj
 - akceptuj / odrzucaj / resetuj odpowiedzi
-- podmiot tworzy/zniszcza
+- tworzenie/usuwanie podmiotu
 - aktualizacje tytułu / opisu / nazwy
 - wyciszenie / ogłuszenie / wyciszenie serwera / ogłuszenie serwera
 - rozmawiaj/słuchaj/efektuj maskę bitową

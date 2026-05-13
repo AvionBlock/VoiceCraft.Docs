@@ -17,7 +17,7 @@ VoiceCraft 在 Minecraft 傳輸端使用共用令牌。這些令牌決定是否�
 | 交通 | 消費者 | 令牌字段 |
 |-----------|----------|-------------|
 | `McHttp` | BDS插件包 | `McHttpConfig.LoginToken` |
-| `McWss` | 本地基岩世界插件 | `McWssConfig.LoginToken` |
+| `McWss` | 本地 Bedrock 世界插件 | `McWssConfig.LoginToken` |
 | `McTcp` | `GeyserVoice` 或 Java 端橋 | `McTcpConfig.LoginToken` |
 
 ## 信任邊界
@@ -61,7 +61,7 @@ VoiceCraft 在 Minecraft 傳輸端使用共用令牌。這些令牌決定是否�
 3. 更新 `config/ServerProperties.json` 或進程層級 `--server-key` 覆蓋。
 4. 更新插件/插件配置或遊戲內連接命令。
 5. 如果您編輯了 JSON 配置，請重新啟動 `VoiceCraft.Server`。
-6. 重新連接 Minecraft 整合並驗證綁定流。
+6. 重新連接 Minecraft 整合並驗證綁定流程。
 
 ## 常見錯誤
 

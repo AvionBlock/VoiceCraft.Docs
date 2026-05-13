@@ -15,11 +15,11 @@ Es unterstützt:
 
 ## Was GeyserVoice macht
 
-`GeyserVoice` überbrückt den Player-Status von Java-seitigen Servern in VoiceCraft:
+`GeyserVoice` überbrückt den Spielerstatus von Java-seitigen Servern in VoiceCraft:
 
 - Lebenszyklus des Spielers
 - Positions-/Weltschnappschüsse
-- Fluss binden
+- Bindungsfluss
 - Proxy-Relaying für Netzwerke mit mehreren Servern
 
 Es ist nicht nur ein einfacher Paketweiterleiter. Im direkten Paper-Modus kann auch eine lokale VoiceCraft-Laufzeit verwaltet werden.
@@ -199,7 +199,7 @@ Am besten, wenn:
 
 Siehe [Proxy Guide](/ecosystem/geyservoice-proxy).
 
-Im Proxy-Modus sollten Backend-Paper-Server nicht als zentraler VoiceCraft-Verbindungseigentümer behandelt werden. Der Proxy besitzt die `McTcp`-Verbindung und Backend-Knoten stellen Player-Snapshots bereit.
+Im Proxy-Modus sollten Backend-Paper-Server nicht als zentraler VoiceCraft-Verbindungseigentümer behandelt werden. Der Proxy besitzt die `McTcp`-Verbindung und Backend-Knoten stellen Spieler-Snapshots bereit.
 
 ## Technische Hinweise
 

@@ -2,7 +2,7 @@
 
 VoiceCraft ondersteunt zowel server- als client-side positioneringsmodellen.
 
-Positionering bepaalt wie de locatiegegevens levert waarvan nabijheidsaudio afhankelijk is. Als de verkeerde modus is geselecteerd, kunnen cliënten succesvol verbinding maken, maar nog steeds de verkeerde mensen horen, niemand horen of afstandswijzigingen negeren.
+Positionering bepaalt wie de locatiegegevens levert waarvan proximity audio afhankelijk is. Als de verkeerde modus is geselecteerd, kunnen cliënten succesvol verbinding maken, maar nog steeds de verkeerde mensen horen, niemand horen of afstandswijzigingen negeren.
 
 ## `PositioningType`
 
@@ -29,7 +29,7 @@ Beste wanneer:
 - je voert Java/Geyser uit met `GeyserVoice`
 - u wilt dat personeels-/moderatietools redeneren over de status van de entiteit die eigendom is van de server
 
-In dit model stuurt de integratie aan Minecraft-zijde positie- en wereldupdates naar `VoiceCraft.Server`. De client ontvangt voldoende status om nabijheidsaudio lokaal weer te geven.
+In dit model stuurt de integratie aan Minecraft-zijde positie- en wereldupdates naar `VoiceCraft.Server`. De client ontvangt voldoende status om proximity audio lokaal weer te geven.
 
 Gebruik dit als standaard voor productie-implementaties.
 
@@ -50,8 +50,8 @@ Gebruik dit alleen als u weet waarom positionering op de server niet praktisch i
 | Installatie | Aanbevolen modus | Reden |
 |-------|------------------|--------|
 | Bedrock Dedicated Server + `McHttp` | `0 = Server` | BDS-add-on kan een gezaghebbende wereldstaat rapporteren |
-| Lokale gesteentewereld + `McWss` | Meestal `0 = Server` | Addon kan nog steeds de status door de tunnel sturen |
-| Java + Geiser/Sluizen + `GeyserVoice` | `0 = Server` | De plug-in houdt de levenscyclus en positie van de speler bij |
+| Lokale Bedrock-wereld + `McWss` | Meestal `0 = Server` | Addon kan nog steeds de status door de tunnel sturen |
+| Java + Geyser/Floodgate + `GeyserVoice` | `0 = Server` | De plug-in houdt de levenscyclus en positie van de speler bij |
 | Experimentele, alleen lokale configuratie | Hangt ervan af | Gebruik alleen client-side als de integratie geen status kan bieden |
 
 ## Waarom mismatches de audioverwachtingen overtreden

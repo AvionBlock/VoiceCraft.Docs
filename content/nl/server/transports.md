@@ -10,7 +10,7 @@ Gebruik deze pagina voordat u `McHttpConfig`, `McWssConfig` of `McTcpConfig` bew
 
 | Vervoer | Typische consument | Vorm van het eindpunt | Beste voor | Tokenveld |
 |-----------|------------------|----------------|----------|-------------|
-| `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP-eindpunt | Bedrock speciale server | `McHttpConfig.LoginToken` |
+| `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP-eindpunt | Bedrock Dedicated Server | `McHttpConfig.LoginToken` |
 | `McWss` | `VoiceCraft.Addon.Core.McWss` | websocket + opdrachttunnel | lokale Bedrock-werelden en testen | `McWssConfig.LoginToken` |
 | `McTcp` | `GeyserVoice` | onbewerkte TCP-brug | Java-, Geyser-, proxy- of Paper Bridge-scenario's | `McTcpConfig.LoginToken` |
 
@@ -22,7 +22,7 @@ Kies geen transport uitsluitend op basis van poortnummer. Kies het op basis van 
 
 ### Beste gebruiksscenario's
 
-- Bedrock speciale server
+- Bedrock Dedicated Server
 - stabiele gescripte Bedrock-werelden
 - omgevingen waarin de gameserver een HTTP-eindpunt kan aanroepen
 
@@ -127,7 +127,7 @@ Als `GeyserVoice` op dezelfde machine draait als VoiceCraft, bind dan aan `127.0
 
 ## Welke moet je kiezen?
 
-### Bedrock speciale server
+### Bedrock Dedicated Server
 
 Gebruik `McHttp`.
 
@@ -139,7 +139,7 @@ Gebruik `McWss`.
 
 Ga verder met [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 
-### Java + Geiser/Sluizen
+### Java + Geyser/Floodgate
 
 Gebruik `McTcp` tot en met `GeyserVoice`.
 

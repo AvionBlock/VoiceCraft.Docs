@@ -1,4 +1,4 @@
-# GeyserVoice (Java / Most Gejzerowy)
+# GeyserVoice (Java / Java Bridge)
 
 Repozytorium: [AvionBlock/GeyserVoice](https://github.com/AvionBlock/GeyserVoice)
 
@@ -19,7 +19,7 @@ Obsługuje:
 
 - cykl życia gracza
 - migawki pozycji/świata
-- wiązać przepływ
+- przepływ wiązania
 - Przekazywanie proxy dla sieci wieloserwerowych
 
 To nie jest tylko prosty forwarder pakietów. W trybie Direct Paper może także zarządzać lokalnym środowiskiem wykonawczym VoiceCraft.
@@ -199,7 +199,7 @@ Najlepiej, gdy:
 
 Zobacz [Proxy Guide](/ecosystem/geyservoice-proxy).
 
-W trybie proxy serwery Backend Paper nie powinny być traktowane jako centralny właściciel połączenia VoiceCraft. Serwer proxy jest właścicielem połączenia `McTcp`, a węzły zaplecza udostępniają migawki odtwarzaczy.
+W trybie proxy serwery Backend Paper nie powinny być traktowane jako centralny właściciel połączenia VoiceCraft. Serwer proxy jest właścicielem połączenia `McTcp`, a węzły zaplecza udostępniają migawki graczy.
 
 ## Uwagi techniczne
 

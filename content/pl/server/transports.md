@@ -2,7 +2,7 @@
 
 VoiceCraft ma wiele warstw transportowych skierowanych do Minecrafta. Wybór odpowiedniego jest ważny dla stabilności i prostoty wdrażania.
 
-Transport to ścieżka używana przez automatyzację Minecrafta do wysyłania stanu do `VoiceCraft.Server`. Jest on niezależny od punktu końcowego głosu UDP używanego przez klientów odtwarzacza.
+Transport to ścieżka używana przez automatyzację Minecrafta do wysyłania stanu do `VoiceCraft.Server`. Jest on niezależny od punktu końcowego głosu UDP używanego przez klientów graczy.
 
 Użyj tej strony przed edycją `McHttpConfig`, `McWssConfig` lub `McTcpConfig`.
 
@@ -139,7 +139,7 @@ Użyj `McWss`.
 
 Kontynuuj z [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 
-### Java + Gejzer/Powodzia
+### Java + Geyser/Floodgate
 
 Użyj `McTcp` do `GeyserVoice`.
 

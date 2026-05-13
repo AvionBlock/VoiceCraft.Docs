@@ -109,6 +109,6 @@ Wenn `auto-start` gleich `true` ist, stellen Sie sicher, dass `install-directory
 - Paper-Logs zeigen, dass GeyserVoice aktiviert ist
 - Die VoiceCraft-Laufzeit wird ausgeführt oder automatisch gestartet
 - `McTcpConfig.LoginToken` entspricht `config.voicecraft.transport.login-token`
-- Der Player kann sich mit dem VoiceCraft-Client verbinden
+- Der Spieler kann sich mit dem VoiceCraft-Client verbinden
 - Spieler kann `/voice bind <key>` abschließen
 - Sich im Spiel zu bewegen verändert das Näherungsverhalten

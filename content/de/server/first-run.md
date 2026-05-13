@@ -44,7 +44,7 @@ Bewahren Sie diese Datei im selben Installationsordner auf und schließen Sie si
 
 ### 2. Ersetzen Sie generierte Token
 
-Bevor ein Add-on, Plugin oder Player-Client eine Verbindung herstellt, ersetzen Sie Folgendes:
+Bevor ein Add-on, Plugin oder Spieler-Client eine Verbindung herstellt, ersetzen Sie Folgendes:
 
 - `McHttpConfig.LoginToken`
 - `McWssConfig.LoginToken`
@@ -59,7 +59,7 @@ Entscheiden Sie anhand der Topologie, was aktiviert werden soll:
 | Einrichtung | Aktivieren | Weiter mit |
 |-------|--------|---------------|
 | Dedizierter Bedrock-Server | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
-| Lokale Grundgesteinswelt | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
+| Lokale Bedrock-Welt | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
 | Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
 
 Sie können mehrere Transporte ausführen, aber ein erstes Setup ist einfacher zu debuggen, wenn nur der erforderliche verfügbar gemacht wird.

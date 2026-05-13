@@ -44,7 +44,7 @@ config/ServerProperties.json
 
 ### 2.替換生成的token
 
-在任何插件、插件或播放器用戶端連接之前，替換：
+在任何插件、插件或玩家用戶端連接之前，替換：
 
 - `McHttpConfig.LoginToken`
 - `McWssConfig.LoginToken`
@@ -58,9 +58,9 @@ config/ServerProperties.json
 
 | 設定 | 啟用 | 繼續 |
 |-------|--------|---------------|
-| 基岩專用伺服器 | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
-| 當地基岩世界 | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
-| Java + Geyser/水閘 | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+| Bedrock 專用伺服器 | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
+| 本地 Bedrock 世界 | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
+| Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
 
 您可以運行多個傳輸，但當僅公開所需的傳輸時，第一個設定更容易調試。
 
@@ -99,7 +99,7 @@ config/ServerProperties.json
 
 確保客戶端 `Positioning Type` 與 `VoiceCraftConfig.PositioningType` 相符。
 
-### 7. 連結我的世界
+### 7. 連接 Minecraft
 
 繼續閱讀與您啟用的傳輸相符的指南：
 
@@ -203,7 +203,7 @@ VoiceCraft 伺服器支援這些根參數：
 7. 從同一安裝資料夾重新啟動伺服器。
 8. 與您的客戶確認 `PositioningType`。
 9. 在連接 Minecraft 自動化之前測試客戶端連線。
-10. 連接 Minecraft 插件或插件並驗證綁定流。
+10. 連接 Minecraft 插件或插件並驗證綁定流程。
 
 ## 常見的首次運行錯誤
 

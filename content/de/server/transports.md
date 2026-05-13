@@ -2,7 +2,7 @@
 
 VoiceCraft verfügt über mehrere Minecraft-orientierte Transportebenen. Die Auswahl der richtigen Lösung ist wichtig für Stabilität und einfache Bereitstellung.
 
-Der Transport ist der Pfad, den die Minecraft-Automatisierung verwendet, um den Status an `VoiceCraft.Server` zu senden. Er ist vom UDP-Sprachendpunkt getrennt, der von Player-Clients verwendet wird.
+Der Transport ist der Pfad, den die Minecraft-Automatisierung verwendet, um den Status an `VoiceCraft.Server` zu senden. Er ist vom UDP-Sprachendpunkt getrennt, der von Spieler-Clients verwendet wird.
 
 Verwenden Sie diese Seite, bevor Sie `McHttpConfig`, `McWssConfig` oder `McTcpConfig` bearbeiten.
 
@@ -58,7 +58,7 @@ Verwenden Sie `http://127.0.0.1:9050/` nur, wenn BDS und VoiceCraft auf demselbe
 
 ### Beste Anwendungsfälle
 
-- lokale Grundgesteinswelten
+- lokale Bedrock-Welten
 - Einzelspieler-Tests
 - Setups mit `/connect` und Befehlstunneling
 

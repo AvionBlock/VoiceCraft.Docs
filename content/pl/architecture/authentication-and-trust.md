@@ -6,7 +6,7 @@ Nie są to hasła graczy. Są to tajemnice operacyjne pomiędzy zaufanymi kompon
 
 ## Główna zasada
 
-Konsument transportu udowadnia, że zna skonfigurowany token współdzielony.
+Klient transportu udowadnia, że zna skonfigurowany token współdzielony.
 
 Przykłady:
 
@@ -14,7 +14,7 @@ Przykłady:
 - Świat `McWss` uwierzytelnia się za pomocą `McWssConfig.LoginToken`
 - `GeyserVoice` uwierzytelnia się za pomocą `McTcpConfig.LoginToken`
 
-| Transportu | Konsument | Pole tokenu |
+| Transport | Klient | Pole tokenu |
 |-----------|----------|-------------|
 | `McHttp` | Pakiet dodatków BDS | `McHttpConfig.LoginToken` |
 | `McWss` | lokalny dodatek do świata Bedrock | `McWssConfig.LoginToken` |
@@ -30,7 +30,7 @@ Powinieneś myśleć warstwowo:
 
 To nie jest to samo.
 
-Klienci odtwarzacza łączą się z serwerem głosowym i mogą wysyłać dźwięk do własnej sesji. Integracje z Minecraftem mogą aktualizować stan świata/obiektu. Dostęp do środowiska uruchomieniowego zaplecza może zmienić konfigurację, tokeny, dzienniki i zachowanie procesu. Zachowaj te granice oddzielne podczas przypisywania uprawnień i decydowania o tym, gdzie znajdują się sekrety.
+Klienci gracza łączą się z serwerem głosowym i mogą wysyłać dźwięk do własnej sesji. Integracje z Minecraftem mogą aktualizować stan świata/obiektu. Dostęp do środowiska uruchomieniowego zaplecza może zmienić konfigurację, tokeny, dzienniki i zachowanie procesu. Zachowaj te granice oddzielne podczas przypisywania uprawnień i decydowania o tym, gdzie znajdują się sekrety.
 
 ## Jakie tokeny chronią
 

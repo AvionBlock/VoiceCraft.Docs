@@ -1,6 +1,6 @@
 # Client installatie
 
-`VoiceCraft.Client` is de spelergerichte app. Elke speler die de nabijheidsstem wil spreken of horen, heeft deze op zijn eigen apparaat nodig.
+`VoiceCraft.Client` is de spelergerichte app. Elke speler die de proximity voice wil spreken of horen, heeft deze op zijn eigen apparaat nodig.
 
 Installeer de client nadat `VoiceCraft.Server` bereikbaar is. Tijdens de eerste keer opstarten voegt u een serververmelding toe die verwijst naar het VoiceCraft UDP-eindpunt, meestal `host:9050`.
 
@@ -104,7 +104,7 @@ De client die succesvol verbinding maakt, bewijst alleen dat het spraakeindpunt 
 
 - Geen microfooningang:
   controleer de microfoontoestemming van het besturingssysteem en het geselecteerde invoerapparaat.
-- Client maakt verbinding, maar geen nabijheid:
+- Client maakt verbinding, maar geen proximity audio:
   controleer Minecraft-transport, bindstroom en `Positioning Type`.
 - Externe server maakt geen verbinding:
   bevestig dat de UDP-poort open is tussen de speler en `VoiceCraft.Server`.

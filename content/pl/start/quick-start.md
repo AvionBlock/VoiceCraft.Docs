@@ -131,7 +131,7 @@ Jeśli wszystko jest poprawnie skonfigurowane:
 - tworzenie jednostek i praca z przepływem powiązań
 - gracze słyszą głos zbliżeniowy, gdy znajdują się w zasięgu
 
-Jeśli klient łączy się, ale bliskość nie działa, przed zmianą ustawień audio zdebuguj transport Minecraft i przepływ powiązań.
+Jeśli klient łączy się, ale proximity audio nie działa, przed zmianą ustawień audio zdebuguj transport Minecraft i przepływ powiązań.
 
 ## Polecane kolejne lektury
 

@@ -80,7 +80,7 @@ Führen Sie zuerst diese Änderungen durch:
 3. Legen Sie den Transporthost fest:
    - Verwenden Sie `127.0.0.1`, wenn Minecraft auf demselben Computer ausgeführt wird
    - Verwenden Sie `0.0.0.0` oder eine LAN-/öffentliche Adresse nur, wenn eine andere Maschine eine Verbindung herstellen muss
-4. Halten Sie `VoiceCraftConfig.Port` für Player-Clients verfügbar.
+4. Halten Sie `VoiceCraftConfig.Port` für Spieler-Clients verfügbar.
 5. Starten Sie `VoiceCraft.Server` neu, nachdem Sie die Konfiguration gespeichert haben.
 
 Fahren Sie für alle Konfigurationsfelder mit [First Server Run](/server/first-run) und [ServerProperties.json](/server/server-properties) fort.

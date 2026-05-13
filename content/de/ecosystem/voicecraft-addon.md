@@ -57,7 +57,7 @@ Paketübergreifend:
 
 ## Was Ihnen das Basic-Paket bietet
 
-- Fluss binden / entbinden
+- Bindungsfluss / entbinden
 - Benutzeroberfläche für Player-Einstellungen
 - Effekt schaltet um
 - Skriptereignisse für die Automatisierung
@@ -93,7 +93,7 @@ Die Bindungstaste ist absichtlich kurz, da sie im Spiel eingegeben wird. Behande
 - Richtungsweisend
 - Näherecho
 - Echo
-- Näherungsmuffel
+- Proximity Muffle
 - Muffel
 
 Effekte werden über `McApiSetEffectRequestPacket` gesendet.

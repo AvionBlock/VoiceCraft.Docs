@@ -78,7 +78,7 @@ Wenn andere Spieler ständige Hintergrundgeräusche hören, verringern Sie die E
 - `Test Output`:
   Senden Sie ein lokales Testsignal an das ausgewählte Gerät.
 
-Wenn Sie die Testausgabe hören, andere Player jedoch nicht, ist das Wiedergabegerät wahrscheinlich in Ordnung. Überprüfen Sie als Nächstes die Serververbindung, den Bindungsfluss und die Positionsaktualisierungen.
+Wenn Sie die Testausgabe hören, andere Spieler jedoch nicht, ist das Wiedergabegerät wahrscheinlich in Ordnung. Überprüfen Sie als Nächstes die Serververbindung, den Bindungsfluss und die Positionsaktualisierungen.
 
 ## Netzwerk
 

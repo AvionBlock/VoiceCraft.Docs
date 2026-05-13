@@ -8,7 +8,7 @@ Het doorloopt opzettelijk het hele pad: server, gegenereerde configuratie, clien
 
 VoiceCraft kan op verschillende manieren worden ingezet:
 
-- Bedrock speciale server: `VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
+- Bedrock Dedicated Server: `VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
 - Lokale Bedrock-wereld / singleplayer: `VoiceCraft.Server` of lokale runtime + `Core.McWss`
 - Java-server met geiser/Floodgate: `GeyserVoice` + `VoiceCraft.Server`
 - Direct Paper-server: `GeyserVoice` kan ook de VoiceCraft-runtime downloaden en uitvoeren onder de motorkap
@@ -112,9 +112,9 @@ Typische lokale opstelling:
 
 - Voor Bedrock Dedicated Server gebruikt u [McHttp for BDS](/minecraft/mchttp-bds).
 - Gebruik [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) voor een lokale Bedrock-wereld.
-- Voor Java + Geiser/Floodgate gebruikt u [GeyserVoice](/ecosystem/geyservoice).
+- Voor Java + Geyser/Floodgate gebruikt u [GeyserVoice](/ecosystem/geyservoice).
 
-Deze stap geeft VoiceCraft de in-game status die nodig is voor nabijheidsaudio: speleridentiteit, bindingsgegevens, wereld-ID's, positie-updates en effectstatus.
+Deze stap geeft VoiceCraft de in-game status die nodig is voor proximity audio: speleridentiteit, bindingsgegevens, wereld-ID's, positie-updates en effectstatus.
 
 Als u op Bedrock implementeert, houd dan deze twee pagina's bij de hand:
 
@@ -129,9 +129,9 @@ Als alles correct is geconfigureerd:
 - client maakt verbinding zonder transportfouten
 - Minecraft-integratie verifieert met het verwachte token
 - creatie van entiteiten en bindingsstroomwerk
-- spelers horen de nabijheidsstem wanneer ze binnen bereik zijn
+- spelers horen de proximity voice wanneer ze binnen bereik zijn
 
-Als de client verbinding maakt maar de nabijheid niet werkt, debug dan het Minecraft-transport en de bindstroom voordat u de audio-instellingen wijzigt.
+Als de client verbinding maakt maar de proximity audio niet werkt, debug dan het Minecraft-transport en de bindstroom voordat u de audio-instellingen wijzigt.
 
 ## Aanbevolen volgende lezingen
 

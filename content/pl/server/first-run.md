@@ -44,7 +44,7 @@ Zachowaj ten plik w tym samym folderze instalacyjnym i dołącz go do kopii zapa
 
 ### 2. Wymień wygenerowane tokeny
 
-Zanim połączy się jakikolwiek dodatek, wtyczka lub klient odtwarzacza, zamień:
+Zanim połączy się jakikolwiek dodatek, wtyczka lub klient gracza, zamień:
 
 - `McHttpConfig.LoginToken`
 - `McWssConfig.LoginToken`
@@ -60,7 +60,7 @@ Użyj topologii, aby zdecydować, co powinno być włączone:
 |-------|--------|---------------|
 | Serwer dedykowany Bedrock | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
 | Lokalny świat Bedrock | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
-| Java + Gejzer/Powodzia | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+| Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
 
 Możesz uruchomić wiele transportów, ale pierwsza konfiguracja jest łatwiejsza do debugowania, gdy ujawniona jest tylko wymagana.
 

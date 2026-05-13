@@ -87,7 +87,7 @@ Stellen Sie sicher, dass der ausgewählte Transport aktiviert und an eine Adress
 
 ## 5. Laden Sie den Client herunter
 
-Laden Sie von [download page](/download) das Paket für Ihre Player herunter:
+Laden Sie von [download page](/download) das Paket für Ihre Spieler herunter:
 
 - Windows: `VoiceCraft.Client.Windows.<arch>.zip`
 - Linux: `VoiceCraft.Client.Linux.<arch>.zip`

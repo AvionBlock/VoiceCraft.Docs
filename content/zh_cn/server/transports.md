@@ -10,8 +10,8 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 | 交通 | 典型消费者 | 端点形状 | 最适合 | 令牌字段 |
 |-----------|------------------|----------------|----------|-------------|
-| `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP端点 | 基岩专用服务器 | `McHttpConfig.LoginToken` |
-| `McWss` | `VoiceCraft.Addon.Core.McWss` | websocket + 命令隧道 | 当地基岩世界和测试 | `McWssConfig.LoginToken` |
+| `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP端点 | Bedrock 专用服务器 | `McHttpConfig.LoginToken` |
+| `McWss` | `VoiceCraft.Addon.Core.McWss` | websocket + 命令隧道 | 本地 Bedrock 世界和测试 | `McWssConfig.LoginToken` |
 | `McTcp` | `GeyserVoice` | 原始 TCP 桥 | Java、Geyser、代理或 Paper 桥接方案 | `McTcpConfig.LoginToken` |
 
 不要仅根据端口号选择传输。根据将连接的 Minecraft 端组件进行选择。
@@ -22,8 +22,8 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 ### 最佳用例
 
-- 基岩专用服务器
-- 稳定的脚本基岩世界
+- Bedrock 专用服务器
+- 稳定的脚本 Bedrock 世界
 - 游戏服务器可以调用 HTTP 端点的环境
 
 ### 优势
@@ -54,11 +54,11 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 ## 麦克瓦斯
 
-`McWss` 公开一个 websocket 端点并在基岩世界中使用命令隧道。
+`McWss` 公开一个 websocket 端点并在 Bedrock 世界中使用命令隧道。
 
 ### 最佳用例
 
-- 当地基岩世界
+- 本地 Bedrock 世界
 - 单人游戏测试
 - 使用 `/connect` 和命令隧道进行设置
 
@@ -108,7 +108,7 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 - 另一个要管理的端口
 - 当您实际运行 Java 端桥时最有用
-- 基岩插件包不使用
+- Bedrock插件包不使用
 
 ### 典型配置
 
@@ -127,19 +127,19 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 ## 你应该选择哪一个？
 
-### 基岩专用服务器
+### Bedrock 专用服务器
 
 使用 `McHttp`。
 
 继续[McHttp for BDS](/minecraft/mchttp-bds)。
 
-### 基岩单人/本地世界
+### Bedrock单人/本地世界
 
 使用 `McWss`。
 
 继续[McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)。
 
-### Java + Geyser/水闸
+### Java + Geyser/Floodgate
 
 使用 `McTcp` 到 `GeyserVoice`。
 
@@ -151,7 +151,7 @@ VoiceCraft 有多个面向 Minecraft 的传输层。选择正确的产品对于�
 
 常见的混合情况：
 
-- 基岩 BDS 加 Java 桥：
+- Bedrock BDS 加 Java 桥：
   启用 `McHttp` 和 `McTcp`
 - 本地测试，而生产仍在 BDS 上：
   运行单独的测试服务器文件夹而不是重用生产令牌

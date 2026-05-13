@@ -59,7 +59,7 @@ Validieren Sie außerdem:
 - Verhaltens- und Ressourcenpakete werden beide aktualisiert
 - BDS-Berechtigungen umfassen weiterhin erforderliche Module
 - `voicecraft:vcconnect` verwendet das richtige Transporttoken
-- `voicecraft:vcbind <key>` funktioniert für einen echten Player
+- `voicecraft:vcbind <key>` funktioniert für einen echten Spieler
 - Indikatoren/Ereignisse im Spiel stimmen mit dem erwarteten Veröffentlichungsverhalten überein
 
 ## Beispiele für Rollback-Trigger

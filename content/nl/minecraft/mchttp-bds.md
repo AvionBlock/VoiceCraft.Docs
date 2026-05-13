@@ -160,7 +160,7 @@ In dit stadium is het transport verbonden, maar elke speler heeft nog steeds de 
   bevestig dat de opdracht `McHttpConfig.LoginToken` gebruikt, niet het token `McWss` of `McTcp`
 - add-on wordt geladen, maar opdrachten ontbreken:
   bevestig dat zowel het gedrag als de bronpakketten aan de wereld zijn gekoppeld en dat BDS opnieuw is opgestart
-- client maakt verbinding maar geen nabijheid:
+- client maakt verbinding maar geen proximity audio:
   bevestig de bindingsstroom, `PositioningType` en updates van de spelerspositie
 
 ## Lees het volgende

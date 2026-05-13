@@ -98,7 +98,7 @@ Betrachten Sie dies nicht als Standardproduktionsdesign für einen öffentlichen
 
 | Brauchen | Wählen Sie |
 |------|--------|
-| Stabile Grundgesteinsproduktion | Blaupause 1 |
+| Stabile Bedrock-Produktion | Blaupause 1 |
 | Ein Java/Geyser-Server | Blaupause 2 |
 | Geschwindigkeits-/Bungee-Netzwerk | Blaupause 3 |
 | Lokale Tests oder Add-on-Entwicklung | Blaupause 4 |

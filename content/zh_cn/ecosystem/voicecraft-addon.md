@@ -1,10 +1,10 @@
-# VoiceCraft.Addon（基岩插件）
+# VoiceCraft.Addon（Bedrock插件）
 
 存储库：[AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
 
 该存储库包含实用的 Bedrock 插件包和用于自定义世界逻辑的脚本端 McApi 界面。
 
-当 Minecraft 基岩是玩家/实体状态的来源时使用它。该插件通过 `McHttp` 或 `McWss` 将基岩世界连接到 VoiceCraft 服务器，然后公开世界脚本的绑定流、UI、事件和数据包帮助程序。
+当 Minecraft Bedrock 是玩家/实体状态的来源时使用它。该插件通过 `McHttp` 或 `McWss` 将 Bedrock 世界连接到 VoiceCraft 服务器，然后公开世界脚本的绑定流程、UI、事件和数据包帮助程序。
 
 快速链接：
 
@@ -16,11 +16,11 @@
 
 | 套餐 | 目的 | 使用时 |
 |---------|---------|----------|
-| `Basic` | 即用型绑定流程、设置 UI、游戏内语音指示器、常见脚本事件 | 您需要工作参考或默认基岩行为 |
-| `Core.McHttp` | HTTP传输包 | 您运行基岩专用服务器 |
-| `Core.McWss` | websocket / 命令隧道传输包 | 您运行本地基岩世界或测试设置 |
+| `Basic` | 即用型绑定流程、设置 UI、游戏内语音指示器、常见脚本事件 | 您需要工作参考或默认 Bedrock 行为 |
+| `Core.McHttp` | HTTP传输包 | 您运行Bedrock 专用服务器 |
+| `Core.McWss` | websocket / 命令隧道传输包 | 您运行本地 Bedrock 世界或测试设置 |
 
-大多数真实的基岩设置将传输包与世界所需的行为/UI 部分结合起来。
+大多数真实的Bedrock设置将传输包与世界所需的行为/UI 部分结合起来。
 
 ## 版本对齐
 
@@ -57,8 +57,8 @@ VoiceCraft `v1.6.1` 需要更新插件包以及客户端/服务器版本。此�
 
 ## 基本套餐为您提供什么
 
-- 绑定/解除绑定流
-- 播放器设置界面
+- 绑定/解除绑定流程
+- 玩家设置界面
 - 效果切换
 - 用于自动化的脚本事件
 - 支持版本使用的游戏内指标
@@ -107,7 +107,7 @@ VoiceCraft `v1.6.1` 还广播更多插件端生命周期和数据包事件，因
 - 员工表格通过 `@minecraft/server-ui`
 - McApi 表面周围的数据包处理程序
 
-仅在基本库存设置生效后进行自定义。这为您提供了传输、绑定和位置行为的已知良好基线。
+仅在基本默认设置生效后进行自定义。这为您提供了传输、绑定和位置行为的已知良好基线。
 
 ## 目前的限制
 
@@ -136,7 +136,7 @@ VoiceCraft `v1.6.1` 还广播更多插件端生命周期和数据包事件，因
 - 安装了正确的传输包
 - 行为包和资源包均处于活动状态
 - `vcconnect` 使用匹配服务器配置部分中的令牌
-- 播放器可以与 `voicecraft:vcbind <key>` 绑定
+- 玩家可以与 `voicecraft:vcbind <key>` 绑定
 - 玩家移动会改变 VoiceCraft 中的位置数据
 - 效果 UI 向授权用户开放
 

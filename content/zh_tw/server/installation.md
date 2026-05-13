@@ -9,8 +9,8 @@
 VoiceCraft 伺服器同時公開多個層：
 
 - VoiceCraft UDP 語音伺服器
-- `McHttp` 用於基岩整合的傳輸
-- `McWss` 用於 websocket / 指令隧道基岩流的傳輸
+- `McHttp` 用於Bedrock整合的傳輸
+- `McWss` 用於 websocket / 指令隧道Bedrock流的傳輸
 - `McTcp` 用於 Java 端橋的傳輸，例如 `GeyserVoice`
 
 您可以將它們全部啟用，或在運行時選擇傳輸。
@@ -74,8 +74,8 @@ chmod +x ./VoiceCraft.Server
    - `McWssConfig.LoginToken`
    - `McTcpConfig.LoginToken`
 2. 選擇一種主要的 Minecraft 交通工具：
-   - 基岩專用伺服器：啟用 `McHttpConfig`
-   - 本地基岩世界：啟用 `McWssConfig`
+   - Bedrock 專用伺服器：啟用 `McHttpConfig`
+   - 本地 Bedrock 世界：啟用 `McWssConfig`
    - Java + Geyser/Floodgate：啟用 `McTcpConfig`
 3. 設定傳輸主機：
    - 當 Minecraft 在同一台電腦上運作時使用 `127.0.0.1`

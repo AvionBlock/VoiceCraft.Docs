@@ -218,7 +218,7 @@ Als een transport alleen werkt nadat pakkettypen zijn uitgeschakeld, beschouw di
 
 ## Praktische productiepatronen
 
-### Bedrock speciale server
+### Bedrock Dedicated Server
 
 - `McHttpConfig.Enabled = true`
 - `McWssConfig.Enabled = false`

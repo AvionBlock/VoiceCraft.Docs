@@ -145,7 +145,7 @@ Na tym etapie transport jest podłączony, ale każdy gracz nadal potrzebuje kli
 4. Upewnij się, że nie jest wyświetlany błąd uwierzytelniania.
 5. Połącz klienta VoiceCraft z `VoiceCraftConfig.Port`.
 6. Użyj `voicecraft:vcbind <key>`.
-7. Przesuń gracza w grze i potwierdź, że aktualizacje pozycji wpływają na bliskość.
+7. Przesuń gracza w grze i potwierdź, że aktualizacje pozycji wpływają na proximity audio.
 8. Upewnij się, że inni gracze słyszą w oczekiwanym zakresie.
 
 ## Typowe problemy

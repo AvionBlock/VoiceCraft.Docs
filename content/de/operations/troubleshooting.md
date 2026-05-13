@@ -1,6 +1,6 @@
 # Fehlerbehebung
 
-Beginnen Sie damit, herauszufinden, welcher Teil des Stapels ausfällt. VoiceCraft verfügt über separate Client-, Server- und Minecraft-Transportpfade, sodass ein Teil funktionieren kann, während ein anderer noch kaputt ist.
+Beginnen Sie damit, herauszufinden, welcher Teil des Stacks ausfällt. VoiceCraft verfügt über separate Client-, Server- und Minecraft-Transportpfade, sodass ein Teil funktionieren kann, während ein anderer noch fehlerhaft ist.
 
 Empfohlene Reihenfolge:
 

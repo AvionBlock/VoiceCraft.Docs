@@ -8,14 +8,14 @@
 
 VoiceCraft 可透過多種方式部署：
 
-- 基岩專用伺服器：`VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
-- 本地基岩世界/單人遊戲：`VoiceCraft.Server` 或本地運行時 + `Core.McWss`
+- Bedrock 專用伺服器：`VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
+- 本地 Bedrock 世界/單人遊戲：`VoiceCraft.Server` 或本地運行時 + `Core.McWss`
 - 帶有 Geyser/Floodgate 的 Java 伺服器：`GeyserVoice` + `VoiceCraft.Server`
 - Direct Paper 伺服器：`GeyserVoice` 也可以在背景下載並執行 VoiceCraft 運行時
 
 如果您不確定，請從以下之一開始：
 
-- 基岩專用伺服器：閱讀 [McHttp for BDS](/minecraft/mchttp-bds)
+- Bedrock 專用伺服器：閱讀 [McHttp for BDS](/minecraft/mchttp-bds)
 - Java + Geyser 伺服器：讀取 [GeyserVoice](/ecosystem/geyservoice)
 
 對於第一個設置，選擇一個拓撲並僅公開其所需的傳輸。在基本綁定和鄰近流程工作後，您可以稍後新增混合設定。
@@ -67,7 +67,7 @@ chmod +x ./VoiceCraft.Server
 您稍後使用的令牌必須與傳輸相符：
 
 - BDS `McHttp` 插件使用 `McHttpConfig.LoginToken`
-- 本地基岩 `McWss` 插件使用 `McWssConfig.LoginToken`
+- 本地 Bedrock `McWss` 插件使用 `McWssConfig.LoginToken`
 - `GeyserVoice` 使用 `McTcpConfig.LoginToken`
 
 ## 4. 選擇 Minecraft 交通工具
@@ -87,7 +87,7 @@ VoiceCraft 目前有 3 種面向 Minecraft 的傳輸：
 
 ## 5.下載客戶端
 
-從 [download page](/download) 中，下載適合您的播放器的軟體包：
+從 [download page](/download) 中，下載適合您的玩家的軟體包：
 
 - Windows：`VoiceCraft.Client.Windows.<arch>.zip`
 - Linux：`VoiceCraft.Client.Linux.<arch>.zip`
@@ -110,13 +110,13 @@ VoiceCraft 目前有 3 種面向 Minecraft 的傳輸：
 
 ## 7.連接Minecraft端
 
-- 對於基岩專用伺服器，請使用 [McHttp for BDS](/minecraft/mchttp-bds)。
-- 對於本地基岩世界，請使用 [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)。
+- 對於Bedrock 專用伺服器，請使用 [McHttp for BDS](/minecraft/mchttp-bds)。
+- 對於本地 Bedrock 世界，請使用 [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)。
 - 對於 Java + Geyser/Floodgate，請使用 [GeyserVoice](/ecosystem/geyservoice)。
 
 此步驟為 VoiceCraft 提供了接近音訊所需的遊戲內狀態：玩家身分、綁定資料、世界 ID、位置更新和效果狀態。
 
-如果您要在基岩上部署，請將這兩個頁面放在附近：
+如果您要在 Bedrock上部署，請將這兩個頁面放在附近：
 
 - [Download Page](/download) 用於原始客戶端/伺服器/插件發布文件
 - [Addon Configurator](/addon-configurator) 用於準備解壓縮世界檔案
@@ -129,9 +129,9 @@ VoiceCraft 目前有 3 種面向 Minecraft 的傳輸：
 - 客戶端連線無傳輸錯誤
 - Minecraft 整合使用預期令牌進行身份驗證
 - 實體建立和綁定流程工作
-- 玩家在範圍內時會聽到接近聲音
+- 玩家在範圍內時會聽到 proximity voice
 
-如果用戶端已連接但鄰近不起作用，請在更改音訊設定之前調試 Minecraft 傳輸和綁定流。
+如果用戶端已連接但鄰近不起作用，請在更改音訊設定之前調試 Minecraft 傳輸和綁定流程。
 
 ## 推薦下一篇閱讀
 

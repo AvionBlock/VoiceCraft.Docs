@@ -1,4 +1,4 @@
-# GeyserVoice (Java / Geiserbrug)
+# GeyserVoice (Java / Java/Geyser Bridge)
 
 Opslagplaats: [AvionBlock/GeyserVoice](https://github.com/AvionBlock/GeyserVoice)
 

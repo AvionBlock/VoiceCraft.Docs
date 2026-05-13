@@ -4,7 +4,7 @@
 
 在了解基本元件並需要具體的拓撲方案後，請使用此頁面。每個場景都列出了堆疊、選擇它的主要原因、最重要的配置以及證明其有效的驗證點。
 
-## 場景 A：基岩專用伺服器
+## 場景 A：Bedrock 專用伺服器
 
 堆疊：
 
@@ -16,7 +16,7 @@
 
 - BDS是主要的遊戲伺服器
 - BDS 可以到達 VoiceCraft HTTP 端點
-- 您想要最穩定的基岩生產路徑
+- 您想要最穩定的Bedrock生產路徑
 
 推薦配置：
 
@@ -34,7 +34,7 @@
 6. 驗證 `voicecraft:vcbind <key>`
 7. 連接客戶端並確認距離會隨著移動而變化
 
-## 場景 B：本地/單人基岩世界
+## 場景 B：本地/單人 Bedrock 世界
 
 堆疊：
 
@@ -76,7 +76,7 @@
 2. 設定 `config.proxy.enabled = false`
 3. 配置 `config.voicecraft.transport.login-token`
 4. 啟用 `config.voicecraft.auto-start`
-5. 重新載入並驗證綁定流
+5. 重新載入並驗證綁定流程
 
 當您希望外掛程式在背景執行 VoiceCraft 時，這是最簡單的 Java 端設定。
 

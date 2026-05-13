@@ -35,7 +35,7 @@ Jeśli chcesz przewidywalnej konfiguracji produkcyjnej, użyj BDS z `McHttp` lub
 - Java + gejzer / śluza:
   `McTcp` do `GeyserVoice`
 
-Transport dotyczy stanu po stronie Minecrafta. Klienci odtwarzacza nadal łączą się z punktem końcowym UDP VoiceCraft.
+Transport dotyczy stanu po stronie Minecrafta. Klienci gracza nadal łączą się z punktem końcowym UDP VoiceCraft.
 
 ## Czy GeyserVoice wymaga oddzielnie zarządzanego serwera VoiceCraft?
 
@@ -94,13 +94,13 @@ Sprawdź je w kolejności:
 4. pomyślny przepływ wiązania
 5. jednostki otrzymujące aktualizacje pozycji i świata
 
-Jeśli `list --clientsOnly` pokazuje odtwarzacz, ale `list` nie pokazuje zmieniającej się pozycji elementu, debuguj integrację z Minecraftem, a nie ustawienia mikrofonu.
+Jeśli `list --clientsOnly` pokazuje gracz, ale `list` nie pokazuje zmieniającej się pozycji elementu, debuguj integrację z Minecraftem, a nie ustawienia mikrofonu.
 
 ## Czy `McWss` nadaje się do produkcji?
 
 Zwykle nie jest to pierwszy wybór w przypadku większych środowisk publicznych.
 
-Najlepiej sprawdza się w przypadku światów lokalnych, testów i lekkich konfiguracji. `McHttp` jest zwykle lepszym transportem do produkcji skały macierzystej.
+Najlepiej sprawdza się w przypadku światów lokalnych, testów i lekkich konfiguracji. `McHttp` jest zwykle lepszym transportem do produkcji Bedrock.
 
 ## Jaka jest różnica między wyciszeniem serwera a wyciszeniem lokalnym?
 

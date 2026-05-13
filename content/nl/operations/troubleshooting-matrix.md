@@ -31,7 +31,7 @@ Veelvoorkomende oorzaken:
 
 - speler heeft een verlopen of opnieuw gegenereerde bindingssleutel gekopieerd
 - versie van het add-onpakket komt niet overeen met de server-/clientrelease
-- aangepaste add-onlogica onderschept of omzeilt de voorraadbindstroom
+- aangepaste add-onlogica onderschept of omzeilt de standaardbindstroom
 
 ## Symptoom: GeyserVoice is geïnstalleerd, maar de Java-side bridge wordt nooit bruikbaar
 

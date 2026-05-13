@@ -36,7 +36,7 @@ Der Client und die Minecraft-Integration stellen keine Verbindung über denselbe
 
 Verwenden Sie dies für Bedrock-Produktionsserver, auf denen BDS einen HTTP-Endpunkt erreichen kann.
 
-### Lokale Grundgesteinswelt
+### Lokale Bedrock-Welt
 
 - lokaler VoiceCraft-Stack
 - `VoiceCraft.Addon.Core.McWss`
@@ -74,7 +74,7 @@ Durch diese Aufteilung kann sich jedes Projekt rund um seine Laufzeit weiterentw
 
 - Neuer dedizierter Bedrock-Server:
   Beginnen Sie mit [Quick Start](/start/quick-start), dann [McHttp for BDS](/minecraft/mchttp-bds).
-- Lokale Grundgesteinsprüfung:
+- Lokale Bedrock-Tests:
   Beginnen Sie mit [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 - Java + Geyser/Floodgate:
   Beginnen Sie mit [GeyserVoice](/ecosystem/geyservoice).

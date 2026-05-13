@@ -27,7 +27,7 @@ De client- en Minecraft-integratie maken geen verbinding via hetzelfde pad. De c
 
 ## Typische stapels
 
-### Bedrock speciale server
+### Bedrock Dedicated Server
 
 - `VoiceCraft.Server`
 - `VoiceCraft.Addon.Core.McHttp`
@@ -74,9 +74,9 @@ Door deze splitsing kan elk project zich rond zijn runtime ontwikkelen: C# clien
 
 - Nieuwe Bedrock dedicated server:
   begin met [Quick Start](/start/quick-start) en vervolgens [McHttp for BDS](/minecraft/mchttp-bds).
-- Lokale tests op basis van gesteente:
+- Lokale Bedrock-tests:
   beginnen met [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
-- Java + Geiser/Sluizen:
+- Java + Geyser/Floodgate:
   beginnen met [GeyserVoice](/ecosystem/geyservoice).
 - Aangepast Bedrock-gedrag:
   lees [VoiceCraft.Addon](/ecosystem/voicecraft-addon) en vervolgens [Addon API](/ecosystem/addon-api).

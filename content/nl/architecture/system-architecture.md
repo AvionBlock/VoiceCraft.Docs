@@ -78,7 +78,7 @@ Door deze scheiding kunt u de stemserver stabiel houden terwijl u de Minecraft-i
 
 ## Typische verbindingsvormen
 
-### Bedrock speciale server
+### Bedrock Dedicated Server
 
 ```text
 VoiceCraft.Client -> VoiceCraft UDP server
@@ -96,7 +96,7 @@ Minecraft local world + Core.McWss -> McWss websocket endpoint
 
 Gebruik dit voor lokaal testen of singleplayer-werelden waar een commandotunnel acceptabel is.
 
-### Java + Geiser/Sluizen
+### Java + Geyser/Floodgate
 
 ```text
 VoiceCraft.Client -> VoiceCraft UDP server

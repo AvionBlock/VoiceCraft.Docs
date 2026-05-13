@@ -76,7 +76,7 @@ Voer eerst deze bewerkingen uit:
 2. Kies één primair Minecraft-transport:
    - Bedrock Dedicated Server: schakel `McHttpConfig` in
    - lokale Bedrock-wereld: schakel `McWssConfig` in
-   - Java + Geiser/Floodgate: schakel `McTcpConfig` in
+   - Java + Geyser/Floodgate: schakel `McTcpConfig` in
 3. Stel de transporthost in:
    - gebruik `127.0.0.1` wanneer Minecraft op dezelfde machine draait
    - gebruik `0.0.0.0` of een LAN/openbaar adres alleen als een andere machine verbinding moet maken

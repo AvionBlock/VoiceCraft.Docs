@@ -105,9 +105,9 @@ xattr -dr com.apple.quarantine /Applications/VoiceCraft.app
 - 无麦克风输入：
   检查操作系统麦克风权限和选定的输入设备。
 - 客户端已连接但没有接近：
-  检查 Minecraft 传输、绑定流和 `Positioning Type`。
+  检查 Minecraft 传输、绑定流程和 `Positioning Type`。
 - 远程服务器无法连接：
-  确认播放器和 `VoiceCraft.Server` 之间的 UDP 端口已打开。
+  确认玩家和 `VoiceCraft.Server` 之间的 UDP 端口已打开。
 - 玩家听到每个人的声音距离错误：
   检查实体位置更新和世界 ID。
 

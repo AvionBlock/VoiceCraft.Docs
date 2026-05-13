@@ -78,7 +78,7 @@ Jeśli inni gracze słyszą ciągły hałas w tle, zmniejsz głośność wejści
 - `Test Output`:
   wyślij lokalny sygnał testowy do wybranego urządzenia.
 
-Jeśli słyszysz sygnał testowy, ale nie słychać innych odtwarzaczy, prawdopodobnie urządzenie odtwarzające działa prawidłowo. Następnie sprawdź połączenie z serwerem, przepływ powiązań i aktualizacje pozycji.
+Jeśli słyszysz sygnał testowy, ale nie słychać innych graczy, prawdopodobnie urządzenie odtwarzające działa prawidłowo. Następnie sprawdź połączenie z serwerem, przepływ powiązań i aktualizacje pozycji.
 
 ## Sieć
 
@@ -118,7 +118,7 @@ VoiceCraft przechowuje także lokalne preferencje użytkownika:
 
 Są one przechowywane w `UserSettings.Users` i stosowane po stronie klienta.
 
-Użyj lokalnego wyciszenia lub głośności dla każdego użytkownika, gdy tylko jeden odtwarzacz jest dla Ciebie zbyt głośny lub rozprasza. Używaj poleceń wyciszania/głuszenia serwera, gdy pracownicy muszą wymusić moderację dla wszystkich.
+Użyj lokalnego wyciszenia lub głośności dla każdego użytkownika, gdy tylko jeden gracz jest dla Ciebie zbyt głośny lub rozprasza. Używaj poleceń wyciszania/głuszenia serwera, gdy pracownicy muszą wymusić moderację dla wszystkich.
 
 ## Zaawansowane
 

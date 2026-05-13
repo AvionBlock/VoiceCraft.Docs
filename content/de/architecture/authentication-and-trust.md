@@ -30,7 +30,7 @@ Sie sollten in Schichten denken:
 
 Das ist nicht dasselbe.
 
-Player-Clients stellen eine Verbindung zum Sprachserver her und können Audio für ihre eigene Sitzung senden. Minecraft-Integrationen können den Welt-/Entitätsstatus aktualisieren. Der Backend-Laufzeitzugriff kann Konfiguration, Token, Protokolle und Prozessverhalten ändern. Halten Sie diese Grenzen getrennt, wenn Sie Berechtigungen zuweisen und entscheiden, wo Geheimnisse gespeichert sind.
+Spieler-Clients stellen eine Verbindung zum Sprachserver her und können Audio für ihre eigene Sitzung senden. Minecraft-Integrationen können den Welt-/Entitätsstatus aktualisieren. Der Backend-Laufzeitzugriff kann Konfiguration, Token, Protokolle und Prozessverhalten ändern. Halten Sie diese Grenzen getrennt, wenn Sie Berechtigungen zuweisen und entscheiden, wo Geheimnisse gespeichert sind.
 
 ## Welche Token schützen
 

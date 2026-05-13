@@ -35,7 +35,7 @@ Wenn Sie ein vorhersehbares Produktionssetup wünschen, verwenden Sie BDS mit `M
 - Java + Geyser / Floodgate:
   `McTcp` bis `GeyserVoice`
 
-Der Transport ist für den Minecraft-Seitenstaat bestimmt. Player-Clients stellen weiterhin eine Verbindung zum VoiceCraft UDP-Endpunkt her.
+Der Transport ist für den Minecraft-Seitenstaat bestimmt. Spieler-Clients stellen weiterhin eine Verbindung zum VoiceCraft UDP-Endpunkt her.
 
 ## Benötigt GeyserVoice einen separat verwalteten VoiceCraft-Server?
 
@@ -117,7 +117,7 @@ In `Settings.json` unter `UserSettings.Users`.
 
 Nein. In Java + Geyser-Topologien ist die Bridge normalerweise `GeyserVoice`, nicht das Bedrock-Add-on.
 
-Verwenden Sie das Bedrock-Addon für Bedrock-Welten/BDS. Verwenden Sie GeyserVoice, wenn die Java-seitige Infrastruktur die Quelle des Player-Status ist.
+Verwenden Sie das Bedrock-Addon für Bedrock-Welten/BDS. Verwenden Sie GeyserVoice, wenn die Java-seitige Infrastruktur die Quelle des Spielerstatus ist.
 
 ## Ist VoiceCraft ein von einem Drittanbieter gehosteter Sprachdienst?
 

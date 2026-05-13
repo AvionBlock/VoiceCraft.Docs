@@ -49,7 +49,7 @@
 範例：
 
 - BDS 外掛程式使用 `McHttpConfig.LoginToken`
-- 本地基岩世界使用 `McWssConfig.LoginToken`
+- 本地 Bedrock 世界使用 `McWssConfig.LoginToken`
 - GeyserVoice 使用 `McTcpConfig.LoginToken`
 
 ## McHttp 不工作

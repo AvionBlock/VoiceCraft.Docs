@@ -17,7 +17,7 @@ Behandel ze als gedeelde geheimen.
 Gebruik het token alleen met de bijbehorende integratie:
 
 - `McHttpConfig.LoginToken` voor BDS `McHttp`
-- `McWssConfig.LoginToken` voor lokaal gesteente `McWss`
+- `McWssConfig.LoginToken` voor lokale Bedrock `McWss`
 - `McTcpConfig.LoginToken` voor GeyserVoice / Java-bridge
 
 ## 2. Stel alleen noodzakelijke transporten bloot

@@ -1,10 +1,10 @@
-# VoiceCraft.Addon（基岩外掛程式）
+# VoiceCraft.Addon（Bedrock外掛程式）
 
 儲存庫：[AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
 
 該儲存庫包含實用的 Bedrock 插件包和用於自訂世界邏輯的腳本端 McApi 介面。
 
-當 Minecraft 基岩是玩家/實體狀態的來源時使用它。該插件透過 `McHttp` 或 `McWss` 將基岩世界連接到 VoiceCraft 伺服器，然後公開世界腳本的綁定流、UI、事件和資料包幫助程式。
+當 Minecraft Bedrock 是玩家/實體狀態的來源時使用它。該插件透過 `McHttp` 或 `McWss` 將 Bedrock 世界連接到 VoiceCraft 伺服器，然後公開世界腳本的綁定流程、UI、事件和資料包幫助程式。
 
 快速連結：
 
@@ -16,11 +16,11 @@
 
 | 套餐 | 目的 | 使用時 |
 |---------|---------|----------|
-| `Basic` | 即用型綁定流程、設定 UI、遊戲內語音指示器、常見腳本事件 | 您需要工作參考或預設基岩行為 |
-| `Core.McHttp` | HTTP傳輸包 | 您運行基岩專用伺服器 |
-| `Core.McWss` | websocket / 指令隧道傳輸包 | 您運行本地基岩世界或測試設置 |
+| `Basic` | 即用型綁定流程、設定 UI、遊戲內語音指示器、常見腳本事件 | 您需要工作參考或預設 Bedrock 行為 |
+| `Core.McHttp` | HTTP傳輸包 | 您運行Bedrock 專用伺服器 |
+| `Core.McWss` | websocket / 指令隧道傳輸包 | 您運行本地 Bedrock 世界或測試設置 |
 
-大多數真實的基岩設定將傳輸包與世界所需的行為/UI 部分結合。
+大多數真實的Bedrock設定將傳輸包與世界所需的行為/UI 部分結合。
 
 ## 版本對齊
 
@@ -57,8 +57,8 @@ VoiceCraft `v1.6.1` 需要更新插件包以及用戶端/伺服器版本。此�
 
 ## 基本套餐為您提供什麼
 
-- 綁定/解除綁定流
-- 播放器設定介面
+- 綁定/解除綁定流程
+- 玩家設定介面
 - 效果切換
 - 用於自動化的腳本事件
 - 支援版本使用的遊戲內指標
@@ -107,7 +107,7 @@ VoiceCraft `v1.6.1` 也廣播更多插件端生命週期和資料包事件，因
 - 員工表格透過 `@minecraft/server-ui`
 - McApi 表面周圍的資料包處理程序
 
-僅在基本庫存設定生效後進行自訂。這為您提供了傳輸、綁定和位置行為的已知良好基準。
+僅在基本預設設定生效後進行自訂。這為您提供了傳輸、綁定和位置行為的已知良好基準。
 
 ## 目前的限制
 
@@ -136,7 +136,7 @@ VoiceCraft `v1.6.1` 也廣播更多插件端生命週期和資料包事件，因
 - 安裝了正確的傳輸包
 - 行為包和資源包均處於活動狀態
 - `vcconnect` 使用符合伺服器設定部分中的令牌
-- 播放器可以與 `voicecraft:vcbind <key>` 綁定
+- 玩家可以與 `voicecraft:vcbind <key>` 綁定
 - 玩家移動會改變 VoiceCraft 中的位置數據
 - 效果 UI 向授權使用者開放
 

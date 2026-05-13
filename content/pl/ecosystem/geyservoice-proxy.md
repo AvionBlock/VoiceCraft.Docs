@@ -2,7 +2,7 @@
 
 Użyj tego trybu, jeśli uruchamiasz Velocity lub BungeeCord z co najmniej jednym serwerem Paper.
 
-Tryb proxy utrzymuje jedno centralne połączenie VoiceCraft na serwerze proxy, podczas gdy wewnętrzne serwery Paper przesyłają strumieniowo migawki odtwarzaczy za pośrednictwem wtyczek.
+Tryb proxy utrzymuje jedno centralne połączenie VoiceCraft na serwerze proxy, podczas gdy wewnętrzne serwery Paper przesyłają strumieniowo migawki graczy za pośrednictwem wtyczek.
 
 Docelowy kształt:
 
