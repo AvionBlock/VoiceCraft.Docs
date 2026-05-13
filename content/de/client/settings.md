@@ -1,8 +1,19 @@
 # Client-Einstellungen (UI)
 
-All client UI changes are auto-saved to `Settings.json`.
+Alle Änderungen an der Client-Benutzeroberfläche werden automatisch unter `Settings.json` gespeichert.
 
 Das Rohschema, Beispiele und erweiterte Felder finden Sie unter [Settings.json](/client/settings-json).
+
+Verwenden Sie die Benutzeroberfläche für die normale Konfiguration. Bearbeiten Sie `Settings.json` nur, wenn Sie Massenänderungen, Automatisierung oder Wiederherstellung nach einem fehlerhaften UI-Status benötigen.
+
+## Empfohlene Setup-Reihenfolge
+
+1. Wählen Sie Eingabe- und Ausgabegeräte aus.
+2. Führen Sie einen Mikrofontest durch und stellen Sie die Empfindlichkeit ein.
+3. Fügen Sie den VoiceCraft-Servereintrag hinzu.
+4. Bestätigen Sie, dass `Positioning Type` mit dem Server übereinstimmt.
+5. Richten Sie Push-to-Talk ein, wenn die Community dies erfordert.
+6. Treten Sie Minecraft bei und schließen Sie den Bindungsfluss ab.
 
 ## Allgemein
 
@@ -14,6 +25,8 @@ Das Rohschema, Beispiele und erweiterte Felder finden Sie unter [Settings.json](
   Versteckt gespeicherte IP-/Host-Einträge in der Benutzeroberfläche.
 - `Disable Notifications`:
   deaktiviert lokale Toastbenachrichtigungen.
+
+Verwenden Sie `Hide Server Addresses` für Screenshots oder öffentliche Streams. Die auf der Festplatte gespeicherte Serverliste wird nicht verschlüsselt.
 
 ## Aussehen
 
@@ -27,11 +40,11 @@ Das Rohschema, Beispiele und erweiterte Felder finden Sie unter [Settings.json](
 - `Input Devices`:
   Aufnahmegerät/Mikrofonquelle.
 - `Input Capture Preset`:
-  capture profile used by the platform backend, default is `VoiceCommunication`.
+  Das vom Plattform-Backend verwendete Erfassungsprofil ist standardmäßig `VoiceCommunication`.
 - `Input Volume`:
-  microphone gain in range `0..2`.
+  Mikrofonverstärkung im Bereich `0..2`.
 - `Microphone Sensitivity`:
-  voice activity threshold in range `0..1`.
+  Sprachaktivitätsschwelle im Bereich `0..1`.
 - `Denoisers`:
   verfügbare Denoiser-Implementierung.
 - `Automatic Gain Controllers`:
@@ -45,25 +58,40 @@ Das Rohschema, Beispiele und erweiterte Felder finden Sie unter [Settings.json](
 - `Microphone Test`:
   lokale Überwachung und Aktivitätsvisualisierung.
 
+Guter Ausgangspunkt:
+
+- Halten Sie `Input Volume` in der Nähe von `1`
+- Erhöhen Sie die Empfindlichkeit nur, wenn keine leise Sprache erkannt wird
+- Aktivieren Sie Push-to-Talk in lauten Räumen
+- Verwenden Sie den Mikrofontest, bevor Sie serverseitige Einstellungen ändern
+
+Wenn andere Spieler ständige Hintergrundgeräusche hören, verringern Sie die Eingabelautstärke, erhöhen Sie die Aktivierungsschwelle, aktivieren Sie Push-to-Talk oder ändern Sie das ausgewählte Mikrofongerät.
+
 ## Ausgabe
 
 - `Output Devices`:
   Wiedergabegerät.
 - `Output Volume`:
-  playback gain in range `0..2`.
+  Wiedergabeverstärkung im Bereich `0..2`.
 - `Audio Clippers`:
   Output-Clipper/Limiter-Implementierung.
 - `Test Output`:
   Senden Sie ein lokales Testsignal an das ausgewählte Gerät.
 
+Wenn Sie die Testausgabe hören, andere Player jedoch nicht, ist das Wiedergabegerät wahrscheinlich in Ordnung. Überprüfen Sie als Nächstes die Serververbindung, den Bindungsfluss und die Positionsaktualisierungen.
+
 ## Netzwerk
 
 - `Positioning Type`:
-  must match `VoiceCraftConfig.PositioningType` on the server.
+  muss mit `VoiceCraftConfig.PositioningType` auf dem Server übereinstimmen.
 - `McWss Listen Ip`:
   Lokale Adresse, die von der McWss-seitigen Bridge verwendet wird.
 - `McWss Host Port`:
   Lokaler McWss-Port, der für die Bedrock-Websocket-Verbindung verwendet wird.
+
+`Positioning Type` ist die wichtigste Client/Server-Kompatibilitätseinstellung. Verwenden Sie in normalen BDS- und GeyserVoice-Bereitstellungen denselben serverseitigen Modus, der in `ServerProperties.json` konfiguriert ist.
+
+`McWss Listen Ip` und `McWss Host Port` sind nur für lokale Bedrock-Setups im McWss-Stil von Bedeutung. Sie ersetzen nicht den VoiceCraft-Servereintrag, der für den Sprach-UDP-Verkehr verwendet wird.
 
 ## HotKeys
 
@@ -77,7 +105,9 @@ Standard-Desktop-Bindungen sind normalerweise:
 - `Mute`: `LeftControl + LeftShift + M`
 - `Deafen`: `LeftControl + LeftShift + D`
 
-Exact hotkey values are stored in `HotKeySettings.Bindings`.
+Die genauen Hotkey-Werte werden in `HotKeySettings.Bindings` gespeichert.
+
+Wenn Hotkeys nicht ausgelöst werden, prüfen Sie, ob Konflikte auf Betriebssystemebene vorliegen und ob das Clientfenster oder die Desktop-Umgebung die globale Hotkey-Erfassung zulässt.
 
 ## Steuerelemente pro Benutzer
 
@@ -86,7 +116,9 @@ VoiceCraft speichert auch lokale Präferenzen pro Benutzer:
 - Volumenmultiplikator pro Benutzer
 - Lokaler Stummschaltungsstatus pro Benutzer
 
-These are stored in `UserSettings.Users` and are applied client-side.
+Diese werden in `UserSettings.Users` gespeichert und clientseitig angewendet.
+
+Verwenden Sie die lokale Stummschaltung oder Lautstärke pro Benutzer, wenn nur ein Player zu laut oder störend für Sie ist. Verwenden Sie Befehle zum Stummschalten/Tauben des Servers, wenn das Personal die Moderation für alle erzwingen muss.
 
 ## Fortgeschritten
 
@@ -95,4 +127,15 @@ These are stored in `UserSettings.Users` and are applied client-side.
 - `Crash`:
   absichtlicher Absturzpfad für Diagnose/Protokollierungsüberprüfung.
 
-![Netzwerkeinstellungen](/images/voicecraft/settings-network.png)
+Erweiterte Steuerelemente dienen der Diagnose. Verwenden Sie `Crash` nicht während der normalen Wiedergabe, es sei denn, Sie überprüfen absichtlich Absturzberichte oder die Protokollerfassung.
+
+## Was ist zu überprüfen, wenn sich die Audioqualität falsch anfühlt?
+
+1. Client-Eingabe- und Ausgabegeräte.
+2. Push-to-Talk-Status.
+3. VoiceCraft-Serververbindung.
+4. `Positioning Type`.
+5. Minecraft-Bindungsfluss.
+6. Aktualisierungen der Spielerdistanz und der Welt-ID.
+
+![Network Settings](/images/voicecraft/settings-network.png)

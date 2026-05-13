@@ -1,41 +1,44 @@
-# 升級 Runbook
+# 升級操作手冊
 
-Use this when upgrading VoiceCraft or a related bridge such as `GeyserVoice`.
+升級 VoiceCraft 或相關橋接器（例如 `GeyserVoice`）時使用此選項。
+
+此操作手冊適用於可能影響伺服器、用戶端、Bedrock 外掛程式和 Java 端外掛程式之間相容性的升級。目標是保持回滾路徑，同時證明整個堆疊仍然有效。
 
 ## 升級順序
 
 推薦順序：
 
-1.備份配置
-2. 單獨暫存新的二進位文件
-3.階段匹配插件或插件包
-4. 閱讀傳輸和拓樸假設
-5.停止舊服務
-6.將配置移至新安裝中
-7.更新Minecraft端的addon/plugin
-8.啟動並驗證
+1. 備份配置和插件/附加檔案。
+2. 將新的二進位檔案暫存在單獨的目錄中。
+3. 階段匹配插件或插件包。
+4. 請閱讀發行說明以了解傳輸和拓撲假設。
+5. 停止舊服務。
+6. 將配置移動或複製到新安裝中。
+7. 更新 Minecraft 端的插件/插件。
+8. 一次啟動並驗證一條路徑。
 
-For VoiceCraft `v1.6.1`, do not leave the old Bedrock addon in place. Update the addon together with the client/server release before validating bind flow and in-game indicators.
+對於 VoiceCraft `v1.6.1`，請勿保留舊的 Bedrock 插件。在驗證綁定流和遊戲內指示器之前，將插件與客戶端/伺服器版本一起更新。
 
 ## 為什麼單獨的目錄有幫助
 
 單獨提取的目錄使回滾更容易，因為：
 
 - 舊的二進位檔案仍然完好無損
-- 配置遷移是明確的
+- 配置遷移是顯式的
 - 您可以比較發布佈局
 
 ## 升級後驗證
 
 至少：
 
-1. VoiceCraft 啟動
-2. 傳輸連接埠綁定
-3.客戶端連接
-4. 插件或插件驗證
-5. 綁定流程工作
-6.遊戲內語音圖示或外掛事件如預期出現
-7. 接近音訊工作原理
+1. VoiceCraft 啟動。
+2. 傳輸連接埠綁定。
+3. 客戶端連線。
+4. 插件或插件進行身份驗證。
+5. 綁定流有效。
+6. 遊戲中的語音圖示或外掛事件會如預期出現。
+7. 近距離音頻有效。
+8. `list --clientsOnly` 等伺服器指令顯示預期的客戶端。
 
 ## 如果升級 GeyserVoice
 
@@ -44,12 +47,36 @@ For VoiceCraft `v1.6.1`, do not leave the old Bedrock addon in place. Update the
 - 運行時自動啟動行為
 - 代理所有權模式
 - 後端快照轉發
+- `config.voicecraft.transport.*` 值
+- `McTcpConfig.LoginToken` 匹配
+
+對於代理網絡，首先驗證一個後端，然後再驗證伺服器切換。
+
+## 如果升級基岩插件包
+
+還驗證：
+
+- 行為和資源包均已更新
+- BDS權限仍包含所需模組
+- `voicecraft:vcconnect` 使用正確的傳輸令牌
+- `voicecraft:vcbind <key>` 適用於真實玩家
+- 遊戲內指標/事件符合預期的發布行為
 
 ## 回滾觸發器範例
 
 在以下情況下考慮回滾：
 
-- 先前工作的令牌的身份驗證突然失敗
-- 傳輸不再按預期綁定
-- 外掛程式管理的運行時永遠不會準備好
+- 之前工作的令牌的身份驗證突然失敗
+- 傳輸不再如預期綁定
+- 插件管理的運行時永遠不會準備好
 - 跨伺服器代理語音狀態變得不一致
+- 新的伺服器/客戶端版本沒有相符的插件/插件包
+
+## 回滾工作流程
+
+1. 停止新服務。
+2. 恢復之前的二進位目錄。
+3. 還原先前的 `ServerProperties.json` 和插件/插件配置。
+4. 在 Minecraft 端恢復先前的插件/插件包。
+5. 啟動舊服務。
+6. 驗證客戶端、傳輸身份驗證、綁定和鄰近度。

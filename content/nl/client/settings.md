@@ -1,8 +1,19 @@
 # Clientinstellingen (UI)
 
-All client UI changes are auto-saved to `Settings.json`.
+Alle wijzigingen in de client-UI worden automatisch opgeslagen in `Settings.json`.
 
 Zie [Settings.json](/client/settings-json) voor het onbewerkte schema, voorbeelden en geavanceerde velden.
+
+Gebruik de gebruikersinterface voor normale configuratie. Bewerk `Settings.json` alleen als u bulkwijzigingen, automatisering of herstel van een kapotte UI-status nodig heeft.
+
+## Aanbevolen installatievolgorde
+
+1. Selecteer invoer- en uitvoerapparaten.
+2. Voer een microfoontest uit en stem de gevoeligheid af.
+3. Voeg de VoiceCraft-serververmelding toe.
+4. Bevestig dat `Positioning Type` overeenkomt met de server.
+5. Stel push-to-talk in als de gemeenschap dit vereist.
+6. Sluit je aan bij Minecraft en voltooi de bindstroom.
 
 ## Algemeen
 
@@ -14,6 +25,8 @@ Zie [Settings.json](/client/settings-json) voor het onbewerkte schema, voorbeeld
   verbergt opgeslagen IP-/host-vermeldingen in de gebruikersinterface.
 - `Disable Notifications`:
   schakelt lokale toastmeldingen uit.
+
+Gebruik `Hide Server Addresses` voor screenshots of openbare streams. Het codeert de opgeslagen serverlijst op schijf niet.
 
 ## Uiterlijk
 
@@ -27,11 +40,11 @@ Zie [Settings.json](/client/settings-json) voor het onbewerkte schema, voorbeeld
 - `Input Devices`:
   opnameapparaat / microfoonbron.
 - `Input Capture Preset`:
-  capture profile used by the platform backend, default is `VoiceCommunication`.
+  vastlegprofiel gebruikt door de platformbackend, standaard is `VoiceCommunication`.
 - `Input Volume`:
-  microphone gain in range `0..2`.
+  microfoonversterking binnen bereik `0..2`.
 - `Microphone Sensitivity`:
-  voice activity threshold in range `0..1`.
+  drempel voor spraakactiviteit binnen bereik `0..1`.
 - `Denoisers`:
   beschikbare denoiser-implementatie.
 - `Automatic Gain Controllers`:
@@ -45,25 +58,40 @@ Zie [Settings.json](/client/settings-json) voor het onbewerkte schema, voorbeeld
 - `Microphone Test`:
   lokale monitoring en visualisatie van activiteiten.
 
+Goed uitgangspunt:
+
+- houd `Input Volume` dichtbij `1`
+- verhoog de gevoeligheid alleen als er geen zachte spraak wordt gedetecteerd
+- Maak push-to-talk mogelijk in luidruchtige ruimtes
+- gebruik de microfoontest voordat u de instellingen aan de serverzijde wijzigt
+
+Als andere spelers constant achtergrondgeluid horen, verlaag dan het ingangsvolume, verhoog de activeringsdrempel, schakel push-to-talk in of wijzig het geselecteerde microfoonapparaat.
+
 ## Uitvoer
 
 - `Output Devices`:
   afspeelapparaat.
 - `Output Volume`:
-  playback gain in range `0..2`.
+  afspeelversterking binnen bereik `0..2`.
 - `Audio Clippers`:
   uitvoerclipper / limiter-implementatie.
 - `Test Output`:
   stuur een lokaal testsignaal naar het geselecteerde apparaat.
 
+Als u de testuitvoer wel kunt horen, maar andere spelers niet, is het afspeelapparaat waarschijnlijk in orde. Controleer vervolgens de serververbinding, bindstroom en positie-updates.
+
 ## Netwerk
 
 - `Positioning Type`:
-  must match `VoiceCraftConfig.PositioningType` on the server.
+  moet overeenkomen met `VoiceCraftConfig.PositioningType` op de server.
 - `McWss Listen Ip`:
   lokaal adres gebruikt door de McWss-zijbrug.
 - `McWss Host Port`:
   lokale McWss-poort die wordt gebruikt voor de Bedrock-websocket-link.
+
+`Positioning Type` is de belangrijkste client/server-compatibiliteitsinstelling. Gebruik bij normale BDS- en GeyserVoice-implementaties dezelfde servermodus die is geconfigureerd in `ServerProperties.json`.
+
+`McWss Listen Ip` en `McWss Host Port` zijn alleen van belang voor lokale Bedrock-opstellingen in McWss-stijl. Ze vervangen niet de VoiceCraft-serveringang die wordt gebruikt voor spraak-UDP-verkeer.
 
 ## Sneltoetsen
 
@@ -77,7 +105,9 @@ Standaard bureaubladbindingen zijn doorgaans:
 - `Mute`: `LeftControl + LeftShift + M`
 - `Deafen`: `LeftControl + LeftShift + D`
 
-Exact hotkey values are stored in `HotKeySettings.Bindings`.
+Exacte sneltoetswaarden worden opgeslagen in `HotKeySettings.Bindings`.
+
+Als sneltoetsen niet worden geactiveerd, controleer dan op conflicten op besturingssysteemniveau en of het clientvenster of de desktopomgeving het vastleggen van globale sneltoetsen toestaat.
 
 ## Bediening per gebruiker
 
@@ -86,7 +116,9 @@ VoiceCraft slaat ook lokale voorkeuren per gebruiker op:
 - volumevermenigvuldiger per gebruiker
 - lokale mute-status per gebruiker
 
-These are stored in `UserSettings.Users` and are applied client-side.
+Deze worden opgeslagen in `UserSettings.Users` en worden aan de clientzijde toegepast.
+
+Gebruik lokaal dempen of volume per gebruiker als slechts één speler te luid of storend voor u is. Gebruik opdrachten voor het dempen/verdoven van de server wanneer het personeel moderatie voor iedereen moet afdwingen.
 
 ## Geavanceerd
 
@@ -95,4 +127,15 @@ These are stored in `UserSettings.Users` and are applied client-side.
 - `Crash`:
   opzettelijk crashpad voor diagnostiek/logboekverificatie.
 
-![Netwerkinstellingen](/images/voicecraft/settings-network.png)
+Geavanceerde bedieningselementen zijn bedoeld voor diagnostiek. Gebruik `Crash` niet tijdens normaal spelen, tenzij u opzettelijk crashrapportage of logverzameling verifieert.
+
+## Wat u moet controleren als audio verkeerd aanvoelt
+
+1. Invoer- en uitvoerapparaten voor clients.
+2. Push-to-talk-status.
+3. VoiceCraft-serververbinding.
+4. `Positioning Type`.
+5. Minecraft bindstroom.
+6. Spelersafstand en wereld-ID-updates.
+
+![Network Settings](/images/voicecraft/settings-network.png)

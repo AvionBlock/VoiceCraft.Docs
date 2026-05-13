@@ -1,8 +1,12 @@
-# 插件 API
+# 插件API
 
-`VoiceCraft.Addon` exposes a script-driven McApi layer that is much wider than just `vcbind`.
+`VoiceCraft.Addon` 公開了一個腳本驅動的 McApi 層，比 `vcbind` 寬得多。
 
 此頁面針對插件和世界開發者。
+
+當庫存外掛行為不夠時，請使用 API：自訂綁定規則、自訂效果、特定於區域的語音行為、腳本化的虛假實體、人員工具或特定於遊戲模式的可見性邏輯。
+
+首先從庫存 `Basic` 包開始。一旦傳輸、綁定和鄰近工作正常，逐漸添加自訂資料包/事件邏輯。
 
 ## 進階 API 介面
 
@@ -15,7 +19,9 @@
 - 效果更新
 - 音訊接收事件
 
-## 高階活動
+API 的存在是為了讓世界決定語音在遊戲中的意義。 VoiceCraft 提供傳輸和狀態模型；您的外掛程式邏輯可以決定如何將標籤、角色、區域、維度或腳本實體對應到該模型上。
+
+## 高級別活動
 
 從目前的API層來看：
 
@@ -25,7 +31,7 @@
 - `OnPlayerUnbind`
 - `OnPacket`
 
-VoiceCraft `v1.6.1` expands this event-driven path with broadcasted events used by the addon packages, so world scripts can react to connection, binding, and packet activity without custom polling.
+VoiceCraft `v1.6.1` 透過外掛程式包使用的廣播事件擴展了此事件驅動路徑，因此世界腳本可以對連接、綁定和資料包活動做出反應，而無需自訂輪詢。
 
 系統使用的腳本事件包括：
 
@@ -36,31 +42,33 @@ VoiceCraft `v1.6.1` expands this event-driven path with broadcasted events used 
 - `voicecraft:onPacket`
 - `voicecraft:sendPacket`
 
-## 封包級覆蓋
+## 包級覆蓋
 
 目前暴露的資料包事件包括以下類別：
 
 - 登入/登出/ping
 - 接受/拒絕/重置回應
-- 實體建立/銷毀
+- 實體創建/銷毀
 - 標題/描述/名稱更新
 - 靜音/失聰/伺服器靜音/伺服器失聰
 - 說話/聽/效果位掩碼
-- 位置/旋轉/世界ID
+- 位置/旋轉/世界 ID
 - 洞穴係數/消音係數
 - 效果更新
 - 收到音訊
 
 這使得插件 API 不僅對普通世界有用，而且對自訂遊戲模式也有用。
 
+資料包級鉤子功能強大，但也很容易被過度使用。只有當您需要低階控制時，才首選進行正常自訂的進階生命週期事件和資料包掛鉤。
+
 ## 常見的客製化思路
 
 - 按團隊、角色或標籤自動綁定
-- 自訂綁定UI
-- 每個生物群落或區域的自訂效果預設
+- 自訂綁定使用者介面
+- 每個生物群系或區域的自訂效果預設
 - 基於區域的世界 ID 重新映射
 - 透過伺服器 UI 表單的員工審核工具
-- 腳本化的 NPC 或假實體語音邏輯
+- 腳本化 NPC 或假實體語音邏輯
 
 ## 基本整合模型
 
@@ -69,19 +77,32 @@ VoiceCraft `v1.6.1` expands this event-driven path with broadcasted events used 
 1. 連接到 VoiceCraft 傳輸
 2. 驗證
 3. 建立或發現實體
-4.綁定玩家
-5. 在刻度或事件上更新世界 ID/位置/旋轉
+4. 綁定玩家
+5. 根據刻度或事件更新世界 ID/位置/旋轉
 6. 對資料包級更新做出反應
 
-## 重要的實作說明
+對於 BDS，這通常意味著 `Core.McHttp`。對於本地世界，它通常意味著 `Core.McWss`。
 
-- `McWss` mode depends on command tunnel throughput
+## 重要實施說明
+
+- `McWss` 模式取決於指令隧道吞吐量
 - 效果切換透過位元遮罩進行編碼
-- 資料包級自動化應在真實的基岩版本上仔細測試
+- 資料包級自動化應該在真實的 Bedrock 建置上仔細測試
 - 當依賴廣播事件或遊戲內語音圖示時，保持插件包與 VoiceCraft 版本保持一致
+- 避免發送不必要的高頻更新；位置更新很有用，但嘈雜的自訂資料包循環可能會導致不穩定
+- 將傳輸登入令牌視為伺服器憑證，而不是面向玩家的值
 
 ## 推薦做法
 
-- start from `Basic` if you need a working reference
-- switch to `Core.McHttp` or `Core.McWss` when building a custom experience
+- 如果您需要工作參考，請從 `Basic` 開始
+- 建立自訂體驗時切換到 `Core.McHttp` 或 `Core.McWss`
 - 首先保持你的世界自動化精簡，然後逐漸擴展資料包掛鉤
+- 至少與兩個玩家一起驗證每個自訂功能，以便執行接近和綁定行為
+
+## 偵錯自訂邏輯
+
+1. 確認庫存插件可以連接並綁定。
+2. 新增一個自訂事件或資料包掛鉤。
+3. 檢查 VoiceCraft 伺服器是否仍能看到實體更新。
+4. 如果您的邏輯更改了世界 ID，請測試跨世界/維度的移動。
+5. 在指責傳輸或音訊設定之前禁用自訂代碼。

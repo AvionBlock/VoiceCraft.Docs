@@ -1,24 +1,28 @@
-# Snelle start
+# Snel beginnen
 
 Deze handleiding is de snelste manier om een werkende VoiceCraft-stack te krijgen.
+
+Het doorloopt opzettelijk het hele pad: server, gegenereerde configuratie, client, Minecraft-transport en validatie. Stop niet nadat het binaire bestand van de server is gestart; op dat moment bestaat de stem-backend, maar Minecraft heeft nog geen verbinding gemaakt.
 
 ## Kies eerst uw topologie
 
 VoiceCraft kan op verschillende manieren worden ingezet:
 
-- Bedrock Dedicated Server: `VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
-- Local Bedrock world / singleplayer: `VoiceCraft.Server` or local runtime + `Core.McWss`
-- Java server with Geyser/Floodgate: `GeyserVoice` + `VoiceCraft.Server`
-- Direct Paper server: `GeyserVoice` can also download and run the VoiceCraft runtime under the hood
+- Bedrock speciale server: `VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
+- Lokale Bedrock-wereld / singleplayer: `VoiceCraft.Server` of lokale runtime + `Core.McWss`
+- Java-server met geiser/Floodgate: `GeyserVoice` + `VoiceCraft.Server`
+- Direct Paper-server: `GeyserVoice` kan ook de VoiceCraft-runtime downloaden en uitvoeren onder de motorkap
 
 Als u het niet zeker weet, begin dan met een van deze:
 
-- Bedrock dedicated server: lees [McHttp voor BDS](/minecraft/mchttp-bds)
-- Java + Geyser-server: lees [GeyserVoice] (/ecosystem/geyservoice)
+- Bedrock dedicated server: lees [McHttp for BDS](/minecraft/mchttp-bds)
+- Java + Geyser-server: lees [GeyserVoice](/ecosystem/geyservoice)
+
+Kies voor een eerste opstelling één topologie en stel alleen het transport bloot dat deze nodig heeft. U kunt later gemengde instellingen toevoegen nadat de basisbind- en nabijheidsstroom werkt.
 
 ## 1. Download de server
 
-1. Open de [downloadpagina](/download).
+1. Open de [download page](/download).
 2. Download het serverarchief voor uw platform:
    - `VoiceCraft.Server.Windows.x64.zip`
    - `VoiceCraft.Server.Windows.x86.zip`
@@ -27,24 +31,28 @@ Als u het niet zeker weet, begin dan met een van deze:
    - `VoiceCraft.Server.Linux.arm.zip`
    - `VoiceCraft.Server.Linux.arm64.zip`
 
-Als u vanaf de broncode bouwt, raadpleeg dan [VoiceCraft-repository en build](/ecosystem/voicecraft-repository).
+Als u vanaf de broncode bouwt, zie [VoiceCraft repository and build](/ecosystem/voicecraft-repository).
 
 ## 2. Voer de server één keer uit
 
-### Ramen
+Voer het uit vanuit de map waar u `config/ServerProperties.json` wilt hebben.
+
+### Windows
 
 ```powershell
 ./VoiceCraft.Server.exe
 ```
 
-###Linux
+### Linux
 
 ```bash
 chmod +x ./VoiceCraft.Server
 ./VoiceCraft.Server
 ```
 
-After first launch, VoiceCraft generates `config/ServerProperties.json`.
+Na de eerste lancering genereert VoiceCraft `config/ServerProperties.json`.
+
+Stop de server voordat u dit bestand bewerkt.
 
 ## 3. Beveilig de gegenereerde configuratie
 
@@ -56,6 +64,12 @@ Wijzig elk gegenereerd gedeeld token voordat u Minecraft of spelers verbindt:
 
 Meestal wilt u verschillende waarden per omgeving.
 
+Het token dat je later gebruikt, moet overeenkomen met het transport:
+
+- BDS `McHttp` add-on gebruikt `McHttpConfig.LoginToken`
+- lokale Bedrock `McWss` add-on gebruikt `McWssConfig.LoginToken`
+- `GeyserVoice` gebruikt `McTcpConfig.LoginToken`
+
 ## 4. Kies het Minecraft-transport
 
 VoiceCraft heeft momenteel 3 Minecraft-gerichte transporten:
@@ -65,40 +79,46 @@ VoiceCraft heeft momenteel 3 Minecraft-gerichte transporten:
 - `McWss`:
   Het beste voor lokale werelden, testen en commandotunnelscenario's.
 - `McTcp`:
-  Best for Java-side bridges such as `GeyserVoice`.
+  Het beste voor bruggen aan Java-zijde, zoals `GeyserVoice`.
 
-Zie [Transportmodi](/server/transports) voor de volledige vergelijking.
+Zie [Transport Modes](/server/transports) voor de volledige vergelijking.
+
+Zorg ervoor dat het gekozen transport is ingeschakeld en gebonden is aan een adres dat de runtime aan Minecraft-kant kan bereiken.
 
 ## 5. Download de client
 
-Download vanaf de [downloadpagina](/download) het pakket voor uw spelers:
+Download vanuit [download page](/download) het pakket voor uw spelers:
 
 - Windows: `VoiceCraft.Client.Windows.<arch>.zip`
 - Linux: `VoiceCraft.Client.Linux.<arch>.zip`
-- macOS: `VoiceCraft.Client.MacOS.<arch>.dmg` or `.pkg`
-- Android: `VoiceCraft.Client.Android.arm64.zip` (APK inside)
+- macOS: `VoiceCraft.Client.MacOS.<arch>.dmg` of `.pkg`
+- Android: `VoiceCraft.Client.Android.arm64.zip` (APK binnen)
 - iOS: `VoiceCraft.Client.iOS.arm64.ipa`
 
-## 6. Voeg de server toe in de client
+## 6. Voeg de server toe aan de client
 
-1. Open de client.
-2. Voeg een serververmelding toe in de gebruikersinterface.
-3. Use the VoiceCraft UDP endpoint from `VoiceCraftConfig.Port`.
+1. Open de klant.
+2. Selecteer microfoon en afspeelapparaten.
+3. Voeg een serververmelding toe in de gebruikersinterface.
+4. Gebruik het VoiceCraft UDP-eindpunt van `VoiceCraftConfig.Port`.
+5. Bevestig dat klant `Positioning Type` overeenkomt met `VoiceCraftConfig.PositioningType`.
 
 Typische lokale opstelling:
 
-- host: `127.0.0.1`
-- port: `9050`
+- gastheer: `127.0.0.1`
+- poort: `9050`
 
 ## 7. Sluit de Minecraft-kant aan
 
-- Gebruik voor Bedrock Dedicated Server [McHttp for BDS](/minecraft/mchttp-bds).
-- Gebruik voor een lokale Bedrock-wereld [McWss voor singleplayer-werelden] (/minecraft/mcwss-singleplayer).
-- Gebruik voor Java + Geyser/Floodgate [GeyserVoice](/ecosystem/geyservoice).
+- Voor Bedrock Dedicated Server gebruikt u [McHttp for BDS](/minecraft/mchttp-bds).
+- Gebruik [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) voor een lokale Bedrock-wereld.
+- Voor Java + Geiser/Floodgate gebruikt u [GeyserVoice](/ecosystem/geyservoice).
+
+Deze stap geeft VoiceCraft de in-game status die nodig is voor nabijheidsaudio: speleridentiteit, bindingsgegevens, wereld-ID's, positie-updates en effectstatus.
 
 Als u op Bedrock implementeert, houd dan deze twee pagina's bij de hand:
 
-- [Downloadpagina](/download) voor onbewerkte client/server/addon-releasebestanden
+- [Download Page](/download) voor onbewerkte client/server/addon-releasebestanden
 - [Addon Configurator](/addon-configurator) voor een kant-en-klaar wereldarchief
 
 ## 8. Controleer de stapel
@@ -109,14 +129,16 @@ Als alles correct is geconfigureerd:
 - client maakt verbinding zonder transportfouten
 - Minecraft-integratie verifieert met het verwachte token
 - creatie van entiteiten en bindingsstroomwerk
-- Spelers horen een nabijheidsstem wanneer ze binnen bereik zijn
+- spelers horen de nabijheidsstem wanneer ze binnen bereik zijn
+
+Als de client verbinding maakt maar de nabijheid niet werkt, debug dan het Minecraft-transport en de bindstroom voordat u de audio-instellingen wijzigt.
 
 ## Aanbevolen volgende lezingen
 
-- [Serverinstallatie](/server/installation)
-- [Eerste serverrun] (/server/first-run)
+- [Server Installation](/server/installation)
+- [First Server Run](/server/first-run)
 - [ServerProperties.json](/server/server-properties)
-- [Runtime-overschrijvingen] (/server/runtime-overrides)
-- [Transportmodi](/server/transports)
-- [Downloadpagina](/download)
-- [Addon-configurator](/addon-configurator)
+- [Runtime Overrides](/server/runtime-overrides)
+- [Transport Modes](/server/transports)
+- [Download Page](/download)
+- [Addon Configurator](/addon-configurator)

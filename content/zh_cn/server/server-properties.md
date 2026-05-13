@@ -1,6 +1,22 @@
-# ServerProperties.json
+# 服务器属性.json
 
-Main server config file: `config/ServerProperties.json`.
+主服务器配置文件：`config/ServerProperties.json`。
+
+该文件是在第一个服务器启动后创建的，并成为服务器的持久事实来源。在编辑服务器之前停止服务器，除非您的进程管理器设计为安全地重新加载配置。
+
+当您需要了解字段控制什么以及哪些字段必须与客户端、插件或插件匹配时，请使用此页面。
+
+## 编辑工作流程
+
+1. 停止 `VoiceCraft.Server`。
+2. 备份 `config/ServerProperties.json`。
+3. 编辑相关部分。
+4. 验证 JSON 语法。
+5. 再次启动服务器。
+6. 观察日志中的配置解析、侦听器或身份验证错误。
+7. 重新连接客户端和 Minecraft 传输。
+
+最重要的首次编辑是传输登录令牌和主机绑定。
 
 ## 完整示例
 
@@ -55,10 +71,12 @@ Main server config file: `config/ServerProperties.json`.
 
 ## 遥测
 
-- `TelemetryEnabled`:
-  enables anonymous startup, heartbeat, and crash diagnostics from `VoiceCraft.Server`.
-- `TelemetryToken`:
+- `TelemetryEnabled`：
+  启用来自 `VoiceCraft.Server` 的匿名启动、心跳和崩溃诊断。
+- `TelemetryToken`：
   用于对来自一台服务器安装的遥测事件进行分组的稳定假名指纹。
+
+遥测帮助维护人员了解运行时健康状况和版本采用情况。它不应该被用作您自己的监控替代品；为生产服务器保留本地日志和进程监控。
 
 如果您不需要遥测，请设置：
 
@@ -68,47 +86,53 @@ Main server config file: `config/ServerProperties.json`.
 }
 ```
 
-## VoiceCraft 配置
+## VoiceCraft配置
 
-- `Language`:
+- `Language`：
   服务器日志语言。
-- `Port`:
+- `Port`：
   VoiceCraft 核心服务器的 UDP 端口。
-- `MaxClients`:
+- `MaxClients`：
   VoiceCraft 客户端最大连接数。
-- `Motd`:
+- `Motd`：
   ping / info 响应返回的文本。
-- `PositioningType`:
+- `PositioningType`：
   定位方式：
   - `0 = Server`
   - `1 = Client`
-- `EnableVisibilityDisplay`:
+- `EnableVisibilityDisplay`：
   是否将可见性指标发送给客户端。
 
-## McWss配置
+`Port` 是玩家客户端在 VoiceCraft 客户端 UI 中添加的端点。即使默认重用 `9050`，它也不会自动与每个 Minecraft 传输端点相同。
+
+`PositioningType` 必须与客户端设置匹配。在大多数 BDS 和 GeyserVoice 设置中，以 `0 = Server` 开头。
+
+## 麦克WSS配置
 
 用于 websocket / 命令隧道基岩流。
 
-- `Enabled`:
+- `Enabled`：
   启用或禁用 McWss。
-- `LoginToken`:
-  shared auth token, typically used with `/voicecraft:vcconnect <token>`.
-- `Hostname`:
-  websocket host such as `ws://0.0.0.0:9051/`.
-- `MaxClients`:
+- `LoginToken`：
+  共享身份验证令牌，通常与 `/voicecraft:vcconnect <token>` 一起使用。
+- `Hostname`：
+  websocket 主机，例如 `ws://0.0.0.0:9051/`。
+- `MaxClients`：
   最大 McWss 客户端数。
-- `MaxTimeoutMs`:
+- `MaxTimeoutMs`：
   不活动超时。
-- `DataTunnelCommand`:
-  command name used for the data tunnel, usually `voicecraft:data_tunnel`.
-- `CommandsPerTick`:
+- `DataTunnelCommand`：
+  用于数据隧道的命令名称，通常为 `voicecraft:data_tunnel`。
+- `CommandsPerTick`：
   每个时钟周期转发多少个命令数据包。
-- `MaxByteLengthPerCommand`:
+- `MaxByteLengthPerCommand`：
   每个命令调用的有效负载预算（字节）。
-- `DisabledPacketTypes`:
+- `DisabledPacketTypes`：
   此传输上阻止的数据包类型。
 
-## McHttpConfig
+使用 `McWss` 进行本地世界和测试。命令隧道依赖于`DataTunnelCommand`；仅在一侧更改它会破坏传输。
+
+## 麦克HTTP配置
 
 用于基岩专用服务器和基于 HTTP 的集成。
 
@@ -132,57 +156,65 @@ Main server config file: `config/ServerProperties.json`.
 }
 ```
 
-## McTcp 配置
+当 BDS 可以到达 VoiceCraft HTTP 端点时，请使用 `McHttp`。如果 BDS 和 VoiceCraft 在不同的计算机上运行，​​从 BDS 的角度来看 `127.0.0.1` 将指向错误的主机。
 
-Used by Java-side bridges, especially `GeyserVoice`.
+## McTcp配置
 
-- `Enabled`:
+由 Java 端桥使用，尤其是 `GeyserVoice`。
+
+- `Enabled`：
   启用或禁用 McTcp。
-- `LoginToken`:
+- `LoginToken`：
   TCP 桥的共享身份验证令牌。
-- `Hostname`:
-  bind hostname, for example `127.0.0.1` or `0.0.0.0`.
-- `Port`:
+- `Hostname`：
+  绑定主机名，例如 `127.0.0.1` 或 `0.0.0.0`。
+- `Port`：
   TCP 监听端口。
-- `MaxClients`:
-  最大的传输客户端。
-- `MaxTimeoutMs`:
+- `MaxClients`：
+  最大的运输客户。
+- `MaxTimeoutMs`：
   不活动超时。
-- `DisabledPacketTypes`:
+- `DisabledPacketTypes`：
   此传输上阻止的数据包类型。
 
-Important differences compared to `McHttp` / `McWss`:
+与 `McHttp` / `McWss` 相比的重要区别：
 
-- `Hostname` is a plain host, not a URI
-- `Port` is a separate field
-- this is the transport most relevant to `GeyserVoice`
+- `Hostname` 是一个普通主机，而不是 URI
+- `Port` 是一个单独的字段
+- 这是与 `GeyserVoice` 最相关的传输
+
+当 Java 端插件或代理拥有 Minecraft 状态路径时，请使用 `McTcp`。 `GeyserVoice` `config.voicecraft.transport.host`、`config.voicecraft.transport.port` 和 `config.voicecraft.transport.login-token` 值必须与此部分匹配。
 
 ## 默认音频效果配置
 
-Dictionary key is a `ushort` bitmask, value is an effect JSON object.
+字典键是 `ushort` 位掩码，值是效果 JSON 对象。
 
 默认矩阵：
 
-- `1`:
+- `1`：
   `Visibility`
-- `2`:
+- `2`：
   `Proximity`
-- `4`:
+- `4`：
   `ProximityEcho`
-- `8`:
+- `8`：
   `ProximityMuffle`
 
 您可以覆盖或扩展字典以更改新实体的默认效果行为。
 
+仅当您了解效果管道时才更改这些。对于大多数部署，请在更改默认效果之前验证基本绑定和接近行为。
+
 ## 禁用数据包类型
 
-Each transport supports `DisabledPacketTypes`.
+每个传输都支持 `DisabledPacketTypes`。
 
 小心使用这个：
 
-- 用于调试、兼容性实验或紧急缓解
+- 它用于调试、兼容性实验或紧急缓解
 - 禁用核心数据包可能会破坏登录、实体同步或音频传输
-- 除非您了解数据包流，否则请勿在生产中更改此设置
+- 除非您了解数据包流，否则不要在生产中更改此设置
+
+如果传输仅在禁用数据包类型后才起作用，请将其视为兼容性解决方法并记录为什么需要它。
 
 ## 实际生产模式
 
@@ -190,27 +222,76 @@ Each transport supports `DisabledPacketTypes`.
 
 - `McHttpConfig.Enabled = true`
 - `McWssConfig.Enabled = false`
-- `McTcpConfig.Enabled = false` unless you also run Java-side bridges
+- `McTcpConfig.Enabled = false` 除非您还运行 Java 端桥
 
 ### 本地世界/单人游戏
 
 - `McWssConfig.Enabled = true`
-- `McHttpConfig.Enabled = false` or optional
+- `McHttpConfig.Enabled = false` 或可选
 
 ### GeyserVoice / Java 桥
 
 - `McTcpConfig.Enabled = true`
-- `McHttpConfig.Enabled = false` or optional
-- `McWssConfig.Enabled = false` unless also needed elsewhere
+- `McHttpConfig.Enabled = false` 或可选
+- `McWssConfig.Enabled = false` 除非其他地方也需要
+
+## 最小拓扑示例
+
+### 仅北斗系统
+
+```json
+{
+  "VoiceCraftConfig": {
+    "Port": 9050,
+    "PositioningType": 0
+  },
+  "McHttpConfig": {
+    "Enabled": true,
+    "LoginToken": "replace-with-strong-token",
+    "Hostname": "http://0.0.0.0:9050/"
+  },
+  "McWssConfig": {
+    "Enabled": false
+  },
+  "McTcpConfig": {
+    "Enabled": false
+  }
+}
+```
+
+### 仅 Java 桥
+
+```json
+{
+  "VoiceCraftConfig": {
+    "Port": 9050,
+    "PositioningType": 0
+  },
+  "McTcpConfig": {
+    "Enabled": true,
+    "LoginToken": "replace-with-strong-token",
+    "Hostname": "0.0.0.0",
+    "Port": 9050
+  },
+  "McHttpConfig": {
+    "Enabled": false
+  },
+  "McWssConfig": {
+    "Enabled": false
+  }
+}
+```
 
 ## 重要提示
 
-- always replace generated `LoginToken` values
-- with `Hostname: http://0.0.0.0:9050/`, the HTTP listener binds to a wildcard address
-- with `McTcpConfig.Hostname = 0.0.0.0`, the TCP bridge becomes remotely reachable
-- keep `PositioningType` aligned with the client configuration
+- 始终替换生成的 `LoginToken` 值
+- 使用 `Hostname: http://0.0.0.0:9050/`，HTTP 侦听器绑定到通配符地址
+- 使用 `McTcpConfig.Hostname = 0.0.0.0`，TCP 桥变得可远程访问
+- 使 `PositioningType` 与客户端配置保持一致
+- 升级前保留最后一次已知良好配置的副本
+- 仅当您的流程管理器一致地传递它们时才使用运行时覆盖
 
 另请参阅：
 
-- [运行时覆盖](/server/runtime-overrides)
-- [传输模式](/server/transports)
+- [Runtime Overrides](/server/runtime-overrides)
+- [Transport Modes](/server/transports)

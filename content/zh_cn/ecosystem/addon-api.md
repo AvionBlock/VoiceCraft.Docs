@@ -1,8 +1,12 @@
-# 插件 API
+# 插件API
 
-`VoiceCraft.Addon` exposes a script-driven McApi layer that is much wider than just `vcbind`.
+`VoiceCraft.Addon` 公开了一个脚本驱动的 McApi 层，该层比 `vcbind` 宽得多。
 
 此页面针对插件和世界开发者。
+
+当库存插件行为不够时，请使用 API：自定义绑定规则、自定义效果、特定于区域的语音行为、脚本化的虚假实体、人员工具或特定于游戏模式的可见性逻辑。
+
+首先从库存 `Basic` 包开始。一旦传输、绑定和邻近工作正常，逐渐添加自定义数据包/事件逻辑。
 
 ## 高级 API 接口
 
@@ -15,6 +19,8 @@
 - 效果更新
 - 音频接收事件
 
+API 的存在是为了让世界可以决定语音在游戏中的含义。 VoiceCraft 提供传输和状态模型；您的插件逻辑可以决定如何将标签、角色、区域、维度或脚本实体映射到该模型上。
+
 ## 高级别活动
 
 从当前的API层来看：
@@ -25,7 +31,7 @@
 - `OnPlayerUnbind`
 - `OnPacket`
 
-VoiceCraft `v1.6.1` expands this event-driven path with broadcasted events used by the addon packages, so world scripts can react to connection, binding, and packet activity without custom polling.
+VoiceCraft `v1.6.1` 通过插件包使用的广播事件扩展了此事件驱动路径，因此世界脚本可以对连接、绑定和数据包活动做出反应，而无需自定义轮询。
 
 系统使用的脚本事件包括：
 
@@ -36,7 +42,7 @@ VoiceCraft `v1.6.1` expands this event-driven path with broadcasted events used 
 - `voicecraft:onPacket`
 - `voicecraft:sendPacket`
 
-## 数据包级覆盖
+## 包级覆盖
 
 当前暴露的数据包事件包括以下类别：
 
@@ -46,21 +52,23 @@ VoiceCraft `v1.6.1` expands this event-driven path with broadcasted events used 
 - 标题/描述/名称更新
 - 静音/失聪/服务器静音/服务器失聪
 - 说话/听/效果位掩码
-- 位置/旋转/世界ID
+- 位置/旋转/世界 ID
 - 洞穴系数/消音系数
 - 效果更新
 - 收到音频
 
 这使得插件 API 不仅对普通世界有用，而且对自定义游戏模式也有用。
 
+数据包级钩子功能强大，但也很容易被过度使用。仅当您需要低级控制时，才首选进行正常自定义的高级生命周期事件和数据包挂钩。
+
 ## 常见的定制思路
 
 - 按团队、角色或标签自动绑定
-- 自定义绑定UI
-- 每个生物群落或区域的自定义效果预设
+- 自定义绑定用户界面
+- 每个生物群系或区域的自定义效果预设
 - 基于区域的世界 ID 重新映射
 - 通过服务器 UI 表单的员工审核工具
-- 脚本化的 NPC 或假实体语音逻辑
+- 脚本化 NPC 或假实体语音逻辑
 
 ## 基本集成模型
 
@@ -69,19 +77,32 @@ VoiceCraft `v1.6.1` expands this event-driven path with broadcasted events used 
 1. 连接到 VoiceCraft 传输
 2. 验证
 3. 创建或发现实体
-4.绑定玩家
-5. 在刻度或事件上更新世界 ID/位置/旋转
+4. 绑定玩家
+5. 根据刻度或事件更新世界 ID/位置/旋转
 6. 对数据包级更新做出反应
 
-## 重要的实施说明
+对于 BDS，这通常意味着 `Core.McHttp`。对于本地世界，它通常意味着 `Core.McWss`。
 
-- `McWss` mode depends on command tunnel throughput
+## 重要实施说明
+
+- `McWss` 模式取决于命令隧道吞吐量
 - 效果切换通过位掩码进行编码
-- 数据包级自动化应在真实的基岩版本上仔细测试
+- 数据包级自动化应该在真实的 Bedrock 构建上仔细测试
 - 当依赖广播事件或游戏内语音图标时，保持插件包与 VoiceCraft 版本保持一致
+- 避免发送不必要的高频更新；位置更新很有用，但嘈杂的自定义数据包循环可能会导致不稳定
+- 将传输登录令牌视为服务器凭据，而不是面向玩家的值
 
 ## 推荐做法
 
-- start from `Basic` if you need a working reference
-- switch to `Core.McHttp` or `Core.McWss` when building a custom experience
+- 如果您需要工作参考，请从 `Basic` 开始
+- 构建自定义体验时切换到 `Core.McHttp` 或 `Core.McWss`
 - 首先保持你的世界自动化精简，然后逐渐扩展数据包挂钩
+- 至少与两个玩家一起验证每个自定义功能，以便执行接近和绑定行为
+
+## 调试自定义逻辑
+
+1. 确认库存插件可以连接并绑定。
+2. 添加一个自定义事件或数据包挂钩。
+3. 检查 VoiceCraft 服务器是否仍能看到实体更新。
+4. 如果您的逻辑更改了世界 ID，请测试跨世界/维度的移动。
+5. 在指责传输或音频设置之前禁用自定义代码。

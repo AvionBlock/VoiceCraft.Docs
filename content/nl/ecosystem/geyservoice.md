@@ -1,51 +1,55 @@
-# GeyserVoice (Java / Geyser Bridge)
+# GeyserVoice (Java / Geiserbrug)
 
-Repository: [AvionBlock/GeyserVoice](https://github.com/AvionBlock/GeyserVoice)
+Opslagplaats: [AvionBlock/GeyserVoice](https://github.com/AvionBlock/GeyserVoice)
 
-`GeyserVoice` connects Java-side infrastructure to `VoiceCraft.Server` through the `McTcp` transport.
+`GeyserVoice` verbindt de Java-infrastructuur met `VoiceCraft.Server` via het `McTcp`-transport.
+
+In het GeyserVoice-project wordt dit pad ook beschreven als `McApi TCP`. In de VoiceCraft-serverconfiguratie komt dit overeen met `McTcpConfig`.
 
 Het ondersteunt:
 
-- directe Paper/Folia-deployment
-- Velocity-proxydeployment
+- directe Paper / Folia-implementatie
+- Implementatie van snelheidsproxy
 - BungeeCord-proxy-implementatie
 - gemengde proxy + backend-topologieën
 
 ## Wat GeyserVoice doet
 
-`GeyserVoice` bridges player state from Java-side servers into VoiceCraft:
+`GeyserVoice` overbrugt de spelerstatus van Java-servers naar VoiceCraft:
 
-- levenscyclus van speler
-- positie- / wereldsnapshots
-- bindstroom
+- levenscyclus van de speler
+- positie / wereldsnapshots
+- stroom binden
 - proxy relaying voor netwerken met meerdere servers
 
 Het is niet zomaar een eenvoudige pakketforwarder. In de directe Paper-modus kan het ook een lokale VoiceCraft-runtime beheren.
 
-## Heel belangrijk: GeyserVoice kan VoiceCraft op de achtergrond starten
+## Heel belangrijk: GeyserVoice kan VoiceCraft onder de motorkap draaien
 
 Bij directe Paper-installaties kan de plug-in automatisch:
 
 - download de VoiceCraft-runtime
 - installeer het in een geconfigureerde map
-- start het proces
+- het proces starten
 - wacht tot het klaar is
-- stop het optioneel wanneer de plug-in wordt uitgeschakeld
+- stop het eventueel als de plug-in wordt uitgeschakeld
 
-This behavior is controlled through the `config.voicecraft.*` block.
+Dit gedrag wordt bestuurd via het blok `config.voicecraft.*`.
 
 Dat maakt GeyserVoice geschikt voor zowel:
 
-- using an already-managed external `VoiceCraft.Server`
-- de plug-in laten opstarten en VoiceCraft voor u uitvoeren
+- met behulp van een reeds beheerde externe `VoiceCraft.Server`
+- laat de plug-in opstarten en VoiceCraft voor u uitvoeren
+
+Als GeyserVoice de runtime beheert, maakt deze nog steeds verbinding via hetzelfde `McTcp`/`McApi TCP` pad. Het verschil is wie het VoiceCraft-proces start.
 
 ## Ondersteunde plug-inplatforms
 
 Van huidige broncode:
 
 - Paper / Folia
-- Velocity
-- BungeeCord
+- Snelheid
+- Bungeekoord
 
 ## Runtime-paden
 
@@ -54,7 +58,7 @@ Huidige ondersteunde paden:
 - `Paper -> McTcp -> VoiceCraft`
 - `Paper -> Proxy relay -> McTcp -> VoiceCraft`
 
-## `config.yml` layout
+## `config.yml`-indeling
 
 Huidige Paper-configuratiestructuur:
 
@@ -64,7 +68,7 @@ Schakel de foutopsporingsmodus voor plug-ins in.
 
 ### `config.lang`
 
-Plugin language, for example `system`.
+Plugintaal, bijvoorbeeld `system`.
 
 ### `config.auto-reconnect`
 
@@ -76,28 +80,54 @@ Of het huidige knooppunt aan de Paper-zijde achter een door een proxy beheerd re
 
 ### `config.voicecraft.*`
 
-Verbindings- en runtimebeheerblok:
+Verbindings- en runtimebeheerblok.
 
-- `host`
-- `port`
-- `login-token`
+Huidige geneste vorm:
+
+```yml
+config:
+  voicecraft:
+    transport:
+      host: "127.0.0.1"
+      port: 9050
+      login-token: "__GENERATED_LOGIN_TOKEN__"
+    voice:
+      port: 1111
+    auto-start: true
+    shutdown-on-disable: true
+    invariant-globalization: true
+    ready-timeout-ms: 20000
+    install-directory: "voicecraft-runtime"
+```
+
+- `transport.host`
+- `transport.port`
+- `transport.login-token`
+- `voice.port`
 - `auto-start`
 - `shutdown-on-disable`
+- `invariant-globalization`
 - `ready-timeout-ms`
 - `install-directory`
 
 Betekenis:
 
-- `host` / `port` / `login-token`
-  target `VoiceCraft.Server` / `McTcp`
+- `transport.host` / `transport.port` / `transport.login-token`
+  doel `VoiceCraft.Server` / `McTcp`
+- `voice.port`
+  VoiceCraft runtime-stempoort gebruikt door het beheerde runtime-pad
 - `auto-start`
   laat de plug-in de VoiceCraft-runtime automatisch starten
 - `shutdown-on-disable`
   stop de beheerde runtime wanneer de plug-in wordt verwijderd
+- `invariant-globalization`
+  runtime-globaliseringsoptie, handig voor het starten van beheerde servers
 - `ready-timeout-ms`
   hoe lang de plug-in wacht totdat de runtime gereed is
 - `install-directory`
   waar de beheerde runtime is geïnstalleerd
+
+Op Velocity en BungeeCord behoudt de configuratie de vorm `config.voicecraft.transport.*` en `config.voicecraft.voice.*`, maar maakt geen gebruik van de door Paper-only beheerde runtime-velden.
 
 ### `config.voice.*`
 
@@ -124,7 +154,7 @@ Extra link-/cachestructuur gebruikt door de plug-in.
 
 ## Commando's
 
-From `BaseVoiceCommand`:
+Van `BaseVoiceCommand`:
 
 - `connect <host> <port> <key>`
 - `reconnect [true|false]`
@@ -157,33 +187,37 @@ Beste wanneer:
 - u de eenvoudigste installatie aan de Java-kant wilt
 - u wilt dat GeyserVoice de VoiceCraft-runtime voor u beheert
 
-Zie [Direct Paper-handleiding](/ecosystem/geyservoice-direct-paper).
+Zie [Direct Paper Guide](/ecosystem/geyservoice-direct-paper).
 
 ## Proxy-modus
 
 Beste wanneer:
 
 - je gebruikt Velocity of BungeeCord
-- u beschikt over meerdere backend Paper-servers
+- je hebt verschillende backend Paper-servers
 - u wilt één centrale VoiceCraft-verbinding op de proxy
 
-Zie [Proxyhandleiding](/ecosystem/geyservoice-proxy).
+Zie [Proxy Guide](/ecosystem/geyservoice-proxy).
+
+In de proxymodus mogen backend Paper-servers niet worden behandeld als de centrale eigenaar van de VoiceCraft-verbinding. De proxy is eigenaar van de `McTcp`-verbinding en backend-knooppunten bieden momentopnamen van spelers.
 
 ## Technische opmerkingen
 
-- plugin messaging channel: `geyservoice:main`
+- plug-in berichtenkanaal: `geyservoice:main`
 - in de proxymodus kunnen wereld-ID's een naamruimte krijgen met de backend-identiteit
-- the plugin currently uses `McTcp` as the VoiceCraft-facing bridge
+- de plug-in gebruikt momenteel `McTcp` als de VoiceCraft-gerichte brug
 
 ## Huidige codebeperkingen
 
-- `updatefake` is still a placeholder
-- `settings` exists but currently has minimal practical logic
+- `updatefake` is nog steeds een tijdelijke aanduiding
+- `settings` bestaat maar heeft momenteel minimale praktische logica
 
-## Productiecontrolelijst
+## Controlelijst voor productie
 
 1. Bepaal of Paper de VoiceCraft-runtime zelf moet beheren.
-2. If yes, configure `auto-start`, `install-directory`, and `ready-timeout-ms`.
-3. If no, point `host`, `port`, and `login-token` at an external VoiceCraft server.
-4. Beperk opdrachten die alleen voor het personeel bestemd zijn.
-5. Test de bindingsstroom en positie-updates voordat deze voor spelers wordt geopend.
+2. Zo ja, configureer dan `auto-start`, `install-directory` en `ready-timeout-ms`.
+3. Zo nee, wijs `config.voicecraft.transport.host`, `config.voicecraft.transport.port` en `config.voicecraft.transport.login-token` naar een externe VoiceCraft-server.
+4. Beperk opdrachten die alleen voor het personeel beschikbaar zijn.
+5. Test de bindingsstroom en positie-updates voordat u deze opent voor spelers.
+6. Bevestig `McTcpConfig.Enabled = true` aan de VoiceCraft-kant.
+7. Bevestig dat het token overeenkomt met `McTcpConfig.LoginToken`.

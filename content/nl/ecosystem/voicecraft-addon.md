@@ -1,27 +1,32 @@
 # VoiceCraft.Addon (Bedrock-add-on)
 
-Repository: [AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
+Opslagplaats: [AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
 
 Deze repository bevat praktische Bedrock add-on-pakketten en het McApi-oppervlak aan de scriptzijde voor aangepaste wereldlogica.
 
+Gebruik het wanneer Minecraft Bedrock de bron is van de speler/entiteitsstatus. De add-on verbindt Bedrock-werelden met de VoiceCraft-server via `McHttp` of `McWss`, en stelt vervolgens de bindstroom, UI, gebeurtenissen en pakkethelpers voor wereldscripts beschikbaar.
+
 Snelle links:
 
-- [Downloadpagina](/download)
-- [Addon-configurator](/addon-configurator)
-- [Addon-releases] (https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
+- [Download Page](/download)
+- [Addon Configurator](/addon-configurator)
+- [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
 
 ## Pakketten
 
-1. `Basic`
-   kant-en-klare add-on met bindstroom, gebruikersinterface voor instellingen en stemindicatoren in de game
-2. `Core.McHttp`
-   Bedrock-transportpakket voor op HTTP gebaseerde integratie
-3. `Core.McWss`
-   websocket / command-tunnel transportpakket
+| Pakket | Doel | Gebruik wanneer |
+|---------|---------|----------|
+| `Basic` | kant-en-klare bindstroom, gebruikersinterface voor instellingen, stemindicatoren in de game, algemene scriptgebeurtenissen | je wilt een werkreferentie of standaard Bedrock-gedrag |
+| `Core.McHttp` | HTTP-transportpakket | u gebruikt Bedrock Dedicated Server |
+| `Core.McWss` | websocket / command-tunnel transportpakket | je runt een lokale Bedrock-wereld of testopstelling |
+
+De meeste echte Bedrock-opstellingen combineren een transportpakket met de gedrags-/UI-onderdelen die de wereld nodig heeft.
 
 ## Versie-uitlijning
 
-VoiceCraft `v1.6.1` requires updating the addon packages together with the client/server release. This release includes in-game voice icons, auto connection quality-of-life, broadcasted events, and McHttp/McWss disconnect fixes that depend on the matching addon-side packages.
+VoiceCraft `v1.6.1` vereist het bijwerken van de add-onpakketten samen met de client/server-release. Deze release bevat in-game stempictogrammen, automatische verbindingskwaliteit, uitgezonden evenementen en McHttp/McWss-oplossingen voor het verbreken van de verbinding die afhankelijk zijn van de overeenkomende add-on-side pakketten.
+
+Upgrade de server/client niet en laat een oud add-onpakket in de wereld achter. Niet-overeenkomende pakketten kunnen verbinding maken, maar mislukken later tijdens bindings-, gebeurtenis- of pictogramgedrag.
 
 ## Naamruimte
 
@@ -34,91 +39,109 @@ Voor alle pakketten:
 ### Basis
 
 - `voicecraft:vcbind <binding_key>`
-  permission: `Any`
+  toestemming: `Any`
 - `voicecraft:vcsettings`
-  permission: `GameDirectors`
+  toestemming: `GameDirectors`
 
-### Core.McHttp
+### Kern.McHttp
 
 - `voicecraft:vcconnect <hostname> <token>`
-  permission: `GameDirectors`
+  toestemming: `GameDirectors`
 
-### Core.McWss
+### Kern.McWss
 
 - `voicecraft:vcconnect <token>`
-  permission: `Host`
+  toestemming: `Host`
 - `voicecraft:data_tunnel [max_string_length] [data]`
-  permission: `Host`
+  toestemming: `Host`
 
-## Wat het Basispakket je geeft
+## Wat het Basispakket u biedt
 
 - stroom binden/ontbinden
 - gebruikersinterface voor spelerinstellingen
-- effectschakelaars
+- effect schakelt
 - scriptgebeurtenissen voor automatisering
+- in-game indicatoren gebruikt door ondersteunde releases
+
+Begin vanaf `Basic` als je de verwachte spelerservaring wilt begrijpen voordat je aangepaste add-onlogica schrijft.
 
 ## Bind stroomdetails
 
 Van de huidige implementatie:
 
 1. een nieuwe netwerkentiteit ontvangt een willekeurige bindende sleutel van 5 tekens
-2. De entiteitsbeschrijving wordt bijgewerkt met de sleutelprompt
-3. player runs `voicecraft:vcbind <key>`
+2. entiteitsbeschrijving wordt bijgewerkt met de sleutelprompt
+3. speler loopt `voicecraft:vcbind <key>`
 4. entiteit bindt aan de speler
-5. Bij verlof wordt de verbinding verbroken en wordt er een nieuwe sleutel gegenereerd
+5. bij verlof wordt de verbinding verbroken en wordt er een nieuwe sleutel gegenereerd
 
 Scriptgebeurtenissen:
 
 - `voicecraft:onPlayerBind`
 - `voicecraft:onPlayerUnbind`
 
-VoiceCraft `v1.6.1` also broadcasts more addon-side lifecycle and packet events so custom worlds can react without polling the transport layer directly.
+VoiceCraft `v1.6.1` zendt ook meer levenscyclus- en pakketgebeurtenissen aan de add-onzijde uit, zodat aangepaste werelden kunnen reageren zonder de transportlaag rechtstreeks te ondervragen.
+
+De bindende sleutel is opzettelijk kort omdat deze in het spel wordt getypt. Behandel het als een tijdelijk linktoken, niet als een langetermijngeheim.
 
 ## Effecten-UI
 
-`voicecraft:vcsettings` currently exposes:
+`voicecraft:vcsettings` toont momenteel:
 
 - Zichtbaarheid
 - Nabijheid
 - Directioneel
 - Nabijheidsecho
 - Echo
-- Nabijheidsdemper
-- Moffel
+- Nabijheid dempen
+- Dempen
 
-Effects are sent through `McApiSetEffectRequestPacket`.
+Effecten worden verzonden via `McApiSetEffectRequestPacket`.
 
-## Wat je kunt aanpassen
+## Wat u kunt aanpassen
 
 - beleid binden/ontbinden
 - op rollen of tags gebaseerde beperkingen
-- wereld-ID-regels
-- Positie-/rotatie-updategedrag
-- staff forms through `@minecraft/server-ui`
+- wereld ID-regels
+- updategedrag positie/rotatie
+- personeelsformulieren via `@minecraft/server-ui`
 - pakketbehandelaars rond het McApi-oppervlak
+
+Alleen aanpassen nadat een basisvoorraadconfiguratie werkt. Dat geeft u een bekende goede basislijn voor transport-, bind- en positiegedrag.
 
 ## Huidige beperkingen
 
-- `Core.McWss` stability depends on command and payload limits
+- De stabiliteit van `Core.McWss` is afhankelijk van de commando- en payloadlimieten
+- host-/providerbeperkingen kunnen het netwerkpad blokkeren dat vereist is door `Core.McHttp`
+- aangepaste pakketbehandelaars moeten worden getest op de doelversie van Bedrock
 
-## Aanbevolen configuratie: BDS
+## Aanbevolen opstelling: BDS
 
-1. enable `McHttpConfig.Enabled = true`
-2. ensure BDS can reach `McHttpConfig.Hostname`
-3. copy the `Core.McHttp` package
-4. run `voicecraft:vcconnect <hostname> <token>`
-5. validate bind with `voicecraft:vcbind <key>`
+1. schakel `McHttpConfig.Enabled = true` in
+2. zorg ervoor dat BDS `McHttpConfig.Hostname` kan bereiken
+3. kopieer het `Core.McHttp` pakket
+4. voer `voicecraft:vcconnect <hostname> <token>` uit
+5. valideer de binding met `voicecraft:vcbind <key>`
 
-## Aanbevolen configuratie: lokale wereld
+## Aanbevolen opstelling: lokale wereld
 
-1. enable `McWss`
-2. install `Core.McWss`
-3. run `/connect`
-4. run `voicecraft:vcconnect <token>`
-5. keep `voicecraft:data_tunnel` aligned with server config
+1. schakel `McWss` in
+2. installeer `Core.McWss`
+3. voer `/connect` uit
+4. voer `voicecraft:vcconnect <token>` uit
+5. houd `voicecraft:data_tunnel` afgestemd op de serverconfiguratie
+
+## Validatiechecklist
+
+- het juiste transportpakket is geïnstalleerd
+- zowel gedrags- als resourcepakketten zijn actief
+- `vcconnect` gebruikt het token uit de overeenkomende serverconfiguratiesectie
+- speler kan binden met `voicecraft:vcbind <key>`
+- beweging van de speler verandert positiegegevens in VoiceCraft
+- effecten UI wordt geopend voor geautoriseerde gebruikers
 
 ## Lees het volgende
 
-- [Add-on-API](/ecosystem/addon-api)
-- [McHttp voor BDS](/minecraft/mchttp-bds)
-- [McWss voor werelden voor één speler](/minecraft/mcwss-singleplayer)
+- [Addon API](/ecosystem/addon-api)
+- [McHttp for BDS](/minecraft/mchttp-bds)
+- [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)

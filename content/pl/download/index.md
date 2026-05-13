@@ -1,8 +1,14 @@
 ---
-SEO:
-  tytuł: Pobierz
-  opis: Pobierz najnowsze wersje klienta i serwera VoiceCraft dla swojej platformy.
+seo:
+  title: Pobierz
+  description: Pobierz najnowsze wersje klienta i serwera VoiceCraft dla swojej platformy.
 ---
+
+Pobierz elementy pasujące do Twojej topologii. Większość konfiguracji wymaga co najmniej jednego pakietu `VoiceCraft.Server` i jednego pakietu `VoiceCraft.Client` na gracza.
+
+Wdrożenia serwera dedykowanego Bedrock wymagają także pakietu `VoiceCraft.Addon.Core.McHttp` lub skonfigurowanego archiwum światowego z [Addon Configurator](/addon-configurator). Lokalne światy Bedrock zwykle używają `VoiceCraft.Addon.Core.McWss`. Wdrożenia Java/Geyser korzystają z `GeyserVoice` i transportu `McTcp`.
+
+Po pobraniu przejdź do [Quick Start](/start/quick-start) lub przewodnika po transporcie.
 
 ::voice-craft-downloads
 ::

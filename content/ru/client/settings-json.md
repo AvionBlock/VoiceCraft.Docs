@@ -1,13 +1,22 @@
-# Settings.json
+# Настройки.json
 
 Файл настроек клиента: `Settings.json`.
 
-## Где лежит файл
+Клиент записывает этот файл автоматически. Используйте пользовательский интерфейс для обычных изменений и редактируйте JSON только для восстановления, автоматизации или расширенного устранения неполадок.
+
+Перед ручным редактированием:
+
+1. Закройте клиент.
+2. Создайте резервную копию `Settings.json`.
+3. Меняйте по одному разделу за раз.
+4. Снова откройте клиент и убедитесь, что пользовательский интерфейс все еще загружается.
+
+## Местоположение файла
 
 - Windows: `%AppData%/voicecraft/Settings.json`
 - Linux: `~/.config/voicecraft/Settings.json`
 - macOS: `~/Library/Application Support/voicecraft/Settings.json`
-- Android / iOS: внутри sandbox (`ApplicationData`)
+- Android/iOS: внутри песочницы приложения (`ApplicationData`)
 
 ## Полный пример
 
@@ -74,111 +83,160 @@
 }
 ```
 
-## Верхнеуровневые поля
+## Поля верхнего уровня
 
-- `UserGuid`
-- `ServerUserGuid`
-- `InputSettings`
-- `OutputSettings`
-- `LocaleSettings`
-- `NotificationSettings`
-- `ServersSettings`
-- `ThemeSettings`
-- `NetworkSettings`
-- `HotKeySettings`
-- `UserSettings`
+- `UserGuid`:
+  идентификатор локального клиента.
+- `ServerUserGuid`:
+  сохраненный идентификатор GUID/совместимости на стороне сервера, используемый клиентом.
+- `InputSettings`:
+  микрофон и предварительная обработка.
+- `OutputSettings`:
+  настройки воспроизведения.
+- `LocaleSettings`:
+  Язык пользовательского интерфейса.
+- `NotificationSettings`:
+  поведение тоста.
+- `ServersSettings`:
+  сохраненные серверы VoiceCraft.
+- `ThemeSettings`:
+  выбранная тема и фон.
+- `NetworkSettings`:
+  режим позиционирования и значения прослушивателя McWss.
+- `HotKeySettings`:
+  настраиваемые горячие клавиши.
+- `UserSettings`:
+  локальные настройки для каждого удаленного пользователя.
 
-## InputSettings
+## Настройки ввода
 
 - `InputDevice`:
-  имя входного устройства.
+  имя устройства ввода.
 - `InputCapturePreset`:
-  профиль захвата, по умолчанию `VoiceCommunication`.
+  предустановка захвата платформы, по умолчанию `VoiceCommunication`.
 - `InputVolume`:
-  усиление `0..2`.
+  входное усиление `0..2`.
 - `MicrophoneSensitivity`:
-  порог активации `0..1`.
+  порог активности `0..1`.
 - `AutomaticGainController`:
-  GUID выбранного AGC.
+  выбранный GUID реализации AGC.
 - `Denoiser`:
-  GUID выбранного denoiser-а.
+  выбранный GUID шумоподавителя.
 - `EchoCanceler`:
-  GUID выбранного echo canceler-а.
+  выбранный GUID эхокомпенсатора.
 - `PushToTalkEnabled`:
-  включает push-to-talk.
+  логический флаг для режима «нажми и говори».
 - `PushToTalkCue`:
-  локальный аудиосигнал для PTT.
+  логический флаг для локальных звуков реплик.
 
-## OutputSettings
+## Настройки вывода
 
-- `OutputDevice`
-- `OutputVolume`
-- `AudioClipper`
+- `OutputDevice`:
+  имя устройства вывода.
+- `OutputVolume`:
+  усиление воспроизведения `0..2`.
+- `AudioClipper`:
+  выбранный GUID клипера.
 
-## LocaleSettings
+## Настройки локали
 
 - `Culture`:
-  локаль вроде `en-US`, `ru-RU`, `nl-NL`, `de-DE`, `pl-PL`, `zh-CN`, `zh-TW`.
+  локаль, например `en-US`, `ru-RU`, `nl-NL`, `de-DE`, `pl-PL`, `zh-CN`, `zh-TW`.
 
-## NotificationSettings
+## Настройки уведомлений
 
-- `DisableNotifications`
-- `DismissDelayMs`
+- `DisableNotifications`:
+  отключает уведомления клиентов.
+- `DismissDelayMs`:
+  таймаут уведомления в миллисекундах.
 
-## ServersSettings
+## Настройки серверов
 
-- `HideServerAddresses`
-- `Servers`
+- `HideServerAddresses`:
+  маскирует список хостов в пользовательском интерфейсе.
+- `Servers`:
+  сохраненные записи сервера.
 
-Каждый `Servers[]` элемент:
+Каждый элемент `Servers[]`:
 
 - `Name`:
-  отображаемое имя, максимум `12` символов
+  отображаемое имя, максимум `12` символов.
 - `Ip`:
-  хост или IP, максимум `30` символов
+  хост/IP, максимум `30` символов.
 - `Port`:
-  UDP порт `1..65535`
+  UDP-порт `1..65535`.
 
-## ThemeSettings
+Записи сервера указывают на конечную точку VoiceCraft UDP из `VoiceCraftConfig.Port`. Они отличаются от конечных точек транспорта Minecraft `McHttp`, `McWss` или `McTcp`.
 
-- `SelectedBackgroundImage`
-- `SelectedTheme`
+## Настройки темы
 
-## NetworkSettings
+- `SelectedBackgroundImage`:
+  встроенный фоновый GUID.
+- `SelectedTheme`:
+  встроенный GUID темы.
+
+## Настройки сети
 
 - `PositioningType`:
   `0 = Server`, `1 = Client`
-- `McWssListenIp`
-- `McWssHostPort`
+- `McWssListenIp`:
+  локальный адрес привязки/прослушивания веб-сокета.
+- `McWssHostPort`:
+  локальный хост-порт веб-сокета.
 
-Этот режим обязан совпадать с `VoiceCraftConfig.PositioningType` на сервере.
+Это значение должно соответствовать `VoiceCraftConfig.PositioningType` на сервере.
 
-## HotKeySettings
+`McWssListenIp` и `McWssHostPort` предназначены для поведения локального веб-сокета, связанного с McWss. Они не заменяют сохраненный список серверов VoiceCraft, используемый для голосового трафика.
 
-`HotKeySettings.Bindings` это `Dictionary<string, string>`.
+## Настройки горячих клавиш
+
+`HotKeySettings.Bindings` — это `Dictionary<string, string>`.
 
 Типичные ключи:
 
 - `Mute`
 - `Deafen`
 
-## UserSettings
+Точное сериализованное значение зависит от серверной части ввода рабочего стола и анализатора ключей.
 
-`UserSettings.Users` это словарь, где ключом выступает `Guid` удалённого пользователя.
+## Пользовательские настройки
+
+`UserSettings.Users` — это словарь, созданный удаленным пользователем `Guid`.
 
 Каждое значение содержит:
 
-- `Volume`
-- `UserMuted`
+- `Volume`:
+  множитель объема на стороне клиента.
+- `UserMuted`:
+  локальное отключение звука на стороне клиента.
 
-Это персональные клиентские настройки, а не серверная модерация.
+Эти значения не заменяют модерацию сервера; это личные предпочтения клиента.
 
 ## Важные диапазоны
 
 - `InputVolume`: `0..2`
 - `OutputVolume`: `0..2`
 - `MicrophoneSensitivity`: `0..1`
-- `Servers[].Name`: до `12` символов
-- `Servers[].Ip`: до `30` символов
+- `Servers[].Name`: до `12` символов.
+- `Servers[].Ip`: до `30` символов.
 - `Servers[].Port`: `1..65535`
 - `McWssHostPort`: `0..65535`
+
+## Передовая практика
+
+- не используйте вручную значения `LoginToken` в качестве пользовательских настроек
+- поддерживать `PositioningType` в соответствии с сервером
+- при устранении неполадок со звуком сбросьте `InputDevice` и `OutputDevice` на `Default`.
+- если устройство исчезает, позвольте клиенту повторно создать соответствующее поле вместо копирования конфигурации старой машины.
+- не публикуйте `Settings.json` публично, если он содержит адреса частных серверов
+- избегайте копирования полного файла настроек между игроками; скопируйте только хост/порт сервера, если необходимо
+
+## Сбросить стратегию
+
+Если клиент становится непригодным для использования после ручного редактирования:
+
+1. Закройте клиент.
+2. Переместите `Settings.json` в качестве резервной копии.
+3. Запустите клиент и позвольте ему сгенерировать новый файл.
+4. Повторно добавьте запись сервера.
+5. Перенастройте аудиоустройства и горячие клавиши.

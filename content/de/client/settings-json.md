@@ -1,13 +1,22 @@
 # Settings.json
 
-Client settings file: `Settings.json`.
+Client-Einstellungsdatei: `Settings.json`.
+
+Der Client schreibt diese Datei automatisch. Verwenden Sie die Benutzeroberfläche für normale Änderungen und bearbeiten Sie JSON nur für Wiederherstellung, Automatisierung oder erweiterte Fehlerbehebung.
+
+Vor manuellen Änderungen:
+
+1. Schließen Sie den Client.
+2. Sichern Sie `Settings.json`.
+3. Ändern Sie jeweils einen Abschnitt.
+4. Öffnen Sie den Client erneut und überprüfen Sie, ob die Benutzeroberfläche weiterhin geladen wird.
 
 ## Dateispeicherort
 
 - Windows: `%AppData%/voicecraft/Settings.json`
 - Linux: `~/.config/voicecraft/Settings.json`
 - macOS: `~/Library/Application Support/voicecraft/Settings.json`
-- Android / iOS: inside the app sandbox (`ApplicationData`)
+- Android / iOS: in der App-Sandbox (`ApplicationData`)
 
 ## Vollständiges Beispiel
 
@@ -104,11 +113,11 @@ Client settings file: `Settings.json`.
 - `InputDevice`:
   Geben Sie den Namen des Eingabegeräts ein.
 - `InputCapturePreset`:
-  platform capture preset, default `VoiceCommunication`.
+  Plattformerfassungsvoreinstellung, Standard `VoiceCommunication`.
 - `InputVolume`:
-  input gain `0..2`.
+  Eingangsverstärkung `0..2`.
 - `MicrophoneSensitivity`:
-  activity threshold `0..1`.
+  Aktivitätsschwellenwert `0..1`.
 - `AutomaticGainController`:
   ausgewählte AGC-Implementierungs-GUID.
 - `Denoiser`:
@@ -125,14 +134,14 @@ Client settings file: `Settings.json`.
 - `OutputDevice`:
   Name des Ausgabegeräts.
 - `OutputVolume`:
-  playback gain `0..2`.
+  Wiedergabeverstärkung `0..2`.
 - `AudioClipper`:
   ausgewählte Clipper-GUID.
 
-## LocaleSettings
+## Gebietsschemaeinstellungen
 
 - `Culture`:
-  locale such as `en-US`, `ru-RU`, `nl-NL`, `de-DE`, `pl-PL`, `zh-CN`, `zh-TW`.
+  Gebietsschema wie `en-US`, `ru-RU`, `nl-NL`, `de-DE`, `pl-PL`, `zh-CN`, `zh-TW`.
 
 ## Benachrichtigungseinstellungen
 
@@ -148,16 +157,18 @@ Client settings file: `Settings.json`.
 - `Servers`:
   gespeicherte Servereinträge.
 
-Each `Servers[]` item:
+Jedes `Servers[]`-Element:
 
 - `Name`:
-  display name, max `12` chars.
+  Anzeigename, max. `12` Zeichen.
 - `Ip`:
-  host / IP, max `30` chars.
+  Host/IP, max. `30` Zeichen.
 - `Port`:
-  UDP port `1..65535`.
+  UDP-Port `1..65535`.
 
-## ThemeSettings
+Servereinträge verweisen auf den VoiceCraft UDP-Endpunkt von `VoiceCraftConfig.Port`. Sie sind nicht mit den Minecraft-Transportendpunkten `McHttp`, `McWss` oder `McTcp` identisch.
+
+## Themeneinstellungen
 
 - `SelectedBackgroundImage`:
   Integrierte Hintergrund-GUID.
@@ -173,11 +184,13 @@ Each `Servers[]` item:
 - `McWssHostPort`:
   lokaler WebSocket-Host-Port.
 
-This value must match `VoiceCraftConfig.PositioningType` on the server.
+Dieser Wert muss mit `VoiceCraftConfig.PositioningType` auf dem Server übereinstimmen.
+
+`McWssListenIp` und `McWssHostPort` beziehen sich auf McWss-bezogenes lokales Websocket-Verhalten. Sie ersetzen nicht die gespeicherte VoiceCraft-Serverliste, die für den Sprachverkehr verwendet wird.
 
 ## HotKeySettings
 
-`HotKeySettings.Bindings` is a `Dictionary<string, string>`.
+`HotKeySettings.Bindings` ist ein `Dictionary<string, string>`.
 
 Typische Schlüssel:
 
@@ -188,7 +201,7 @@ Der genaue serialisierte Wert hängt vom Desktop-Eingabe-Backend und Schlüsselp
 
 ## Benutzereinstellungen
 
-`UserSettings.Users` is a dictionary keyed by remote user `Guid`.
+`UserSettings.Users` ist ein Wörterbuch, das vom Remote-Benutzer `Guid` eingegeben wurde.
 
 Jeder Wert enthält:
 
@@ -204,14 +217,26 @@ Diese Werte ersetzen nicht die Servermoderation; es handelt sich um persönliche
 - `InputVolume`: `0..2`
 - `OutputVolume`: `0..2`
 - `MicrophoneSensitivity`: `0..1`
-- `Servers[].Name`: up to `12` chars
-- `Servers[].Ip`: up to `30` chars
+- `Servers[].Name`: bis zu `12` Zeichen
+- `Servers[].Ip`: bis zu `30` Zeichen
 - `Servers[].Port`: `1..65535`
 - `McWssHostPort`: `0..65535`
 
 ## Gute Praktiken
 
-- do not manually reuse `LoginToken` values as user settings
-- keep `PositioningType` aligned with server
-- if troubleshooting audio, reset `InputDevice` and `OutputDevice` to `Default`
+- Verwenden Sie `LoginToken`-Werte nicht manuell als Benutzereinstellungen wieder
+- Halten Sie `PositioningType` am Server ausgerichtet
+- Wenn Sie Audioprobleme beheben, setzen Sie `InputDevice` und `OutputDevice` auf `Default` zurück.
 - Wenn ein Gerät verschwindet, lassen Sie den Client das entsprechende Feld neu generieren, anstatt die Konfiguration einer alten Maschine zu kopieren
+- Geben Sie `Settings.json` nicht öffentlich weiter, wenn es private Serveradressen enthält
+- Vermeiden Sie das Kopieren einer vollständigen Einstellungsdatei zwischen Spielern. Kopieren Sie bei Bedarf nur den Serverhost/-port
+
+## Strategie zurücksetzen
+
+Wenn der Client nach manuellen Bearbeitungen unbrauchbar wird:
+
+1. Schließen Sie den Client.
+2. Verschieben Sie `Settings.json` als Backup beiseite.
+3. Starten Sie den Client und lassen Sie ihn eine neue Datei generieren.
+4. Fügen Sie den Servereintrag erneut hinzu.
+5. Audiogeräte und Hotkeys neu konfigurieren.

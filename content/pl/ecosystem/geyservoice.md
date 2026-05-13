@@ -1,50 +1,54 @@
-# GeyserVoice (Java / Geyser Bridge)
+# GeyserVoice (Java / Most Gejzerowy)
 
 Repozytorium: [AvionBlock/GeyserVoice](https://github.com/AvionBlock/GeyserVoice)
 
-`GeyserVoice` connects Java-side infrastructure to `VoiceCraft.Server` through the `McTcp` transport.
+`GeyserVoice` łączy infrastrukturę Java z `VoiceCraft.Server` poprzez transport `McTcp`.
+
+W projekcie GeyserVoice ścieżka ta jest również opisana jako `McApi TCP`. W konfiguracji serwera VoiceCraft odpowiada `McTcpConfig`.
 
 Obsługuje:
 
 - bezpośrednie wdrożenie Paper/Folia
-- Wdrażanie proxy Velocity
+- Wdrożenie proxy prędkości
 - Wdrożenie proxy BungeeCord
 - mieszane topologie proxy + backend
 
 ## Co robi GeyserVoice
 
-`GeyserVoice` bridges player state from Java-side servers into VoiceCraft:
+`GeyserVoice` łączy stan gracza z serwerów po stronie Java z VoiceCraft:
 
 - cykl życia gracza
 - migawki pozycji/świata
-- wiązanie przepływu
-- przekazywanie proxy dla sieci wieloserwerowych
+- wiązać przepływ
+- Przekazywanie proxy dla sieci wieloserwerowych
 
-To nie jest tylko prosty forwarder pakietów. W bezpośrednim trybie Paper może także zarządzać lokalnym środowiskiem wykonawczym VoiceCraft.
+To nie jest tylko prosty forwarder pakietów. W trybie Direct Paper może także zarządzać lokalnym środowiskiem wykonawczym VoiceCraft.
 
-## Bardzo ważne: GeyserVoice może uruchomić VoiceCraft w tle
+## Bardzo ważne: GeyserVoice może uruchomić VoiceCraft pod maską
 
 W przypadku bezpośrednich instalacji Paper wtyczka może automatycznie:
 
 - pobierz środowisko wykonawcze VoiceCraft
 - zainstaluj go w skonfigurowanym katalogu
-- rozpocznij proces
-- poczekaj, aż będzie gotowy
-- opcjonalnie zatrzymaj, gdy wtyczka się wyłączy
+- rozpocząć proces
+- poczekaj, aż będzie gotowe
+- opcjonalnie zatrzymaj go, gdy wtyczka się wyłączy
 
-This behavior is controlled through the `config.voicecraft.*` block.
+To zachowanie jest kontrolowane przez blok `config.voicecraft.*`.
 
 To sprawia, że GeyserVoice nadaje się zarówno do:
 
-- using an already-managed external `VoiceCraft.Server`
-- umożliwienie wtyczce ładowania i uruchamiania VoiceCraft za Ciebie
+- przy użyciu już zarządzanego zewnętrznego `VoiceCraft.Server`
+- pozwalając wtyczce na załadowanie i uruchomienie VoiceCraft
+
+Jeśli GeyserVoice zarządza środowiskiem wykonawczym, nadal łączy się tą samą ścieżką `McTcp`/`McApi TCP`. Różnica polega na tym, kto rozpoczyna proces VoiceCraft.
 
 ## Obsługiwane platformy wtyczek
 
 Z aktualnego kodu źródłowego:
 
-- Paper / Folia
-- Velocity
+- Paper/Folia
+- Prędkość
 - BungeeCord
 
 ## Ścieżki wykonawcze
@@ -54,7 +58,7 @@ Aktualnie obsługiwane ścieżki:
 - `Paper -> McTcp -> VoiceCraft`
 - `Paper -> Proxy relay -> McTcp -> VoiceCraft`
 
-## `config.yml` layout
+## Układ `config.yml`
 
 Bieżąca struktura konfiguracji Paper:
 
@@ -64,7 +68,7 @@ Włącz tryb debugowania wtyczki.
 
 ### `config.lang`
 
-Plugin language, for example `system`.
+Język wtyczki, na przykład `system`.
 
 ### `config.auto-reconnect`
 
@@ -76,28 +80,54 @@ Czy bieżący węzeł po stronie Paper działa za przekaźnikiem zarządzanym pr
 
 ### `config.voicecraft.*`
 
-Blok połączenia i zarządzania czasem działania:
+Blok połączenia i zarządzania czasem wykonania.
 
-- `host`
-- `port`
-- `login-token`
+Bieżący kształt zagnieżdżony:
+
+```yml
+config:
+  voicecraft:
+    transport:
+      host: "127.0.0.1"
+      port: 9050
+      login-token: "__GENERATED_LOGIN_TOKEN__"
+    voice:
+      port: 1111
+    auto-start: true
+    shutdown-on-disable: true
+    invariant-globalization: true
+    ready-timeout-ms: 20000
+    install-directory: "voicecraft-runtime"
+```
+
+- `transport.host`
+- `transport.port`
+- `transport.login-token`
+- `voice.port`
 - `auto-start`
 - `shutdown-on-disable`
+- `invariant-globalization`
 - `ready-timeout-ms`
 - `install-directory`
 
 Znaczenie:
 
-- `host` / `port` / `login-token`
-  target `VoiceCraft.Server` / `McTcp`
+- `transport.host` / `transport.port` / `transport.login-token`
+  cel `VoiceCraft.Server` / `McTcp`
+- `voice.port`
+  Port głosowy środowiska wykonawczego VoiceCraft używany przez zarządzaną ścieżkę środowiska wykonawczego
 - `auto-start`
   pozwól wtyczce automatycznie uruchomić środowisko wykonawcze VoiceCraft
 - `shutdown-on-disable`
   zatrzymaj zarządzane środowisko wykonawcze po wyładowaniu wtyczki
+- `invariant-globalization`
+  opcja globalizacji środowiska uruchomieniowego przydatna przy uruchamianiu serwerów zarządzanych
 - `ready-timeout-ms`
   jak długo wtyczka czeka, aż środowisko wykonawcze będzie gotowe
 - `install-directory`
   gdzie jest zainstalowane zarządzane środowisko wykonawcze
+
+W przypadku Velocity i BungeeCord konfiguracja zachowuje kształt `config.voicecraft.transport.*` i `config.voicecraft.voice.*`, ale nie używa pól środowiska wykonawczego zarządzanego tylko w wersji Paperj.
 
 ### `config.voice.*`
 
@@ -124,7 +154,7 @@ Dodatkowa struktura łączy/pamięci podręcznej używana przez wtyczkę.
 
 ## Polecenia
 
-From `BaseVoiceCommand`:
+Od `BaseVoiceCommand`:
 
 - `connect <host> <port> <key>`
 - `reconnect [true|false]`
@@ -149,7 +179,7 @@ Typowe uprawnienia:
 - `voice.bindfake`
 - `voice.reload`
 
-## Tryb bezpośredni Paper
+## Tryb Direct Paper
 
 Najlepiej, gdy:
 
@@ -157,7 +187,7 @@ Najlepiej, gdy:
 - chcesz najprostszej konfiguracji po stronie Java
 - chcesz, aby GeyserVoice zarządzał środowiskiem wykonawczym VoiceCraft za Ciebie
 
-Zobacz [Przewodnik Direct Paper](/ecosystem/geyservoice-direct-paper).
+Zobacz [Direct Paper Guide](/ecosystem/geyservoice-direct-paper).
 
 ## Tryb proxy
 
@@ -167,23 +197,27 @@ Najlepiej, gdy:
 - masz kilka serwerów backendowych Paper
 - chcesz mieć jedno centralne połączenie VoiceCraft na serwerze proxy
 
-Zobacz [Przewodnik proxy](/ecosystem/geyservoice-proxy).
+Zobacz [Proxy Guide](/ecosystem/geyservoice-proxy).
+
+W trybie proxy serwery Backend Paper nie powinny być traktowane jako centralny właściciel połączenia VoiceCraft. Serwer proxy jest właścicielem połączenia `McTcp`, a węzły zaplecza udostępniają migawki odtwarzaczy.
 
 ## Uwagi techniczne
 
-- plugin messaging channel: `geyservoice:main`
+- kanał przesyłania wiadomości o wtyczce: `geyservoice:main`
 - w trybie proxy identyfikatory światowe mogą mieć przestrzeń nazw z tożsamością zaplecza
-- the plugin currently uses `McTcp` as the VoiceCraft-facing bridge
+- wtyczka używa obecnie `McTcp` jako mostu skierowanego do VoiceCraft
 
-## Bieżące ograniczenia kodu
+## Aktualne ograniczenia kodu
 
-- `updatefake` is still a placeholder
-- `settings` exists but currently has minimal practical logic
+- `updatefake` jest nadal symbolem zastępczym
+- `settings` istnieje, ale obecnie ma minimalną praktyczną logikę
 
 ## Lista kontrolna produkcji
 
 1. Zdecyduj, czy Paper powinien sam zarządzać środowiskiem wykonawczym VoiceCraft.
-2. If yes, configure `auto-start`, `install-directory`, and `ready-timeout-ms`.
-3. If no, point `host`, `port`, and `login-token` at an external VoiceCraft server.
-4. Ogranicz wydawanie poleceń wyłącznie dla personelu.
+2. Jeśli tak, skonfiguruj `auto-start`, `install-directory` i `ready-timeout-ms`.
+3. Jeśli nie, wskaż `config.voicecraft.transport.host`, `config.voicecraft.transport.port` i `config.voicecraft.transport.login-token` na zewnętrznym serwerze VoiceCraft.
+4. Ogranicz polecenia tylko dla personelu.
 5. Przetestuj przepływ wiązania i aktualizacje pozycji przed udostępnieniem graczom.
+6. Potwierdź `McTcpConfig.Enabled = true` po stronie VoiceCraft.
+7. Potwierdź, że token pasuje do `McTcpConfig.LoginToken`.

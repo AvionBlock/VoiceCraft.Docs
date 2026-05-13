@@ -1,22 +1,34 @@
 # McHttp voor Bedrock Dedicated Server
 
-`McHttp` is the recommended VoiceCraft integration mode for BDS.
+`McHttp` is de aanbevolen VoiceCraft-integratiemodus voor BDS.
 
-## Why `McHttp` is recommended
+Gebruik deze handleiding als u een Bedrock Dedicated Server gebruikt en wilt dat de add-on aan de serverzijde de spelerstatus naar `VoiceCraft.Server` stuurt.
+
+Doelvorm:
+
+```text
+VoiceCraft.Client -> VoiceCraft UDP endpoint
+BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
+```
+
+## Waarom `McHttp` wordt aanbevolen
 
 - beter geschikt voor dedicated serveromgevingen
 - eenvoudiger dan op commandotunnels gebaseerde instellingen
-- gemakkelijker te redeneren in de productie
-- aligns well with the Bedrock addon package `VoiceCraft.Addon.Core.McHttp`
+- gemakkelijker om over te redeneren in de productie
+- sluit goed aan bij het Bedrock add-onpakket `VoiceCraft.Addon.Core.McHttp`
+- is niet afhankelijk van de lokale `/connect` websocket-workflow die wordt gebruikt door `McWss`
 
 ## Vereisten
 
-1. Running `VoiceCraft.Server`
+1. `VoiceCraft.Server` uitvoeren
 2. `McHttpConfig.Enabled = true`
-3. `VoiceCraft.Addon.Core.McHttp.zip` from releases, or a ready world archive from the [Addon Configurator](/addon-configurator)
+3. `VoiceCraft.Addon.Core.McHttp.zip` uit releases, of een kant-en-klaar wereldarchief uit de [Addon Configurator](/addon-configurator)
 4. BDS met vereiste modules en script-API-ondersteuning
+5. Netwerkbereikbaarheid van de BDS-machine naar de VoiceCraft `McHttpConfig.Hostname`
+6. VoiceCraft-clients geïnstalleerd door spelers
 
-## VoiceCraft-configuratie aan de serverzijde
+## Server-side VoiceCraft-configuratie
 
 Minimaal voorbeeld:
 
@@ -37,23 +49,29 @@ Belangrijk:
 
 - gebruik een echt token, houd het gegenereerde token nooit in productie
 - zorg ervoor dat de BDS-host het geconfigureerde eindpunt kan bereiken
+- gebruik `http://127.0.0.1:9050/` alleen als BDS en VoiceCraft op dezelfde host draaien
+- gebruik een LAN/openbaar adres of `0.0.0.0`-binding wanneer BDS verbinding maakt vanaf een andere machine
 
 ## Installatie van add-ons
 
 Snelste pad:
 
-- [Addon Configurator](/addon-configurator) als u een kant-en-klaar wereldarchief wilt
-- [Downloadpagina](/download) als u het onbewerkte add-on-releasepakket wilt
+- [Addon Configurator](/addon-configurator) als je een kant-en-klaar wereldarchief wilt
+- [Download Page](/download) als u het onbewerkte add-on-releasepakket wilt
 
 Handmatig pad:
 
-1. Extract `VoiceCraft.Addon.Core.McHttp.zip`.
-2. Put `RP` into `<MCServer>/resource_packs/`.
-3. Put `BP` into `<MCServer>/behavior_packs/`.
+1. Pak `VoiceCraft.Addon.Core.McHttp.zip` uit.
+2. Plaats `RP` in `<MCServer>/resource_packs/`.
+3. Plaats `BP` in `<MCServer>/behavior_packs/`.
+4. Bevestig beide pakketten aan de doelwereld.
+5. Start BDS opnieuw na het wijzigen van pakketten of machtigingen.
 
-## Modulerechten
+Het resourcepakket biedt voor de klant zichtbare middelen, zoals pictogrammen. Het gedragspakket voert de scripts en opdrachten uit die BDS met VoiceCraft verbinden.
 
-Open `<MCServer>/config/default/permissions.json` and ensure it contains the required modules:
+## Modulemachtigingen
+
+Open `<MCServer>/config/default/permissions.json` en zorg ervoor dat deze de vereiste modules bevat:
 
 ```json
 {
@@ -67,6 +85,8 @@ Open `<MCServer>/config/default/permissions.json` and ensure it contains the req
   ]
 }
 ```
+
+De add-on heeft netwerkgerelateerde scriptmachtigingen nodig omdat deze het VoiceCraft HTTP-eindpunt aanroept vanuit de BDS-runtime.
 
 ## Bevestig pakketten aan de wereld
 
@@ -102,37 +122,50 @@ Voorbeeld:
 /voicecraft:vcconnect "http://127.0.0.1:9050" e4ad1f7e-4f90-4b21-bc15-6febe580bf1c
 ```
 
-Use the token from `McHttpConfig.LoginToken`.
+Gebruik het token van `McHttpConfig.LoginToken`.
+
+Als BDS op een andere host draait dan VoiceCraft, vervang dan `127.0.0.1` door het adres van de VoiceCraft-server zoals gezien vanaf de BDS-machine.
 
 ## Wat gebeurt er na het verbinden
 
 Na succesvolle verbinding:
 
 - de add-on authenticeert met VoiceCraft
-- de wereld kan entiteiten aanmaken/bijwerken via McApi
-- bind flow becomes available through `voicecraft:vcbind`
+- de wereld kan entiteiten creëren/bijwerken via McApi
+- bindstroom wordt beschikbaar via `voicecraft:vcbind`
 - effecten UI en pakketgestuurde statussynchronisatie worden beschikbaar
+
+In dit stadium is het transport verbonden, maar elke speler heeft nog steeds de VoiceCraft-client en een werkende bindstroom voor proximity-audio nodig.
 
 ## Aanbevolen validatiestroom
 
-1. connect the world with `vcconnect`
-2. Bevestig dat er geen authentificatiefout wordt weergegeven
-3. laat een VoiceCraft-entiteit verschijnen
-4. use `voicecraft:vcbind <key>`
-5. Bevestig dat de speler gebonden en zichtbaar is in VoiceCraft
+1. Start `VoiceCraft.Server` en bevestig `McHttpConfig.Enabled = true`.
+2. Start BDS met de add-on eraan.
+3. Verbind de wereld met `vcconnect`.
+4. Bevestig dat er geen authentificatiefout wordt weergegeven.
+5. Verbind een VoiceCraft-client met `VoiceCraftConfig.Port`.
+6. Gebruik `voicecraft:vcbind <key>`.
+7. Verplaats de speler in het spel en controleer of positie-updates de nabijheid beïnvloeden.
+8. Bevestig dat andere spelers het verwachte bereik kunnen horen.
 
 ## Veelvoorkomende problemen
 
-- `HttpListenerException` on Windows:
-  you may need `netsh http add iplisten 127.0.0.1`
+- `HttpListenerException` op Windows:
+  je hebt mogelijk `netsh http add iplisten 127.0.0.1` nodig
 - container- of VM-netwerken:
-  use `http://0.0.0.0:9050/` or the correct LAN address
+  gebruik `http://0.0.0.0:9050/` of het juiste LAN-adres
 - hostingprovider blokkeert uitgaande HTTP van BDS:
   dit transport werkt daar mogelijk niet
+- verificatie mislukt:
+  bevestig dat de opdracht `McHttpConfig.LoginToken` gebruikt, niet het token `McWss` of `McTcp`
+- add-on wordt geladen, maar opdrachten ontbreken:
+  bevestig dat zowel het gedrag als de bronpakketten aan de wereld zijn gekoppeld en dat BDS opnieuw is opgestart
+- client maakt verbinding maar geen nabijheid:
+  bevestig de bindingsstroom, `PositioningType` en updates van de spelerspositie
 
 ## Lees het volgende
 
-- [VoiceCraft.Addon] (/ecosystem/voicecraft-addon)
-- [Add-on-API](/ecosystem/addon-api)
-- [Downloadpagina](/download)
-- [Addon-configurator](/addon-configurator)
+- [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
+- [Addon API](/ecosystem/addon-api)
+- [Download Page](/download)
+- [Addon Configurator](/addon-configurator)

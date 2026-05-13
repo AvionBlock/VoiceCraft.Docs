@@ -1,8 +1,12 @@
 # VoiceCraft (repository en build)
 
-Repository: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+Opslagplaats: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
 
-## Repositorystructuur
+De `VoiceCraft`-repository bevat de kernruntime. Het is waar de client, server, gedeeld protocol, netwerkmodel en release-builds vandaan komen.
+
+Voor een normale implementatie hoeft u niet vanaf de broncode te bouwen. Gebruik kant-en-klare releases, tenzij u VoiceCraft zelf ontwikkelt, fouten oplost in een specifieke build of een aangepaste runtime produceert.
+
+## Structuur van de opslagplaats
 
 - `VoiceCraft.Client/*`
   platformclients voor Windows, Linux, macOS, Android, iOS en browsergerelateerde doelen
@@ -12,7 +16,7 @@ Repository: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
   gedeelde kernhulpprogramma's, audiohelpers, lokalisatie, constanten
 - `VoiceCraft.Network`
   protocolpakketten, transporten, entiteiten, effecten, wereldlogica
-- testprojecten
+- test projecten
   protocol-, netwerk- en integratiedekking
 
 ## Wat de repository bevat
@@ -21,12 +25,14 @@ De repository is breder dan "client + server":
 
 - volledig clientinstellingenmodel
 - ingebedde landinstellingen
-- Minecraft-gerichte transporten:
+- Op Minecraft gerichte transporten:
   `McHttp`, `McWss`, `McTcp`
 - pakketdefinities voor VoiceCraft- en McApi-lagen
 - audio-effecten en zichtbaarheidssystemen
 
-## Bouwvereisten
+Het is ook belangrijk om te begrijpen wat deze repository niet is: VoiceCraft is geen enkele Minecraft-mod of plug-in. De kernruntime werkt samen met clients en Minecraft-integraties zoals `VoiceCraft.Addon` of `GeyserVoice`.
+
+## Bouw vereisten
 
 Van broncode:
 
@@ -41,6 +47,8 @@ dotnet --info
 
 ## Bouw de oplossing
 
+Gebruik dit als u de volledige oplossing wilt valideren of lokale binaire bestanden wilt produceren:
+
 ```bash
 git clone https://github.com/AvionBlock/VoiceCraft.git
 cd VoiceCraft
@@ -48,6 +56,8 @@ cd VoiceCraft
 dotnet restore
 dotnet build -c Release
 ```
+
+Als het herstellen mislukt, controleer dan of de geïnstalleerde .NET SDK overeenkomt met de verwachtingen van de repository `global.json`.
 
 ## Voer de server uit
 
@@ -64,7 +74,11 @@ Handige root-opties:
 - `--transport-port <port>`
 - `--server-key <token>`
 
-## Klantbuilds
+De extra `--` geeft argumenten door aan het serverproject in plaats van aan `dotnet run` zelf.
+
+Voor implementatie geeft u de voorkeur aan het gepubliceerde releaseartefact of een `dotnet publish`-uitvoer boven rechtstreeks vanaf de broncode.
+
+## Klant bouwt
 
 Voorbeelden:
 
@@ -75,6 +89,8 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 ```
 
 Mobiele doelen vereisen doorgaans hun eigen platform-SDK-toolchasins.
+
+Desktopbuilds zijn eenvoudiger omdat de vereiste SDK's deel uitmaken van de .NET/Avalonia-toolchain. Voor mobiele builds zijn mogelijk platformspecifieke ondertekenings- en verpakkingsstappen nodig die buiten de kernoplossingsbuild vallen.
 
 ## Ingebedde landinstellingen
 
@@ -88,21 +104,30 @@ De huidige ingebedde landinstellingen zijn onder meer:
 - `zh-CN`
 - `zh-TW`
 
-## Productiecontrolelijst
+## Controlelijst voor productie
 
-1. Run `VoiceCraft.Server` once to generate config.
+1. Voer `VoiceCraft.Server` één keer uit om configuratie te genereren.
 2. Vervang alle gegenereerde transportfiches.
 3. Bepaal welk vervoer je daadwerkelijk nodig hebt:
    - `McHttp`
    - `McWss`
    - `McTcp`
 4. Open alleen de vereiste poorten.
-5. Keep backups of `ServerProperties.json`.
+5. Bewaar back-ups van `ServerProperties.json`.
+6. Installeer de bijpassende Minecraft-side-integratie.
+7. Bevestig dat clients en Minecraft-integratie verbinding maken via hun afzonderlijke eindpunten.
+
+## Wanneer gebruikt u deze pagina?
+
+- u de kern van VoiceCraft wilt bouwen of debuggen
+- u moet begrijpen welk project eigenaar is van het client/server-gedrag
+- u controleert of een functie thuishoort in core, add-on of GeyserVoice
+- u bereidt aangepaste release-artefacten voor
 
 ## Gerelateerde documenten
 
-- [Serverinstallatie](/server/installation)
+- [Server Installation](/server/installation)
 - [ServerProperties.json](/server/server-properties)
-- [Transportmodi](/server/transports)
-- [VoiceCraft.Addon] (/ecosystem/voicecraft-addon)
+- [Transport Modes](/server/transports)
+- [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
 - [GeyserVoice](/ecosystem/geyservoice)

@@ -2,23 +2,27 @@
 
 Ten przewodnik to najszybszy sposób na uzyskanie działającego stosu VoiceCraft.
 
+Celowo przechodzi przez całą ścieżkę: serwer, wygenerowaną konfigurację, klienta, transport Minecraft i walidację. Nie zatrzymuj się po uruchomieniu pliku binarnego serwera; w tym momencie istnieje zaplecze głosowe, ale Minecraft nie jest jeszcze podłączony.
+
 ## Najpierw wybierz topologię
 
 VoiceCraft można wdrożyć na kilka sposobów:
 
-- Bedrock Dedicated Server: `VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
-- Local Bedrock world / singleplayer: `VoiceCraft.Server` or local runtime + `Core.McWss`
-- Java server with Geyser/Floodgate: `GeyserVoice` + `VoiceCraft.Server`
-- Direct Paper server: `GeyserVoice` can also download and run the VoiceCraft runtime under the hood
+- Serwer dedykowany Bedrock: `VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
+- Lokalny świat Bedrock / tryb dla jednego gracza: `VoiceCraft.Server` lub lokalne środowisko wykonawcze + `Core.McWss`
+- Serwer Java z Geyser/Floodgate: `GeyserVoice` + `VoiceCraft.Server`
+- Serwer Direct Paper: `GeyserVoice` może także pobrać i uruchomić środowisko wykonawcze VoiceCraft
 
 Jeśli nie jesteś pewien, zacznij od jednego z poniższych:
 
 - Serwer dedykowany Bedrock: czytaj [McHttp for BDS](/minecraft/mchttp-bds)
 - Serwer Java + Geyser: czytaj [GeyserVoice](/ecosystem/geyservoice)
 
+W przypadku pierwszej konfiguracji wybierz jedną topologię i udostępnij tylko potrzebny jej transport. Możesz dodać konfiguracje mieszane później, gdy zadziała podstawowe wiązanie i przepływ zbliżeniowy.
+
 ## 1. Pobierz serwer
 
-1. Otwórz [stronę pobierania](/download).
+1. Otwórz plik [download page](/download).
 2. Pobierz archiwum serwera dla swojej platformy:
    - `VoiceCraft.Server.Windows.x64.zip`
    - `VoiceCraft.Server.Windows.x86.zip`
@@ -27,24 +31,28 @@ Jeśli nie jesteś pewien, zacznij od jednego z poniższych:
    - `VoiceCraft.Server.Linux.arm.zip`
    - `VoiceCraft.Server.Linux.arm64.zip`
 
-Jeśli budujesz ze źródła, zobacz [Repozytorium i kompilacja VoiceCraft](/ecosystem/voicecraft-repository).
+Jeśli budujesz ze źródła, zobacz [VoiceCraft repository and build](/ecosystem/voicecraft-repository).
 
 ## 2. Uruchom serwer raz
 
-### Okna
+Uruchom z folderu, w którym chcesz umieścić `config/ServerProperties.json`.
+
+### Windows
 
 ```powershell
 ./VoiceCraft.Server.exe
 ```
 
-### Linuksa
+### Linux
 
 ```bash
 chmod +x ./VoiceCraft.Server
 ./VoiceCraft.Server
 ```
 
-After first launch, VoiceCraft generates `config/ServerProperties.json`.
+Po pierwszym uruchomieniu VoiceCraft generuje `config/ServerProperties.json`.
+
+Zatrzymaj serwer przed edycją tego pliku.
 
 ## 3. Zabezpiecz wygenerowaną konfigurację
 
@@ -56,6 +64,12 @@ Przed połączeniem Minecrafta lub graczy zmień każdy wygenerowany token wspó
 
 Zwykle potrzebujesz różnych wartości dla każdego środowiska.
 
+Token, którego później użyjesz, musi pasować do transportu:
+
+- Dodatek BDS `McHttp` używa `McHttpConfig.LoginToken`
+- lokalny dodatek Bedrock `McWss` używa `McWssConfig.LoginToken`
+- `GeyserVoice` używa `McTcpConfig.LoginToken`
+
 ## 4. Wybierz transport Minecraft
 
 VoiceCraft ma obecnie 3 transporty skierowane do Minecrafta:
@@ -65,58 +79,66 @@ VoiceCraft ma obecnie 3 transporty skierowane do Minecrafta:
 - `McWss`:
   Najlepsze do scenariuszy lokalnych światów, testowania i tunelu poleceń.
 - `McTcp`:
-  Best for Java-side bridges such as `GeyserVoice`.
+  Najlepsze dla mostów po stronie Java, takich jak `GeyserVoice`.
 
-Pełne porównanie znajdziesz w [Tryby transportu](/server/transports).
+Pełne porównanie można znaleźć w [Transport Modes](/server/transports).
+
+Upewnij się, że wybrany transport jest włączony i powiązany z adresem, do którego może dotrzeć środowisko wykonawcze po stronie Minecrafta.
 
 ## 5. Pobierz klienta
 
-Ze [strony pobierania](/download) pobierz pakiet dla swoich graczy:
+Z [download page](/download) pobierz pakiet dla swoich graczy:
 
 - Windows: `VoiceCraft.Client.Windows.<arch>.zip`
 - Linux: `VoiceCraft.Client.Linux.<arch>.zip`
-- macOS: `VoiceCraft.Client.MacOS.<arch>.dmg` or `.pkg`
-- Android: `VoiceCraft.Client.Android.arm64.zip` (APK inside)
+- macOS: `VoiceCraft.Client.MacOS.<arch>.dmg` lub `.pkg`
+- Android: `VoiceCraft.Client.Android.arm64.zip` (APK w środku)
 - iOS: `VoiceCraft.Client.iOS.arm64.ipa`
 
 ## 6. Dodaj serwer w kliencie
 
 1. Otwórz klienta.
-2. Dodaj wpis serwera w interfejsie użytkownika.
-3. Use the VoiceCraft UDP endpoint from `VoiceCraftConfig.Port`.
+2. Wybierz mikrofon i urządzenia odtwarzające.
+3. Dodaj wpis serwera w interfejsie użytkownika.
+4. Użyj punktu końcowego UDP VoiceCraft z `VoiceCraftConfig.Port`.
+5. Potwierdź, że klient `Positioning Type` pasuje do `VoiceCraftConfig.PositioningType`.
 
 Typowa konfiguracja lokalna:
 
-- host: `127.0.0.1`
+- gospodarz: `127.0.0.1`
 - port: `9050`
 
-## 7. Połącz stronę Minecrafta
+## 7. Podłącz stronę Minecraft
 
 - W przypadku serwera dedykowanego Bedrock użyj [McHttp for BDS](/minecraft/mchttp-bds).
-- W przypadku lokalnego świata Bedrock użyj [McWss dla światów dla jednego gracza](/minecraft/mcwss-singleplayer).
+- W przypadku lokalnego świata Bedrock użyj [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 - W przypadku Java + Geyser/Floodgate użyj [GeyserVoice](/ecosystem/geyservoice).
+
+Ten krok zapewnia VoiceCraftowi stan gry potrzebny do dźwięku zbliżeniowego: tożsamość gracza, dane powiązania, identyfikatory światów, aktualizacje pozycji i stan efektu.
 
 Jeśli wdrażasz na Bedrock, trzymaj te dwie strony w pobliżu:
 
-- [Strona pobierania](/download) dla surowych plików wersji klienta/serwera/dodatków
-- [Konfigurator dodatków](/addon-configurator) dla gotowego do rozpakowania archiwum świata
+- [Download Page](/download) dla surowych plików wersji klienta/serwera/dodatku
+- [Addon Configurator](/addon-configurator) dla gotowego do rozpakowania archiwum świata
 
 ## 8. Sprawdź stos
 
 Jeśli wszystko jest poprawnie skonfigurowane:
 
 - Serwer VoiceCraft uruchamia się bez błędów konfiguracji i portu
-- klient łączy się bez błędów transportowych
+- klient łączy się bez błędów transportu
 - Integracja z Minecraftem uwierzytelnia się za pomocą oczekiwanego tokena
-- tworzenie encji i praca z przepływem powiązań
-- gracze słyszą głos zbliżeniowy, gdy są w zasięgu
+- tworzenie jednostek i praca z przepływem powiązań
+- gracze słyszą głos zbliżeniowy, gdy znajdują się w zasięgu
+
+Jeśli klient łączy się, ale bliskość nie działa, przed zmianą ustawień audio zdebuguj transport Minecraft i przepływ powiązań.
 
 ## Polecane kolejne lektury
 
-- [Instalacja serwera](/server/installation)
-- [Pierwsze uruchomienie serwera](/server/first-run)
+- [Server Installation](/server/installation)
+- [First Server Run](/server/first-run)
 - [ServerProperties.json](/server/server-properties)
-- [Zastąpienia środowiska wykonawczego](/server/runtime-overrides)
-- [Tryby transportu](/server/transports)
-- [Strona pobierania](/download)
-- [Konfigurator dodatków](/addon-configurator)
+- [Runtime Overrides](/server/runtime-overrides)
+- [Transport Modes](/server/transports)
+- [Download Page](/download)
+- [Addon Configurator](/addon-configurator)

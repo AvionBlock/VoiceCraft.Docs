@@ -1,29 +1,40 @@
 # Обзор
 
-VoiceCraft это proximity voice-платформа для Minecraft Bedrock Edition и связанных bridge-сценариев.
+VoiceCraft — это голосовая платформа для Minecraft Bedrock Edition и связанных с ней сценариев мостов.
 
-Она состоит из нескольких слоёв:
+Он позволяет игрокам запускать отдельный голосовой клиент, в то время как автоматизация на стороне Minecraft сообщает голосовому серверу, где находится каждый игрок, в каком мире он находится и какие эффекты или правила видимости следует применять.
+
+VoiceCraft полезен, когда вам нужен близкий голос, не зависящий от одной конкретной формы сервера Minecraft. Одну и ту же основную среду выполнения можно комбинировать с надстройками Bedrock, мостами Java/Geyser или развертываниями прокси.
+
+## Что вы настраиваете
+
+Большинство развертываний состоят из трех движущихся частей:
 
 1. `VoiceCraft.Client`
-   desktop и mobile клиентские приложения
+   настольное и мобильное приложение, установленное каждым игроком
 2. `VoiceCraft.Server`
-   standalone backend для voice transport, state sync и transport endpoint-ов
-3. Minecraft-facing transports
-   `McHttp`, `McWss`, `McTcp`
-4. ecosystem-интеграции
-   `VoiceCraft.Addon` для Bedrock и `GeyserVoice` для Java / proxy стеков
+   автономный бэкэнд для голосового трафика, синхронизации состояния, модерации и транспортных конечных точек
+3. Транспорт, ориентированный на Minecraft
+   `McHttp`, `McWss` и `McTcp`
+
+Интеграция экосистемы соединяет Minecraft с этими транспортами:
+
+- `VoiceCraft.Addon` для миров Bedrock и BDS
+- `GeyserVoice` для стеков Java/Geyser/proxy
 
 ## Как это работает
 
-1. Клиент подключается к `VoiceCraft.Server` по UDP.
-2. Сервер отслеживает сущности, позиции, world ID, effect bitmask и moderation state.
-3. Minecraft-side transport обновляет сервер игровым состоянием:
+1. Клиент подключается к `VoiceCraft.Server` через UDP.
+2. Сервер отслеживает голосовые сеансы, объекты, позиции, мировые идентификаторы, битовые маски эффектов и состояние модерации.
+3. Интеграция со стороны Minecraft обновляет сервер с состоянием игрового процесса:
    - `McHttp` для BDS
-   - `McWss` для локальных Bedrock миров
+   - `McWss` для локальных миров Bedrock
    - `McTcp` для `GeyserVoice`
-4. Клиент воспроизводит proximity audio согласно состоянию сервера и локальным настройкам.
+4. Клиент воспроизводит звук приближения в соответствии с состоянием сервера и выбранными локальными настройками.
 
-## Поддерживаемые платформы клиента
+Голосовое соединение и транспортное соединение Minecraft разделены. Если подключена только одна сторона, установка может выглядеть частично работоспособной, но поведение близости все равно будет неполным.
+
+## Поддерживаемые клиентские платформы
 
 - Windows (`x86`, `x64`, `arm64`)
 - Linux (`x64`, `arm32`, `arm64`)
@@ -31,10 +42,29 @@ VoiceCraft это proximity voice-платформа для Minecraft Bedrock Ed
 - Android (`arm64`)
 - iOS (`arm64`, `.ipa`)
 
+## Что делает VoiceCraft гибким
+
+- несколько транспортов Minecraft
+- Поверхность API аддона Bedrock
+- Мост на стороне Java через `GeyserVoice`
+- настраиваемые эффекты и метаданные объектов
+- режимы позиционирования как на стороне сервера, так и на стороне клиента
+
+Эта гибкость также означает, что первое решение имеет значение: сначала выберите топологию, а затем следуйте инструкциям для этого транспорта.
+
+## Распространенные варианты топологии
+
+| Если ты побежишь... | Начните с... | Почему |
+|---------------|---------------|-----|
+| Выделенный сервер Bedrock | [McHttp for BDS](/minecraft/mchttp-bds) | BDS может вызывать стабильную конечную точку HTTP |
+| Локальный мир Bedrock | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | Работает через локальный поток веб-сокетов/командного туннеля. |
+| Java-сервер с Geyser/Floodgate | [GeyserVoice](/ecosystem/geyservoice) | Плагин на стороне Java подключается к VoiceCraft через `McTcp` |
+| Сервер Direct Paper | [GeyserVoice Direct Paper](/ecosystem/geyservoice-direct-paper) | Плагин может использовать внешний сервер или управлять средой выполнения. |
+
 ## Что читать дальше
 
-- [Быстрый старт](/start/quick-start)
-- [Скачать](/download)
-- [Transport-режимы](/server/transports)
-- [Системная архитектура](/architecture/system-architecture)
-- [Обзор экосистемы](/ecosystem/overview)
+- [Quick Start](/start/quick-start)
+- [Download](/download)
+- [Transport Modes](/server/transports)
+- [System Architecture](/architecture/system-architecture)
+- [Ecosystem Overview](/ecosystem/overview)

@@ -1,13 +1,22 @@
-# settings.json
+# 设置.json
 
-Client settings file: `Settings.json`.
+客户端设置文件：`Settings.json`。
+
+客户端自动写入该文件。使用 UI 进行正常更改，仅编辑 JSON 进行恢复、自动化或高级故障排除。
+
+手动编辑之前：
+
+1. 关闭客户端。
+2. 备份 `Settings.json`。
+3. 一次更改一个部分。
+4. 重新打开客户端并验证 UI 是否仍然加载。
 
 ## 文件位置
 
-- Windows: `%AppData%/voicecraft/Settings.json`
-- Linux: `~/.config/voicecraft/Settings.json`
-- macOS: `~/Library/Application Support/voicecraft/Settings.json`
-- Android / iOS: inside the app sandbox (`ApplicationData`)
+- Windows：`%AppData%/voicecraft/Settings.json`
+- Linux：`~/.config/voicecraft/Settings.json`
+- macOS：`~/Library/Application Support/voicecraft/Settings.json`
+- Android / iOS：应用程序沙箱内部 (`ApplicationData`)
 
 ## 完整示例
 
@@ -76,108 +85,112 @@ Client settings file: `Settings.json`.
 
 ## 顶级字段
 
-- `UserGuid`:
+- `UserGuid`：
   本地客户身份。
-- `ServerUserGuid`:
+- `ServerUserGuid`：
   存储客户端使用的服务器端身份/兼容性 GUID。
-- `InputSettings`:
+- `InputSettings`：
   麦克风和预处理。
-- `OutputSettings`:
+- `OutputSettings`：
   播放设置。
-- `LocaleSettings`:
+- `LocaleSettings`：
   用户界面语言。
-- `NotificationSettings`:
+- `NotificationSettings`：
   敬酒行为。
-- `ServersSettings`:
+- `ServersSettings`：
   已保存 VoiceCraft 服务器。
-- `ThemeSettings`:
+- `ThemeSettings`：
   选定的主题和背景。
-- `NetworkSettings`:
+- `NetworkSettings`：
   定位模式和 McWss 侦听器值。
-- `HotKeySettings`:
+- `HotKeySettings`：
   可配置的热键。
-- `UserSettings`:
+- `UserSettings`：
   每个远程用户的本地首选项。
 
 ## 输入设置
 
-- `InputDevice`:
+- `InputDevice`：
   输入设备名称。
-- `InputCapturePreset`:
-  platform capture preset, default `VoiceCommunication`.
-- `InputVolume`:
-  input gain `0..2`.
-- `MicrophoneSensitivity`:
-  activity threshold `0..1`.
-- `AutomaticGainController`:
+- `InputCapturePreset`：
+  平台捕获预设，默认`VoiceCommunication`。
+- `InputVolume`：
+  输入增益`0..2`。
+- `MicrophoneSensitivity`：
+  活动阈值 `0..1`。
+- `AutomaticGainController`：
   选择 AGC 实施 GUID。
-- `Denoiser`:
+- `Denoiser`：
   选定的降噪器 GUID。
-- `EchoCanceler`:
+- `EchoCanceler`：
   选择的回声消除器 GUID。
-- `PushToTalkEnabled`:
+- `PushToTalkEnabled`：
   一键通模式的布尔标志。
-- `PushToTalkCue`:
+- `PushToTalkCue`：
   本地提示声音的布尔标志。
 
 ## 输出设置
 
-- `OutputDevice`:
+- `OutputDevice`：
   输出设备名称。
-- `OutputVolume`:
-  playback gain `0..2`.
-- `AudioClipper`:
+- `OutputVolume`：
+  播放增益 `0..2`。
+- `AudioClipper`：
   选择的剪辑器 GUID。
 
 ## 区域设置
 
-- `Culture`:
-  locale such as `en-US`, `ru-RU`, `nl-NL`, `de-DE`, `pl-PL`, `zh-CN`, `zh-TW`.
+- `Culture`：
+  语言环境，例如 `en-US`、`ru-RU`、`nl-NL`、`de-DE`、`pl-PL`、`zh-CN`、`zh-TW`。
 
 ## 通知设置
 
-- `DisableNotifications`:
+- `DisableNotifications`：
   禁用客户端通知。
-- `DismissDelayMs`:
+- `DismissDelayMs`：
   通知超时（以毫秒为单位）。
 
 ## 服务器设置
 
-- `HideServerAddresses`:
+- `HideServerAddresses`：
   屏蔽 UI 中的主机列表。
-- `Servers`:
+- `Servers`：
   保存的服务器条目。
 
-Each `Servers[]` item:
+每个 `Servers[]` 项目：
 
-- `Name`:
-  display name, max `12` chars.
-- `Ip`:
-  host / IP, max `30` chars.
-- `Port`:
-  UDP port `1..65535`.
+- `Name`：
+  显示名称，最多 `12` 个字符。
+- `Ip`：
+  主机/IP，最大 `30` 个字符。
+- `Port`：
+  UDP 端口 `1..65535`。
+
+服务器条目从 `VoiceCraftConfig.Port` 指向 VoiceCraft UDP 端点。它们与 `McHttp`、`McWss` 或 `McTcp` Minecraft 传输端点不同。
 
 ## 主题设置
 
-- `SelectedBackgroundImage`:
+- `SelectedBackgroundImage`：
   内置后台 GUID。
-- `SelectedTheme`:
+- `SelectedTheme`：
   内置主题 GUID。
 
 ## 网络设置
 
-- `PositioningType`:
-  `0 = Server`, `1 = Client`
-- `McWssListenIp`:
+- `PositioningType`：
+  `0 = Server`、`1 = Client`
+- `McWssListenIp`：
   本地 websocket 绑定/监听地址。
-- `McWssHostPort`:
+- `McWssHostPort`：
   本地 websocket 主机端口。
 
-This value must match `VoiceCraftConfig.PositioningType` on the server.
+该值必须与服务器上的 `VoiceCraftConfig.PositioningType` 匹配。
+
+`McWssListenIp` 和 `McWssHostPort` 用于与 McWss 相关的本地 websocket 行为。它们不会替换已保存的用于语音流量的 VoiceCraft 服务器列表。
 
 ## 热键设置
 
-`HotKeySettings.Bindings` is a `Dictionary<string, string>`.
+`HotKeySettings.Bindings` 是 `Dictionary<string, string>`。
 
 典型按键：
 
@@ -188,30 +201,42 @@ This value must match `VoiceCraftConfig.PositioningType` on the server.
 
 ## 用户设置
 
-`UserSettings.Users` is a dictionary keyed by remote user `Guid`.
+`UserSettings.Users` 是由远程用户 `Guid` 输入的字典。
 
 每个值包含：
 
-- `Volume`:
+- `Volume`：
   客户端每用户数量乘数。
-- `UserMuted`:
+- `UserMuted`：
   客户端本地静音。
 
 这些值不会取代服务器审核；它们是个人客户的偏好。
 
 ## 重要范围
 
-- `InputVolume`: `0..2`
-- `OutputVolume`: `0..2`
-- `MicrophoneSensitivity`: `0..1`
-- `Servers[].Name`: up to `12` chars
-- `Servers[].Ip`: up to `30` chars
-- `Servers[].Port`: `1..65535`
-- `McWssHostPort`: `0..65535`
+- `InputVolume`：`0..2`
+- `OutputVolume`：`0..2`
+- `MicrophoneSensitivity`：`0..1`
+- `Servers[].Name`：最多 `12` 个字符
+- `Servers[].Ip`：最多 `30` 个字符
+- `Servers[].Port`：`1..65535`
+- `McWssHostPort`：`0..65535`
 
-## 良好实践
+## 良好做法
 
-- do not manually reuse `LoginToken` values as user settings
-- keep `PositioningType` aligned with server
-- if troubleshooting audio, reset `InputDevice` and `OutputDevice` to `Default`
+- 不要手动重用 `LoginToken` 值作为用户设置
+- 保持 `PositioningType` 与服务器对齐
+- 如果对音频进行故障排除，请将 `InputDevice` 和 `OutputDevice` 重置为 `Default`
 - 如果设备消失，让客户端重新生成匹配字段，而不是复制旧机器的配置
+- 如果 `Settings.json` 包含私有服务器地址，请勿公开共享
+- 避免在玩家之间复制完整的设置文件；如果需要，仅复制服务器主机/端口
+
+## 重置策略
+
+如果手动编辑后客户端无法使用：
+
+1. 关闭客户端。
+2. 将 `Settings.json` 移到一边作为备份。
+3. 启动客户端并让它生成一个新文件。
+4. 重新添加服务器条目。
+5. 重新配置音频设备和热键。

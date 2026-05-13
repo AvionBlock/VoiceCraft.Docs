@@ -1,13 +1,22 @@
-# settings.json
+# Instellingen.json
 
-Client settings file: `Settings.json`.
+Bestand met clientinstellingen: `Settings.json`.
+
+De client schrijft dit bestand automatisch. Gebruik de gebruikersinterface voor normale wijzigingen en bewerk de JSON alleen voor herstel, automatisering of geavanceerde probleemoplossing.
+
+Vóór handmatige bewerkingen:
+
+1. Sluit de klant.
+2. Maak een back-up van `Settings.json`.
+3. Verander één sectie tegelijk.
+4. Open de client opnieuw en controleer of de gebruikersinterface nog steeds wordt geladen.
 
 ## Bestandslocatie
 
 - Windows: `%AppData%/voicecraft/Settings.json`
 - Linux: `~/.config/voicecraft/Settings.json`
 - macOS: `~/Library/Application Support/voicecraft/Settings.json`
-- Android / iOS: inside the app sandbox (`ApplicationData`)
+- Android / iOS: in de app-sandbox (`ApplicationData`)
 
 ## Volledig voorbeeld
 
@@ -104,11 +113,11 @@ Client settings file: `Settings.json`.
 - `InputDevice`:
   naam van het invoerapparaat.
 - `InputCapturePreset`:
-  platform capture preset, default `VoiceCommunication`.
+  voorinstelling voor platformopname, standaard `VoiceCommunication`.
 - `InputVolume`:
-  input gain `0..2`.
+  ingangsversterking `0..2`.
 - `MicrophoneSensitivity`:
-  activity threshold `0..1`.
+  activiteitsdrempel `0..1`.
 - `AutomaticGainController`:
   geselecteerde AGC-implementatie-GUID.
 - `Denoiser`:
@@ -125,14 +134,14 @@ Client settings file: `Settings.json`.
 - `OutputDevice`:
   naam van het uitvoerapparaat.
 - `OutputVolume`:
-  playback gain `0..2`.
+  afspeelversterking `0..2`.
 - `AudioClipper`:
   geselecteerde clipper-GUID.
 
 ## Lokale instellingen
 
 - `Culture`:
-  locale such as `en-US`, `ru-RU`, `nl-NL`, `de-DE`, `pl-PL`, `zh-CN`, `zh-TW`.
+  landinstellingen zoals `en-US`, `ru-RU`, `nl-NL`, `de-DE`, `pl-PL`, `zh-CN`, `zh-TW`.
 
 ## Meldingsinstellingen
 
@@ -148,16 +157,18 @@ Client settings file: `Settings.json`.
 - `Servers`:
   opgeslagen servergegevens.
 
-Each `Servers[]` item:
+Elk `Servers[]`-artikel:
 
 - `Name`:
-  display name, max `12` chars.
+  weergavenaam, max. `12` tekens.
 - `Ip`:
-  host / IP, max `30` chars.
+  host / IP, max. `30` tekens.
 - `Port`:
-  UDP port `1..65535`.
+  UDP-poort `1..65535`.
 
-## Thema-instellingen
+Servergegevens verwijzen naar het VoiceCraft UDP-eindpunt van `VoiceCraftConfig.Port`. Ze zijn niet hetzelfde als de `McHttp`, `McWss` of `McTcp` Minecraft-transporteindpunten.
+
+## ThemaInstellingen
 
 - `SelectedBackgroundImage`:
   ingebouwde achtergrond-GUID.
@@ -173,11 +184,13 @@ Each `Servers[]` item:
 - `McWssHostPort`:
   lokale websocket-hostpoort.
 
-This value must match `VoiceCraftConfig.PositioningType` on the server.
+Deze waarde moet overeenkomen met `VoiceCraftConfig.PositioningType` op de server.
+
+`McWssListenIp` en `McWssHostPort` zijn voor McWss-gerelateerd lokaal websocket-gedrag. Ze vervangen niet de opgeslagen VoiceCraft-serverlijst die wordt gebruikt voor spraakverkeer.
 
 ## Sneltoetsinstellingen
 
-`HotKeySettings.Bindings` is a `Dictionary<string, string>`.
+`HotKeySettings.Bindings` is een `Dictionary<string, string>`.
 
 Typische toetsen:
 
@@ -188,7 +201,7 @@ De exacte geserialiseerde waarde is afhankelijk van de backend van de desktopinv
 
 ## Gebruikersinstellingen
 
-`UserSettings.Users` is a dictionary keyed by remote user `Guid`.
+`UserSettings.Users` is een woordenboek dat is ingetoetst door de externe gebruiker `Guid`.
 
 Elke waarde bevat:
 
@@ -204,14 +217,26 @@ Deze waarden vervangen de servermoderatie niet; het zijn persoonlijke klantvoork
 - `InputVolume`: `0..2`
 - `OutputVolume`: `0..2`
 - `MicrophoneSensitivity`: `0..1`
-- `Servers[].Name`: up to `12` chars
-- `Servers[].Ip`: up to `30` chars
+- `Servers[].Name`: maximaal `12` tekens
+- `Servers[].Ip`: maximaal `30` tekens
 - `Servers[].Port`: `1..65535`
 - `McWssHostPort`: `0..65535`
 
 ## Goede praktijken
 
-- do not manually reuse `LoginToken` values as user settings
-- keep `PositioningType` aligned with server
-- if troubleshooting audio, reset `InputDevice` and `OutputDevice` to `Default`
+- hergebruik `LoginToken`-waarden niet handmatig als gebruikersinstellingen
+- houd `PositioningType` uitgelijnd met de server
+- Als u problemen met de audio oplost, reset u `InputDevice` en `OutputDevice` naar `Default`
 - als een apparaat verdwijnt, laat de client dan het overeenkomende veld opnieuw genereren in plaats van de configuratie van een oude machine te kopiëren
+- deel `Settings.json` niet openbaar als het privéserveradressen bevat
+- vermijd het kopiëren van een volledig instellingenbestand tussen spelers; kopieer indien nodig alleen de serverhost/poort
+
+## Strategie opnieuw instellen
+
+Als de client onbruikbaar wordt na handmatige bewerkingen:
+
+1. Sluit de klant.
+2. Zet `Settings.json` opzij als back-up.
+3. Start de client en laat deze een nieuw bestand genereren.
+4. Voeg de serververmelding opnieuw toe.
+5. Configureer audioapparaten en sneltoetsen opnieuw.

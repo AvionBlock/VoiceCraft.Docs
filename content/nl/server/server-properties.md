@@ -1,6 +1,22 @@
 # ServerProperties.json
 
-Main server config file: `config/ServerProperties.json`.
+Configuratiebestand van de hoofdserver: `config/ServerProperties.json`.
+
+Dit bestand wordt aangemaakt na de eerste serverstart en wordt de blijvende bron van waarheid voor de server. Stop de server voordat u deze bewerkt, tenzij uw procesbeheerder is ontworpen om de configuratie veilig opnieuw te laden.
+
+Gebruik deze pagina als u wilt begrijpen wat een veld bestuurt en welke velden moeten overeenkomen met de client, add-on of plug-in.
+
+## Werkstroom bewerken
+
+1. Stop `VoiceCraft.Server`.
+2. Maak een back-up van `config/ServerProperties.json`.
+3. Bewerk de relevante sectie.
+4. Valideer de JSON-syntaxis.
+5. Start de server opnieuw.
+6. Bekijk logboeken voor configuratieparseer-, luisteraar- of auth-fouten.
+7. Sluit de client en het Minecraft-transport opnieuw aan.
+
+De belangrijkste eerste bewerkingen zijn de transportinlogtokens en hostbindingen.
 
 ## Volledig voorbeeld
 
@@ -56,9 +72,11 @@ Main server config file: `config/ServerProperties.json`.
 ## Telemetrie
 
 - `TelemetryEnabled`:
-  enables anonymous startup, heartbeat, and crash diagnostics from `VoiceCraft.Server`.
+  maakt anonieme opstart-, hartslag- en crashdiagnostiek van `VoiceCraft.Server` mogelijk.
 - `TelemetryToken`:
   stabiele pseudonieme vingerafdruk die wordt gebruikt om telemetriegebeurtenissen van één serverinstallatie te groeperen.
+
+Telemetrie helpt beheerders de runtimestatus en versie-acceptatie te begrijpen. Het mag niet worden gebruikt als uw eigen monitoringvervanger; houd lokale logboeken en procesmonitoring bij voor productieservers.
 
 Als u geen telemetrie wilt, stelt u het volgende in:
 
@@ -85,6 +103,10 @@ Als u geen telemetrie wilt, stelt u het volgende in:
 - `EnableVisibilityDisplay`:
   of zichtbaarheidsindicatoren naar klanten worden verzonden.
 
+`Port` is het eindpunt dat spelerclients toevoegen in de VoiceCraft-clientgebruikersinterface. Het is niet automatisch hetzelfde als elk Minecraft-transporteindpunt, zelfs als de standaardinstellingen `9050` hergebruiken.
+
+`PositioningType` moet overeenkomen met de clientinstelling. Begin in de meeste BDS- en GeyserVoice-opstellingen met `0 = Server`.
+
 ## McWssConfig
 
 Gebruikt voor websocket/commandotunnel Bedrock-stromen.
@@ -92,21 +114,23 @@ Gebruikt voor websocket/commandotunnel Bedrock-stromen.
 - `Enabled`:
   McWss in- of uitschakelen.
 - `LoginToken`:
-  shared auth token, typically used with `/voicecraft:vcconnect <token>`.
+  gedeeld authenticatietoken, meestal gebruikt met `/voicecraft:vcconnect <token>`.
 - `Hostname`:
-  websocket host such as `ws://0.0.0.0:9051/`.
+  websocket-host zoals `ws://0.0.0.0:9051/`.
 - `MaxClients`:
   maximale McWss-klanten.
 - `MaxTimeoutMs`:
   time-out bij inactiviteit.
 - `DataTunnelCommand`:
-  command name used for the data tunnel, usually `voicecraft:data_tunnel`.
+  opdrachtnaam die wordt gebruikt voor de datatunnel, meestal `voicecraft:data_tunnel`.
 - `CommandsPerTick`:
   hoeveel opdrachtpakketten er per tik worden doorgestuurd.
 - `MaxByteLengthPerCommand`:
   payloadbudget (bytes) per opdrachtaanroep.
 - `DisabledPacketTypes`:
   pakkettypen geblokkeerd op dit transport.
+
+Gebruik `McWss` voor lokale werelden en testen. De opdrachttunnel is afhankelijk van `DataTunnelCommand`; het slechts aan één kant veranderen verbreekt het transport.
 
 ## McHttpConfig
 
@@ -132,16 +156,18 @@ Typische BDS-binding:
 }
 ```
 
+Gebruik `McHttp` wanneer BDS het VoiceCraft HTTP-eindpunt kan bereiken. Als BDS en VoiceCraft op verschillende machines draaien, zal `127.0.0.1` vanuit het perspectief van BDS naar de verkeerde host verwijzen.
+
 ## McTcpConfig
 
-Used by Java-side bridges, especially `GeyserVoice`.
+Gebruikt door bruggen aan de Java-zijde, vooral `GeyserVoice`.
 
 - `Enabled`:
   McTcp in- of uitschakelen.
 - `LoginToken`:
   gedeeld authentificatietoken voor de TCP-bridge.
 - `Hostname`:
-  bind hostname, for example `127.0.0.1` or `0.0.0.0`.
+  bind de hostnaam, bijvoorbeeld `127.0.0.1` of `0.0.0.0`.
 - `Port`:
   TCP-luisterpoort.
 - `MaxClients`:
@@ -151,15 +177,17 @@ Used by Java-side bridges, especially `GeyserVoice`.
 - `DisabledPacketTypes`:
   pakkettypen geblokkeerd op dit transport.
 
-Important differences compared to `McHttp` / `McWss`:
+Belangrijke verschillen vergeleken met `McHttp` / `McWss`:
 
-- `Hostname` is a plain host, not a URI
-- `Port` is a separate field
-- this is the transport most relevant to `GeyserVoice`
+- `Hostname` is een gewone host, geen URI
+- `Port` is een apart veld
+- dit is het transport dat het meest relevant is voor `GeyserVoice`
+
+Gebruik `McTcp` wanneer een Java-plug-in of proxy eigenaar is van het Minecraft-statuspad. De waarden `GeyserVoice` `config.voicecraft.transport.host`, `config.voicecraft.transport.port` en `config.voicecraft.transport.login-token` moeten overeenkomen met deze sectie.
 
 ## StandaardAudioEffectsConfig
 
-Dictionary key is a `ushort` bitmask, value is an effect JSON object.
+Woordenboeksleutel is een `ushort` bitmasker, waarde is een effect-JSON-object.
 
 Standaardmatrix:
 
@@ -174,15 +202,19 @@ Standaardmatrix:
 
 U kunt het woordenboek overschrijven of uitbreiden om het standaardeffectgedrag voor nieuwe entiteiten te wijzigen.
 
+Wijzig deze alleen als u de effectpijplijn begrijpt. Voor de meeste implementaties moet u het basisbindings- en nabijheidsgedrag verifiëren voordat u de standaardeffecten wijzigt.
+
 ## Uitgeschakelde pakkettypen
 
-Each transport supports `DisabledPacketTypes`.
+Elk transport ondersteunt `DisabledPacketTypes`.
 
 Gebruik dit zorgvuldig:
 
 - het is bedoeld voor foutopsporing, compatibiliteitsexperimenten of het beperken van noodsituaties
-- het uitschakelen van kernpakketten kan het inloggen, de entiteitssynchronisatie of de audiolevering verbreken
+- Het uitschakelen van kernpakketten kan het inloggen, de entiteitssynchronisatie of de audiolevering verbreken
 - verander dit niet in de productie, tenzij u de pakketstroom begrijpt
+
+Als een transport alleen werkt nadat pakkettypen zijn uitgeschakeld, beschouw dit dan als een compatibiliteitsoplossing en documenteer waarom dit nodig is.
 
 ## Praktische productiepatronen
 
@@ -190,27 +222,76 @@ Gebruik dit zorgvuldig:
 
 - `McHttpConfig.Enabled = true`
 - `McWssConfig.Enabled = false`
-- `McTcpConfig.Enabled = false` unless you also run Java-side bridges
+- `McTcpConfig.Enabled = false` tenzij je ook Java-side bridges gebruikt
 
 ### Lokale wereld / singleplayer
 
 - `McWssConfig.Enabled = true`
-- `McHttpConfig.Enabled = false` or optional
+- `McHttpConfig.Enabled = false` of optioneel
 
 ### GeyserVoice / Java-brug
 
 - `McTcpConfig.Enabled = true`
-- `McHttpConfig.Enabled = false` or optional
-- `McWssConfig.Enabled = false` unless also needed elsewhere
+- `McHttpConfig.Enabled = false` of optioneel
+- `McWssConfig.Enabled = false` tenzij ook elders nodig
+
+## Minimale topologievoorbeelden
+
+### Alleen BDS
+
+```json
+{
+  "VoiceCraftConfig": {
+    "Port": 9050,
+    "PositioningType": 0
+  },
+  "McHttpConfig": {
+    "Enabled": true,
+    "LoginToken": "replace-with-strong-token",
+    "Hostname": "http://0.0.0.0:9050/"
+  },
+  "McWssConfig": {
+    "Enabled": false
+  },
+  "McTcpConfig": {
+    "Enabled": false
+  }
+}
+```
+
+### Alleen Java-bridge
+
+```json
+{
+  "VoiceCraftConfig": {
+    "Port": 9050,
+    "PositioningType": 0
+  },
+  "McTcpConfig": {
+    "Enabled": true,
+    "LoginToken": "replace-with-strong-token",
+    "Hostname": "0.0.0.0",
+    "Port": 9050
+  },
+  "McHttpConfig": {
+    "Enabled": false
+  },
+  "McWssConfig": {
+    "Enabled": false
+  }
+}
+```
 
 ## Belangrijke opmerkingen
 
-- always replace generated `LoginToken` values
-- with `Hostname: http://0.0.0.0:9050/`, the HTTP listener binds to a wildcard address
-- with `McTcpConfig.Hostname = 0.0.0.0`, the TCP bridge becomes remotely reachable
-- keep `PositioningType` aligned with the client configuration
+- vervang altijd de gegenereerde `LoginToken`-waarden
+- met `Hostname: http://0.0.0.0:9050/` bindt de HTTP-listener aan een jokertekenadres
+- met `McTcpConfig.Hostname = 0.0.0.0` wordt de TCP-brug op afstand bereikbaar
+- houd `PositioningType` afgestemd op de clientconfiguratie
+- bewaar een kopie van de laatst bekende goede configuratie vóór upgrades
+- gebruik runtime-overrides alleen als uw procesmanager deze consequent doorgeeft
 
 Zie ook:
 
-- [Runtime-overschrijvingen] (/server/runtime-overrides)
-- [Transportmodi](/server/transports)
+- [Runtime Overrides](/server/runtime-overrides)
+- [Transport Modes](/server/transports)

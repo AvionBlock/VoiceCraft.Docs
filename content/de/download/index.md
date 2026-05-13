@@ -1,8 +1,14 @@
 ---
-SEO:
-  Titel: Herunterladen
-  Beschreibung: Laden Sie die neuesten VoiceCraft-Client- und Server-Builds für Ihre Plattform herunter.
+seo:
+  title: Herunterladen
+  description: Laden Sie die neuesten VoiceCraft-Client- und Server-Builds für Ihre Plattform herunter.
 ---
+
+Laden Sie die Teile herunter, die zu Ihrer Topologie passen. Die meisten Setups benötigen mindestens ein `VoiceCraft.Server`-Paket und ein `VoiceCraft.Client`-Paket pro Player.
+
+Bedrock Dedicated Server-Bereitstellungen benötigen außerdem das Paket `VoiceCraft.Addon.Core.McHttp` oder ein konfiguriertes Weltarchiv von [Addon Configurator](/addon-configurator). Lokale Grundgesteinswelten verwenden normalerweise `VoiceCraft.Addon.Core.McWss`. Java/Geyser-Bereitstellungen verwenden `GeyserVoice` plus den `McTcp`-Transport.
+
+Fahren Sie nach dem Herunterladen mit [Quick Start](/start/quick-start) oder dem Leitfaden für Ihren Transport fort.
 
 ::voice-craft-downloads
 ::

@@ -4,24 +4,29 @@ Repozytorium: [AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceC
 
 To repozytorium zawiera praktyczne pakiety dodatków Bedrock i powierzchnię McApi po stronie skryptu dla niestandardowej logiki świata.
 
+Użyj go, gdy Minecraft Bedrock jest źródłem stanu gracza/bytu. Dodatek łączy światy Bedrock z serwerem VoiceCraft poprzez `McHttp` lub `McWss`, a następnie udostępnia przepływ powiązań, interfejs użytkownika, zdarzenia i pomocniki pakietów dla skryptów świata.
+
 Szybkie linki:
 
-- [Strona pobierania](/download)
-- [Konfigurator dodatków](/addon-configurator)
-- [Wydania dodatków](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
+- [Download Page](/download)
+- [Addon Configurator](/addon-configurator)
+- [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
 
 ## Pakiety
 
-1. `Basic`
-   gotowy do użycia dodatek z przepływem powiązań, interfejsem ustawień i wskaźnikami głosowymi w grze
-2. `Core.McHttp`
-   Pakiet transportowy Bedrock do integracji opartej na protokole HTTP
-3. `Core.McWss`
-   pakiet transportowy websocket / tunel poleceń
+| Pakiet | Cel | Użyj kiedy |
+|---------|---------|----------|
+| `Basic` | gotowy do użycia przepływ powiązań, interfejs ustawień, wskaźniki głosowe w grze, typowe zdarzenia skryptowe | chcesz działającego odniesienia lub domyślnego zachowania Bedrock |
+| `Core.McHttp` | Pakiet transportowy HTTP | uruchamiasz serwer dedykowany Bedrock |
+| `Core.McWss` | pakiet transportowy websocket / tunel poleceń | uruchamiasz lokalny świat Bedrock lub konfigurację testową |
 
-## Dopasowanie wersji
+Większość prawdziwych konfiguracji Bedrock łączy pakiet transportowy z elementami zachowania/interfejsu potrzebnymi na świecie.
 
-VoiceCraft `v1.6.1` requires updating the addon packages together with the client/server release. This release includes in-game voice icons, auto connection quality-of-life, broadcasted events, and McHttp/McWss disconnect fixes that depend on the matching addon-side packages.
+## Wyrównanie wersji
+
+VoiceCraft `v1.6.1` wymaga aktualizacji pakietów dodatków wraz z wersją klient/serwer. To wydanie zawiera ikony głosowe w grze, jakość automatycznego połączenia, transmitowane wydarzenia i poprawki rozłączania McHttp/McWss, które zależą od pasujących pakietów po stronie dodatków.
+
+Nie aktualizuj serwera/klienta i nie zostawiaj starego pakietu dodatków na świecie. Niedopasowane pakiety mogą się łączyć, ale później kończy się to niepowodzeniem podczas wiązania, zdarzenia lub ikony.
 
 ## Przestrzeń nazw
 
@@ -31,40 +36,43 @@ W ramach pakietów:
 
 ## Polecenia
 
-### Podstawowy
+### Podstawowe
 
 - `voicecraft:vcbind <binding_key>`
-  permission: `Any`
+  pozwolenie: `Any`
 - `voicecraft:vcsettings`
-  permission: `GameDirectors`
+  pozwolenie: `GameDirectors`
 
 ### Core.McHttp
 
 - `voicecraft:vcconnect <hostname> <token>`
-  permission: `GameDirectors`
+  pozwolenie: `GameDirectors`
 
 ### Rdzeń.McWss
 
 - `voicecraft:vcconnect <token>`
-  permission: `Host`
+  pozwolenie: `Host`
 - `voicecraft:data_tunnel [max_string_length] [data]`
-  permission: `Host`
+  pozwolenie: `Host`
 
-## Co daje Ci pakiet Podstawowy
+## Co daje Ci pakiet Basic
 
-- wiązanie / rozłączanie przepływu
-- interfejs ustawień gracza
-- przełączanie efektów
+- wiązanie/rozłączanie przepływu
+- Interfejs ustawień odtwarzacza
+- efekt przełącza
 - zdarzenia skryptowe dla automatyzacji
+- wskaźniki w grze używane przez obsługiwane wydania
+
+Zacznij od `Basic`, jeśli chcesz zrozumieć oczekiwane wrażenia gracza przed napisaniem niestandardowej logiki dodatków.
 
 ## Szczegóły przepływu powiązania
 
 Z aktualnej realizacji:
 
-1. nowy podmiot sieciowy otrzymuje losowy 5-znakowy klucz wiążący
-2. opis podmiotu jest aktualizowany za pomocą znaku zachęty
-3. player runs `voicecraft:vcbind <key>`
-4. podmiot wiąże się z graczem
+1. nowy podmiot sieciowy otrzymuje losowy 5-znakowy klucz powiązania
+2. opis elementu jest aktualizowany za pomocą monitu o klucz
+3. gracz biegnie `voicecraft:vcbind <key>`
+4. jednostka wiąże się z graczem
 5. na urlopie następuje rozłączenie i generowany jest nowy klucz
 
 Wydarzenia skryptowe:
@@ -72,53 +80,68 @@ Wydarzenia skryptowe:
 - `voicecraft:onPlayerBind`
 - `voicecraft:onPlayerUnbind`
 
-VoiceCraft `v1.6.1` also broadcasts more addon-side lifecycle and packet events so custom worlds can react without polling the transport layer directly.
+VoiceCraft `v1.6.1` emituje także więcej zdarzeń związanych z cyklem życia i pakietami po stronie dodatku, dzięki czemu niestandardowe światy mogą reagować bez bezpośredniego odpytywania warstwy transportowej.
+
+Klucz wiążący jest celowo krótki, ponieważ jest wpisywany w grze. Traktuj go jako tymczasowy token łącza, a nie długoterminową tajemnicę.
 
 ## Interfejs efektów
 
-`voicecraft:vcsettings` currently exposes:
+`voicecraft:vcsettings` obecnie udostępnia:
 
 - Widoczność
 - Bliskość
-- Kierunkowe
+- Kierunkowy
 - Echo bliskości
 - Echo
 - Mufa zbliżeniowa
 - Mufla
 
-Effects are sent through `McApiSetEffectRequestPacket`.
+Efekty są przesyłane poprzez `McApiSetEffectRequestPacket`.
 
 ## Co możesz dostosować
 
-- powiązanie / rozłączenie polityki
+- wiązanie/rozłączanie polityki
 - ograniczenia oparte na rolach lub tagach
-- zasady identyfikacji świata
+- zasady światowej identyfikacji
 - zachowanie aktualizacji pozycji/rotacji
-- staff forms through `@minecraft/server-ui`
-- procedury obsługi pakietów na powierzchni McApi
+- formularze personelu za pośrednictwem `@minecraft/server-ui`
+- obsługi pakietów na powierzchni McApi
+
+Dostosuj dopiero po uruchomieniu podstawowej konfiguracji zapasów. Daje to znany dobry punkt odniesienia dla zachowań związanych z transportem, wiązaniem i pozycją.
 
 ## Aktualne ograniczenia
 
-- `Core.McWss` stability depends on command and payload limits
+- `Core.McWss` stabilność zależy od limitów poleceń i ładunku
+- ograniczenia hosta/dostawcy mogą blokować ścieżkę sieciową wymaganą przez `Core.McHttp`
+- niestandardowe procedury obsługi pakietów wymagają przetestowania na docelowej wersji Bedrock
 
 ## Zalecana konfiguracja: BDS
 
-1. enable `McHttpConfig.Enabled = true`
-2. ensure BDS can reach `McHttpConfig.Hostname`
-3. copy the `Core.McHttp` package
-4. run `voicecraft:vcconnect <hostname> <token>`
-5. validate bind with `voicecraft:vcbind <key>`
+1. włącz `McHttpConfig.Enabled = true`
+2. upewnij się, że BDS może dotrzeć do `McHttpConfig.Hostname`
+3. skopiuj pakiet `Core.McHttp`
+4. uruchom `voicecraft:vcconnect <hostname> <token>`
+5. zatwierdź powiązanie za pomocą `voicecraft:vcbind <key>`
 
 ## Zalecana konfiguracja: świat lokalny
 
-1. enable `McWss`
-2. install `Core.McWss`
-3. run `/connect`
-4. run `voicecraft:vcconnect <token>`
-5. keep `voicecraft:data_tunnel` aligned with server config
+1. włącz `McWss`
+2. zainstaluj `Core.McWss`
+3. uruchom `/connect`
+4. uruchom `voicecraft:vcconnect <token>`
+5. zachowaj zgodność `voicecraft:data_tunnel` z konfiguracją serwera
+
+## Lista kontrolna walidacji
+
+- zainstalowany jest właściwy pakiet transportowy
+- zarówno zachowania, jak i pakiety zasobów są aktywne
+- `vcconnect` używa tokena z odpowiedniej sekcji konfiguracji serwera
+- gracz może powiązać z `voicecraft:vcbind <key>`
+- ruch gracza zmienia dane o pozycji w VoiceCraft
+- Interfejs efektów otwiera się dla autoryzowanych użytkowników
 
 ## Przeczytaj dalej
 
-- [API dodatku](/ecosystem/addon-api)
-- [McHttp dla BDS](/minecraft/mchttp-bds)
-- [McWss dla światów dla jednego gracza](/minecraft/mcwss-singleplayer)
+- [Addon API](/ecosystem/addon-api)
+- [McHttp for BDS](/minecraft/mchttp-bds)
+- [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)

@@ -1,6 +1,22 @@
 # ServerProperties.json
 
-Main server config file: `config/ServerProperties.json`.
+Główny plik konfiguracyjny serwera: `config/ServerProperties.json`.
+
+Plik ten tworzony jest po pierwszym uruchomieniu serwera i staje się dla niego trwałym źródłem prawdy. Zatrzymaj serwer przed edycją, chyba że menedżer procesów jest zaprojektowany tak, aby bezpiecznie przeładowywać konfigurację.
+
+Użyj tej strony, jeśli chcesz zrozumieć, co kontroluje pole i które pola muszą pasować do klienta, dodatku lub wtyczki.
+
+## Edytuj przepływ pracy
+
+1. Zatrzymaj się `VoiceCraft.Server`.
+2. Utwórz kopię zapasową `config/ServerProperties.json`.
+3. Edytuj odpowiednią sekcję.
+4. Sprawdź składnię JSON.
+5. Uruchom serwer ponownie.
+6. Obserwuj dzienniki pod kątem błędów analizy konfiguracji, odbiornika lub uwierzytelniania.
+7. Połącz ponownie klienta i transport Minecraft.
+
+Najważniejszymi pierwszymi zmianami są tokeny logowania do transportu i powiązania hosta.
 
 ## Pełny przykład
 
@@ -56,9 +72,11 @@ Main server config file: `config/ServerProperties.json`.
 ## Telemetria
 
 - `TelemetryEnabled`:
-  enables anonymous startup, heartbeat, and crash diagnostics from `VoiceCraft.Server`.
+  umożliwia anonimową diagnostykę uruchamiania, pulsu i awarii z `VoiceCraft.Server`.
 - `TelemetryToken`:
   stabilny pseudonimowy odcisk palca używany do grupowania zdarzeń telemetrycznych z jednej instalacji serwerowej.
+
+Telemetria pomaga opiekunom zrozumieć kondycję środowiska wykonawczego i przyjęcie wersji. Nie należy go używać jako własnego zamiennika monitorującego; prowadź lokalne logi i monitoruj procesy dla serwerów produkcyjnych.
 
 Jeśli nie chcesz telemetrii, ustaw:
 
@@ -85,6 +103,10 @@ Jeśli nie chcesz telemetrii, ustaw:
 - `EnableVisibilityDisplay`:
   czy wskaźniki widoczności są wysyłane do klientów.
 
+`Port` to punkt końcowy, który klienci odtwarzacza dodają w interfejsie klienta VoiceCraft. Nie jest to automatycznie to samo, co każdy punkt końcowy transportu w Minecraft, nawet jeśli domyślnie używa się ponownie `9050`.
+
+`PositioningType` musi odpowiadać ustawieniom klienta. W większości konfiguracji BDS i GeyserVoice zacznij od `0 = Server`.
+
 ## McWssConfig
 
 Używany do przepływów Bedrock w gnieździe internetowym/tunelu poleceń.
@@ -92,15 +114,15 @@ Używany do przepływów Bedrock w gnieździe internetowym/tunelu poleceń.
 - `Enabled`:
   włączyć lub wyłączyć McWss.
 - `LoginToken`:
-  shared auth token, typically used with `/voicecraft:vcconnect <token>`.
+  współdzielony token autoryzacji, zwykle używany z `/voicecraft:vcconnect <token>`.
 - `Hostname`:
-  websocket host such as `ws://0.0.0.0:9051/`.
+  host protokołu internetowego, taki jak `ws://0.0.0.0:9051/`.
 - `MaxClients`:
   maksymalna liczba klientów McWss.
 - `MaxTimeoutMs`:
   limit czasu bezczynności.
 - `DataTunnelCommand`:
-  command name used for the data tunnel, usually `voicecraft:data_tunnel`.
+  nazwa polecenia używana w tunelu danych, zwykle `voicecraft:data_tunnel`.
 - `CommandsPerTick`:
   ile pakietów poleceń jest przekazywanych w ramach jednego tiku.
 - `MaxByteLengthPerCommand`:
@@ -108,7 +130,9 @@ Używany do przepływów Bedrock w gnieździe internetowym/tunelu poleceń.
 - `DisabledPacketTypes`:
   typy pakietów zablokowane w tym transporcie.
 
-## McHttpConfig
+Użyj `McWss` dla światów lokalnych i testów. Tunel poleceń zależy od `DataTunnelCommand`; zmiana go tylko z jednej strony przerywa transport.
+
+## Konfiguracja McHttp
 
 Używany do serwerów dedykowanych Bedrock i integracji opartych na HTTP.
 
@@ -132,16 +156,18 @@ Typowe wiązanie BDS:
 }
 ```
 
-## McTcpConfig
+Użyj `McHttp`, gdy BDS może połączyć się z punktem końcowym HTTP VoiceCraft. Jeśli BDS i VoiceCraft działają na różnych komputerach, `127.0.0.1` wskaże niewłaściwy host z punktu widzenia BDS.
 
-Used by Java-side bridges, especially `GeyserVoice`.
+## Konfiguracja McTcp
+
+Używane przez mosty po stronie Java, zwłaszcza `GeyserVoice`.
 
 - `Enabled`:
   włączyć lub wyłączyć McTcp.
 - `LoginToken`:
   współdzielony token uwierzytelniający dla mostu TCP.
 - `Hostname`:
-  bind hostname, for example `127.0.0.1` or `0.0.0.0`.
+  powiąż nazwę hosta, na przykład `127.0.0.1` lub `0.0.0.0`.
 - `Port`:
   Port nasłuchiwania TCP.
 - `MaxClients`:
@@ -151,15 +177,17 @@ Used by Java-side bridges, especially `GeyserVoice`.
 - `DisabledPacketTypes`:
   typy pakietów zablokowane w tym transporcie.
 
-Important differences compared to `McHttp` / `McWss`:
+Ważne różnice w porównaniu do `McHttp` / `McWss`:
 
-- `Hostname` is a plain host, not a URI
-- `Port` is a separate field
-- this is the transport most relevant to `GeyserVoice`
+- `Hostname` to zwykły host, a nie identyfikator URI
+- `Port` to osobne pole
+- to jest transport najbardziej odpowiedni dla `GeyserVoice`
+
+Użyj `McTcp`, gdy wtyczka lub serwer proxy po stronie Java jest właścicielem ścieżki stanu Minecraft. Wartości `GeyserVoice` `config.voicecraft.transport.host`, `config.voicecraft.transport.port` i `config.voicecraft.transport.login-token` muszą być zgodne z tą sekcją.
 
 ## Domyślna konfiguracja efektów audio
 
-Dictionary key is a `ushort` bitmask, value is an effect JSON object.
+Klucz słownika to maska bitowa `ushort`, wartość to obiekt JSON efektu.
 
 Domyślna macierz:
 
@@ -174,9 +202,11 @@ Domyślna macierz:
 
 Możesz zastąpić lub rozszerzyć słownik, aby zmienić domyślne zachowanie efektu dla nowych jednostek.
 
+Zmień je tylko wtedy, gdy zrozumiesz potok efektów. W przypadku większości wdrożeń sprawdź podstawowe zachowanie powiązań i bliskości przed zmianą efektów domyślnych.
+
 ## Wyłączone typy pakietów
 
-Each transport supports `DisabledPacketTypes`.
+Każdy transport obsługuje `DisabledPacketTypes`.
 
 Użyj tego ostrożnie:
 
@@ -184,33 +214,84 @@ Użyj tego ostrożnie:
 - wyłączenie pakietów podstawowych może przerwać logowanie, synchronizację jednostek lub dostarczanie dźwięku
 - nie zmieniaj tego w środowisku produkcyjnym, jeśli nie rozumiesz przepływu pakietów
 
+Jeśli transport działa dopiero po wyłączeniu typów pakietów, potraktuj to jako obejście problemu zgodności i udokumentuj, dlaczego jest potrzebne.
+
 ## Praktyczne wzorce produkcyjne
 
 ### Serwer dedykowany Bedrock
 
 - `McHttpConfig.Enabled = true`
 - `McWssConfig.Enabled = false`
-- `McTcpConfig.Enabled = false` unless you also run Java-side bridges
+- `McTcpConfig.Enabled = false`, chyba że uruchomisz także mosty po stronie Java
 
-### Świat lokalny / tryb dla pojedynczego gracza
+### Lokalny świat / tryb dla jednego gracza
 
 - `McWssConfig.Enabled = true`
-- `McHttpConfig.Enabled = false` or optional
+- `McHttpConfig.Enabled = false` lub opcjonalnie
 
-### GeyserVoice / most Java
+### Most GeyserVoice/Java
 
 - `McTcpConfig.Enabled = true`
-- `McHttpConfig.Enabled = false` or optional
-- `McWssConfig.Enabled = false` unless also needed elsewhere
+- `McHttpConfig.Enabled = false` lub opcjonalnie
+- `McWssConfig.Enabled = false`, chyba że jest to potrzebne także gdzie indziej
+
+## Minimalne przykłady topologii
+
+### Tylko BDS
+
+```json
+{
+  "VoiceCraftConfig": {
+    "Port": 9050,
+    "PositioningType": 0
+  },
+  "McHttpConfig": {
+    "Enabled": true,
+    "LoginToken": "replace-with-strong-token",
+    "Hostname": "http://0.0.0.0:9050/"
+  },
+  "McWssConfig": {
+    "Enabled": false
+  },
+  "McTcpConfig": {
+    "Enabled": false
+  }
+}
+```
+
+### Tylko most Java
+
+```json
+{
+  "VoiceCraftConfig": {
+    "Port": 9050,
+    "PositioningType": 0
+  },
+  "McTcpConfig": {
+    "Enabled": true,
+    "LoginToken": "replace-with-strong-token",
+    "Hostname": "0.0.0.0",
+    "Port": 9050
+  },
+  "McHttpConfig": {
+    "Enabled": false
+  },
+  "McWssConfig": {
+    "Enabled": false
+  }
+}
+```
 
 ## Ważne uwagi
 
-- always replace generated `LoginToken` values
-- with `Hostname: http://0.0.0.0:9050/`, the HTTP listener binds to a wildcard address
-- with `McTcpConfig.Hostname = 0.0.0.0`, the TCP bridge becomes remotely reachable
-- keep `PositioningType` aligned with the client configuration
+- zawsze zastępuj wygenerowane wartości `LoginToken`
+- z `Hostname: http://0.0.0.0:9050/` odbiornik HTTP łączy się z adresem wieloznacznym
+- z `McTcpConfig.Hostname = 0.0.0.0` most TCP staje się osiągalny zdalnie
+- zachowaj zgodność `PositioningType` z konfiguracją klienta
+- zachowaj kopię ostatniej znanej dobrej konfiguracji przed aktualizacją
+- używaj zastąpień w czasie wykonywania tylko wtedy, gdy menedżer procesu będzie je konsekwentnie przekazywał
 
 Zobacz także:
 
-- [Zastąpienia środowiska wykonawczego](/server/runtime-overrides)
-- [Tryby transportu](/server/transports)
+- [Runtime Overrides](/server/runtime-overrides)
+- [Transport Modes](/server/transports)

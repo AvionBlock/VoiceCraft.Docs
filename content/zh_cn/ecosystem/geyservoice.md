@@ -1,19 +1,21 @@
-# GeyserVoice (Java / Geyser Bridge)
+# GeyserVoice（Java / Geyser桥）
 
-仓库：[AvionBlock/GeyserVoice](https://github.com/AvionBlock/GeyserVoice)
+存储库：[AvionBlock/GeyserVoice](https://github.com/AvionBlock/GeyserVoice)
 
-`GeyserVoice` connects Java-side infrastructure to `VoiceCraft.Server` through the `McTcp` transport.
+`GeyserVoice` 通过 `McTcp` 传输将 Java 端基础结构连接到 `VoiceCraft.Server`。
+
+在 GeyserVoice 项目中，该路径也被描述为 `McApi TCP`。在 VoiceCraft 服务器配置中，它对应于 `McTcpConfig`。
 
 它支持：
 
 - 直接 Paper/Folia 部署
 - 速度代理部署
-- BungeeCord代理部署
+- BungeeCord 代理部署
 - 混合代理+后端拓扑
 
 ## GeyserVoice 的作用
 
-`GeyserVoice` bridges player state from Java-side servers into VoiceCraft:
+`GeyserVoice` 将玩家状态从 Java 端服务器桥接到 VoiceCraft：
 
 - 玩家生命周期
 - 位置/世界快照
@@ -32,18 +34,20 @@
 - 等到它准备好
 - 当插件禁用时可选择停止它
 
-This behavior is controlled through the `config.voicecraft.*` block.
+此行为是通过 `config.voicecraft.*` 块控制的。
 
 这使得 GeyserVoice 适合：
 
-- using an already-managed external `VoiceCraft.Server`
-- 让插件为您引导并运行 VoiceCraft
+- 使用已管理的外部 `VoiceCraft.Server`
+- 让插件引导并为您运行 VoiceCraft
+
+如果 GeyserVoice 管理运行时，它仍然通过相同的 `McTcp`/`McApi TCP` 路径进行连接。区别在于由谁启动 VoiceCraft 进程。
 
 ## 支持的插件平台
 
 从当前源代码来看：
 
-- Paper / Folia
+- Paper/Folia
 - 速度
 - 弹力绳
 
@@ -54,7 +58,7 @@ This behavior is controlled through the `config.voicecraft.*` block.
 - `Paper -> McTcp -> VoiceCraft`
 - `Paper -> Proxy relay -> McTcp -> VoiceCraft`
 
-## `config.yml` layout
+## `config.yml` 布局
 
 当前 Paper 配置结构：
 
@@ -64,7 +68,7 @@ This behavior is controlled through the `config.voicecraft.*` block.
 
 ### `config.lang`
 
-Plugin language, for example `system`.
+插件语言，例如 `system`。
 
 ### `config.auto-reconnect`
 
@@ -76,28 +80,54 @@ Plugin language, for example `system`.
 
 ### `config.voicecraft.*`
 
-连接和运行时管理块：
+连接和运行时管理块。
 
-- `host`
-- `port`
-- `login-token`
+当前嵌套形状：
+
+```yml
+config:
+  voicecraft:
+    transport:
+      host: "127.0.0.1"
+      port: 9050
+      login-token: "__GENERATED_LOGIN_TOKEN__"
+    voice:
+      port: 1111
+    auto-start: true
+    shutdown-on-disable: true
+    invariant-globalization: true
+    ready-timeout-ms: 20000
+    install-directory: "voicecraft-runtime"
+```
+
+- `transport.host`
+- `transport.port`
+- `transport.login-token`
+- `voice.port`
 - `auto-start`
 - `shutdown-on-disable`
+- `invariant-globalization`
 - `ready-timeout-ms`
 - `install-directory`
 
 含义：
 
-- `host` / `port` / `login-token`
-  target `VoiceCraft.Server` / `McTcp`
+- `transport.host` / `transport.port` / `transport.login-token`
+  目标 `VoiceCraft.Server` / `McTcp`
+- `voice.port`
+  托管运行时路径使用的 VoiceCraft 运行时语音端口
 - `auto-start`
   让插件自动启动 VoiceCraft 运行时
 - `shutdown-on-disable`
   插件卸载时停止托管运行时
+- `invariant-globalization`
+  运行时全球化选项对于托管服务器启动很有用
 - `ready-timeout-ms`
   插件等待运行时准备就绪的时间
 - `install-directory`
   托管运行时的安装位置
+
+在 Velocity 和 BungeeCord 上，配置保留 `config.voicecraft.transport.*` 和 `config.voicecraft.voice.*` 形状，但不使用仅 Paper 托管运行时字段。
 
 ### `config.voice.*`
 
@@ -124,7 +154,7 @@ Plugin language, for example `system`.
 
 ## 命令
 
-From `BaseVoiceCommand`:
+来自`BaseVoiceCommand`：
 
 - `connect <host> <port> <key>`
 - `reconnect [true|false]`
@@ -149,7 +179,7 @@ From `BaseVoiceCommand`:
 - `voice.bindfake`
 - `voice.reload`
 
-## Direct Paper 模式
+## Direct Paper模式
 
 最佳时间：
 
@@ -157,7 +187,7 @@ From `BaseVoiceCommand`:
 - 您想要最简单的 Java 端设置
 - 您希望 GeyserVoice 为您管理 VoiceCraft 运行时
 
-请参阅[Direct Paper 指南](/ecosystem/geyservoice-direct-paper)。
+请参阅 [Direct Paper Guide](/ecosystem/geyservoice-direct-paper)。
 
 ## 代理模式
 
@@ -167,23 +197,27 @@ From `BaseVoiceCommand`:
 - 你有几个后端Paper服务器
 - 您需要代理上有一个中央 VoiceCraft 连接
 
-请参阅[代理指南](/ecosystem/geyservoice-proxy)。
+请参阅 [Proxy Guide](/ecosystem/geyservoice-proxy)。
+
+在代理模式下，后端 Paper 服务器不应被视为中央 VoiceCraft 连接所有者。代理拥有 `McTcp` 连接，后端节点提供玩家快照。
 
 ## 技术说明
 
-- plugin messaging channel: `geyservoice:main`
-- 在代理模式下，世界 ID 可以使用后端身份命名
-- the plugin currently uses `McTcp` as the VoiceCraft-facing bridge
+- 插件消息通道：`geyservoice:main`
+- 在代理模式下，世界 ID 可以使用后端身份进行命名空间
+- 该插件当前使用 `McTcp` 作为面向 VoiceCraft 的桥
 
 ## 当前代码限制
 
-- `updatefake` is still a placeholder
-- `settings` exists but currently has minimal practical logic
+- `updatefake` 仍然是占位符
+- `settings` 存在，但目前具有最少的实用逻辑
 
 ## 生产清单
 
-1. 决定 Paper 是否应自行管理 VoiceCraft 运行时。
-2. If yes, configure `auto-start`, `install-directory`, and `ready-timeout-ms`.
-3. If no, point `host`, `port`, and `login-token` at an external VoiceCraft server.
+1. 决定 Paper 是否应管理 VoiceCraft 运行时本身。
+2. 如果是，请配置`auto-start`、`install-directory`和`ready-timeout-ms`。
+3. 如果否，请将 `config.voicecraft.transport.host`、`config.voicecraft.transport.port` 和 `config.voicecraft.transport.login-token` 指向外部 VoiceCraft 服务器。
 4. 限制仅限员工的命令。
 5. 在向玩家开放之前测试绑定流程和位置更新。
+6. 在 VoiceCraft 端确认 `McTcpConfig.Enabled = true`。
+7. 确认令牌与 `McTcpConfig.LoginToken` 匹配。

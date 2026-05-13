@@ -2,13 +2,17 @@
 
 Veelgestelde vragen over VoiceCraft.
 
-## Heeft elke speler de VoiceCraft-client-app nodig?
+## Heeft elke speler de VoiceCraft-clientapp nodig?
 
 Ja. Spelers hebben de clientapplicatie nodig. De server zelf gebruikt de client-app niet.
+
+Het is de client die de microfooninvoer vastlegt en stemgeluid in de buurt afspeelt. De Minecraft-add-on of plug-in levert alleen de spelstatus, zoals de positie van de speler en bindingsgegevens.
 
 ## Werkt VoiceCraft op mobiel?
 
 Ja. Android en iOS worden ondersteund.
+
+Mobiele gebruikers hebben nog steeds een bereikbaar VoiceCraft-servereindpunt en microfoontoestemming nodig.
 
 ## Werkt VoiceCraft op console?
 
@@ -20,27 +24,33 @@ Consolespelers kunnen nog steeds deelnemen aan sommige serverscenario's als de r
 
 Het kan in beperkte scenario's werken, vooral wanneer positionering aan de clientzijde wordt gebruikt, maar Realms is een beperktere omgeving dan een speciale server.
 
+Als u een voorspelbare productie-opstelling wilt, gebruik dan BDS met `McHttp` of een Java/Geyser-topologie met `GeyserVoice`.
+
 ## Welk vervoer moet ik gebruiken?
 
 - Bedrock speciale server:
   `McHttp`
 - lokale Bedrock-wereld:
   `McWss`
-- Java + Geyser / Floodgate:
-  `McTcp` through `GeyserVoice`
+- Java + Geiser / Sluizen:
+  `McTcp` tot en met `GeyserVoice`
+
+Het transport is voor de Minecraft-kant. Spelerclients maken nog steeds verbinding met het VoiceCraft UDP-eindpunt.
 
 ## Heeft GeyserVoice een afzonderlijk beheerde VoiceCraft-server nodig?
 
 Niet altijd.
 
-In de directe Paper-modus kan GeyserVoice de VoiceCraft-runtime opstarten en uitvoeren op de achtergrond met behulp van:
+In de directe Paper-modus kan GeyserVoice de VoiceCraft-runtime opstarten en uitvoeren onder de motorkap met behulp van:
 
 - `config.voicecraft.auto-start`
-- `shutdown-on-disable`
-- `ready-timeout-ms`
-- `install-directory`
+- `config.voicecraft.shutdown-on-disable`
+- `config.voicecraft.ready-timeout-ms`
+- `config.voicecraft.install-directory`
 
 Als u wilt, kan het ook verwijzen naar een reeds actieve externe VoiceCraft-server.
+
+In de huidige configuraties staan de externe verbindingswaarden onder `config.voicecraft.transport.*`.
 
 ## Kan ik VoiceCraft gebruiken met hostingproviders zoals Apex, Aternos of iets dergelijks?
 
@@ -48,12 +58,14 @@ Het hangt ervan af of uw provider het vereiste netwerkpad tussen de spelserver e
 
 Voorbeelden:
 
-- BDS with `McHttp` needs outbound reachability to the VoiceCraft HTTP endpoint
-- Java + GeyserVoice needs reachability to the VoiceCraft `McTcp` endpoint
+- BDS met `McHttp` heeft uitgaande bereikbaarheid naar het VoiceCraft HTTP-eindpunt nodig
+- Java + GeyserVoice heeft bereikbaarheid nodig voor het VoiceCraft `McTcp` eindpunt
 
 Sommige providers blokkeren precies het netwerkgedrag dat u nodig heeft.
 
-## Kan ik VoiceCraft hosten op dezelfde machine als de spelserver?
+Voordat u hosting koopt, moet u zich afvragen of aangepaste UDP-poorten, uitgaande HTTP/TCP, zijspanprocessen en vereiste Bedrock-scriptmodules zijn toegestaan.
+
+## Kan ik VoiceCraft op dezelfde machine hosten als de spelserver?
 
 Ja. Dat is gebruikelijk voor:
 
@@ -61,40 +73,56 @@ Ja. Dat is gebruikelijk voor:
 - kleine gemeenschappen
 - directe Paper + GeyserVoice-instellingen
 
+Gebruik loopback-adressen zoals `127.0.0.1` alleen als de consument daadwerkelijk op dezelfde machine draait.
+
 ## Kan ik slechts één transport uitvoeren?
 
 Ja. U kunt runtime-transporten beperken met:
 
-- config toggles in `ServerProperties.json`
-- runtime overrides such as `--transport-mode`
+- configuratie schakelt in `ServerProperties.json`
+- runtime-overschrijvingen zoals `--transport-mode`
+
+Dit wordt aanbevolen voor productie. Geef alleen het transport bloot dat uw topologie gebruikt.
 
 ## Waarom hoor ik niemand, ook al maakt de client verbinding?
 
 Controleer deze op volgorde:
 
 1. correcte VoiceCraft-server-IP en poort in de client
-2. matching `PositioningType`
-3. correct Minecraft-transporttoken
+2. passend bij `PositioningType`
+3. juiste Minecraft-transporttoken
 4. succesvolle bindstroom
 5. entiteiten die positie- en wereldupdates ontvangen
 
-## Is `McWss` good for production?
+Als `list --clientsOnly` de speler toont, maar `list` geen veranderende entiteitspositie toont, debug dan de Minecraft-integratie in plaats van de microfooninstellingen.
+
+## Is `McWss` goed voor de productie?
 
 Meestal niet de eerste keuze voor grotere openbare omgevingen.
 
-It is best for local worlds, testing, and lightweight setups. `McHttp` is usually a better Bedrock production transport.
+Het is het beste voor lokale werelden, testen en lichtgewicht opstellingen. `McHttp` is meestal een beter gesteenteproductietransport.
 
 ## Wat is het verschil tussen servermute en lokale mute?
 
 - server dempen:
   afgedwongen door de backend voor de doelentiteit of -client
 - lokaal dempen:
-  stored in a player's `Settings.json` as a personal preference
+  opgeslagen in de `Settings.json` van een speler als persoonlijke voorkeur
 
-## Waar worden het volume per gebruiker en lokale mute opgeslagen?
+## Waar worden het volume per gebruiker en lokaal dempen opgeslagen?
 
-In `Settings.json` under `UserSettings.Users`.
+In `Settings.json` onder `UserSettings.Users`.
 
-## Ik voer Java uit met Geyser. Heb ik de Bedrock-add-on ook nodig?
+## Ik gebruik Java met Geyser. Heb ik de Bedrock-add-on ook nodig?
 
-No. In Java + Geyser topologies, the bridge is typically `GeyserVoice`, not the Bedrock addon.
+Nee. In Java- en Geyser-topologieën is de bridge doorgaans `GeyserVoice`, en niet de Bedrock-add-on.
+
+Gebruik de Bedrock-add-on voor Bedrock-werelden/BDS. Gebruik GeyserVoice wanneer de Java-infrastructuur de bron is van de spelerstatus.
+
+## Is VoiceCraft een gehoste spraakservice van derden?
+
+Nee. VoiceCraft vereist geen gehoste service van derden. U voert zelf de server/runtime uit of laat GeyserVoice de runtime beheren in directe Paper-modus.
+
+## Is VoiceCraft slechts een Minecraft-mod?
+
+Nee. VoiceCraft is een verzameling client-apps, een serverruntime, Bedrock-add-onpakketten en bridge-tools aan de Java-kant. Een werkende opstelling heeft de juiste combinatie nodig voor uw topologie.

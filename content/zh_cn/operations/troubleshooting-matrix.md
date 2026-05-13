@@ -6,63 +6,89 @@
 
 检查：
 
-1. `PositioningType` match
-2.绑定流程完成
-3.实体接收世界和位置更新
-4. 客户没有局部静音或耳聋
-5.服务器没有使实体静音或震耳欲聋
+1. `PositioningType` 匹配
+2. 绑定流程完成
+3. 实体接收世界和位置更新
+4. 客户没有本地静音或耳聋
+5. 服务器没有使该实体静音或震耳欲聋
+
+如何验证：
+
+- 运行 `list --clientsOnly` 以确认语音客户端存在
+- 运行`list`并检查相关实体是否有变化的位置
+- 使用客户端麦克风测试和输出测试来排除本地音频设备
 
 ## 症状：插件已连接，但绑定无法正常工作
 
 检查：
 
-1. token正确
-2. 期望的实体被创建
-3.玩家使用了正确的绑定密钥
-4.绑定脚本事件正在触发
+1. 令牌是正确的
+2. 预期的实体已创建
+3. 玩家使用了正确的绑定密钥
+4. 绑定脚本事件正在触发
+
+常见原因：
+
+- 玩家复制了过期或重新生成的绑定密钥
+- 插件包版本与服务器/客户端版本不匹配
+- 自定义插件逻辑拦截或绕过库存绑定流程
 
 ## 症状：GeyserVoice 已安装，但 Java 端桥永远无法使用
 
 检查：
 
-1. `McTcp` is enabled on VoiceCraft
-2. `host`, `port`, and `login-token` match
-3. 故意配置直接模式与代理模式
-4. if `auto-start` is enabled, the runtime becomes ready within timeout
+1. VoiceCraft 上启用了 `McTcp`
+2. `config.voicecraft.transport.host`、`config.voicecraft.transport.port` 和 `config.voicecraft.transport.login-token` 匹配
+3. 直接与代理模式是有意配置的
+4. 如果启用 `auto-start`，则运行时在超时内准备就绪
 
-## 症状：Direct Paper 模式在手动重新连接后有效，但在启动时无效
+还要检查插件是否安装在正确的层上：直接Paper模式需要Paper/Folia，而代理模式需要代理和后端节点。
+
+## 症状：Direct Paper模式在手动重新连接后有效，但在启动时无效
 
 检查：
 
 1. `config.voicecraft.auto-start`
 2. `install-directory`
 3. `ready-timeout-ms`
-4.运行时进程的启动所有权
+4. 运行时进程的启动所有权
 
-## 症状：代理模式在一个后端有效，但在服务器切换时中断
+如果插件在托管运行时准备就绪之前启动，请增加超时或使用具有自己的重新启动策略的外部 VoiceCraft 服务。
+
+## 症状：代理模式在一个后端可以工作，但在服务器切换时中断
 
 检查：
 
-1.代理是真相来源
-2. 后端节点不尝试拥有 VoiceCraft 连接
-3.快照转发在交换机之间保持完整
-4.世界ID命名空间逻辑保持一致
+1. 代理是真相的来源
+2. 后端节点不会尝试拥有 VoiceCraft 连接
+3. 快照转发在交换机之间保持完整
+4. 世界 ID 命名空间逻辑保持一致
 
-## Symptom: `McWss` is unstable
+如果只有一个后端失败，请将其 GeyserVoice 配置和插件版本与正常运行的后端进行比较。
+
+## 症状：`McWss` 不稳定
 
 检查：
 
 1. `CommandsPerTick`
 2. `MaxByteLengthPerCommand`
 3. 实体流失和数据包突发大小
-4. whether `McHttp` would be a better fit
+4. `McHttp` 是否更合适
+
+如果世界正在成为一个长期运行的共享服务器，请将不稳定视为转向 BDS + `McHttp` 的标志。
 
 ## 症状：VoiceCraft 服务器启动，但传输使用者无法连接
 
 检查：
 
 1. 主机绑定
-2. 裸露端口
-3、防火墙
-4.选择了错误的传输类型
-5.运行时覆盖改变期望值
+2. 暴露端口
+3. 防火墙
+4. 选择了错误的运输类型
+5. 运行时覆盖更改预期值
+
+快速分割：
+
+- 客户端连接问题通常是 UDP 端点或客户端设置
+- 插件/插件连接问题通常是 `McHttp`、`McWss` 或 `McTcp`
+- 绑定/邻近问题通常发生在两个连接都已存在之后

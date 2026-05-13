@@ -1,8 +1,10 @@
-# 第一个服务器运行
+# First Server Run
+
+此页面在您下载并启动 `VoiceCraft.Server` 一次后启动。目标是将首次启动转变为客户端和 Minecraft 可以实际使用的工作服务器。
 
 ## 第一次启动时会发生什么
 
-On startup, VoiceCraft looks for `ServerProperties.json` in the current directory and subdirectories.
+启动时，VoiceCraft 会在当前目录和子目录中查找 `ServerProperties.json`。
 
 如果找不到该文件，服务器会自动创建：
 
@@ -11,20 +13,112 @@ On startup, VoiceCraft looks for `ServerProperties.json` in the current director
 
 该文件成为服务器行为的主要持久事实来源。
 
+文件出现后，停止服务器，编辑配置，然后再次启动。第一次启动仅创建基线；设置尚未完成。
+
 ## 默认端口和端点
 
 默认情况下，生成的配置是这样对齐的：
 
-- VoiceCraft UDP: `9050`
-- `McHttp`: `http://127.0.0.1:9050/`
-- `McWss`: `ws://127.0.0.1:9051/`
-- `McTcp`: `127.0.0.1:9050`
+- VoiceCraft UDP：`9050`
+- `McHttp`：`http://127.0.0.1:9050/`
+- `McWss`：`ws://127.0.0.1:9051/`
+- `McTcp`：`127.0.0.1:9050`
 
 注意事项：
 
-- UDP voice traffic and some transport defaults share `9050`
-- `McWss` is separated by default on `9051`
-- `McTcp` is especially relevant for `GeyserVoice`
+- UDP 语音流量和某些传输默认值共享 `9050`
+- `McWss` 默认在 `9051` 上分隔
+- `McTcp` 与 `GeyserVoice` 特别相关
+
+## Linear first-run path
+
+### 1.停止并打开生成的config
+
+Open:
+
+```text
+config/ServerProperties.json
+```
+
+将此文件保存在同一安装文件夹中并将其包含在备份中。
+
+### 2.替换生成的token
+
+在任何插件、插件或播放器客户端连接之前，替换：
+
+- `McHttpConfig.LoginToken`
+- `McWssConfig.LoginToken`
+- `McTcpConfig.LoginToken`
+
+使用您稍后实际连接的传输中的令牌。例如，BDS `vcconnect` 命令必须使用 `McHttpConfig.LoginToken`，而 GeyserVoice 必须使用 `McTcpConfig.LoginToken`。
+
+### 3. 选择一种主要的 Minecraft 交通工具
+
+使用拓扑来决定应启用什么：
+
+| 设置 | 启用 | 继续 |
+|-------|--------|---------------|
+| 基岩专用服务器 | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
+| 当地基岩世界 | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
+| Java + Geyser/水闸 | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+
+您可以运行多个传输，但当仅公开所需的传输时，第一个设置更容易调试。
+
+### 4. Set host bindings
+
+当一切都在一台机器上运行时使用本地绑定：
+
+- `McHttpConfig.Hostname = http://127.0.0.1:9050/`
+- `McWssConfig.Hostname = ws://127.0.0.1:9051/`
+- `McTcpConfig.Hostname = 127.0.0.1`
+
+仅当另一台计算机、容器或游戏主机必须到达 VoiceCraft 时才使用 `0.0.0.0`。
+
+### 5. Restart the server
+
+Start `VoiceCraft.Server` again from the same folder.注意：
+
+- 无效的 JSON 错误
+- port already in use errors
+- failed listener or binding errors
+
+Fix these before moving on.当服务器报告启动错误时，Minecraft 插件或插件无法可靠连接。
+
+### 6. 连接 VoiceCraft 客户端
+
+从 [Download Page](/download) 安装客户端，然后添加服务器条目：
+
+- host: the VoiceCraft server address
+- port: `VoiceCraftConfig.Port`, usually `9050`
+
+对于本地测试，请使用：
+
+```text
+127.0.0.1:9050
+```
+
+确保客户端 `Positioning Type` 与 `VoiceCraftConfig.PositioningType` 匹配。
+
+### 7. 连接我的世界
+
+继续阅读与您启用的传输相匹配的指南：
+
+- [McHttp for BDS](/minecraft/mchttp-bds)
+- [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
+- [GeyserVoice](/ecosystem/geyservoice)
+
+当提示输入令牌时，请使用 `ServerProperties.json` 中的匹配传输令牌。
+
+### 8. 验证设置
+
+第一次设置完成时：
+
+- server logs show no config or listener errors
+- VoiceCraft 客户端连接到 UDP 端点
+- Minecraft 通过选定的传输方式进行身份验证
+- 游戏内绑定流程有效
+- player position updates reach VoiceCraft
+- proximity voice works at the expected range
 
 ## 启动参数
 
@@ -54,7 +148,7 @@ VoiceCraft 服务器支持这些根参数：
 
 ## 示例
 
-### 使用启动语言覆盖运行
+### Run with a startup language override
 
 ```bash
 ./VoiceCraft.Server --language en-US
@@ -66,13 +160,13 @@ VoiceCraft 服务器支持这些根参数：
 ./VoiceCraft.Server --exit-on-invalid-properties
 ```
 
-### Run only `McTcp` for a Java bridge
+### 仅针对 Java 桥运行 `McTcp`
 
 ```bash
 ./VoiceCraft.Server --transport-mode tcp --transport-host 0.0.0.0 --transport-port 9050
 ```
 
-### Run only `McHttp`
+### 仅运行 `McHttp`
 
 ```bash
 ./VoiceCraft.Server --transport-mode http --transport-host 0.0.0.0 --transport-port 9050
@@ -84,34 +178,40 @@ VoiceCraft 服务器支持这些根参数：
 ./VoiceCraft.Server --server-key "replace-with-secure-token"
 ```
 
-## 传输覆盖的行为方式
+## How transport overrides behave
 
-Runtime overrides do not permanently rewrite `ServerProperties.json`.
+运行时覆盖不会永久重写 `ServerProperties.json`。
 
 它们仅适用于当前流程，并且在以下情况下很有用：
 
-- 从一个映像运行多个环境
+- running multiple environments from one image
 - 使用面板或 systemd 插件
 - 测试直接与代理拓扑
-- letting another tool such as `GeyserVoice` launch the runtime with generated values
+- 让另一个工具（例如 `GeyserVoice`）使用生成的值启动运行时
 
-## 首次运行清单
+## 首次运行检查表
 
-1. 更改所有生成的登录令牌。
-2. 确认您实际需要哪种交通工具：
-   - `McHttp` for BDS
-   - `McWss` for local worlds
-   - `McTcp` for `GeyserVoice`
-3. 验证主机绑定。
-4. 仅打开您需要的端口。
-5. Confirm `PositioningType` with your clients.
-6. 在连接 Minecraft 自动化之前测试客户端连接。
+1. 运行服务器一次以生成 `config/ServerProperties.json`。
+2. 在编辑生成的配置之前停止服务器。
+3. 更改所有生成的登录令牌。
+4. 确认您实际需要哪种交通工具：
+   - BDS 的 `McHttp`
+   - `McWss` 用于本地世界
+   - `McTcp` 用于 `GeyserVoice`
+5. 验证主机绑定。
+6. 仅打开您需要的端口。
+7. 从同一安装文件夹重新启动服务器。
+8. 与您的客户确认 `PositioningType`。
+9. 在连接 Minecraft 自动化之前测试客户端连接。
+10. 连接 Minecraft 插件或插件并验证绑定流。
 
 ## 常见的首次运行错误
 
 - 保持生成的令牌不变
-- exposing `127.0.0.1` endpoints to remote nodes
-- forgetting that `McTcp` may be required by Java-side bridges
+- 将 `127.0.0.1` 端点暴露给远程节点
+- 忘记 Java 端桥可能需要 `McTcp`
 - 无需实际需要即可实现生产中的每一种传输
+- 编辑 `ServerProperties.json` 而进程管理器立即重新启动旧的损坏的配置
+- 使用 Minecraft 指南期望传输端点的 UDP 客户端端口
 
 有关完整配置参考，请参阅 [ServerProperties.json](/server/server-properties)。

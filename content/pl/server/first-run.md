@@ -1,8 +1,10 @@
 # Pierwsze uruchomienie serwera
 
+Ta strona uruchamia się po jednokrotnym pobraniu i uruchomieniu `VoiceCraft.Server`. Celem jest przekształcenie tego pierwszego uruchomienia w działający serwer, z którego będą mogli faktycznie korzystać klienci i Minecraft.
+
 ## Co się dzieje przy pierwszym uruchomieniu
 
-On startup, VoiceCraft looks for `ServerProperties.json` in the current directory and subdirectories.
+Podczas uruchamiania VoiceCraft szuka `ServerProperties.json` w bieżącym katalogu i podkatalogach.
 
 Jeśli plik nie zostanie znaleziony, serwer automatycznie utworzy:
 
@@ -10,6 +12,8 @@ Jeśli plik nie zostanie znaleziony, serwer automatycznie utworzy:
 - `config/ServerProperties.json`
 
 Plik ten staje się głównym, trwałym źródłem prawdy o zachowaniu serwera.
+
+Po pojawieniu się pliku zatrzymaj serwer, edytuj konfigurację, a następnie uruchom go ponownie. Pierwsze uruchomienie tworzy jedynie linię bazową; konfiguracja nie została jeszcze ukończona.
 
 ## Domyślne porty i punkty końcowe
 
@@ -22,16 +26,106 @@ Domyślnie wygenerowana konfiguracja jest wyrównana w następujący sposób:
 
 Uwagi:
 
-- UDP voice traffic and some transport defaults share `9050`
-- `McWss` is separated by default on `9051`
-- `McTcp` is especially relevant for `GeyserVoice`
+- Ruch głosowy UDP i niektóre domyślne ustawienia transportu są wspólne `9050`
+- `McWss` jest domyślnie oddzielony w `9051`
+- `McTcp` jest szczególnie istotny dla `GeyserVoice`
+
+## Liniowa ścieżka pierwszego uruchomienia
+
+### 1. Zatrzymaj się i otwórz wygenerowaną konfigurację
+
+Otwórz:
+
+```text
+config/ServerProperties.json
+```
+
+Zachowaj ten plik w tym samym folderze instalacyjnym i dołącz go do kopii zapasowych.
+
+### 2. Wymień wygenerowane tokeny
+
+Zanim połączy się jakikolwiek dodatek, wtyczka lub klient odtwarzacza, zamień:
+
+- `McHttpConfig.LoginToken`
+- `McWssConfig.LoginToken`
+- `McTcpConfig.LoginToken`
+
+Użyj żetonu z transportu, z którym faktycznie łączysz się później. Na przykład polecenie BDS `vcconnect` musi używać `McHttpConfig.LoginToken`, podczas gdy GeyserVoice musi używać `McTcpConfig.LoginToken`.
+
+### 3. Wybierz jeden podstawowy transport Minecraft
+
+Użyj topologii, aby zdecydować, co powinno być włączone:
+
+| Konfiguracja | Włącz | Kontynuuj z |
+|-------|--------|---------------|
+| Serwer dedykowany Bedrock | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
+| Lokalny świat Bedrock | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
+| Java + Gejzer/Powodzia | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+
+Możesz uruchomić wiele transportów, ale pierwsza konfiguracja jest łatwiejsza do debugowania, gdy ujawniona jest tylko wymagana.
+
+### 4. Ustaw powiązania hosta
+
+Użyj lokalnych powiązań, gdy wszystko działa na jednym komputerze:
+
+- `McHttpConfig.Hostname = http://127.0.0.1:9050/`
+- `McWssConfig.Hostname = ws://127.0.0.1:9051/`
+- `McTcpConfig.Hostname = 127.0.0.1`
+
+Używaj `0.0.0.0` tylko wtedy, gdy inna maszyna, kontener lub host gry musi dotrzeć do VoiceCraft.
+
+### 5. Uruchom ponownie serwer
+
+Uruchom ponownie `VoiceCraft.Server` z tego samego folderu. Uważaj na:
+
+- nieprawidłowe błędy JSON
+- port już używany, błędy
+- nieudany odbiornik lub błędy wiązania
+
+Napraw je, zanim przejdziesz dalej. Dodatek lub wtyczka Minecraft nie może niezawodnie łączyć się, gdy serwer zgłasza błędy uruchamiania.
+
+### 6. Podłącz klienta VoiceCraft
+
+Zainstaluj klienta z [Download Page](/download), a następnie dodaj wpis serwera:
+
+- host: adres serwera VoiceCraft
+- port: `VoiceCraftConfig.Port`, zwykle `9050`
+
+Do testów lokalnych użyj:
+
+```text
+127.0.0.1:9050
+```
+
+Upewnij się, że klient `Positioning Type` pasuje do `VoiceCraftConfig.PositioningType`.
+
+### 7. Połącz się z Minecraftem
+
+Kontynuuj korzystanie z przewodnika odpowiadającego włączonemu transportowi:
+
+- [McHttp for BDS](/minecraft/mchttp-bds)
+- [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
+- [GeyserVoice](/ecosystem/geyservoice)
+
+Po wyświetleniu monitu o token użyj pasującego tokenu transportowego z `ServerProperties.json`.
+
+### 8. Zatwierdź konfigurację
+
+Pierwsza konfiguracja jest zakończona, gdy:
+
+- dzienniki serwera nie wykazują żadnych błędów konfiguracji ani odbiornika
+- klient VoiceCraft łączy się z punktem końcowym UDP
+- Minecraft uwierzytelnia się poprzez wybrany transport
+- działa przepływ wiązania w grze
+- aktualizacje pozycji gracza docierają do VoiceCraft
+- głos zbliżeniowy działa w oczekiwanym zasięgu
 
 ## Argumenty startowe
 
 Serwer VoiceCraft obsługuje następujące argumenty główne:
 
 - `--exit-on-invalid-properties`
-  Exit if `ServerProperties.json` cannot be parsed.
+  Zakończ, jeśli nie można przeanalizować `ServerProperties.json`.
 - `--language <culture>`
   Zastąp język dziennika serwera dla bieżącego przebiegu.
 - `--transport-mode <mode>`
@@ -66,19 +160,19 @@ W kodzie istnieją również krótkie aliasy:
 ./VoiceCraft.Server --exit-on-invalid-properties
 ```
 
-### Run only `McTcp` for a Java bridge
+### Uruchom tylko `McTcp` dla mostu Java
 
 ```bash
 ./VoiceCraft.Server --transport-mode tcp --transport-host 0.0.0.0 --transport-port 9050
 ```
 
-### Run only `McHttp`
+### Uruchom tylko `McHttp`
 
 ```bash
 ./VoiceCraft.Server --transport-mode http --transport-host 0.0.0.0 --transport-port 9050
 ```
 
-### Zastąp token bez edycji JSON
+### Zastąp token bez edytowania JSON
 
 ```bash
 ./VoiceCraft.Server --server-key "replace-with-secure-token"
@@ -86,32 +180,38 @@ W kodzie istnieją również krótkie aliasy:
 
 ## Jak zachowują się nadpisania transportu
 
-Runtime overrides do not permanently rewrite `ServerProperties.json`.
+Zastąpienia w czasie wykonywania nie powodują trwałego przepisania `ServerProperties.json`.
 
 Dotyczą tylko bieżącego procesu i są przydatne, gdy:
 
 - uruchamianie wielu środowisk z jednego obrazu
-- za pomocą paneli lub systemowych drop-inów
+- za pomocą paneli lub drop-inów systemowych
 - testowanie topologii bezpośrednich i proxy
-- letting another tool such as `GeyserVoice` launch the runtime with generated values
+- zezwolenie innemu narzędziu, takiemu jak `GeyserVoice` na uruchomienie środowiska wykonawczego z wygenerowanymi wartościami
 
 ## Lista kontrolna pierwszego uruchomienia
 
-1. Zmień wszystkie wygenerowane tokeny logowania.
-2. Potwierdź, jakiego transportu faktycznie potrzebujesz:
-   - `McHttp` for BDS
-   - `McWss` for local worlds
-   - `McTcp` for `GeyserVoice`
-3. Sprawdź powiązania hosta.
-4. Otwórz tylko te porty, których potrzebujesz.
-5. Confirm `PositioningType` with your clients.
-6. Przetestuj połączenie klienta przed podłączeniem automatyzacji Minecraft.
+1. Uruchom serwer raz, aby wygenerować `config/ServerProperties.json`.
+2. Zatrzymaj serwer przed edycją wygenerowanej konfiguracji.
+3. Zmień wszystkie wygenerowane tokeny logowania.
+4. Potwierdź, jakiego transportu faktycznie potrzebujesz:
+   - `McHttp` dla BDS
+   - `McWss` dla światów lokalnych
+   - `McTcp` dla `GeyserVoice`
+5. Sprawdź powiązania hosta.
+6. Otwórz tylko te porty, których potrzebujesz.
+7. Uruchom ponownie serwer z tego samego folderu instalacyjnego.
+8. Potwierdź `PositioningType` ze swoimi klientami.
+9. Przetestuj połączenie klienta przed podłączeniem automatyzacji Minecrafta.
+10. Podłącz dodatek lub wtyczkę Minecraft i sprawdź przepływ powiązania.
 
-## Typowe błędy przy pierwszym uruchomieniu
+## Typowe błędy pierwszego uruchomienia
 
 - pozostawienie wygenerowanych tokenów bez zmian
-- exposing `127.0.0.1` endpoints to remote nodes
-- forgetting that `McTcp` may be required by Java-side bridges
+- udostępnianie punktów końcowych `127.0.0.1` zdalnym węzłom
+- zapominając, że mosty po stronie Java mogą wymagać `McTcp`
 - umożliwienie każdego transportu w produkcji bez ich faktycznej potrzeby
+- edytowanie `ServerProperties.json`, podczas gdy menedżer procesów natychmiast uruchamia ponownie starą, uszkodzoną konfigurację
+- przy użyciu portu klienta UDP, gdzie przewodnik Minecraft oczekuje punktu końcowego transportu
 
-Aby zapoznać się z pełnym opisem konfiguracji, zobacz [ServerProperties.json](/server/server-properties).
+Pełne informacje dotyczące konfiguracji można znaleźć w artykule [ServerProperties.json](/server/server-properties).

@@ -2,26 +2,37 @@
 
 VoiceCraft ist eine Proximity-Sprachplattform für Minecraft Bedrock Edition und verwandte Bridge-Szenarien.
 
-Es besteht aus mehreren Schichten:
+Damit können Spieler einen separaten Sprachclient ausführen, während die Minecraft-seitige Automatisierung dem Sprachserver mitteilt, wo sich jeder Spieler befindet, in welcher Welt er sich befindet und welche Effekte oder Sichtbarkeitsregeln gelten sollen.
+
+VoiceCraft ist nützlich, wenn Sie Proximity Voice wünschen, ohne von einer genauen Minecraft-Serverform abhängig zu sein. Die gleiche Kernlaufzeit kann mit Bedrock-Add-ons, Java/Geyser-Bridges oder Proxy-Bereitstellungen kombiniert werden.
+
+## Was Sie einrichten
+
+Die meisten Bereitstellungen bestehen aus drei beweglichen Teilen:
 
 1. `VoiceCraft.Client`
-   Desktop- und mobile Client-Apps
+   Desktop- und mobile App, die von jedem Spieler installiert wird
 2. `VoiceCraft.Server`
-   Eigenständiges Backend für Sprachtransport, Statussynchronisierung und Transportendpunkte
+   eigenständiges Backend für Sprachverkehr, Statussynchronisierung, Moderation und Transportendpunkte
 3. Minecraft-orientierte Transporte
-   `McHttp`, `McWss`, and `McTcp`
-4. Ökosystemintegrationen
-   `VoiceCraft.Addon` for Bedrock and `GeyserVoice` for Java / proxy stacks
+   `McHttp`, `McWss` und `McTcp`
+
+Ökosystemintegrationen verbinden Minecraft mit diesen Transportmitteln:
+
+- `VoiceCraft.Addon` für Bedrock Worlds und BDS
+- `GeyserVoice` für Java/Geyser/Proxy-Stacks
 
 ## Wie es funktioniert
 
-1. The client connects to `VoiceCraft.Server` over UDP.
-2. Der Server verfolgt Entitäten, Positionen, Welt-IDs, Effektbitmasken und den Moderationsstatus.
-3. Ein Minecraft-seitiger Transport aktualisiert den Server mit dem Gameplay-Status:
-   - `McHttp` for BDS
-   - `McWss` for local Bedrock worlds
-   - `McTcp` for `GeyserVoice`
+1. Der Client stellt über UDP eine Verbindung zu `VoiceCraft.Server` her.
+2. Der Server verfolgt Sprachsitzungen, Entitäten, Positionen, Welt-IDs, Effektbitmasken und den Moderationsstatus.
+3. Eine Minecraft-seitige Integration aktualisiert den Server mit dem Gameplay-Status:
+   - `McHttp` für BDS
+   - `McWss` für lokale Bedrock-Welten
+   - `McTcp` für `GeyserVoice`
 4. Der Client rendert Proximity-Audio entsprechend dem Serverstatus und den ausgewählten lokalen Einstellungen.
+
+Die Sprachverbindung und die Minecraft-Transportverbindung sind getrennt. Wenn nur eine Seite angeschlossen ist, sieht das Setup möglicherweise teilweise fehlerfrei aus, das Näherungsverhalten ist jedoch immer noch unvollständig.
 
 ## Unterstützte Client-Plattformen
 
@@ -34,15 +45,26 @@ Es besteht aus mehreren Schichten:
 ## Was VoiceCraft flexibel macht
 
 - mehrere Minecraft-Transporte
-- Bedrock-Addon-API-Oberfläche
-- Java-side bridge via `GeyserVoice`
-- Konfigurierbare Effekte und Entitätsmetadaten
-- Sowohl serverseitige als auch clientseitige Positionierungsmodi
+- Bedrock-Add-on-API-Oberfläche
+- Java-seitige Brücke über `GeyserVoice`
+- konfigurierbare Effekte und Entitätsmetadaten
+- sowohl serverseitige als auch clientseitige Positionierungsmodi
+
+Diese Flexibilität bedeutet auch, dass die erste Entscheidung zählt: Wählen Sie zuerst die Topologie und befolgen Sie dann die Anleitung für diesen Transport.
+
+## Gängige Topologieoptionen
+
+| Wenn du rennst... | Beginnen Sie mit... | Warum |
+|---------------|---------------|-----|
+| Dedizierter Bedrock-Server | [McHttp for BDS](/minecraft/mchttp-bds) | BDS kann einen stabilen HTTP-Endpunkt aufrufen |
+| Lokale Grundgesteinswelt | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | Funktioniert über den lokalen Websocket-/Befehlstunnelfluss |
+| Java-Server mit Geyser/Floodgate | [GeyserVoice](/ecosystem/geyservoice) | Java-seitiges Plugin stellt über `McTcp` eine Brücke zu VoiceCraft |
+| Direkter Paper-Server | [GeyserVoice Direct Paper](/ecosystem/geyservoice-direct-paper) | Das Plugin kann entweder einen externen Server nutzen oder die Laufzeit verwalten |
 
 ## Was Sie als nächstes lesen sollten
 
-- [Schnellstart](/start/quick-start)
-- [Herunterladen](/download)
-- [Transportmodi](/server/transports)
-- [Systemarchitektur](/architecture/system-architecture)
-- [Ökosystemübersicht](/ecosystem/overview)
+- [Quick Start](/start/quick-start)
+- [Download](/download)
+- [Transport Modes](/server/transports)
+- [System Architecture](/architecture/system-architecture)
+- [Ecosystem Overview](/ecosystem/overview)

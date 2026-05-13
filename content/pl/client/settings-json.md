@@ -1,13 +1,22 @@
-# settings.json
+# Ustawienia.json
 
-Client settings file: `Settings.json`.
+Plik ustawień klienta: `Settings.json`.
+
+Klient zapisuje ten plik automatycznie. Użyj interfejsu użytkownika do normalnych zmian i edytuj JSON tylko na potrzeby odzyskiwania, automatyzacji lub zaawansowanego rozwiązywania problemów.
+
+Przed ręczną edycją:
+
+1. Zamknij klienta.
+2. Utwórz kopię zapasową `Settings.json`.
+3. Zmieniaj jedną sekcję na raz.
+4. Otwórz ponownie klienta i sprawdź, czy interfejs użytkownika nadal się ładuje.
 
 ## Lokalizacja pliku
 
 - Windows: `%AppData%/voicecraft/Settings.json`
 - Linux: `~/.config/voicecraft/Settings.json`
 - macOS: `~/Library/Application Support/voicecraft/Settings.json`
-- Android / iOS: inside the app sandbox (`ApplicationData`)
+- Android/iOS: w piaskownicy aplikacji (`ApplicationData`)
 
 ## Pełny przykład
 
@@ -104,11 +113,11 @@ Client settings file: `Settings.json`.
 - `InputDevice`:
   wprowadź nazwę urządzenia.
 - `InputCapturePreset`:
-  platform capture preset, default `VoiceCommunication`.
+  Ustawienie wstępne przechwytywania platformy, domyślne `VoiceCommunication`.
 - `InputVolume`:
-  input gain `0..2`.
+  wzmocnienie wejściowe `0..2`.
 - `MicrophoneSensitivity`:
-  activity threshold `0..1`.
+  próg aktywności `0..1`.
 - `AutomaticGainController`:
   wybrany identyfikator GUID implementacji AGC.
 - `Denoiser`:
@@ -120,19 +129,19 @@ Client settings file: `Settings.json`.
 - `PushToTalkCue`:
   flaga logiczna dla lokalnych dźwięków sygnalizacji.
 
-##Ustawienia wyjściowe
+## Ustawienia wyjściowe
 
 - `OutputDevice`:
   nazwa urządzenia wyjściowego.
 - `OutputVolume`:
-  playback gain `0..2`.
+  wzmocnienie odtwarzania `0..2`.
 - `AudioClipper`:
   wybrany identyfikator GUID maszynki do strzyżenia.
 
 ## Ustawienia regionalne
 
 - `Culture`:
-  locale such as `en-US`, `ru-RU`, `nl-NL`, `de-DE`, `pl-PL`, `zh-CN`, `zh-TW`.
+  ustawienia regionalne, takie jak `en-US`, `ru-RU`, `nl-NL`, `de-DE`, `pl-PL`, `zh-CN`, `zh-TW`.
 
 ## Ustawienia powiadomień
 
@@ -148,14 +157,16 @@ Client settings file: `Settings.json`.
 - `Servers`:
   zapisane wpisy serwera.
 
-Each `Servers[]` item:
+Każdy element `Servers[]`:
 
 - `Name`:
-  display name, max `12` chars.
+  nazwa wyświetlana, maks. `12` znaków.
 - `Ip`:
-  host / IP, max `30` chars.
+  host / IP, maks. `30` znaków.
 - `Port`:
-  UDP port `1..65535`.
+  Port UDP `1..65535`.
+
+Wpisy serwera wskazują punkt końcowy UDP VoiceCraft z `VoiceCraftConfig.Port`. Nie są one takie same jak punkty końcowe transportu Minecraft `McHttp`, `McWss` lub `McTcp`.
 
 ## Ustawienia motywu
 
@@ -164,7 +175,7 @@ Each `Servers[]` item:
 - `SelectedTheme`:
   wbudowany motyw GUID.
 
-##Ustawienia sieciowe
+## Ustawienia sieciowe
 
 - `PositioningType`:
   `0 = Server`, `1 = Client`
@@ -173,11 +184,13 @@ Each `Servers[]` item:
 - `McWssHostPort`:
   lokalny port hosta protokołu internetowego.
 
-This value must match `VoiceCraftConfig.PositioningType` on the server.
+Ta wartość musi być zgodna z `VoiceCraftConfig.PositioningType` na serwerze.
+
+`McWssListenIp` i `McWssHostPort` dotyczą zachowania lokalnego gniazda internetowego związanego z McWss. Nie zastępują one zapisanej listy serwerów VoiceCraft używanej do ruchu głosowego.
 
 ## Ustawienia klawisza skrótu
 
-`HotKeySettings.Bindings` is a `Dictionary<string, string>`.
+`HotKeySettings.Bindings` to `Dictionary<string, string>`.
 
 Typowe klucze:
 
@@ -188,7 +201,7 @@ Dokładna serializowana wartość zależy od zaplecza wejściowego pulpitu i ana
 
 ## Ustawienia użytkownika
 
-`UserSettings.Users` is a dictionary keyed by remote user `Guid`.
+`UserSettings.Users` to słownik wprowadzany przez zdalnego użytkownika `Guid`.
 
 Każda wartość zawiera:
 
@@ -204,14 +217,26 @@ Wartości te nie zastępują moderacji serwera; są to osobiste preferencje klie
 - `InputVolume`: `0..2`
 - `OutputVolume`: `0..2`
 - `MicrophoneSensitivity`: `0..1`
-- `Servers[].Name`: up to `12` chars
-- `Servers[].Ip`: up to `30` chars
+- `Servers[].Name`: do `12` znaków
+- `Servers[].Ip`: do `30` znaków
 - `Servers[].Port`: `1..65535`
 - `McWssHostPort`: `0..65535`
 
 ## Dobre praktyki
 
-- do not manually reuse `LoginToken` values as user settings
-- keep `PositioningType` aligned with server
-- if troubleshooting audio, reset `InputDevice` and `OutputDevice` to `Default`
+- nie używaj ręcznie wartości `LoginToken` jako ustawień użytkownika
+- utrzymuj `PositioningType` w zgodności z serwerem
+- jeśli rozwiązujesz problemy z dźwiękiem, zresetuj `InputDevice` i `OutputDevice` na `Default`
 - jeśli urządzenie zniknie, pozwól klientowi zregenerować pasujące pole zamiast kopiować konfigurację starego komputera
+- nie udostępniaj publicznie `Settings.json`, jeśli zawiera adresy prywatnych serwerów
+- unikaj kopiowania pełnego pliku ustawień pomiędzy graczami; w razie potrzeby skopiuj tylko host/port serwera
+
+## Zresetuj strategię
+
+Jeśli klient stanie się bezużyteczny po ręcznych edycjach:
+
+1. Zamknij klienta.
+2. Odsuń `Settings.json` na bok jako kopię zapasową.
+3. Uruchom klienta i pozwól mu wygenerować nowy plik.
+4. Dodaj ponownie wpis serwera.
+5. Skonfiguruj ponownie urządzenia audio i klawisze skrótu.

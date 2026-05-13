@@ -1,29 +1,38 @@
-# Integratiescenario's
+# Integratie Recepten
 
 Dit zijn praktische implementatiepatronen voor de meest voorkomende VoiceCraft-scenario's.
 
-## Scenario A: Bedrock dedicated server
+Gebruik deze pagina nadat u de basiscomponenten begrijpt en een concreet topologierecept nodig heeft. Elk scenario vermeldt de stapel, de belangrijkste reden om ervoor te kiezen, de configuratie die er het meest toe doet, en het validatiepunt dat bewijst dat het werkt.
+
+## Scenario A: Bedrock Dedicated Server
 
 Stapel:
 
 - `VoiceCraft.Server`
 - `VoiceCraft.Addon.Core.McHttp`
-- VoiceCraft-clients
+- VoiceCraft-klanten
+
+Kies dit wanneer:
+
+- BDS is de hoofdspelserver
+- BDS kan een VoiceCraft HTTP-eindpunt bereiken
+- je wilt het meest stabiele Bedrock-productiepad
 
 Aanbevolen configuratie:
 
 - `McHttpConfig.Enabled = true`
 - `McWssConfig.Enabled = false`
-- `McTcpConfig.Enabled = false` unless also needed
+- `McTcpConfig.Enabled = false` tenzij ook nodig
 
 Stroom:
 
-1. deploy `VoiceCraft.Server`
-2. secure `McHttpConfig.LoginToken`
-3. ensure BDS can reach `McHttpConfig.Hostname`
-4. install `Core.McHttp`
-5. run `voicecraft:vcconnect <hostname> <token>`
-6. validate `voicecraft:vcbind <key>`
+1. implementeren `VoiceCraft.Server`
+2. veilig `McHttpConfig.LoginToken`
+3. zorg ervoor dat BDS `McHttpConfig.Hostname` kan bereiken
+4. installeer `Core.McHttp`
+5. voer `voicecraft:vcconnect <hostname> <token>` uit
+6. valideren `voicecraft:vcbind <key>`
+7. verbind een cliënt en bevestig nabijheidsveranderingen met beweging
 
 ## Scenario B: Lokale/singleplayer Bedrock-wereld
 
@@ -32,13 +41,20 @@ Stapel:
 - lokale VoiceCraft-stack
 - `VoiceCraft.Addon.Core.McWss`
 
+Kies dit wanneer:
+
+- je test lokaal
+- u voert geen BDS uit
+- de `/connect` websocket-stroom is beschikbaar
+
 Stroom:
 
-1. enable `McWss`
-2. keep `DataTunnelCommand = voicecraft:data_tunnel`
-3. install `Core.McWss`
-4. use `/connect`
-5. run `voicecraft:vcconnect <token>`
+1. schakel `McWss` in
+2. behoud `DataTunnelCommand = voicecraft:data_tunnel`
+3. installeer `Core.McWss`
+4. gebruik `/connect`
+5. voer `voicecraft:vcconnect <token>` uit
+6. valideer binding en beweging
 
 ## Scenario C: Direct Paper met door GeyserVoice beheerde runtime
 
@@ -48,15 +64,21 @@ Stapel:
 - `GeyserVoice`
 - door plug-ins beheerde VoiceCraft-runtime
 
+Kies dit wanneer:
+
+- één Paper/Folia-server moet beschikken over spraakintegratie
+- je wilt minder externe diensten
+- GeyserVoice zou VoiceCraft moeten downloaden en starten
+
 Stroom:
 
-1. install `GeyserVoice`
-2. set `config.proxy.enabled = false`
-3. configure `config.voicecraft.login-token`
-4. enable `config.voicecraft.auto-start`
-5. Laad en valideer de bindingsstroom opnieuw
+1. installeer `GeyserVoice`
+2. stel `config.proxy.enabled = false` in
+3. configureren `config.voicecraft.transport.login-token`
+4. schakel `config.voicecraft.auto-start` in
+5. herlaad en valideer de bindingsstroom
 
-Dit is de eenvoudigste installatie aan de Java-kant als je wilt dat de plug-in VoiceCraft op de achtergrond uitvoert.
+Dit is de eenvoudigste installatie aan de Java-kant als je wilt dat de plug-in VoiceCraft onder de motorkap uitvoert.
 
 ## Scenario D: Direct Paper met externe VoiceCraft
 
@@ -64,29 +86,41 @@ Stapel:
 
 - Paper / Folia
 - `GeyserVoice`
-- externally managed `VoiceCraft.Server`
+- extern beheerd `VoiceCraft.Server`
+
+Kies dit wanneer:
+
+- u voert VoiceCraft al uit met systemd, Docker of een paneel
+- meerdere componenten hebben mogelijk dezelfde backend nodig
+- u wilt externe logboeken en een herstartbeleid
 
 Stroom:
 
-1. enable `McTcp` on VoiceCraft
-2. set `host`, `port`, `login-token` in GeyserVoice
+1. schakel `McTcp` in op VoiceCraft
+2. stel `config.voicecraft.transport.host`, `config.voicecraft.transport.port` en `config.voicecraft.transport.login-token` in GeyserVoice in
 3. schakel runtimebeheer van plug-ins uit als dit niet nodig is
-4. Herlaad en valideer de verbinding
+4. herlaad en valideer de verbinding
 
 ## Scenario E: Velocity- of Bungee-netwerk
 
 Stapel:
 
-- `GeyserVoice` on proxy
-- `GeyserVoice` on backend Paper servers
-- `VoiceCraft.Server` with `McTcp`
+- `GeyserVoice` op proxy
+- `GeyserVoice` op backend Paper-servers
+- `VoiceCraft.Server` met `McTcp`
+
+Kies dit wanneer:
+
+- Velocity of BungeeCord routeert spelers via backend-servers
+- de proxy moet eigenaar zijn van de VoiceCraft-verbinding
+- backend-servers mogen alleen snapshots verzenden
 
 Stroom:
 
 1. configureer de proxy als de VoiceCraft-eigenaar
 2. configureer backend Paper-knooppunten voor proxymodus
-3. Laad de plug-in opnieuw op alle knooppunten
-4. valideer de bewegingen van spelers tussen servers
+3. plug-in opnieuw laden op alle knooppunten
+4. valideer de beweging van spelers tussen servers
 
 ## Minimaal productieconfiguratiefragment
 
@@ -107,7 +141,7 @@ Stroom:
     "Enabled": true,
     "LoginToken": "replace-with-strong-token",
     "Hostname": "0.0.0.0",
-    "Port": 9050,
+    "Port": 9052,
     "MaxClients": 10
   },
   "McWssConfig": {
@@ -119,10 +153,23 @@ Stroom:
 }
 ```
 
+Dit fragment toont een gemengde HTTP- en TCP-implementatie. Bind `McHttp` en `McTcp` niet aan dezelfde TCP-poort. De VoiceCraft UDP-clientpoort kan het nummer `9050` delen omdat het UDP is, maar HTTP- en onbewerkte TCP-listeners hebben verschillende TCP-bindingen nodig.
+
 ## Bestelling voor probleemoplossing
 
-1. verifieer de tokenmatch
+1. tokenmatch verifiëren
 2. controleer de bereikbaarheid van de host/poort
-3. Controleer of het gekozen transport is ingeschakeld
-4. Controleer of de topologie van de add-on of plug-in overeenkomt met de configuratie
-5. Onderzoek pas daarna problemen op pakketniveau
+3. controleer of het gekozen transport is ingeschakeld
+4. controleer of de topologie van de add-on of plug-in overeenkomt met de configuratie
+5. onderzoek dan pas problemen op pakketniveau
+
+## Wat ‘werken’ betekent
+
+Een recept is pas compleet als al deze punten waar zijn:
+
+- `VoiceCraft.Server` start zonder luisteraarfouten
+- er maakt minimaal één VoiceCraft-client verbinding
+- het transport aan de Minecraft-zijde authenticeert
+- bindingsstroom is voltooid
+- bewegen in het spel verandert het nabijheidsgedrag
+- Het personeel kan verbonden klanten/entiteiten identificeren voor het oplossen van problemen

@@ -1,20 +1,32 @@
 # McHttp für Bedrock Dedicated Server
 
-`McHttp` is the recommended VoiceCraft integration mode for BDS.
+`McHttp` ist der empfohlene VoiceCraft-Integrationsmodus für BDS.
 
-## Why `McHttp` is recommended
+Verwenden Sie diese Anleitung, wenn Sie einen Bedrock Dedicated Server betreiben und möchten, dass das serverseitige Add-on den Player-Status an `VoiceCraft.Server` sendet.
 
-- Besser geeignet für dedizierte Serverumgebungen
+Zielform:
+
+```text
+VoiceCraft.Client -> VoiceCraft UDP endpoint
+BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
+```
+
+## Warum `McHttp` empfohlen wird
+
+- besser geeignet für dedizierte Serverumgebungen
 - einfacher als Befehlstunnel-basierte Setups
-- leichter nachvollziehbar in der Produktion
-- aligns well with the Bedrock addon package `VoiceCraft.Addon.Core.McHttp`
+- in der Produktion leichter nachzuvollziehen
+- Passt gut zum Bedrock-Add-on-Paket `VoiceCraft.Addon.Core.McHttp`
+- Hängt nicht vom lokalen `/connect`-Websocket-Workflow ab, der von `McWss` verwendet wird.
 
 ## Anforderungen
 
-1. Running `VoiceCraft.Server`
+1. Ausführen von `VoiceCraft.Server`
 2. `McHttpConfig.Enabled = true`
-3. `VoiceCraft.Addon.Core.McHttp.zip` from releases, or a ready world archive from the [Addon Configurator](/addon-configurator)
+3. `VoiceCraft.Addon.Core.McHttp.zip` aus Veröffentlichungen oder ein fertiges Weltarchiv aus dem [Addon Configurator](/addon-configurator)
 4. BDS mit erforderlichen Modulen und Skript-API-Unterstützung
+5. Netzwerkerreichbarkeit vom BDS-Gerät zum VoiceCraft `McHttpConfig.Hostname`
+6. Von Spielern installierte VoiceCraft-Clients
 
 ## Serverseitige VoiceCraft-Konfiguration
 
@@ -35,25 +47,31 @@ Minimalbeispiel:
 
 Wichtig:
 
-- Verwenden Sie einen echten Token, behalten Sie den generierten niemals in der Produktion
+- Verwenden Sie einen echten Token und behalten Sie niemals den generierten Token in der Produktion
 - Stellen Sie sicher, dass der BDS-Host den konfigurierten Endpunkt erreichen kann
+- Verwenden Sie `http://127.0.0.1:9050/` nur, wenn BDS und VoiceCraft auf demselben Host ausgeführt werden
+- Verwenden Sie eine LAN-/öffentliche Adresse oder eine `0.0.0.0`-Bindung, wenn BDS eine Verbindung von einem anderen Computer herstellt
 
-## Add-on-Installation
+## Addon-Installation
 
 Schnellster Weg:
 
-- [Addon-Konfigurator](/addon-configurator), wenn Sie ein sofort entpackbares Weltarchiv wünschen
-- [Download-Seite](/download), wenn Sie das Roh-Add-on-Release-Paket möchten
+- [Addon Configurator](/addon-configurator), wenn Sie ein sofort entpackbares Weltarchiv wünschen
+- [Download Page](/download), wenn Sie das Roh-Add-on-Release-Paket wünschen
 
 Manueller Pfad:
 
-1. Extract `VoiceCraft.Addon.Core.McHttp.zip`.
-2. Put `RP` into `<MCServer>/resource_packs/`.
-3. Put `BP` into `<MCServer>/behavior_packs/`.
+1. Extrahieren Sie `VoiceCraft.Addon.Core.McHttp.zip`.
+2. Fügen Sie `RP` in `<MCServer>/resource_packs/` ein.
+3. Fügen Sie `BP` in `<MCServer>/behavior_packs/` ein.
+4. Befestigen Sie beide Pakete an der Zielwelt.
+5. Starten Sie BDS neu, nachdem Sie Pakete oder Berechtigungen geändert haben.
+
+Das Ressourcenpaket stellt für den Client sichtbare Elemente wie Symbole bereit. Das Verhaltenspaket führt die Skripte und Befehle aus, die BDS mit VoiceCraft verbinden.
 
 ## Modulberechtigungen
 
-Open `<MCServer>/config/default/permissions.json` and ensure it contains the required modules:
+Öffnen Sie `<MCServer>/config/default/permissions.json` und stellen Sie sicher, dass es die erforderlichen Module enthält:
 
 ```json
 {
@@ -67,6 +85,8 @@ Open `<MCServer>/config/default/permissions.json` and ensure it contains the req
   ]
 }
 ```
+
+Das Add-on benötigt netzwerkbezogene Skriptberechtigungen, da es den VoiceCraft-HTTP-Endpunkt von der BDS-Laufzeit aus aufruft.
 
 ## Befestige Packs an der Welt
 
@@ -88,7 +108,7 @@ In `world_resource_packs.json`:
 }
 ```
 
-## Im Spiel verbinden
+## Verbinde dich im Spiel
 
 Ausführen:
 
@@ -102,37 +122,50 @@ Beispiel:
 /voicecraft:vcconnect "http://127.0.0.1:9050" e4ad1f7e-4f90-4b21-bc15-6febe580bf1c
 ```
 
-Use the token from `McHttpConfig.LoginToken`.
+Verwenden Sie das Token von `McHttpConfig.LoginToken`.
+
+Wenn BDS auf einem anderen Host als VoiceCraft ausgeführt wird, ersetzen Sie `127.0.0.1` durch die Adresse des VoiceCraft-Servers, wie sie vom BDS-Computer aus gesehen wird.
 
 ## Was passiert nach der Verbindung?
 
 Nach erfolgreicher Verbindung:
 
-- Das Addon authentifiziert sich bei VoiceCraft
+- Das Add-on authentifiziert sich bei VoiceCraft
 - Die Welt kann über McApi Entitäten erstellen/aktualisieren
-- bind flow becomes available through `voicecraft:vcbind`
-- Effekt-Benutzeroberfläche und paketgesteuerte Statussynchronisierung werden verfügbar
+- Der Bindungsfluss wird über `voicecraft:vcbind` verfügbar.
+- Die Benutzeroberfläche für Effekte und die paketgesteuerte Statussynchronisierung werden verfügbar
+
+Zu diesem Zeitpunkt ist die Übertragung verbunden, aber jeder Spieler benötigt weiterhin den VoiceCraft-Client und einen funktionierenden Bindungsfluss für Proximity-Audio.
 
 ## Empfohlener Validierungsablauf
 
-1. connect the world with `vcconnect`
-2. Stellen Sie sicher, dass kein Authentifizierungsfehler angezeigt wird
-3. Lassen Sie eine VoiceCraft-Entität erscheinen
-4. use `voicecraft:vcbind <key>`
-5. Bestätigen Sie, dass der Player gebunden und in VoiceCraft sichtbar ist
+1. Starten Sie `VoiceCraft.Server` und bestätigen Sie `McHttpConfig.Enabled = true`.
+2. Starten Sie BDS mit dem angehängten Add-on.
+3. Verbinden Sie die Welt mit `vcconnect`.
+4. Bestätigen Sie, dass kein Authentifizierungsfehler angezeigt wird.
+5. Verbinden Sie einen VoiceCraft-Client mit `VoiceCraftConfig.Port`.
+6. Verwenden Sie `voicecraft:vcbind <key>`.
+7. Bewegen Sie den Spieler im Spiel und bestätigen Sie, dass sich Positionsaktualisierungen auf die Nähe auswirken.
+8. Stellen Sie sicher, dass andere Spieler in der erwarteten Reichweite hören können.
 
 ## Häufige Probleme
 
-- `HttpListenerException` on Windows:
-  you may need `netsh http add iplisten 127.0.0.1`
+- `HttpListenerException` unter Windows:
+  Möglicherweise benötigen Sie `netsh http add iplisten 127.0.0.1`
 - Container- oder VM-Netzwerk:
-  use `http://0.0.0.0:9050/` or the correct LAN address
+  Verwenden Sie `http://0.0.0.0:9050/` oder die richtige LAN-Adresse
 - Hosting-Anbieter blockiert ausgehendes HTTP von BDS:
   Dieser Transport funktioniert dort möglicherweise nicht
+- Authentifizierung schlägt fehl:
+  Bestätigen Sie, dass der Befehl `McHttpConfig.LoginToken` und nicht das Token `McWss` oder `McTcp` verwendet
+- Addon wird geladen, aber Befehle fehlen:
+  Bestätigen Sie, dass sowohl Verhaltens- als auch Ressourcenpakete mit der Welt verbunden sind und BDS neu gestartet wurde
+- Client verbindet sich, aber keine Nähe:
+  Bestätigen Sie den Bindungsfluss, `PositioningType` und Aktualisierungen der Spielerposition
 
 ## Lesen Sie weiter
 
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
-- [Add-on-API](/ecosystem/addon-api)
-- [Download-Seite](/download)
-- [Addon-Konfigurator](/addon-configurator)
+- [Addon API](/ecosystem/addon-api)
+- [Download Page](/download)
+- [Addon Configurator](/addon-configurator)

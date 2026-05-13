@@ -2,13 +2,22 @@
 
 Użyj tego trybu, gdy jeden serwer Paper / Folia powinien komunikować się bezpośrednio z VoiceCraft.
 
-## Dwa sposoby uruchomienia
+Tryb Direct Paper to najprostsza topologia po stronie Java: serwer Paper albo łączy się z zewnętrznym `VoiceCraft.Server`, albo pozwala GeyserVoice pobrać i uruchomić lokalne środowisko wykonawcze VoiceCraft.
+
+Docelowy kształt:
+
+```text
+Paper/Folia + GeyserVoice -> McTcp/McApi TCP -> VoiceCraft.Server
+VoiceCraft.Client -> VoiceCraft UDP endpoint
+```
+
+## Dwa sposoby jego uruchomienia
 
 ### Opcja A: zewnętrzny serwer VoiceCraft
 
-You already run `VoiceCraft.Server` somewhere and point GeyserVoice at it.
+Uruchomiłeś już gdzieś `VoiceCraft.Server` i skierowałeś na niego GeyserVoice.
 
-### Opcja B: środowisko wykonawcze zarządzane przez wtyczkę
+### Opcja B: środowisko wykonawcze zarządzane przez wtyczki
 
 GeyserVoice może załadować VoiceCraft za Ciebie:
 
@@ -16,7 +25,7 @@ GeyserVoice może załadować VoiceCraft za Ciebie:
 - zainstaluj środowisko wykonawcze
 - rozpocznij działanie
 - poczekaj na gotowość
-- opcjonalnie zatrzymaj runtime za pomocą wtyczki
+- opcjonalnie zatrzymaj środowisko wykonawcze za pomocą wtyczki
 
 Jest to jedna z najważniejszych aktualnych funkcji dla bezpośrednich użytkowników Paper.
 
@@ -32,11 +41,15 @@ config:
     enabled: false
 
   voicecraft:
-    host: "127.0.0.1"
-    port: 9050
-    login-token: "replace-with-token"
+    transport:
+      host: "127.0.0.1"
+      port: 9050
+      login-token: "replace-with-token"
+    voice:
+      port: 1111
     auto-start: true
     shutdown-on-disable: true
+    invariant-globalization: true
     ready-timeout-ms: 20000
     install-directory: "voicecraft-runtime"
 
@@ -51,33 +64,51 @@ config:
     position-update-interval-ticks: 5
 ```
 
+Użyj `config.voicecraft.transport.host`, `config.voicecraft.transport.port` i `config.voicecraft.transport.login-token` dla połączenia VoiceCraft `McTcp`. Muszą one pasować do strony serwera VoiceCraft, jeśli używasz zewnętrznego środowiska wykonawczego.
+
 ## Kroki konfiguracji
 
 1. Zainstaluj GeyserVoice na Paper.
 2. Uruchom serwer raz.
-3. Edit `plugins/GeyserVoice/config.yml`.
-4. Decide whether `auto-start` should be enabled.
-5. Ensure the `login-token` matches VoiceCraft `McTcpConfig.LoginToken`.
-6. Run `/voice reload`.
+3. Edytuj `plugins/GeyserVoice/config.yml`.
+4. Zdecyduj, czy `auto-start` ma być włączony.
+5. Upewnij się, że `config.voicecraft.transport.login-token` pasuje do VoiceCraft `McTcpConfig.LoginToken`.
+6. Uruchom `/voice reload`.
 7. Przetestuj przepływ wiązania w grze.
 
-## When `auto-start` is a good idea
+Jeśli `auto-start` to `true`, upewnij się, że `install-directory` można zapisać w procesie Paper. Jeśli `auto-start` to `false`, upewnij się, że zewnętrzny serwer VoiceCraft już działa i jest osiągalny.
+
+## Kiedy `auto-start` jest dobrym pomysłem
 
 - konfiguracja na jednym serwerze
 - chcesz mniej ruchomych elementów
-- nie zarządzasz już VoiceCraftem za pomocą systemd / Docker / panel
+- nie zarządzasz już VoiceCraft za pomocą systemd / Docker / panel
 
-## Gdy zewnętrzne środowisko wykonawcze jest lepsze
+## Kiedy zewnętrzne środowisko wykonawcze jest lepsze
 
-- zarządzasz już VoiceCraftem centralnie
-- chcesz innej polityki ponownego uruchamiania lub rejestrowania
+- zarządzasz już VoiceCraft centralnie
+- chcesz mieć inną politykę ponownego uruchamiania lub rejestrowanie
 - uruchamiasz kilka węzłów Java na jednym backendie VoiceCraft
+- chcesz, aby menedżer procesów, taki jak systemd, Docker lub panel hostingowy, był właścicielem ponownych uruchomień
 
 ## Rozwiązywanie problemów
 
 - środowisko wykonawcze nigdy nie jest gotowe:
-  increase `ready-timeout-ms`
+  zwiększyć `ready-timeout-ms`
 - wtyczka może łączyć się ręcznie, ale nie podczas uruchamiania:
-  check `auto-start` and `install-directory`
+  sprawdź `auto-start` i `install-directory`
 - gracze dołączają, ale dane głosowe nie są wiążące:
   sprawdź token, host, port i przepływ powiązań
+- zewnętrzny VoiceCraft nigdy nie widzi wtyczki:
+  potwierdź `McTcpConfig.Enabled = true`, powiązanie hosta, zaporę sieciową i `config.voicecraft.transport.*`
+- klient łączy się, ale stan Java nie wpływa na bliskość:
+  sprawdź `/voice bind`, interwał aktualizacji pozycji i tryb pozycjonowania po stronie serwera
+
+## Lista kontrolna walidacji
+
+- Logi Paper pokazują włączoną funkcję GeyserVoice
+- Środowisko wykonawcze VoiceCraft działa lub zostało uruchomione automatycznie
+- `McTcpConfig.LoginToken` pasuje do `config.voicecraft.transport.login-token`
+- gracz może połączyć się z klientem VoiceCraft
+- gracz może ukończyć `/voice bind <key>`
+- poruszanie się w grze zmienia zachowanie w pobliżu

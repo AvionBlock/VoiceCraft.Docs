@@ -1,113 +1,147 @@
-# VoiceCraft.Addon (Bedrock addon)
+# VoiceCraft.Addon (Аддон Bedrock)
 
 Репозиторий: [AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
 
-Репозиторий содержит готовые Bedrock-пакеты и script-side McApi поверхность для кастомной логики мира.
+Этот репозиторий содержит практические пакеты дополнений Bedrock и поверхность McApi на стороне сценария для пользовательской логики мира.
+
+Используйте его, когда Minecraft Bedrock является источником состояния игрока/объекта. Аддон подключает миры Bedrock к серверу VoiceCraft через `McHttp` или `McWss`, а затем предоставляет поток привязки, пользовательский интерфейс, события и помощники пакетов для мировых сценариев.
 
 Быстрые ссылки:
 
-- [Страница скачивания](/download)
-- [Конфигуратор аддона](/addon-configurator)
-- [Релизы аддона](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
+- [Download Page](/download)
+- [Addon Configurator](/addon-configurator)
+- [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
 
 ## Пакеты
 
-1. `Basic`
-   готовый аддон с bind flow, settings UI и in-game voice indicators
-2. `Core.McHttp`
-   transport-пакет для HTTP-интеграции
-3. `Core.McWss`
-   websocket / command-tunnel transport-пакет
+| Пакет | Цель | Используйте, когда |
+|---------|---------|----------|
+| `Basic` | готовый к использованию поток привязки, пользовательский интерфейс настроек, внутриигровые голосовые индикаторы, общие события сценария | вам нужна рабочая ссылка или поведение Bedrock по умолчанию |
+| `Core.McHttp` | Транспортный пакет HTTP | вы используете выделенный сервер Bedrock |
+| `Core.McWss` | транспортный пакет веб-сокета/командного туннеля | вы запускаете локальный мир Bedrock или тестируете установку |
 
-## Совместимость версий
+Большинство реальных установок Bedrock сочетают в себе транспортный пакет с элементами поведения/UI, необходимыми миру.
 
-Для VoiceCraft `v1.6.1` нужно обновлять addon-пакеты вместе с client/server релизом. В этом релизе есть in-game voice icons, auto connection quality-of-life, broadcasted events и фиксы McHttp/McWss disconnect, которые рассчитаны на matching addon-side packages.
+## Выравнивание версий
 
-## Namespace
+VoiceCraft `v1.6.1` требует обновления пакетов дополнений вместе с версией клиента/сервера. Этот выпуск включает внутриигровые голосовые значки, качество жизни автоматического подключения, транслируемые события и исправления отключения McHttp/McWss, которые зависят от соответствующих пакетов на стороне дополнения.
+
+Не обновляйте сервер/клиент и не оставляйте старый пакет дополнений. Несовпадающие пакеты могут подключиться, но позже произойдет сбой во время привязки, события или поведения значка.
+
+## Пространство имен
+
+По пакетам:
 
 - `VoiceCraft.Namespace = "voicecraft"`
 
 ## Команды
 
-### Basic
+### Базовый
 
 - `voicecraft:vcbind <binding_key>`
+  разрешение: `Any`
 - `voicecraft:vcsettings`
+  разрешение: `GameDirectors`
 
 ### Core.McHttp
 
 - `voicecraft:vcconnect <hostname> <token>`
+  разрешение: `GameDirectors`
 
 ### Core.McWss
 
 - `voicecraft:vcconnect <token>`
+  разрешение: `Host`
 - `voicecraft:data_tunnel [max_string_length] [data]`
+  разрешение: `Host`
 
-## Что дает Basic
+## Что дает пакет «Базовый»
 
-- bind / unbind flow
-- player settings UI
-- effect toggles
-- script events для automation
+- привязать/отменить привязку потока
+- интерфейс настроек плеера
+- переключение эффектов
+- скрипт событий для автоматизации
+- внутриигровые индикаторы, используемые поддерживаемыми выпусками
 
-## Детали bind flow
+Начните с `Basic`, если вы хотите понять ожидаемый опыт игрока, прежде чем писать собственную логику дополнения.
 
-1. новой network entity выдается случайный 5-символьный binding key
-2. в description пишется подсказка с ключом
-3. игрок вводит `voicecraft:vcbind <key>`
+## Привязать детали потока
+
+Из текущей реализации:
+
+1. новый объект сети получает случайный 5-значный ключ привязки
+2. описание объекта обновляется с помощью ключевого запроса
+3. игрок запускает `voicecraft:vcbind <key>`
 4. сущность привязывается к игроку
-5. при выходе игрока происходит unbind и генерация нового ключа
+5. при выходе происходит отвязка и генерируется новый ключ
 
-Script events:
+События сценария:
 
 - `voicecraft:onPlayerBind`
 - `voicecraft:onPlayerUnbind`
 
-VoiceCraft `v1.6.1` также рассылает больше addon-side lifecycle и packet events, чтобы кастомные миры могли реагировать без прямого polling transport layer.
+VoiceCraft `v1.6.1` также транслирует больше событий жизненного цикла и пакетов на стороне надстройки, чтобы пользовательские миры могли реагировать без прямого опроса транспортного уровня.
 
-## UI эффектов
+Ключ привязки намеренно короткий, потому что он набран в игре. Относитесь к нему как к временному токену ссылки, а не как к долгосрочному секрету.
 
-Через `voicecraft:vcsettings` доступны:
+## Интерфейс эффектов
 
-- Visibility
-- Proximity
-- Directional
-- Proximity Echo
-- Echo
-- Proximity Muffle
-- Muffle
+`voicecraft:vcsettings` в настоящее время предоставляет:
 
-## Что можно кастомизировать
+- Видимость
+- Близость
+- Направленный
+- Эхо приближения
+- Эхо
+- Бесконтактный муфель
+- Муфельный
 
-- bind / unbind policy
-- role и tag based logic
-- world ID rules
-- position / rotation update behavior
-- staff forms через `@minecraft/server-ui`
-- packet handlers вокруг McApi surface
+Эффекты отправляются через `McApiSetEffectRequestPacket`.
 
-## Ограничения
+## Что вы можете настроить
 
-- `Core.McWss` зависит от limit-ов команд и payload
+- привязать/отменить политику
+- ограничения на основе ролей или тегов
+- правила мирового идентификатора
+- поведение обновления положения/вращения
+- штатные формы через `@minecraft/server-ui`
+- обработчики пакетов на поверхности McApi
 
-## Рекомендуемая схема: BDS
+Настраивайте только после того, как будет работать базовая настройка. Это дает вам заведомо хорошую основу для поведения транспорта, привязки и позиционирования.
 
-1. включите `McHttpConfig.Enabled = true`
-2. убедитесь, что BDS видит `McHttpConfig.Hostname`
-3. установите пакет `Core.McHttp`
-4. выполните `voicecraft:vcconnect <hostname> <token>`
-5. проверьте bind через `voicecraft:vcbind <key>`
+## Текущие ограничения
 
-## Рекомендуемая схема: локальный мир
+- Стабильность `Core.McWss` зависит от ограничений команд и полезной нагрузки
+- Ограничения хоста/провайдера могут блокировать сетевой путь, требуемый `Core.McHttp`
+- пользовательские обработчики пакетов необходимо протестировать на целевой версии Bedrock.
 
-1. включите `McWss`
-2. установите `Core.McWss`
-3. выполните `/connect`
-4. выполните `voicecraft:vcconnect <token>`
-5. держите `voicecraft:data_tunnel` синхронизированным с серверным конфигом
+## Рекомендуемая настройка: BDS.
 
-## Что читать дальше
+1. включить `McHttpConfig.Enabled = true`
+2. убедиться, что BDS может достичь `McHttpConfig.Hostname`
+3. скопируйте пакет `Core.McHttp`
+4. запустите `voicecraft:vcconnect <hostname> <token>`
+5. проверить привязку с помощью `voicecraft:vcbind <key>`
+
+## Рекомендуемая настройка: локальный мир
+
+1. включить `McWss`
+2. установить `Core.McWss`
+3. запустите `/connect`
+4. запустите `voicecraft:vcconnect <token>`
+5. сохраняйте соответствие `voicecraft:data_tunnel` конфигурации сервера
+
+## Контрольный список проверки
+
+- установлен правильный транспортный пакет
+- пакеты поведения и ресурсов активны
+- `vcconnect` использует токен из соответствующего раздела конфигурации сервера.
+- игрок может выполнить привязку с помощью `voicecraft:vcbind <key>`
+- движение игрока меняет данные о положении в VoiceCraft
+- Пользовательский интерфейс эффектов открывается для авторизованных пользователей
+
+## Читать далее
 
 - [Addon API](/ecosystem/addon-api)
-- [McHttp для BDS](/minecraft/mchttp-bds)
-- [McWss для одиночных миров](/minecraft/mcwss-singleplayer)
+- [McHttp for BDS](/minecraft/mchttp-bds)
+- [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)

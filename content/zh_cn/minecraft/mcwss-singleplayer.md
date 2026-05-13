@@ -1,31 +1,45 @@
 # 单人世界的 McWss
 
-`McWss` is the websocket / command-tunnel transport mostly used for local worlds and lightweight Bedrock setups.
+`McWss` 是 websocket / 命令隧道传输，主要用于本地世界和轻量级基岩设置。
 
-## 何时使用
+当您未运行完整的 Bedrock 专用服务器并且需要本地 Bedrock 世界通过 `/connect` websocket 流与 VoiceCraft 对话时，请使用本指南。
 
-Use `McWss` when:
+目标形状：
 
-- 你在当地的基岩世界中玩耍
-- 你想要一个快速的单人游戏设置
+```text
+VoiceCraft.Client -> VoiceCraft UDP endpoint
+Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
+```
+
+## 何时使用它
+
+在以下情况下使用 `McWss`：
+
+- 你在当地的基岩世界中玩
+- 你想要快速的单人游戏设置
 - 您正在没有专用 BDS 主机的情况下测试插件逻辑
+
+如果您运行真正的基岩专用服务器，请改用 [McHttp for BDS](/minecraft/mchttp-bds)。
 
 ## 重要限制
 
-- usually less stable than `McHttp`
+- 通常不如 `McHttp` 稳定
 - 命令吞吐量和有效负载大小非常重要
 - 不是大型公共生产环境的默认建议
+- 取决于您的环境中可用的 Bedrock websocket 和命令行为
 
 ## 要求
 
-1. `VoiceCraft.Server` with `McWssConfig.Enabled = true`
+1. `VoiceCraft.Server` 与 `McWssConfig.Enabled = true`
 2. `VoiceCraft.Addon.Core.McWss.zip`
-3. 支持所需 websocket/脚本功能的基岩构建
+3. 支持所需的 websocket/脚本功能的基岩构建
+4. VoiceCraft 客户端已安装并配置
+5. 匹配 `McWssConfig.LoginToken` 用于插件身份验证
 
 有用的链接：
 
-- [Download Page](/download) for the raw `Core.McWss` release package
-- [插件配置器](/addon-configurator) 用于准备解压世界存档
+- [Download Page](/download) 用于原始 `Core.McWss` 发行包
+- [Addon Configurator](/addon-configurator) 用于准备解压世界档案
 
 ## VoiceCraft 服务器配置
 
@@ -47,33 +61,41 @@ Use `McWss` when:
 }
 ```
 
+保持 `DataTunnelCommand` 与插件包保持一致。如果您在服务器配置中更改它，则插件必须使用相同的命令名称。
+
+对于本地单人游戏测试，请将 websocket 主机保留在 `127.0.0.1` 上。仅当基岩世界从另一台机器连接时才使用更宽的绑定。
+
 ## 安装
 
-### Option 1: import as `.mcaddon`
+### 选项 1：导入为 `.mcaddon`
 
-1. Rename archive to `VoiceCraft.Addon.Core.McWss.mcaddon`.
+1. 将存档重命名为 `VoiceCraft.Addon.Core.McWss.mcaddon`。
 2. 打开它，让 Minecraft 导入插件。
-3.启用世界中的行为包和资源包。
+3. 启用世界中的行为包和资源包。
 
 ### 选项 2：手动复制
 
-1. 解压存档。
-2. Copy `RP` and `BP` to the Bedrock directories.
-3. 在目标世界中启用两个包。
+1. 提取存档。
+2. 将 `RP` 和 `BP` 复制到 Bedrock 目录。
+3. 在目标世界中启用这两个包。
+
+资源包提供可见的资产。行为包提供命令、脚本和桥接逻辑。
 
 ## 连接流程
 
-### 第 1 步：连接世界 websocket
+### 第1步：连接世界websocket
 
 ```text
 /connect <VOICECRAFT_HOST>:<MCWSS_PORT>
 ```
 
-例子：
+示例：
 
 ```text
 /connect 127.0.0.1:9051
 ```
+
+这将基岩世界连接到 VoiceCraft Websocket 传输。它尚未验证该插件。
 
 ### 第 2 步：验证插件
 
@@ -81,7 +103,9 @@ Use `McWss` when:
 /voicecraft:vcconnect <LOGIN_TOKEN>
 ```
 
-Use `McWssConfig.LoginToken`.
+使用 `McWssConfig.LoginToken`。
+
+经过身份验证后，插件可以通过命令隧道发送实体并绑定数据。
 
 ## 数据隧道
 
@@ -89,7 +113,7 @@ Use `McWssConfig.LoginToken`.
 
 - `voicecraft:data_tunnel`
 
-This must stay aligned with `McWssConfig.DataTunnelCommand`.
+这必须与 `McWssConfig.DataTunnelCommand` 保持一致。
 
 如果您重命名一侧而不重命名另一侧，那么桥梁就会断裂。
 
@@ -98,21 +122,46 @@ This must stay aligned with `McWssConfig.DataTunnelCommand`.
 - 可选的最大字符串长度参数
 - 打包有效负载数据参数
 
-## 调整
+隧道对命令吞吐量很敏感。大量的实体或效果更新可能会导致延迟或不稳定的交付，尤其是在低端计算机上。
+
+## 调音
 
 如果您发现延迟或数据包不稳定：
 
-- lower `CommandsPerTick`
-- review `MaxByteLengthPerCommand`
+- 降低 `CommandsPerTick`
+- 评论 `MaxByteLengthPerCommand`
 - 避免大量突发更新
-- 使用较少的活跃实体进行测试
+- 使用较少的活动实体进行测试
+- 调整时保持本地设置
+- 如果世界变成长期运行的共享服务器，则切换到 `McHttp`
 
-## 何时切换到另一种交通工具
+## 何时切换至其他交通工具
 
-Move to `McHttp` when:
+在以下情况下移至 `McHttp`：
 
 - 您运行真正的专用基岩服务器
 - 您想要清洁生产部署
 - 命令隧道不稳定成为问题
 
 在这种情况下，请继续使用 [McHttp for BDS](/minecraft/mchttp-bds)。
+
+## 验证清单
+
+- `McWssConfig.Enabled = true`
+- 世界可以运行 `/connect <host>:<port>`
+- `/voicecraft:vcconnect <LOGIN_TOKEN>` 成功
+- VoiceCraft 客户端连接到 UDP 端点
+- `PositioningType` 客户端和服务器之间的匹配
+- 绑定流程在游戏中有效
+- 移动玩家会改变接近行为
+
+## 常见问题
+
+- `/connect` 失败：
+  检查主机/端口以及 Bedrock 是否允许您的环境中的 Websocket 连接。
+- `vcconnect` 失败：
+  确认您使用了 `McWssConfig.LoginToken`。
+- 数据隧道错误：
+  确认 `DataTunnelCommand` 与插件包匹配。
+- 音频已连接，但接近度错误：
+  检查绑定流、定位模式以及位置更新是否到达。

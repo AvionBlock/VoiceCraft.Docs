@@ -1,8 +1,10 @@
 # Erster Serverlauf
 
+Diese Seite startet, nachdem Sie `VoiceCraft.Server` bereits einmal heruntergeladen und gestartet haben. Das Ziel besteht darin, diesen ersten Start in einen funktionierenden Server umzuwandeln, den Clients und Minecraft tatsächlich nutzen können.
+
 ## Was passiert beim ersten Start?
 
-On startup, VoiceCraft looks for `ServerProperties.json` in the current directory and subdirectories.
+Beim Start sucht VoiceCraft im aktuellen Verzeichnis und in den Unterverzeichnissen nach `ServerProperties.json`.
 
 Wenn die Datei nicht gefunden wird, erstellt der Server automatisch Folgendes:
 
@@ -10,6 +12,8 @@ Wenn die Datei nicht gefunden wird, erstellt der Server automatisch Folgendes:
 - `config/ServerProperties.json`
 
 Diese Datei wird zur wichtigsten dauerhaften Wahrheitsquelle für das Serververhalten.
+
+Nachdem die Datei angezeigt wird, stoppen Sie den Server, bearbeiten Sie die Konfiguration und starten Sie ihn dann erneut. Beim ersten Start wird nur die Grundlinie erstellt; Die Einrichtung ist noch nicht abgeschlossen.
 
 ## Standardports und Endpunkte
 
@@ -22,16 +26,106 @@ Standardmäßig ist die generierte Konfiguration wie folgt ausgerichtet:
 
 Hinweise:
 
-- UDP voice traffic and some transport defaults share `9050`
-- `McWss` is separated by default on `9051`
-- `McTcp` is especially relevant for `GeyserVoice`
+- UDP-Sprachverkehr und einige Transportstandards teilen sich `9050`
+- `McWss` wird standardmäßig durch `9051` getrennt.
+- `McTcp` ist besonders relevant für `GeyserVoice`
+
+## Linearer Erstlaufpfad
+
+### 1. Stoppen Sie und öffnen Sie die generierte Konfiguration
+
+Geöffnet:
+
+```text
+config/ServerProperties.json
+```
+
+Bewahren Sie diese Datei im selben Installationsordner auf und schließen Sie sie in Backups ein.
+
+### 2. Ersetzen Sie generierte Token
+
+Bevor ein Add-on, Plugin oder Player-Client eine Verbindung herstellt, ersetzen Sie Folgendes:
+
+- `McHttpConfig.LoginToken`
+- `McWssConfig.LoginToken`
+- `McTcpConfig.LoginToken`
+
+Verwenden Sie den Token des Transportmittels, das Sie später tatsächlich verbinden. Beispielsweise muss ein BDS-Befehl `vcconnect` `McHttpConfig.LoginToken` verwenden, während GeyserVoice `McTcpConfig.LoginToken` verwenden muss.
+
+### 3. Wählen Sie einen primären Minecraft-Transporter
+
+Entscheiden Sie anhand der Topologie, was aktiviert werden soll:
+
+| Einrichtung | Aktivieren | Weiter mit |
+|-------|--------|---------------|
+| Dedizierter Bedrock-Server | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
+| Lokale Grundgesteinswelt | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
+| Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+
+Sie können mehrere Transporte ausführen, aber ein erstes Setup ist einfacher zu debuggen, wenn nur der erforderliche verfügbar gemacht wird.
+
+### 4. Hostbindungen festlegen
+
+Verwenden Sie lokale Bindungen, wenn alles auf einer Maschine läuft:
+
+- `McHttpConfig.Hostname = http://127.0.0.1:9050/`
+- `McWssConfig.Hostname = ws://127.0.0.1:9051/`
+- `McTcpConfig.Hostname = 127.0.0.1`
+
+Verwenden Sie `0.0.0.0` nur, wenn ein anderer Computer, Container oder Spielhost VoiceCraft erreichen muss.
+
+### 5. Starten Sie den Server neu
+
+Starten Sie `VoiceCraft.Server` erneut aus demselben Ordner. Achten Sie auf:
+
+- ungültige JSON-Fehler
+- Port wird bereits verwendet. Fehler
+- fehlgeschlagener Listener oder Bindungsfehler
+
+Beheben Sie diese, bevor Sie fortfahren. Ein Minecraft-Addon oder -Plugin kann keine zuverlässige Verbindung herstellen, während der Server Startfehler meldet.
+
+### 6. Verbinden Sie einen VoiceCraft-Client
+
+Installieren Sie den Client von [Download Page](/download) und fügen Sie dann einen Servereintrag hinzu:
+
+- host: die VoiceCraft-Serveradresse
+- Port: `VoiceCraftConfig.Port`, normalerweise `9050`
+
+Für lokale Tests verwenden Sie:
+
+```text
+127.0.0.1:9050
+```
+
+Stellen Sie sicher, dass der Client `Positioning Type` mit `VoiceCraftConfig.PositioningType` übereinstimmt.
+
+### 7. Minecraft verbinden
+
+Fahren Sie mit der Anleitung fort, die dem von Ihnen aktivierten Transport entspricht:
+
+- [McHttp for BDS](/minecraft/mchttp-bds)
+- [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
+- [GeyserVoice](/ecosystem/geyservoice)
+
+Wenn Sie zur Eingabe eines Tokens aufgefordert werden, verwenden Sie das passende Transporttoken aus `ServerProperties.json`.
+
+### 8. Validieren Sie das Setup
+
+Die erste Einrichtung ist abgeschlossen, wenn:
+
+- Serverprotokolle zeigen keine Konfigurations- oder Listener-Fehler
+- Der VoiceCraft-Client stellt eine Verbindung zum UDP-Endpunkt her
+- Minecraft authentifiziert sich über den ausgewählten Transport
+- Der Bindungsfluss im Spiel funktioniert
+- Aktualisierungen der Spielerpositionen erreichen VoiceCraft
+- Proximity Voice funktioniert im erwarteten Bereich
 
 ## Startargumente
 
 Der VoiceCraft-Server unterstützt diese Stammargumente:
 
 - `--exit-on-invalid-properties`
-  Exit if `ServerProperties.json` cannot be parsed.
+  Beenden, wenn `ServerProperties.json` nicht analysiert werden kann.
 - `--language <culture>`
   Überschreiben Sie die Serverprotokollsprache für die aktuelle Ausführung.
 - `--transport-mode <mode>`
@@ -66,52 +160,58 @@ Im Code gibt es auch kurze Aliase:
 ./VoiceCraft.Server --exit-on-invalid-properties
 ```
 
-### Run only `McTcp` for a Java bridge
+### Führen Sie nur `McTcp` für eine Java-Bridge aus
 
 ```bash
 ./VoiceCraft.Server --transport-mode tcp --transport-host 0.0.0.0 --transport-port 9050
 ```
 
-### Run only `McHttp`
+### Nur `McHttp` ausführen
 
 ```bash
 ./VoiceCraft.Server --transport-mode http --transport-host 0.0.0.0 --transport-port 9050
 ```
 
-### Token überschreiben, ohne JSON zu bearbeiten
+### Überschreiben Sie das Token, ohne JSON zu bearbeiten
 
 ```bash
 ./VoiceCraft.Server --server-key "replace-with-secure-token"
 ```
 
-## So verhalten sich Transportüberschreibungen
+## Wie sich Transportüberschreibungen verhalten
 
-Runtime overrides do not permanently rewrite `ServerProperties.json`.
+Laufzeitüberschreibungen schreiben `ServerProperties.json` nicht dauerhaft neu.
 
 Sie gelten nur für den aktuellen Prozess und sind nützlich, wenn:
 
 - Ausführen mehrerer Umgebungen von einem Image aus
-- Verwendung von Panels oder System-Drop-Ins
+- Verwenden von Panels oder Systemd-Drop-Ins
 - Testen direkter vs. Proxy-Topologien
-- letting another tool such as `GeyserVoice` launch the runtime with generated values
+- Lassen Sie ein anderes Tool wie `GeyserVoice` die Laufzeit mit generierten Werten starten
 
 ## Checkliste für den ersten Durchgang
 
-1. Ändern Sie alle generierten Login-Tokens.
-2. Bestätigen Sie, welchen Transport Sie tatsächlich benötigen:
-   - `McHttp` for BDS
-   - `McWss` for local worlds
-   - `McTcp` for `GeyserVoice`
-3. Überprüfen Sie die Hostbindungen.
-4. Öffnen Sie nur die Ports, die Sie benötigen.
-5. Confirm `PositioningType` with your clients.
-6. Testen Sie die Client-Verbindung, bevor Sie die Minecraft-Automatisierung anschließen.
+1. Führen Sie den Server einmal aus, um `config/ServerProperties.json` zu generieren.
+2. Stoppen Sie den Server, bevor Sie die generierte Konfiguration bearbeiten.
+3. Ändern Sie alle generierten Login-Tokens.
+4. Bestätigen Sie, welchen Transport Sie tatsächlich benötigen:
+   - `McHttp` für BDS
+   - `McWss` für lokale Welten
+   - `McTcp` für `GeyserVoice`
+5. Überprüfen Sie die Hostbindungen.
+6. Öffnen Sie nur die Ports, die Sie benötigen.
+7. Starten Sie den Server aus demselben Installationsordner neu.
+8. Bestätigen Sie `PositioningType` mit Ihren Kunden.
+9. Testen Sie die Client-Verbindung, bevor Sie die Minecraft-Automatisierung verbinden.
+10. Verbinden Sie das Minecraft-Addon oder -Plugin und validieren Sie den Bindungsfluss.
 
-## Häufige Fehler beim ersten Mal
+## Häufige Fehler beim ersten Lauf
 
 - Die generierten Token bleiben unverändert
-- exposing `127.0.0.1` endpoints to remote nodes
-- forgetting that `McTcp` may be required by Java-side bridges
-- jeden Transport in der Produktion ermöglichen, ohne ihn tatsächlich zu benötigen
+- Offenlegung von `127.0.0.1`-Endpunkten für Remote-Knoten
+- Vergessen Sie, dass `McTcp` möglicherweise für Java-seitige Bridges erforderlich ist
+- Ermöglicht jeden Transport in der Produktion, ohne dass er tatsächlich benötigt wird
+- Bearbeiten von `ServerProperties.json`, während ein Prozessmanager die alte defekte Konfiguration sofort neu startet
+- Verwenden des UDP-Client-Ports, an dem der Minecraft-Leitfaden einen Transportendpunkt erwartet
 
 Die vollständige Konfigurationsreferenz finden Sie unter [ServerProperties.json](/server/server-properties).
