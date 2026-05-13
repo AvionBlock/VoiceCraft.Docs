@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     'nuxt-og-image',
   ],
   site: {
-    url: 'https://docs.avion.team',
+    url: 'https://docs.voicecraft.chat',
     name: 'VoiceCraft Docs',
   },
   app: {

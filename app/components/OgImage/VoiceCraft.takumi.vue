@@ -47,7 +47,7 @@ withDefaults(defineProps<{
     </p>
 
     <div class="og-path">
-      docs.avion.team{{ path }}
+      docs.voicecraft.chat{{ path }}
     </div>
     <div class="og-pill og-pill-client">
       Client
