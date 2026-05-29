@@ -1,0 +1,81 @@
+default:
+  tags:
+    - ubuntu
+
+image: node:22-alpine
+
+stages:
+  - verify
+  - deploy
+
+variables:
+  PNPM_VERSION: "10.33.4"
+  PNPM_STORE_DIR: ".pnpm-store"
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH
+    - if: $CI_COMMIT_TAG
+
+.pnpm_setup:
+  before_script:
+    - corepack enable
+    - corepack prepare pnpm@${PNPM_VERSION} --activate
+    - pnpm config set store-dir ${PNPM_STORE_DIR}
+    - pnpm install --frozen-lockfile
+  cache:
+    key:
+      files:
+        - pnpm-lock.yaml
+    paths:
+      - ${PNPM_STORE_DIR}
+
+typecheck:
+  stage: verify
+  extends: .pnpm_setup
+  script:
+    - pnpm typecheck
+
+build:
+  stage: verify
+  extends: .pnpm_setup
+  script:
+    - pnpm build
+
+deploy:coolify:
+  stage: deploy
+  image: alpine:3.21
+  needs:
+    - typecheck
+    - build
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_TAG
+  before_script:
+    - apk add --no-cache curl
+  script:
+    - ': "${COOLIFY_API_URL:?Set COOLIFY_API_URL in GitLab CI/CD variables, for example https://coolify.example.com/api/v1}"'
+    - ': "${COOLIFY_API_TOKEN:?Set COOLIFY_API_TOKEN in GitLab CI/CD variables}"'
+    - |
+      COOLIFY_API_URL="${COOLIFY_API_URL%/}"
+
+      if [ -n "${COOLIFY_RESOURCE_UUID}" ] && [ -n "${COOLIFY_RESOURCE_TAG}" ]; then
+        echo "Set either COOLIFY_RESOURCE_UUID or COOLIFY_RESOURCE_TAG, not both."
+        exit 1
+      fi
+
+      if [ -n "${COOLIFY_RESOURCE_UUID}" ]; then
+        curl --fail --show-error --silent --get "${COOLIFY_API_URL}/deploy" \
+          --header "Authorization: Bearer ${COOLIFY_API_TOKEN}" \
+          --data-urlencode "uuid=${COOLIFY_RESOURCE_UUID}" \
+          --data-urlencode "force=${COOLIFY_FORCE_REBUILD:-false}"
+      elif [ -n "${COOLIFY_RESOURCE_TAG}" ]; then
+        curl --fail --show-error --silent --get "${COOLIFY_API_URL}/deploy" \
+          --header "Authorization: Bearer ${COOLIFY_API_TOKEN}" \
+          --data-urlencode "tag=${COOLIFY_RESOURCE_TAG}" \
+          --data-urlencode "force=${COOLIFY_FORCE_REBUILD:-false}"
+      else
+        echo "Set COOLIFY_RESOURCE_UUID or COOLIFY_RESOURCE_TAG in GitLab CI/CD variables."
+        exit 1
+      fi
