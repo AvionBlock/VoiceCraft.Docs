@@ -25,6 +25,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "typecheck": "nuxi typecheck",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -44,7 +45,8 @@
     "@iconify-json/lucide": "^1.2.107",
     "@iconify-json/simple-icons": "^1.2.82",
     "@takumi-rs/core": "^1.1.2",
-    "nuxt-og-image": "^6.5.0"
+    "nuxt-og-image": "^6.5.0",
+    "vue-tsc": "3.3.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
