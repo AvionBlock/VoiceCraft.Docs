@@ -1,6 +1,6 @@
 default:
   tags:
-    - ubuntu
+    - ubuntu-docker
 
 image: node:22-alpine
 
