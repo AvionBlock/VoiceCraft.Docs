@@ -22,6 +22,11 @@ type PackManifestReference = {
   version: number[]
 }
 
+type WorldPackEntry = Record<string, unknown> & {
+  pack_id?: unknown
+  version?: unknown
+}
+
 type ReleasePackKey = 'base' | 'http' | 'wss'
 
 type LoadedPack = {
@@ -81,6 +86,8 @@ export async function buildConfiguredAddonArchive(input: {
   transportMode: TransportMode
   levelDatBytes: Uint8Array
   levelDatOldBytes?: Uint8Array | null
+  worldBehaviorPacksBytes?: Uint8Array | null
+  worldResourcePacksBytes?: Uint8Array | null
 }) {
   const releases = await fetchAddonReleases()
   const release = releases.find((item) => item.tag === input.version)
@@ -98,21 +105,69 @@ export async function buildConfiguredAddonArchive(input: {
     outputZip.file('level.dat_old', await patchLevelDatFile(input.levelDatOldBytes, 'level.dat_old'))
   }
 
-  const worldBehaviorPacks: PackManifestReference[] = []
-  const worldResourcePacks: PackManifestReference[] = []
+  const worldBehaviorPacks = parseWorldPackEntries(input.worldBehaviorPacksBytes, 'world_behavior_packs.json')
+  const worldResourcePacks = parseWorldPackEntries(input.worldResourcePacksBytes, 'world_resource_packs.json')
 
   for (const packKey of getPackKeysForMode(input.transportMode)) {
     const loadedPack = await loadPackBundle(release.assets, packKey)
     await addPackEntries(outputZip, loadedPack.bundleZip, 'BP', `behavior_packs/${loadedPack.folderSlug}`)
     await addPackEntries(outputZip, loadedPack.bundleZip, 'RP', `resource_packs/${loadedPack.folderSlug}`)
-    worldBehaviorPacks.push(makeWorldPackReference(loadedPack.bpManifest))
-    worldResourcePacks.push(makeWorldPackReference(loadedPack.rpManifest))
+    addWorldPackReference(worldBehaviorPacks, makeWorldPackReference(loadedPack.bpManifest))
+    addWorldPackReference(worldResourcePacks, makeWorldPackReference(loadedPack.rpManifest))
   }
 
   outputZip.file('world_behavior_packs.json', JSON.stringify(worldBehaviorPacks, null, 2))
   outputZip.file('world_resource_packs.json', JSON.stringify(worldResourcePacks, null, 2))
 
   return await outputZip.generateAsync({ type: 'uint8array' })
+}
+
+function parseWorldPackEntries(bytes: Uint8Array | null | undefined, fileName: string): WorldPackEntry[] {
+  if (!bytes) return []
+
+  let parsed: unknown
+
+  try {
+    parsed = JSON.parse(Buffer.from(bytes).toString('utf8'))
+  } catch {
+    throw createError({
+      statusCode: 400,
+      statusMessage: `${fileName} must contain valid JSON.`,
+    })
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: `${fileName} must contain a JSON array.`,
+    })
+  }
+
+  return parsed.map((entry, index) => {
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: `${fileName} entry ${index + 1} must be an object.`,
+      })
+    }
+
+    return { ...(entry as Record<string, unknown>) }
+  })
+}
+
+function addWorldPackReference(entries: WorldPackEntry[], reference: PackManifestReference) {
+  const existingIndex = entries.findIndex((entry) => entry.pack_id === reference.pack_id)
+
+  if (existingIndex >= 0) {
+    entries[existingIndex] = {
+      ...entries[existingIndex],
+      pack_id: reference.pack_id,
+      version: reference.version,
+    }
+    return
+  }
+
+  entries.push(reference)
 }
 
 function hasRequiredAssets(assets: GitHubReleaseAsset[]) {

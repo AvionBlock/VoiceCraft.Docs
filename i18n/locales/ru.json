@@ -222,7 +222,9 @@
     "outputs": {
       "levelDat": "Метаданные мира с включёнными Bedrock experiment tags для beta API.",
       "behaviorJson": "Сгенерированный файл регистрации behavior packs.",
+      "behaviorJsonMerged": "Загруженные регистрации behavior packs с добавленными записями VoiceCraft.",
       "resourceJson": "Сгенерированный файл регистрации resource packs.",
+      "resourceJsonMerged": "Загруженные регистрации resource packs с добавленными записями VoiceCraft.",
       "behaviorFolder": "Behavior packs, скопированные из выбранных bundle-архивов аддона.",
       "resourceFolder": "Resource packs, скопированные из выбранных bundle-архивов аддона.",
       "levelDatOldIncluded": "Дополнительная резервная копия метаданных мира, пропатченная и добавленная в архив.",
@@ -231,6 +233,8 @@
     "progressTitle": "Ход сборки",
     "progress": {
       "levelDat": "Подготавливаем загруженный level.dat",
+      "behaviorJson": "Подготавливаем загруженный world_behavior_packs.json",
+      "resourceJson": "Подготавливаем загруженный world_resource_packs.json",
       "release": "Используем релиз: {version}",
       "request": "Запрашиваем серверную сборку из GitHub release assets",
       "bundle": "Загружаем bundle: {name}",
@@ -246,7 +250,11 @@
       "releases": "Не удалось загрузить доступные релизы аддона."
     },
     "uploadOldTitle": "Выберите level.dat_old (необязательно)",
-    "uploadOldSubtitle": "Если файл указан, он будет пропатчен так же и добавлен в архив как level.dat_old."
+    "uploadOldSubtitle": "Если файл указан, он будет пропатчен так же и добавлен в архив как level.dat_old.",
+    "uploadBehaviorJsonTitle": "Выберите world_behavior_packs.json (необязательно)",
+    "uploadBehaviorJsonSubtitle": "Если файл указан, существующие регистрации behavior packs сохранятся, а записи VoiceCraft будут добавлены.",
+    "uploadResourceJsonTitle": "Выберите world_resource_packs.json (необязательно)",
+    "uploadResourceJsonSubtitle": "Если файл указан, существующие регистрации resource packs сохранятся, а записи VoiceCraft будут добавлены."
   },
   "landing": {
     "title": "VoiceCraft Documentation",

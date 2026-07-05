@@ -34,6 +34,8 @@ export function useVoiceCraftAddonConfigurator() {
   const selectedVersion = ref('')
   const levelDatFile = ref<File | null>(null)
   const levelDatOldFile = ref<File | null>(null)
+  const worldBehaviorPacksFile = ref<File | null>(null)
+  const worldResourcePacksFile = ref<File | null>(null)
   const isLoadingVersions = ref(true)
   const isBuilding = ref(false)
   const buildError = ref<string | null>(null)
@@ -78,6 +80,16 @@ export function useVoiceCraftAddonConfigurator() {
     buildError.value = null
   }
 
+  function setWorldBehaviorPacks(files: FileList | null) {
+    worldBehaviorPacksFile.value = files?.[0] ?? null
+    buildError.value = null
+  }
+
+  function setWorldResourcePacks(files: FileList | null) {
+    worldResourcePacksFile.value = files?.[0] ?? null
+    buildError.value = null
+  }
+
   function resetMessages() {
     buildError.value = null
     buildMessage.value = null
@@ -111,11 +123,15 @@ export function useVoiceCraftAddonConfigurator() {
     try {
       pushLog(t('addonConfigurator.progress.levelDat'))
       if (levelDatOldFile.value) pushLog(t('addonConfigurator.progress.levelDatOld'))
+      if (worldBehaviorPacksFile.value) pushLog(t('addonConfigurator.progress.behaviorJson'))
+      if (worldResourcePacksFile.value) pushLog(t('addonConfigurator.progress.resourceJson'))
       pushLog(t('addonConfigurator.progress.release', { version: selectedVersion.value }))
       pushLog(t('addonConfigurator.progress.request'))
 
       const levelDatBase64 = await fileToBase64(levelDatFile.value)
       const levelDatOldBase64 = levelDatOldFile.value ? await fileToBase64(levelDatOldFile.value) : null
+      const worldBehaviorPacksBase64 = worldBehaviorPacksFile.value ? await fileToBase64(worldBehaviorPacksFile.value) : null
+      const worldResourcePacksBase64 = worldResourcePacksFile.value ? await fileToBase64(worldResourcePacksFile.value) : null
       const response = await fetch('/api/addon-configurator/build', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
@@ -126,6 +142,10 @@ export function useVoiceCraftAddonConfigurator() {
           levelDatFileName: levelDatFile.value.name,
           levelDatOldBase64,
           levelDatOldFileName: levelDatOldFile.value?.name ?? null,
+          worldBehaviorPacksBase64,
+          worldBehaviorPacksFileName: worldBehaviorPacksFile.value?.name ?? null,
+          worldResourcePacksBase64,
+          worldResourcePacksFileName: worldResourcePacksFile.value?.name ?? null,
         }),
       })
 
@@ -162,6 +182,8 @@ export function useVoiceCraftAddonConfigurator() {
     selectedVersion,
     levelDatFile,
     levelDatOldFile,
+    worldBehaviorPacksFile,
+    worldResourcePacksFile,
     isLoadingVersions,
     isBuilding,
     buildError,
@@ -175,6 +197,8 @@ export function useVoiceCraftAddonConfigurator() {
     canBuild,
     setLevelDat,
     setLevelDatOld,
+    setWorldBehaviorPacks,
+    setWorldResourcePacks,
     downloadConfiguredWorld,
   }
 }

@@ -7,6 +7,10 @@ type BuildRequestBody = {
   levelDatFileName?: string
   levelDatOldBase64?: string | null
   levelDatOldFileName?: string | null
+  worldBehaviorPacksBase64?: string | null
+  worldBehaviorPacksFileName?: string | null
+  worldResourcePacksBase64?: string | null
+  worldResourcePacksFileName?: string | null
 }
 
 function base64ToBytes(value: string) {
@@ -29,6 +33,8 @@ export default defineEventHandler(async (event) => {
     transportMode: body.transportMode,
     levelDatBytes: base64ToBytes(body.levelDatBase64),
     levelDatOldBytes: body.levelDatOldBase64 ? base64ToBytes(body.levelDatOldBase64) : null,
+    worldBehaviorPacksBytes: body.worldBehaviorPacksBase64 ? base64ToBytes(body.worldBehaviorPacksBase64) : null,
+    worldResourcePacksBytes: body.worldResourcePacksBase64 ? base64ToBytes(body.worldResourcePacksBase64) : null,
   })
 
   setHeader(event, 'content-type', 'application/zip')

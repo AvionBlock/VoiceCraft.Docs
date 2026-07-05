@@ -5,6 +5,8 @@ const {
   selectedVersion,
   levelDatFile,
   levelDatOldFile,
+  worldBehaviorPacksFile,
+  worldResourcePacksFile,
   isLoadingVersions,
   isBuilding,
   buildError,
@@ -18,6 +20,8 @@ const {
   canBuild,
   setLevelDat,
   setLevelDatOld,
+  setWorldBehaviorPacks,
+  setWorldResourcePacks,
   downloadConfiguredWorld,
 } = useVoiceCraftAddonConfigurator()
 </script>
@@ -126,6 +130,34 @@ const {
               {{ t('addonConfigurator.uploadOldSubtitle') }}
             </span>
           </label>
+          <label class="vc-addon-config-upload">
+            <input
+              type="file"
+              class="visually-hidden"
+              accept=".json,application/json"
+              @change="setWorldBehaviorPacks(($event.target as HTMLInputElement).files)"
+            >
+            <span class="vc-addon-config-upload-title">
+              {{ worldBehaviorPacksFile ? worldBehaviorPacksFile.name : t('addonConfigurator.uploadBehaviorJsonTitle') }}
+            </span>
+            <span class="vc-addon-config-upload-subtitle">
+              {{ t('addonConfigurator.uploadBehaviorJsonSubtitle') }}
+            </span>
+          </label>
+          <label class="vc-addon-config-upload">
+            <input
+              type="file"
+              class="visually-hidden"
+              accept=".json,application/json"
+              @change="setWorldResourcePacks(($event.target as HTMLInputElement).files)"
+            >
+            <span class="vc-addon-config-upload-title">
+              {{ worldResourcePacksFile ? worldResourcePacksFile.name : t('addonConfigurator.uploadResourceJsonTitle') }}
+            </span>
+            <span class="vc-addon-config-upload-subtitle">
+              {{ t('addonConfigurator.uploadResourceJsonSubtitle') }}
+            </span>
+          </label>
         </div>
 
         <div class="d-grid gap-3">
@@ -184,11 +216,11 @@ const {
           </div>
           <div class="vc-addon-config-file-map">
             <span class="vc-addon-config-file-key">world_behavior_packs.json</span>
-            <span>{{ t('addonConfigurator.outputs.behaviorJson') }}</span>
+            <span>{{ worldBehaviorPacksFile ? t('addonConfigurator.outputs.behaviorJsonMerged') : t('addonConfigurator.outputs.behaviorJson') }}</span>
           </div>
           <div class="vc-addon-config-file-map">
             <span class="vc-addon-config-file-key">world_resource_packs.json</span>
-            <span>{{ t('addonConfigurator.outputs.resourceJson') }}</span>
+            <span>{{ worldResourcePacksFile ? t('addonConfigurator.outputs.resourceJsonMerged') : t('addonConfigurator.outputs.resourceJson') }}</span>
           </div>
           <div class="vc-addon-config-file-map">
             <span class="vc-addon-config-file-key">behavior_packs/</span>
