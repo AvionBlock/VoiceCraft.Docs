@@ -105,6 +105,14 @@ This connects the Bedrock world to the VoiceCraft websocket transport. It does n
 
 Use `McWssConfig.LoginToken`.
 
+For scripted auto-connect, the addon can call the raw form:
+
+```text
+/voicecraft:vcconnect_raw "<MCWSS_HOST>" <PORT> <LOGIN_TOKEN>
+```
+
+In `Core.McWss`, this passes the host, port, and token directly into the websocket transport. The stock `Basic` package uses this when `autoConnect:ip`, `autoConnect:port`, and `autoConnect:loginKey` are stored as world dynamic properties.
+
 After authentication, the addon can send entity and bind data through the command tunnel.
 
 ## Data tunnel

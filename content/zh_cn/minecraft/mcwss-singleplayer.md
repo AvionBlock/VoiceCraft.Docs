@@ -105,6 +105,14 @@ Local Bedrock world + VoiceCraft.Addon.Core.McWss -> McWss websocket endpoint
 
 使用 `McWssConfig.LoginToken`。
 
+对于脚本化 auto-connect，插件可以调用 raw 形式：
+
+```text
+/voicecraft:vcconnect_raw "<MCWSS_HOST>" <PORT> <LOGIN_TOKEN>
+```
+
+在 `Core.McWss` 中，它会把 host、port 和令牌直接传给 websocket 传输。默认 `Basic` 包会在 `autoConnect:ip`、`autoConnect:port` 和 `autoConnect:loginKey` 作为世界 dynamic properties 保存时使用它。
+
 经过身份验证后，插件可以通过命令隧道发送实体并绑定数据。
 
 ## 数据隧道

@@ -47,13 +47,37 @@ Paketübergreifend:
 
 - `voicecraft:vcconnect <hostname> <token>`
   Erlaubnis: `GameDirectors`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  Erlaubnis: `GameDirectors`
 
 ### Kern.McWss
 
 - `voicecraft:vcconnect <token>`
   Erlaubnis: `Host`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  Erlaubnis: `GameDirectors`
 - `voicecraft:data_tunnel [max_string_length] [data]`
   Erlaubnis: `Host`
+
+## `vcconnect_raw`
+
+`voicecraft:vcconnect_raw` ist der Low-Level-Verbindungsbefehl, den der Auto-Connect-Ablauf des Add-ons nutzt. Statt eines einzelnen Hostname-Strings nimmt er Adresse, Port und Token getrennt entgegen.
+
+```text
+/voicecraft:vcconnect_raw "<IP_OR_HOST>" <PORT> "<LOGIN_TOKEN>"
+```
+
+Der Befehl prüft, dass `PORT` zwischen `1` und `65535` liegt, und startet nur dann eine neue Verbindung, wenn der Transport getrennt ist.
+
+Bei `Core.McHttp` baut der Befehl intern `http://<ip>:<port>` und verbindet mit dem übergebenen Token. Bei `Core.McWss` werden `ip`, `port` und Token direkt an den Websocket-Transport weitergegeben.
+
+Das Standardpaket `Basic` ruft den Befehl aus den Auto-Connect-Einstellungen auf:
+
+```text
+vcconnect_raw "<autoConnect:ip>" <autoConnect:port> "<autoConnect:loginKey>"
+```
+
+Für manuelle Einrichtung sind die normalen Befehle oben vorzuziehen. Nutzen Sie `vcconnect_raw`, wenn Auto-Connect geskriptet wird oder Host und Port getrennt in Dynamic Properties der Welt liegen.
 
 ## Was Ihnen das Basic-Paket bietet
 

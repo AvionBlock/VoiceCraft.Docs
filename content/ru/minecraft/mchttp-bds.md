@@ -124,6 +124,14 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 
 Используйте токен из `McHttpConfig.LoginToken`.
 
+Для скриптового auto-connect аддон также предоставляет raw-вариант:
+
+```text
+/voicecraft:vcconnect_raw "<VOICECRAFT_HOST>" <PORT> <LOGIN_TOKEN>
+```
+
+В `Core.McHttp` он сам собирает `http://<VOICECRAFT_HOST>:<PORT>`. Для ручной настройки используйте обычный `vcconnect`, если только скрипт мира не хранит host и port отдельно.
+
 Если BDS работает на другом хосте, чем VoiceCraft, замените `127.0.0.1` адресом сервера VoiceCraft, видимым с компьютера BDS.
 
 ## Что происходит после подключения

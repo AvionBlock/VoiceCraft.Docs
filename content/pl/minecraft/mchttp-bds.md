@@ -124,6 +124,14 @@ Przykład:
 
 Użyj tokena z `McHttpConfig.LoginToken`.
 
+Do skryptowego auto-connect dodatek udostępnia także formę raw:
+
+```text
+/voicecraft:vcconnect_raw "<VOICECRAFT_HOST>" <PORT> <LOGIN_TOKEN>
+```
+
+W `Core.McHttp` buduje ona wewnętrznie `http://<VOICECRAFT_HOST>:<PORT>`. Do ręcznej konfiguracji zwykle używaj `vcconnect`, chyba że skrypt świata przechowuje host i port osobno.
+
 Jeśli BDS działa na innym hoście niż VoiceCraft, zamień `127.0.0.1` na adres serwera VoiceCraft widoczny na komputerze BDS.
 
 ## Co się stanie po podłączeniu
