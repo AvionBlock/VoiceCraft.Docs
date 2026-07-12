@@ -47,13 +47,37 @@ VoiceCraft `v1.6.1` требует обновления пакетов аддо�
 
 - `voicecraft:vcconnect <hostname> <token>`
   разрешение: `GameDirectors`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  разрешение: `GameDirectors`
 
 ### Core.McWss
 
 - `voicecraft:vcconnect <token>`
   разрешение: `Host`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  разрешение: `GameDirectors`
 - `voicecraft:data_tunnel [max_string_length] [data]`
   разрешение: `Host`
+
+## `vcconnect_raw`
+
+`voicecraft:vcconnect_raw` — низкоуровневая команда подключения, которую использует авто-подключение аддона. В отличие от обычного `vcconnect`, она принимает адрес раздельно: IP/host, порт и токен.
+
+```text
+/voicecraft:vcconnect_raw "<IP_OR_HOST>" <PORT> "<LOGIN_TOKEN>"
+```
+
+Команда проверяет, что `PORT` находится в диапазоне от `1` до `65535`, и запускает новое подключение только если транспорт сейчас отключен.
+
+В `Core.McHttp` команда сама собирает HTTP-адрес `http://<ip>:<port>` и подключается с переданным токеном. В `Core.McWss` она передает `ip`, `port` и токен прямо в websocket-транспорт.
+
+Стоковый пакет `Basic` вызывает ее из настроек auto-connect:
+
+```text
+vcconnect_raw "<autoConnect:ip>" <autoConnect:port> "<autoConnect:loginKey>"
+```
+
+Для ручной настройки обычно используйте обычные команды выше. `vcconnect_raw` нужен для скриптов авто-подключения или когда host и port хранятся отдельно в dynamic properties мира.
 
 ## Что дает пакет «Basic»
 

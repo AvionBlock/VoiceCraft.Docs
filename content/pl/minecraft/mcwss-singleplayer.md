@@ -105,6 +105,14 @@ Przykład:
 
 Użyj `McWssConfig.LoginToken`.
 
+Do skryptowego auto-connect dodatek może wywołać formę raw:
+
+```text
+/voicecraft:vcconnect_raw "<MCWSS_HOST>" <PORT> <LOGIN_TOKEN>
+```
+
+W `Core.McWss` przekazuje ona host, port i token bezpośrednio do transportu websocket. Pakiet `Basic` używa tego, gdy `autoConnect:ip`, `autoConnect:port` i `autoConnect:loginKey` są zapisane jako dynamic properties świata.
+
 Po uwierzytelnieniu dodatek może wysyłać dane encji i wiązać dane poprzez tunel poleceń.
 
 ## Tunel danych

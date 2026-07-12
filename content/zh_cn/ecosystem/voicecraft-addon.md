@@ -47,13 +47,37 @@ VoiceCraft `v1.6.1` 需要更新插件包以及客户端/服务器版本。此�
 
 - `voicecraft:vcconnect <hostname> <token>`
   权限：`GameDirectors`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  权限：`GameDirectors`
 
 ### 核心.McWss
 
 - `voicecraft:vcconnect <token>`
   权限：`Host`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  权限：`GameDirectors`
 - `voicecraft:data_tunnel [max_string_length] [data]`
   权限：`Host`
+
+## `vcconnect_raw`
+
+`voicecraft:vcconnect_raw` 是插件自动连接流程使用的底层连接命令。它不接收完整的 hostname 字符串，而是分别接收地址、端口和令牌。
+
+```text
+/voicecraft:vcconnect_raw "<IP_OR_HOST>" <PORT> "<LOGIN_TOKEN>"
+```
+
+该命令会检查 `PORT` 是否在 `1` 到 `65535` 之间，并且只在当前传输已断开时启动新连接。
+
+对于 `Core.McHttp`，命令会在内部构造 `http://<ip>:<port>`，然后使用传入的令牌连接。对于 `Core.McWss`，它会将 `ip`、`port` 和令牌直接传给 websocket 传输。
+
+默认 `Basic` 包会从 auto-connect 设置调用它：
+
+```text
+vcconnect_raw "<autoConnect:ip>" <autoConnect:port> "<autoConnect:loginKey>"
+```
+
+手动配置时通常使用上面的普通命令。只有在编写自动连接脚本，或把 host 与 port 分开存储在世界 dynamic properties 中时，才使用 `vcconnect_raw`。
 
 ## 基本套餐为您提供什么
 

@@ -47,13 +47,37 @@ Across packages:
 
 - `voicecraft:vcconnect <hostname> <token>`
   permission: `GameDirectors`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  permission: `GameDirectors`
 
 ### Core.McWss
 
 - `voicecraft:vcconnect <token>`
   permission: `Host`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  permission: `GameDirectors`
 - `voicecraft:data_tunnel [max_string_length] [data]`
   permission: `Host`
+
+## `vcconnect_raw`
+
+`voicecraft:vcconnect_raw` is the low-level connection command used by the addon auto-connect flow. It accepts split address fields instead of the player-facing hostname string:
+
+```text
+/voicecraft:vcconnect_raw "<IP_OR_HOST>" <PORT> "<LOGIN_TOKEN>"
+```
+
+The command validates that `PORT` is between `1` and `65535` and only starts a new connection when the transport is currently disconnected.
+
+For `Core.McHttp`, the command builds the HTTP endpoint internally as `http://<ip>:<port>` and then connects with the supplied token. For `Core.McWss`, it passes the raw `ip`, `port`, and token into the websocket transport.
+
+The stock `Basic` package uses this from auto-connect settings:
+
+```text
+vcconnect_raw "<autoConnect:ip>" <autoConnect:port> "<autoConnect:loginKey>"
+```
+
+For manual setup, prefer the normal commands shown above. Use `vcconnect_raw` when scripting auto-connect or when you store host and port separately in world dynamic properties.
 
 ## What the Basic package gives you
 

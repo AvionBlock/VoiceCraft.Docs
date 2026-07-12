@@ -47,13 +47,37 @@ Voor alle pakketten:
 
 - `voicecraft:vcconnect <hostname> <token>`
   toestemming: `GameDirectors`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  toestemming: `GameDirectors`
 
 ### Kern.McWss
 
 - `voicecraft:vcconnect <token>`
   toestemming: `Host`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  toestemming: `GameDirectors`
 - `voicecraft:data_tunnel [max_string_length] [data]`
   toestemming: `Host`
+
+## `vcconnect_raw`
+
+`voicecraft:vcconnect_raw` is de low-level verbindingsopdracht die door auto-connect van de add-on wordt gebruikt. In plaats van een enkele hostname-string gebruikt deze opdracht losse velden voor adres, poort en token.
+
+```text
+/voicecraft:vcconnect_raw "<IP_OR_HOST>" <PORT> "<LOGIN_TOKEN>"
+```
+
+De opdracht controleert of `PORT` tussen `1` en `65535` ligt en start alleen een nieuwe verbinding wanneer het transport is losgekoppeld.
+
+Voor `Core.McHttp` bouwt de opdracht intern `http://<ip>:<port>` en verbindt met het meegegeven token. Voor `Core.McWss` worden `ip`, `port` en token rechtstreeks aan het websocket-transport doorgegeven.
+
+Het standaardpakket `Basic` gebruikt dit vanuit auto-connect-instellingen:
+
+```text
+vcconnect_raw "<autoConnect:ip>" <autoConnect:port> "<autoConnect:loginKey>"
+```
+
+Gebruik voor handmatige setup meestal de normale opdrachten hierboven. Gebruik `vcconnect_raw` wanneer auto-connect wordt gescript of wanneer host en poort apart in dynamic properties van de wereld staan.
 
 ## Wat het Basispakket u biedt
 

@@ -124,6 +124,14 @@ BDS + VoiceCraft.Addon.Core.McHttp -> VoiceCraft McHttp endpoint
 
 使用 `McHttpConfig.LoginToken` 中的令牌。
 
+對於腳本化 auto-connect，插件也提供 raw 形式：
+
+```text
+/voicecraft:vcconnect_raw "<VOICECRAFT_HOST>" <PORT> <LOGIN_TOKEN>
+```
+
+在 `Core.McHttp` 中，它會在內部組出 `http://<VOICECRAFT_HOST>:<PORT>`。手動設定通常使用 `vcconnect`，除非世界腳本把 host 和 port 分開儲存。
+
 如果 BDS 與 VoiceCraft 在不同的主機上執行，請將 `127.0.0.1` 替換為從 BDS 電腦看到的 VoiceCraft 伺服器的位址。
 
 ## 連接後會發生什麼
