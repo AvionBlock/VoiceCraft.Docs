@@ -1,0 +1,288 @@
+{
+  "ui": {
+    "siteTitle": "เอกสาร VoiceCraft",
+    "seoDescription": "คู่มือติดตั้งและตั้งค่า VoiceCraft Client/Server สำหรับ Minecraft Bedrock",
+    "docsVersionLabel": "เอกสาร",
+    "versionSwitcher": "เวอร์ชัน",
+    "versionCurrent": "ปัจจุบัน",
+    "toc": {
+      "onThisPage": "ในหน้านี้",
+      "usefulLinks": "ลิงก์ที่เกี่ยวข้อง"
+    },
+    "links": {
+      "latestRelease": "รุ่นล่าสุด",
+      "downloadPage": "ดาวน์โหลด"
+    },
+    "notFoundTitle": "ไม่พบหน้า",
+    "notFoundDescription": "ยังไม่มีหน้าเอกสารนี้ในภาษาปัจจุบัน",
+    "backHome": "กลับหน้าแรก"
+  },
+  "navigation": {
+    "aria": {
+      "docs": "Documentation"
+    },
+    "top": {
+      "docs": "เอกสาร",
+      "download": "ดาวน์โหลด",
+      "telemetry": "เทเลเมทรี",
+      "addonConfigurator": "ตัวตั้งค่า Addon"
+    },
+    "groups": {
+      "start": "เริ่มต้น",
+      "client": "Client",
+      "server": "Server",
+      "minecraft": "Minecraft",
+      "operations": "ปฏิบัติการ",
+      "ecosystem": "ระบบนิเวศ",
+      "architecture": "สถาปัตยกรรม",
+      "reference": "อ้างอิง"
+    },
+    "items": {
+      "overview": "ภาพรวม",
+      "quickStart": "เริ่มอย่างรวดเร็ว",
+      "installation": "การติดตั้ง",
+      "settings": "การตั้งค่า",
+      "settingsJson": "Settings.json",
+      "firstRun": "เริ่มครั้งแรก",
+      "serverProperties": "ServerProperties.json",
+      "commands": "คำสั่ง",
+      "runtimeOverrides": "Runtime Overrides",
+      "transports": "Transports",
+      "mcHttpBds": "McHttp for BDS",
+      "mcWssSingleplayer": "McWss Singleplayer",
+      "updateBackup": "อัปเดตและสำรองข้อมูล",
+      "troubleshooting": "แก้ปัญหา",
+      "securityHardening": "เพิ่มความปลอดภัย",
+      "hostingCaveats": "Hosting Caveats",
+      "backupRestore": "สำรองและกู้คืน",
+      "upgradeRunbook": "Runbook อัปเกรด",
+      "troubleshootingMatrix": "Troubleshooting Matrix",
+      "voiceCraftRepository": "รีโพ VoiceCraft",
+      "geyserVoice": "GeyserVoice",
+      "voiceCraftAddon": "VoiceCraft.Addon",
+      "integrationRecipes": "Integration Recipes",
+      "directPaper": "Direct Paper",
+      "proxy": "Proxy",
+      "addonApi": "Addon API",
+      "productionBlueprints": "Production Blueprints",
+      "systemArchitecture": "สถาปัตยกรรมระบบ",
+      "packetFlow": "Packet Flow",
+      "authenticationTrust": "Authentication & Trust",
+      "positioningModel": "Positioning Model",
+      "faq": "FAQ"
+    }
+  },
+  "download": {
+    "kicker": "ศูนย์ดาวน์โหลด",
+    "title": "ดาวน์โหลด VoiceCraft",
+    "subtitle": "เลือก client หรือ server รุ่นล่าสุดสำหรับแพลตฟอร์มของคุณ",
+    "detected": "A recommended client build has been highlighted for your device.",
+    "recommended": "แนะนำ",
+    "clientKicker": "Client",
+    "clientTitle": "VoiceCraft Client",
+    "clientSubtitle": "Desktop and mobile client builds for players. Android 32-bit is no longer published.",
+    "serverKicker": "Server",
+    "serverTitle": "VoiceCraft Server",
+    "serverSubtitle": "Standalone server builds for self-hosting and deployment.",
+    "platformLabel": "Platform",
+    "platforms": {
+      "windows": "Windows",
+      "linux": "Linux",
+      "macos": "macOS",
+      "android": "Android",
+      "ios": "iOS"
+    },
+    "androidNote": "Android 32-bit is no longer available. Use the arm64 Android build.",
+    "serverSourceNote": "If you need a platform that is not listed here, check the full releases page or build from source.",
+    "allReleases": "Open All Releases",
+    "addonKicker": "Addon",
+    "addonTitle": "VoiceCraft Addon",
+    "addonSubtitle": "Build a world-ready addon archive or open packaged releases.",
+    "addonConfigurator": "เปิด Configurator",
+    "addonReleases": "Addon Releases",
+    "worldReady": "World-ready archive",
+    "addonNote": "Use the configurator when you want a ready-to-unpack world archive with patched level.dat and generated pack manifests. Use releases when you want the raw addon packages.",
+    "addonRepo": "Open Addon Repository"
+  },
+  "telemetry": {
+    "kicker": "Public Telemetry",
+    "title": "VoiceCraft Usage Dashboard",
+    "subtitle": "Live aggregates from the public telemetry API, split into readable client and server telemetry views.",
+    "openApi": "Open API",
+    "refresh": "Refresh data",
+    "roleSwitchLabel": "Telemetry dataset",
+    "roles": {
+      "client": "Client telemetry",
+      "clientShort": "VoiceCraft app installs, devices, and client settings",
+      "clientDescription": "Client data comes from startup reports and diagnostic uploads from VoiceCraft clients. The page focuses on installs, operating systems, runtime details, device families, positioning mode, and push-to-talk usage.",
+      "server": "Server telemetry",
+      "serverShort": "VoiceCraft.Server runtime, host, and transport reports",
+      "serverDescription": "Server data comes from startup, heartbeat, and diagnostic reports from VoiceCraft.Server. The page focuses on installs, host platforms, runtime details, capacity, connected clients, positioning mode, and enabled transports."
+    },
+    "loadingTitle": "Fetching live telemetry snapshot",
+    "loadingSubtitle": "The dashboard is pulling current aggregates from vc-api.avion.team.",
+    "emptyTitle": "Telemetry is online, but there is no usage data yet",
+    "emptySubtitle": "As soon as VoiceCraft clients or servers start reporting events, the charts here will populate automatically.",
+    "noChartData": "No data for this chart yet.",
+    "neverUpdated": "No events yet",
+    "unknown": "Unknown",
+    "other": "Other",
+    "ofTop": "of top",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "partialData": "Some secondary charts could not be loaded, so the dashboard is showing the data that was available.",
+    "cards": {
+      "events": "Telemetry events",
+      "instances": "Unique installations",
+      "dumps": "Diagnostic dumps",
+      "lastEvent": "Last event received"
+    },
+    "charts": {
+      "osShare": "Operating Systems",
+      "osShareSubtitle": "Where VoiceCraft is running right now.",
+      "uniqueOsShare": "Unique Installs by OS",
+      "uniqueOsShareSubtitle": "Latest known OS split by unique fingerprint.",
+      "channelShare": "Release Channels",
+      "channelShareSubtitle": "How usage is split across stable and other channels.",
+      "roleShare": "Client vs Server",
+      "roleShareSubtitle": "Observed roles in the telemetry stream.",
+      "versionShare": "Top Versions",
+      "versionShareSubtitle": "Most active app versions in the current snapshot.",
+      "osVersionShare": "OS Versions",
+      "osVersionShareSubtitle": "Reported operating system versions for the selected telemetry dataset.",
+      "osBuildShare": "OS Builds",
+      "osBuildShareSubtitle": "Build identifiers reported by client devices.",
+      "osDescriptionShare": "OS Descriptions",
+      "osDescriptionShareSubtitle": "Full operating system descriptions reported by clients.",
+      "architectureShare": "CPU Architectures",
+      "architectureShareSubtitle": "Distribution of reported hardware architectures.",
+      "processArchitectureShare": "Process Architectures",
+      "processArchitectureShareSubtitle": "Process architecture that the app is currently running under.",
+      "localeShare": "Locales",
+      "localeShareSubtitle": "Most common user locales reported by clients.",
+      "vendorShare": "Device Vendors",
+      "vendorShareSubtitle": "Hardware vendors seen in anonymous reports.",
+      "modelShare": "Device Models",
+      "modelShareSubtitle": "Most frequent reported device models.",
+      "serverPlatformShare": "Server Platforms",
+      "serverPlatformShareSubtitle": "Host platforms reported by server telemetry.",
+      "serverArchitectureShare": "Server Architectures",
+      "serverArchitectureShareSubtitle": "CPU architectures reported by servers.",
+      "serverLocaleShare": "Server Locales",
+      "serverLocaleShareSubtitle": "Locales that server installations report.",
+      "serverConnectedClients": "Connected Clients",
+      "serverConnectedClientsSubtitle": "How many clients servers report as connected right now.",
+      "serverMaxClients": "Max Client Capacity",
+      "serverMaxClientsSubtitle": "Configured capacity buckets reported by servers.",
+      "dumpCategoryShare": "Dump Categories",
+      "dumpCategoryShareSubtitle": "Crash, log, and diagnostic dump distribution.",
+      "positioningTypes": "Positioning Types",
+      "positioningTypesSubtitle": "Value distribution for the `positioning_type` metric.",
+      "pushToTalk": "Push-To-Talk",
+      "pushToTalkSubtitle": "Value distribution for the `push_to_talk_enabled` metric.",
+      "transportHttp": "McHttp Enabled",
+      "transportHttpSubtitle": "Value distribution for the `mc_http_enabled` server metric.",
+      "transportTcp": "McTcp Enabled",
+      "transportTcpSubtitle": "Value distribution for the `mc_tcp_enabled` server metric.",
+      "transportWss": "McWss Enabled",
+      "transportWssSubtitle": "Value distribution for the `mc_wss_enabled` server metric."
+    }
+  },
+  "addonConfigurator": {
+    "kicker": "Addon Configurator",
+    "title": "World-ready VoiceCraft Addon Builder",
+    "subtitle": "Choose the base addon and transport packs, upload your world level.dat, optionally add level.dat_old, and download a ready-to-unpack archive for the world folder.",
+    "transport": {
+      "none": "Base addon only",
+      "http": "Base + McHttp",
+      "wss": "Base + McWss",
+      "both": "Base + McHttp + McWss"
+    },
+    "packNames": {
+      "base": "Base addon",
+      "http": "McHttp transport",
+      "wss": "McWss transport"
+    },
+    "steps": {
+      "version": "1. Choose addon version",
+      "selection": "2. Choose addon composition",
+      "levelDat": "3. Upload world level.dat files",
+      "build": "4. Build ready archive"
+    },
+    "loadingVersions": "Loading available releases...",
+    "versionPlaceholder": "Choose release version",
+    "versionSelected": "{version} published on {date}.",
+    "uploadTitle": "Choose level.dat",
+    "uploadSubtitle": "The file will be included in the archive after the Bedrock experiment tags are patched.",
+    "uploadOldTitle": "Choose level.dat_old (optional)",
+    "uploadOldSubtitle": "If provided, the backup file is patched the same way and added to the archive as level.dat_old.",
+    "uploadBehaviorJsonTitle": "Choose world_behavior_packs.json (optional)",
+    "uploadBehaviorJsonSubtitle": "If provided, existing behavior pack registrations are preserved and VoiceCraft entries are added.",
+    "uploadResourceJsonTitle": "Choose world_resource_packs.json (optional)",
+    "uploadResourceJsonSubtitle": "If provided, existing resource pack registrations are preserved and VoiceCraft entries are added.",
+    "betaApiStub": "The configurator enables the Bedrock experiment tags needed for the beta API directly inside level.dat.",
+    "building": "Building archive...",
+    "buildAction": "Build and Download",
+    "summaryTitle": "What goes into the archive",
+    "summarySubtitle": "The final zip is laid out so it can be unpacked directly into a Bedrock world folder.",
+    "outputs": {
+      "levelDat": "World save metadata with Bedrock beta API experiment tags enabled.",
+      "levelDatOldIncluded": "Optional backup world metadata file, patched and included in the archive.",
+      "levelDatOldOptional": "Optional backup world metadata file. Added only when you upload it.",
+      "behaviorJson": "Generated pack registration file for behavior packs.",
+      "behaviorJsonMerged": "Uploaded behavior pack registrations with VoiceCraft entries added.",
+      "resourceJson": "Generated pack registration file for resource packs.",
+      "resourceJsonMerged": "Uploaded resource pack registrations with VoiceCraft entries added.",
+      "behaviorFolder": "Behavior packs copied from the selected addon bundles.",
+      "resourceFolder": "Resource packs copied from the selected addon bundles."
+    },
+    "progressTitle": "Build progress",
+    "progress": {
+      "levelDat": "Preparing uploaded level.dat",
+      "levelDatOld": "Preparing uploaded level.dat_old",
+      "behaviorJson": "Preparing uploaded world_behavior_packs.json",
+      "resourceJson": "Preparing uploaded world_resource_packs.json",
+      "release": "Using release: {version}",
+      "request": "Requesting server-side build from GitHub release assets",
+      "bundle": "Loading bundle: {name}",
+      "metadata": "Generating world pack registration JSON files",
+      "archive": "Packing final world archive",
+      "done": "Archive is ready"
+    },
+    "archiveNote": "The archive is assembled so its contents can be unpacked directly into the world folder.",
+    "success": "Archive created successfully.",
+    "errors": {
+      "generic": "Could not build the configured addon archive.",
+      "releases": "Could not load available addon releases."
+    }
+  },
+  "landing": {
+    "title": "เอกสาร VoiceCraft",
+    "subtitle": "Proximity voice chat ข้ามแพลตฟอร์มสำหรับ Minecraft Bedrock Edition",
+    "quickStart": "เริ่มอย่างรวดเร็ว",
+    "downloadRelease": "ดาวน์โหลด Release",
+    "productTour": "ทัวร์ผลิตภัณฑ์",
+    "interfaceTitle": "อินเทอร์เฟซ VoiceCraft",
+    "slides": [
+      {
+        "title": "Client Home Screen",
+        "description": "Server overview, quick connect flow, and current session status in one place."
+      },
+      {
+        "title": "Settings and Network",
+        "description": "Positioning parameters, McWss endpoint, and advanced client behavior tuning."
+      },
+      {
+        "title": "Audio Pipeline",
+        "description": "Input/output devices, sensitivity, denoising, AGC, and microphone tests."
+      }
+    ]
+  },
+  "footer": {
+    "caption": "เอกสาร releases และ resources ของ VoiceCraft สำหรับ Minecraft Bedrock",
+    "contacts": "ติดต่อ",
+    "email": "อีเมล",
+    "resources": "Resources",
+    "docs": "เอกสาร"
+  }
+}

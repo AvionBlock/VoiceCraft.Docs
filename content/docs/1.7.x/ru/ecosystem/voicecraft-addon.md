@@ -53,13 +53,37 @@ Stock packages обновляйте комплектом. Custom packages тес
 
 - `voicecraft:vcconnect <hostname> <token>`
   permission: `GameDirectors`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  permission: `GameDirectors`
 
 ### Core.McWss
 
 - `voicecraft:vcconnect <token>`
   permission: `Host`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
+  permission: `GameDirectors`
 - `voicecraft:data_tunnel [max_string_length] [data]`
   permission: `Host`
+
+## `vcconnect_raw`
+
+`voicecraft:vcconnect_raw` — low-level команда подключения для auto-connect в аддоне. Она принимает адрес раздельно: host/IP, port и token.
+
+```text
+/voicecraft:vcconnect_raw "<IP_OR_HOST>" <PORT> "<LOGIN_TOKEN>"
+```
+
+Команда проверяет, что `PORT` в диапазоне `1..65535`, и запускает подключение только когда transport отключен.
+
+Для `Core.McHttp` она собирает `http://<ip>:<port>`. Для `Core.McWss` передаёт `ip`, `port` и token напрямую в websocket transport.
+
+Stock `Basic` package вызывает её из auto-connect settings:
+
+```text
+vcconnect_raw "<autoConnect:ip>" <autoConnect:port> "<autoConnect:loginKey>"
+```
+
+Для ручной настройки обычно используйте обычные `vcconnect` команды, если только world automation не хранит host и port отдельно.
 
 ## Что даёт Basic package
 

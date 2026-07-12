@@ -4,6 +4,7 @@ const voiceCraftLocales = [
   { code: 'nl', name: 'Nederlands', file: 'nl.json', language: 'nl-NL' },
   { code: 'de', name: 'Deutsch', file: 'de.json', language: 'de-DE' },
   { code: 'pl', name: 'Polski', file: 'pl.json', language: 'pl-PL' },
+  { code: 'th', name: 'ไทย', file: 'th.json', language: 'th-TH' },
   { code: 'zh_cn', name: '简体中文', file: 'zh_cn.json', language: 'zh-CN' },
   { code: 'zh_tw', name: '繁體中文', file: 'zh_tw.json', language: 'zh-TW' },
 ]

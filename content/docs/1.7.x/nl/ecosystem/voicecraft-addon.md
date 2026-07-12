@@ -24,8 +24,19 @@ De addon verbindt Bedrock-werelden met VoiceCraft via `McHttp` of `McWss` en bie
 - `voicecraft:vcbind <binding_key>`
 - `voicecraft:vcsettings`
 - `voicecraft:vcconnect <hostname> <token>`
+- `voicecraft:vcconnect_raw <ip> <port> <token>`
 - `voicecraft:vcconnect <token>`
 - `voicecraft:data_tunnel [max_string_length] [data]`
+
+## `vcconnect_raw`
+
+`voicecraft:vcconnect_raw` is de low-level command voor auto-connect. Deze gebruikt host/IP, poort en token apart:
+
+```text
+/voicecraft:vcconnect_raw "<IP_OR_HOST>" <PORT> "<LOGIN_TOKEN>"
+```
+
+Voor `Core.McHttp` bouwt dit `http://<ip>:<port>`. Voor `Core.McWss` gaan host, poort en token direct naar het WebSocket-transport. Het `Basic`-pakket gebruikt dit met `autoConnect:ip`, `autoConnect:port` en `autoConnect:loginKey`.
 
 ## Validatie
 
