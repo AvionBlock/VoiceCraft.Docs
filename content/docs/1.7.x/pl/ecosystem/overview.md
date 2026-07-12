@@ -9,7 +9,7 @@ Gracze używają `VoiceCraft.Client`, backend uruchamia `VoiceCraft.Server`, a i
 | Repository | Rola |
 |------------|------|
 | `VoiceCraft` | client, server, protocol, transports |
-| `GeyserVoice` / Java bridge | Paper, Geyser/Floodgate, proxy |
+| `VoiceCraft.Java` / Java bridge | Paper, Geyser/Floodgate, proxy |
 | `VoiceCraft.Addon` | Bedrock addons i McApi |
 
 Główne development repo jest na GitLab. GitHub jest public mirror i miejscem release.

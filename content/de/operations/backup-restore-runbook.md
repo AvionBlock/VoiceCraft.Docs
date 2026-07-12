@@ -16,7 +16,7 @@ Empfohlen:
 
 - Artefakte aus früheren Versionen
 - Protokolliert den letzten bekannten Zustand
-- Plugin-Konfigurationen wie `GeyserVoice/config.yml`
+- Plugin-Konfigurationen wie `VoiceCraft.Java/config.yml`
 - Konfigurationsdateien für das Bedrock World Pack
 - Add-on-Paketversionen, die derzeit weltweit installiert sind
 - Service-Manager-Dateien wie Systemd-Einheiten oder Panel-Startbefehle

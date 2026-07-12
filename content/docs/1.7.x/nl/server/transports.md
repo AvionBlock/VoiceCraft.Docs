@@ -8,7 +8,7 @@ Een transport is het pad waarmee Minecraft-state naar `VoiceCraft.Server` gaat. 
 |-----------|----------|----------|---------|
 | `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP | Bedrock Dedicated Server |
 | `McWss` | `VoiceCraft.Addon.Core.McWss` | WebSocket + command tunnel | lokale werelden |
-| `McTcp` | Java bridge / `GeyserVoice` | TCP | Java, Geyser, proxy |
+| `McTcp` | Java bridge / `VoiceCraft.Java` | TCP | Java, Geyser, proxy |
 
 ## 1.7 gedrag
 

@@ -58,7 +58,6 @@
       "upgradeRunbook": "Runbook aktualizacji",
       "troubleshootingMatrix": "Macierz diagnostyczna",
       "voiceCraftRepository": "Repozytorium VoiceCraft",
-      "geyserVoice": "GeyserVoice",
       "voiceCraftAddon": "VoiceCraft.Addon",
       "integrationRecipes": "Przepisy integracji",
       "directPaper": "Direct Paper",
@@ -69,7 +68,8 @@
       "packetFlow": "Przepływ pakietów",
       "authenticationTrust": "Uwierzytelnianie i zaufanie",
       "positioningModel": "Model pozycjonowania",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "voiceCraftJava": "VoiceCraft.Java"
     }
   },
   "download": {
@@ -93,7 +93,7 @@
       "ios": "iOS"
     },
     "androidNote": "Android 32-bitowy nie jest już dostępny. Użyj kompilacji Androida arm64.",
-  "serverSourceNote": "Wydania VoiceCraft 1.7+ są publikowane w GitLabie. Starsze wydania zostają na GitHubie; GitHub jest tylko mirrorem bieżącego rozwoju.",
+    "serverSourceNote": "Wydania VoiceCraft 1.7+ są publikowane w GitLabie. Starsze wydania zostają na GitHubie; GitHub jest tylko mirrorem bieżącego rozwoju.",
     "allReleases": "Otwórz wszystkie wydania",
     "addonKicker": "Dodatek",
     "addonTitle": "Addon VoiceCraft",

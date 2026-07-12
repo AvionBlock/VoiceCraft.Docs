@@ -105,7 +105,7 @@ If you do not want telemetry, set:
 
 `Port` is the endpoint that player clients add in the VoiceCraft client UI. It is not automatically the same thing as every Minecraft transport endpoint, even if defaults reuse `9050`.
 
-`PositioningType` must match the client setting. In most BDS and GeyserVoice setups, start with `0 = Server`.
+`PositioningType` must match the client setting. In most BDS and VoiceCraft.Java setups, start with `0 = Server`.
 
 ## McWssConfig
 
@@ -160,7 +160,7 @@ Use `McHttp` when BDS can reach the VoiceCraft HTTP endpoint. If BDS and VoiceCr
 
 ## McTcpConfig
 
-Used by Java-side bridges, especially `GeyserVoice`.
+Used by Java-side bridges, especially `VoiceCraft.Java`.
 
 - `Enabled`:
   enable or disable McTcp.
@@ -181,9 +181,9 @@ Important differences compared to `McHttp` / `McWss`:
 
 - `Hostname` is a plain host, not a URI
 - `Port` is a separate field
-- this is the transport most relevant to `GeyserVoice`
+- this is the transport most relevant to `VoiceCraft.Java`
 
-Use `McTcp` when a Java-side plugin or proxy owns the Minecraft state path. The `GeyserVoice` `config.voicecraft.transport.host`, `config.voicecraft.transport.port`, and `config.voicecraft.transport.login-token` values must match this section.
+Use `McTcp` when a Java-side plugin or proxy owns the Minecraft state path. The `VoiceCraft.Java` `config.voicecraft.transport.host`, `config.voicecraft.transport.port`, and `config.voicecraft.transport.login-token` values must match this section.
 
 ## DefaultAudioEffectsConfig
 
@@ -229,7 +229,7 @@ If a transport works only after disabling packet types, treat that as a compatib
 - `McWssConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` or optional
 
-### GeyserVoice / Java bridge
+### VoiceCraft.Java / Java bridge
 
 - `McTcpConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` or optional

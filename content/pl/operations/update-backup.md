@@ -7,7 +7,7 @@ Użyj tej strony do rutynowych aktualizacji tam, gdzie oczekujesz, że topologia
 - `config/ServerProperties.json`
 - niestandardowe opakowanie skryptów/systemd lub menedżera usług
 - historię logowania, jeśli to konieczne
-- GeyserVoice `config.yml`, jeśli używana jest integracja po stronie Java
+- VoiceCraft.Java `config.yml`, jeśli używana jest integracja po stronie Java
 - Konfiguracja pakietu Bedrock World Pack, jeśli używany jest dodatek
 - uwagi dotyczące nazw hostów publicznych/LAN i otwartych portów
 
@@ -44,7 +44,7 @@ Nadal poproś małą grupę testową o weryfikację:
 - Wersje klienta i serwera `Major/Minor` powinny być zgodne.
 - Wersje poprawek mogą się różnić.
 - Pakiety dodatków Bedrock powinny odpowiadać wydaniu serwera/klienta, jeśli uwagi do wydania wspominają o zachowaniu po stronie dodatku.
-- W przypadku korzystania z mostów po stronie Java należy zaktualizować usługę GeyserVoice, dostosowując ją do oczekiwań konfiguracyjnych.
+- W przypadku korzystania z mostów po stronie Java należy zaktualizować usługę VoiceCraft.Java, dostosowując ją do oczekiwań konfiguracyjnych.
 
 Jeśli po aktualizacji pojawią się problemy, zacznij od [Troubleshooting](/operations/troubleshooting).
 

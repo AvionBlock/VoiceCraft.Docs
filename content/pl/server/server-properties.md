@@ -105,7 +105,7 @@ Jeśli nie chcesz telemetrii, ustaw:
 
 `Port` to punkt końcowy, który klienci graczy dodają w interfejsie klienta VoiceCraft. Nie jest to automatycznie to samo, co każdy punkt końcowy transportu w Minecraft, nawet jeśli domyślnie używa się ponownie `9050`.
 
-`PositioningType` musi odpowiadać ustawieniom klienta. W większości konfiguracji BDS i GeyserVoice zacznij od `0 = Server`.
+`PositioningType` musi odpowiadać ustawieniom klienta. W większości konfiguracji BDS i VoiceCraft.Java zacznij od `0 = Server`.
 
 ## McWssConfig
 
@@ -160,7 +160,7 @@ Użyj `McHttp`, gdy BDS może połączyć się z punktem końcowym HTTP VoiceCra
 
 ## Konfiguracja McTcp
 
-Używane przez mosty po stronie Java, zwłaszcza `GeyserVoice`.
+Używane przez mosty po stronie Java, zwłaszcza `VoiceCraft.Java`.
 
 - `Enabled`:
   włączyć lub wyłączyć McTcp.
@@ -181,9 +181,9 @@ Ważne różnice w porównaniu do `McHttp` / `McWss`:
 
 - `Hostname` to zwykły host, a nie identyfikator URI
 - `Port` to osobne pole
-- to jest transport najbardziej odpowiedni dla `GeyserVoice`
+- to jest transport najbardziej odpowiedni dla `VoiceCraft.Java`
 
-Użyj `McTcp`, gdy wtyczka lub serwer proxy po stronie Java jest właścicielem ścieżki stanu Minecraft. Wartości `GeyserVoice` `config.voicecraft.transport.host`, `config.voicecraft.transport.port` i `config.voicecraft.transport.login-token` muszą być zgodne z tą sekcją.
+Użyj `McTcp`, gdy wtyczka lub serwer proxy po stronie Java jest właścicielem ścieżki stanu Minecraft. Wartości `VoiceCraft.Java` `config.voicecraft.transport.host`, `config.voicecraft.transport.port` i `config.voicecraft.transport.login-token` muszą być zgodne z tą sekcją.
 
 ## Domyślna konfiguracja efektów audio
 
@@ -229,7 +229,7 @@ Jeśli transport działa dopiero po wyłączeniu typów pakietów, potraktuj to 
 - `McWssConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` lub opcjonalnie
 
-### Most GeyserVoice/Java
+### Most VoiceCraft.Java/Java
 
 - `McTcpConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` lub opcjonalnie

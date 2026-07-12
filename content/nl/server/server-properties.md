@@ -105,7 +105,7 @@ Als u geen telemetrie wilt, stelt u het volgende in:
 
 `Port` is het eindpunt dat spelerclients toevoegen in de VoiceCraft-clientgebruikersinterface. Het is niet automatisch hetzelfde als elk Minecraft-transporteindpunt, zelfs als de standaardinstellingen `9050` hergebruiken.
 
-`PositioningType` moet overeenkomen met de clientinstelling. Begin in de meeste BDS- en GeyserVoice-opstellingen met `0 = Server`.
+`PositioningType` moet overeenkomen met de clientinstelling. Begin in de meeste BDS- en VoiceCraft.Java-opstellingen met `0 = Server`.
 
 ## McWssConfig
 
@@ -160,7 +160,7 @@ Gebruik `McHttp` wanneer BDS het VoiceCraft HTTP-eindpunt kan bereiken. Als BDS 
 
 ## McTcpConfig
 
-Gebruikt door bruggen aan de Java-zijde, vooral `GeyserVoice`.
+Gebruikt door bruggen aan de Java-zijde, vooral `VoiceCraft.Java`.
 
 - `Enabled`:
   McTcp in- of uitschakelen.
@@ -181,9 +181,9 @@ Belangrijke verschillen vergeleken met `McHttp` / `McWss`:
 
 - `Hostname` is een gewone host, geen URI
 - `Port` is een apart veld
-- dit is het transport dat het meest relevant is voor `GeyserVoice`
+- dit is het transport dat het meest relevant is voor `VoiceCraft.Java`
 
-Gebruik `McTcp` wanneer een Java-plug-in of proxy eigenaar is van het Minecraft-statuspad. De waarden `GeyserVoice` `config.voicecraft.transport.host`, `config.voicecraft.transport.port` en `config.voicecraft.transport.login-token` moeten overeenkomen met deze sectie.
+Gebruik `McTcp` wanneer een Java-plug-in of proxy eigenaar is van het Minecraft-statuspad. De waarden `VoiceCraft.Java` `config.voicecraft.transport.host`, `config.voicecraft.transport.port` en `config.voicecraft.transport.login-token` moeten overeenkomen met deze sectie.
 
 ## StandaardAudioEffectsConfig
 
@@ -229,7 +229,7 @@ Als een transport alleen werkt nadat pakkettypen zijn uitgeschakeld, beschouw di
 - `McWssConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` of optioneel
 
-### GeyserVoice / Java-brug
+### VoiceCraft.Java / Java-brug
 
 - `McTcpConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` of optioneel

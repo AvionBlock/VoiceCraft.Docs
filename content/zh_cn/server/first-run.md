@@ -28,7 +28,7 @@
 
 - UDP 语音流量和某些传输默认值共享 `9050`
 - `McWss` 默认在 `9051` 上分隔
-- `McTcp` 与 `GeyserVoice` 特别相关
+- `McTcp` 与 `VoiceCraft.Java` 特别相关
 
 ## 线性的首次运行流程
 
@@ -50,7 +50,7 @@ config/ServerProperties.json
 - `McWssConfig.LoginToken`
 - `McTcpConfig.LoginToken`
 
-使用您稍后实际连接的传输中的令牌。例如，BDS `vcconnect` 命令必须使用 `McHttpConfig.LoginToken`，而 GeyserVoice 必须使用 `McTcpConfig.LoginToken`。
+使用您稍后实际连接的传输中的令牌。例如，BDS `vcconnect` 命令必须使用 `McHttpConfig.LoginToken`，而 VoiceCraft.Java 必须使用 `McTcpConfig.LoginToken`。
 
 ### 3. 选择一个主要的 Minecraft 传输
 
@@ -60,7 +60,7 @@ config/ServerProperties.json
 |-------|--------|---------------|
 | Bedrock 专用服务器 | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
 | 本地 Bedrock 世界 | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
-| Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+| Java + Geyser/Floodgate | `McTcpConfig` | [VoiceCraft.Java](/ecosystem/voicecraft-java) |
 
 您可以运行多个传输，但首次设置只开放所需传输时更容易调试。
 
@@ -105,7 +105,7 @@ config/ServerProperties.json
 
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 当提示输入令牌时，请使用 `ServerProperties.json` 中的匹配传输令牌。
 
@@ -187,7 +187,7 @@ VoiceCraft 服务器支持这些根参数：
 - 从同一个镜像运行多个环境
 - 使用面板或 systemd 插件
 - 测试直接与代理拓扑
-- 让另一个工具（例如 `GeyserVoice`）使用生成的值启动运行时
+- 让另一个工具（例如 `VoiceCraft.Java`）使用生成的值启动运行时
 
 ## 首次运行检查表
 
@@ -197,7 +197,7 @@ VoiceCraft 服务器支持这些根参数：
 4. 确认您实际需要哪种传输：
    - BDS 的 `McHttp`
    - `McWss` 用于本地世界
-   - `McTcp` 用于 `GeyserVoice`
+   - `McTcp` 用于 `VoiceCraft.Java`
 5. 验证主机绑定。
 6. 仅打开您需要的端口。
 7. 从同一安装文件夹重新启动服务器。

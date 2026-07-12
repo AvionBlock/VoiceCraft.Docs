@@ -56,23 +56,23 @@ Przepływ:
 5. uruchom `voicecraft:vcconnect <token>`
 6. zatwierdź wiązanie i ruch
 
-## Scenariusz C: Direct Paper ze środowiskiem wykonawczym zarządzanym przez GeyserVoice
+## Scenariusz C: Direct Paper ze środowiskiem wykonawczym zarządzanym przez VoiceCraft.Java
 
 Stos:
 
 - Paper/Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - środowisko wykonawcze VoiceCraft zarządzane przez wtyczki
 
 Wybierz tę opcję, gdy:
 
 - jeden serwer Paper/Folia powinien posiadać integrację głosową
 - chcesz mniej usług zewnętrznych
-- GeyserVoice powinien pobrać i uruchomić VoiceCraft
+- VoiceCraft.Java powinien pobrać i uruchomić VoiceCraft
 
 Przepływ:
 
-1. zainstaluj `GeyserVoice`
+1. zainstaluj `VoiceCraft.Java`
 2. zestaw `config.proxy.enabled = false`
 3. skonfiguruj `config.voicecraft.transport.login-token`
 4. włącz `config.voicecraft.auto-start`
@@ -85,7 +85,7 @@ Jest to najprostsza konfiguracja po stronie Java, jeśli chcesz, aby wtyczka uru
 Stos:
 
 - Paper/Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - zarządzane zewnętrznie `VoiceCraft.Server`
 
 Wybierz tę opcję, gdy:
@@ -97,7 +97,7 @@ Wybierz tę opcję, gdy:
 Przepływ:
 
 1. włącz `McTcp` w VoiceCraft
-2. ustaw `config.voicecraft.transport.host`, `config.voicecraft.transport.port` i `config.voicecraft.transport.login-token` w GeyserVoice
+2. ustaw `config.voicecraft.transport.host`, `config.voicecraft.transport.port` i `config.voicecraft.transport.login-token` w VoiceCraft.Java
 3. wyłącz zarządzanie czasem wykonawczym wtyczki, jeśli nie jest potrzebne
 4. załaduj ponownie i sprawdź połączenie
 
@@ -105,8 +105,8 @@ Przepływ:
 
 Stos:
 
-- `GeyserVoice` na serwerze proxy
-- `GeyserVoice` na serwerach Paper
+- `VoiceCraft.Java` na serwerze proxy
+- `VoiceCraft.Java` na serwerach Paper
 - `VoiceCraft.Server` z `McTcp`
 
 Wybierz tę opcję, gdy:

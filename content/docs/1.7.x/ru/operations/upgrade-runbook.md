@@ -1,6 +1,6 @@
 # Порядок обновления
 
-Используйте эту страницу при обновлении VoiceCraft или связанного bridge, например `GeyserVoice`.
+Используйте эту страницу при обновлении VoiceCraft или связанного bridge, например `VoiceCraft.Java`.
 
 VoiceCraft `1.7.0` меняет event и entity-property model, поэтому это не обычный patch update. Обновление нужно проверять как связку server, client, Bedrock addon и Java-side plugin.
 
@@ -76,7 +76,7 @@ Effect stack теперь использует `IAudioEffectProcessor`. Это �
 
 Не используйте его для VPS, Docker/panel hosting, managed networks, reverse proxies, tunnels или loopback-only integrations.
 
-## Если обновляется GeyserVoice
+## Если обновляется VoiceCraft.Java
 
 Дополнительно проверьте:
 

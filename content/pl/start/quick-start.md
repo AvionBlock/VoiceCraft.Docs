@@ -10,13 +10,13 @@ VoiceCraft można wdrożyć na kilka sposobów:
 
 - Serwer dedykowany Bedrock: `VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
 - Lokalny świat Bedrock / tryb dla jednego gracza: `VoiceCraft.Server` lub lokalne środowisko wykonawcze + `Core.McWss`
-- Serwer Java z Geyser/Floodgate: `GeyserVoice` + `VoiceCraft.Server`
-- Serwer Direct Paper: `GeyserVoice` może także pobrać i uruchomić środowisko wykonawcze VoiceCraft
+- Serwer Java z Geyser/Floodgate: `VoiceCraft.Java` + `VoiceCraft.Server`
+- Serwer Direct Paper: `VoiceCraft.Java` może także pobrać i uruchomić środowisko wykonawcze VoiceCraft
 
 Jeśli nie jesteś pewien, zacznij od jednego z poniższych:
 
 - Serwer dedykowany Bedrock: czytaj [McHttp for BDS](/minecraft/mchttp-bds)
-- Serwer Java + Geyser: czytaj [GeyserVoice](/ecosystem/geyservoice)
+- Serwer Java + Geyser: czytaj [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 W przypadku pierwszej konfiguracji wybierz jedną topologię i udostępnij tylko potrzebny jej transport. Możesz dodać konfiguracje mieszane później, gdy zadziała podstawowe wiązanie i przepływ dźwięku zależnego od odległości.
 
@@ -68,7 +68,7 @@ Token, którego później użyjesz, musi pasować do transportu:
 
 - Dodatek BDS `McHttp` używa `McHttpConfig.LoginToken`
 - lokalny dodatek Bedrock `McWss` używa `McWssConfig.LoginToken`
-- `GeyserVoice` używa `McTcpConfig.LoginToken`
+- `VoiceCraft.Java` używa `McTcpConfig.LoginToken`
 
 ## 4. Wybierz transport Minecraft
 
@@ -79,7 +79,7 @@ VoiceCraft ma obecnie 3 transporty po stronie Minecrafta:
 - `McWss`:
   Najlepsze do scenariuszy lokalnych światów, testowania i tunelu poleceń.
 - `McTcp`:
-  Najlepsze dla mostów po stronie Java, takich jak `GeyserVoice`.
+  Najlepsze dla mostów po stronie Java, takich jak `VoiceCraft.Java`.
 
 Pełne porównanie można znaleźć w [trybach transportu](/server/transports).
 
@@ -112,7 +112,7 @@ Typowa konfiguracja lokalna:
 
 - W przypadku serwera dedykowanego Bedrock użyj [McHttp for BDS](/minecraft/mchttp-bds).
 - W przypadku lokalnego świata Bedrock użyj [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
-- W przypadku Java + Geyser/Floodgate użyj [GeyserVoice](/ecosystem/geyservoice).
+- W przypadku Java + Geyser/Floodgate użyj [VoiceCraft.Java](/ecosystem/voicecraft-java).
 
 Ten krok zapewnia VoiceCraftowi stan gry potrzebny do dźwięku zależnego od odległości: tożsamość gracza, dane powiązania, identyfikatory światów, aktualizacje pozycji i stan efektu.
 

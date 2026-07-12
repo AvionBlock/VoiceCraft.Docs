@@ -32,7 +32,7 @@ De repository is breder dan "client + server":
 - pakketdefinities voor VoiceCraft- en McApi-lagen
 - audio-effecten en zichtbaarheidssystemen
 
-Het is ook belangrijk om te begrijpen wat deze repository niet is: VoiceCraft is geen enkele Minecraft-mod of plug-in. De kernruntime werkt samen met clients en Minecraft-integraties zoals `VoiceCraft.Addon` of `GeyserVoice`.
+Het is ook belangrijk om te begrijpen wat deze repository niet is: VoiceCraft is geen enkele Minecraft-mod of plug-in. De kernruntime werkt samen met clients en Minecraft-integraties zoals `VoiceCraft.Addon` of `VoiceCraft.Java`.
 
 ## Bouw vereisten
 
@@ -123,7 +123,7 @@ De huidige ingebedde landinstellingen zijn onder meer:
 
 - u de kern van VoiceCraft wilt bouwen of debuggen
 - u moet begrijpen welk project eigenaar is van het client/server-gedrag
-- u controleert of een functie thuishoort in core, add-on of GeyserVoice
+- u controleert of een functie thuishoort in core, add-on of VoiceCraft.Java
 - u bereidt aangepaste release-artefacten voor
 
 ## Gerelateerde documenten
@@ -132,4 +132,4 @@ De huidige ingebedde landinstellingen zijn onder meer:
 - [ServerProperties.json](/server/server-properties)
 - [Transportmodi](/server/transports)
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)

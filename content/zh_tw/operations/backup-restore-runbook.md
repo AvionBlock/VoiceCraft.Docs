@@ -16,7 +16,7 @@
 
 - 以前的版本工件
 - 記錄最後一個已知狀態
-- 插件配置，例如 `GeyserVoice/config.yml`
+- 插件配置，例如 `VoiceCraft.Java/config.yml`
 - Bedrock 世界包設定檔
 - 目前世界上安裝的插件包版本
 - 服務管理器文件，例如 systemd 單元或面板啟動命令

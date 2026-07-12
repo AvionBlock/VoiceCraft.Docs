@@ -22,7 +22,7 @@ Controleer:
 5. `McTcpConfig.Hostname` is een gewone host, geen URI.
 6. runtime-overschrijvingen vervangen niet de verwachte configuratiewaarden.
 
-Als de server wordt beheerd door systemd, Docker, een paneel of GeyserVoice auto-start, controleer dan de opstartargumenten en het JSON-bestand.
+Als de server wordt beheerd door systemd, Docker, een paneel of VoiceCraft.Java auto-start, controleer dan de opstartargumenten en het JSON-bestand.
 
 ## Klant kan geen verbinding maken
 
@@ -50,7 +50,7 @@ Voorbeelden:
 
 - BDS-add-on gebruikt `McHttpConfig.LoginToken`
 - lokale Bedrock-wereld gebruikt `McWssConfig.LoginToken`
-- GeyserVoice gebruikt `McTcpConfig.LoginToken`
+- VoiceCraft.Java gebruikt `McTcpConfig.LoginToken`
 
 ## McHttp werkt niet
 
@@ -69,7 +69,7 @@ Voorbeelden:
 - Bevestig dat `DataTunnelCommand` overeenkomt met het add-onpakket.
 - Verklein `CommandsPerTick` als de opdrachttunnel instabiel is.
 
-## GeyserVoice werkt niet
+## VoiceCraft.Java werkt niet
 
 - Controleer `McTcpConfig.Enabled = true`.
 - Controleer `config.voicecraft.transport.host`.

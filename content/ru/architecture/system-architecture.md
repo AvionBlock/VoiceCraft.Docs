@@ -43,7 +43,7 @@ VoiceCraft — это стек голосового чата с учетом р�
 
 - `VoiceCraft.Addon.Core.McHttp` для выделенного сервера Bedrock
 - `VoiceCraft.Addon.Core.McWss` для локальных миров Bedrock и настроек командного туннеля
-- `GeyserVoice` для топологий Java, Geyser/Floodgate, Paper, Velocity и BungeeCord
+- `VoiceCraft.Java` для топологий Java, Geyser/Floodgate, Paper, Velocity и BungeeCord
 
 Уровень интеграции отвечает за перевод игровых событий в состояние VoiceCraft: присоединение игрока, уход игрока, обновление позиций, идентификаторы миров, запросы привязки, фейковые сущности, изменения эффектов и жизненный цикл соединения.
 
@@ -100,7 +100,7 @@ Minecraft local world + Core.McWss -> McWss websocket endpoint
 
 ```text
 VoiceCraft.Client -> VoiceCraft UDP server
-GeyserVoice -> McTcp endpoint
+VoiceCraft.Java -> McTcp endpoint
 ```
 
 Используйте это, когда инфраструктура на стороне Java является источником информации о позиции игрока и состоянии жизненного цикла.

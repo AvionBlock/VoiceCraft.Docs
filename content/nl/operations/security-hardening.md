@@ -18,7 +18,7 @@ Gebruik het token alleen met de bijbehorende integratie:
 
 - `McHttpConfig.LoginToken` voor BDS `McHttp`
 - `McWssConfig.LoginToken` voor lokale Bedrock `McWss`
-- `McTcpConfig.LoginToken` voor GeyserVoice / Java-bridge
+- `McTcpConfig.LoginToken` voor VoiceCraft.Java / Java-bridge
 
 ## 2. Stel alleen noodzakelijke transporten bloot
 
@@ -69,7 +69,7 @@ voor productie, enscenering en lokale testen.
 
 ## 6. Wees voorzichtig met door plug-ins beheerde runtimes
 
-Als `GeyserVoice` de VoiceCraft-runtime beheert:
+Als `VoiceCraft.Java` de VoiceCraft-runtime beheert:
 
 - houd de installatiemap onder controle
 - Begrijp wie de eigenaar is van het herstartgedrag
@@ -91,7 +91,7 @@ Het blindelings uitschakelen van pakkettypen kan de auth, synchronisatie of audi
 
 ## 8. Beperk operationele commando's
 
-Voor `GeyserVoice` moet u deze alleen voor personeel behouden:
+Voor `VoiceCraft.Java` moet u deze alleen voor personeel behouden:
 
 - `/voice connect`
 - `/voice reconnect`
@@ -126,6 +126,6 @@ Voordat u schermafbeeldingen, logbestanden of configuraties openbaar plaatst, ve
 - alleen vereiste transporten ingeschakeld
 - loopback gebruikt voor consumenten op dezelfde host
 - firewallregels zijn waar mogelijk beperkt tot bekende bronnen
-- GeyserVoice operationele commando's beperkt
+- VoiceCraft.Java operationele commando's beperkt
 - back-ups veilig opgeslagen
 - release- en add-on-/plug-inversies bleven op één lijn

@@ -20,7 +20,7 @@ Most deployments have three moving pieces:
 Ecosystem integrations connect Minecraft to those transports:
 
 - `VoiceCraft.Addon` for Bedrock worlds and BDS
-- `GeyserVoice` for Java / Geyser / proxy stacks
+- `VoiceCraft.Java` for Java / Geyser / proxy stacks
 
 ## How it works
 
@@ -29,7 +29,7 @@ Ecosystem integrations connect Minecraft to those transports:
 3. A Minecraft-side integration updates the server with gameplay state:
    - `McHttp` for BDS
    - `McWss` for local Bedrock worlds
-   - `McTcp` for `GeyserVoice`
+   - `McTcp` for `VoiceCraft.Java`
 4. The client renders proximity audio according to server state and selected local settings.
 
 The voice connection and the Minecraft transport connection are separate. If only one side is connected, the setup may look partly healthy but proximity behavior will still be incomplete.
@@ -46,7 +46,7 @@ The voice connection and the Minecraft transport connection are separate. If onl
 
 - multiple Minecraft transports
 - Bedrock addon API surface
-- Java-side bridge via `GeyserVoice`
+- Java-side bridge via `VoiceCraft.Java`
 - configurable effects and entity metadata
 - both server-side and client-side positioning modes
 
@@ -58,8 +58,8 @@ That flexibility also means the first decision matters: choose the topology firs
 |---------------|---------------|-----|
 | Bedrock Dedicated Server | [McHttp for BDS](/minecraft/mchttp-bds) | BDS can call a stable HTTP endpoint |
 | Local Bedrock world | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | Works through local websocket/command tunnel flow |
-| Java server with Geyser/Floodgate | [GeyserVoice](/ecosystem/geyservoice) | Java-side plugin bridges into VoiceCraft through `McTcp` |
-| Direct Paper server | [GeyserVoice Direct Paper](/ecosystem/geyservoice-direct-paper) | Plugin can either use an external server or manage the runtime |
+| Java server with Geyser/Floodgate | [VoiceCraft.Java](/ecosystem/voicecraft-java) | Java-side plugin bridges into VoiceCraft through `McTcp` |
+| Direct Paper server | [VoiceCraft.Java Direct Paper](/ecosystem/voicecraft-java-direct-paper) | Plugin can either use an external server or manage the runtime |
 
 ## What to read next
 

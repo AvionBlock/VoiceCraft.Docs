@@ -33,7 +33,7 @@ Najczęstsze przyczyny:
 - Wersja pakietu dodatków nie jest zgodna z wersją serwera/klienta
 - niestandardowa logika dodatków przechwytuje lub omija domyślny przepływ wiązania
 
-## Objaw: zainstalowano GeyserVoice, ale most po stronie Java nigdy nie staje się użyteczny
+## Objaw: zainstalowano VoiceCraft.Java, ale most po stronie Java nigdy nie staje się użyteczny
 
 Sprawdź:
 
@@ -64,7 +64,7 @@ Sprawdź:
 3. przekazywanie migawek pozostaje nienaruszone między przełącznikami
 4. Logika przestrzeni nazw identyfikatorów świata pozostaje spójna
 
-Jeśli zawiedzie tylko jeden backend, porównaj jego konfigurację GeyserVoice i wersję wtyczki z działającym backendem.
+Jeśli zawiedzie tylko jeden backend, porównaj jego konfigurację VoiceCraft.Java i wersję wtyczki z działającym backendem.
 
 ## Objaw: `McWss` jest niestabilny
 

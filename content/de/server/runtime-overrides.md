@@ -8,7 +8,7 @@ Diese Optionen sind ideal, wenn:
 
 - Sie möchten umgebungsspezifische Werte, ohne JSON zu bearbeiten
 - Ein Prozessmanager fügt beim Start Werte ein
-- `GeyserVoice` startet die VoiceCraft-Laufzeit automatisch
+- `VoiceCraft.Java` startet die VoiceCraft-Laufzeit automatisch
 - Sie testen mehrere Transporttopologien aus demselben Installationsordner
 
 Wenn Sie eine einfache manuelle Installation durchführen, bearbeiten Sie zuerst `ServerProperties.json` und verwenden Sie Überschreibungen nur, wenn sie die Bereitstellung klarer machen.

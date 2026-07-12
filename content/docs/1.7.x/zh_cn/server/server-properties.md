@@ -48,7 +48,7 @@ BDS 常用配置：
 
 ## McTcpConfig
 
-用于 `GeyserVoice` 等 Java bridges。`Hostname` 是 host，不是 URI；`Port` 是独立字段。
+用于 `VoiceCraft.Java` 等 Java bridges。`Hostname` 是 host，不是 URI；`Port` 是独立字段。
 
 ## McWssConfig
 

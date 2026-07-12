@@ -43,7 +43,7 @@ This depends on topology:
 
 - `VoiceCraft.Addon.Core.McHttp` for Bedrock Dedicated Server
 - `VoiceCraft.Addon.Core.McWss` for local Bedrock worlds and command-tunnel setups
-- `GeyserVoice` for Java, Geyser/Floodgate, Paper, Velocity, and BungeeCord topologies
+- `VoiceCraft.Java` for Java, Geyser/Floodgate, Paper, Velocity, and BungeeCord topologies
 
 The integration layer is responsible for translating game events into VoiceCraft state: player joins, player leaves, position updates, world identifiers, bind requests, fake entities, effect changes, and connection lifecycle.
 
@@ -100,7 +100,7 @@ Use this for local testing or singleplayer worlds where a command tunnel is acce
 
 ```text
 VoiceCraft.Client -> VoiceCraft UDP server
-GeyserVoice -> McTcp endpoint
+VoiceCraft.Java -> McTcp endpoint
 ```
 
 Use this when Java-side infrastructure is the source of player position and lifecycle state.

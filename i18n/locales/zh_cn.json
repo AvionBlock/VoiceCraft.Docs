@@ -58,7 +58,6 @@
       "upgradeRunbook": "升级手册",
       "troubleshootingMatrix": "故障排查矩阵",
       "voiceCraftRepository": "VoiceCraft 仓库",
-      "geyserVoice": "GeyserVoice",
       "voiceCraftAddon": "VoiceCraft.Addon",
       "integrationRecipes": "集成方案",
       "directPaper": "Direct Paper",
@@ -69,7 +68,8 @@
       "packetFlow": "数据包流",
       "authenticationTrust": "身份验证与信任",
       "positioningModel": "定位模型",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "voiceCraftJava": "VoiceCraft.Java"
     }
   },
   "download": {
@@ -93,7 +93,7 @@
       "ios": "iOS系统"
     },
     "androidNote": "Android 32 位不再可用。使用arm64 Android 版本。",
-  "serverSourceNote": "VoiceCraft 1.7+ 版本发布在 GitLab。旧版本保留在 GitHub；GitHub 仅作为当前开发的镜像。",
+    "serverSourceNote": "VoiceCraft 1.7+ 版本发布在 GitLab。旧版本保留在 GitHub；GitHub 仅作为当前开发的镜像。",
     "allReleases": "打开所有版本",
     "addonKicker": "添加在",
     "addonTitle": "VoiceCraft 插件",

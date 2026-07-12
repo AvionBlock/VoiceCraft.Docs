@@ -8,7 +8,7 @@ VoiceCraft 伺服器透過根 CLI 選項支援執行時間覆蓋。
 
 - 您想要環境特定的值而不編輯 JSON
 - 流程管理器在啟動時注入值
-- `GeyserVoice` 會自動啟動 VoiceCraft 執行時間
+- `VoiceCraft.Java` 會自動啟動 VoiceCraft 執行時間
 - 您從同一安裝資料夾測試多種傳輸拓撲
 
 如果您正在進行簡單的手動安裝，請先編輯 `ServerProperties.json` 並僅在覆蓋使部署更清晰時才使用覆蓋。

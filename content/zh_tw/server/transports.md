@@ -12,7 +12,7 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的傳輸對於�
 |-----------|------------------|----------------|----------|-------------|
 | `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP 端點 | Bedrock 專用伺服器 | `McHttpConfig.LoginToken` |
 | `McWss` | `VoiceCraft.Addon.Core.McWss` | WebSocket + 指令隧道 | 本地 Bedrock 世界和測試 | `McWssConfig.LoginToken` |
-| `McTcp` | `GeyserVoice` | 原始 TCP 橋 | Java、Geyser、代理或 Paper 橋接方案 | `McTcpConfig.LoginToken` |
+| `McTcp` | `VoiceCraft.Java` | 原始 TCP 橋 | Java、Geyser、代理或 Paper 橋接方案 | `McTcpConfig.LoginToken` |
 
 不要僅根據連接埠號選擇傳輸。根據將連接的 Minecraft 端組件進行選擇。
 
@@ -94,7 +94,7 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的傳輸對於�
 
 ### 最佳用例
 
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - Java 伺服器或代理橋
 - 直接 Paper 執行時間整合
 
@@ -102,7 +102,7 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的傳輸對於�
 
 - Java 端外掛程式的直接橋接傳輸
 - 當本機 TCP 橋接更好時避免 HTTP 端點語義
-- 與目前 `GeyserVoice` 架構保持一致
+- 與目前 `VoiceCraft.Java` 架構保持一致
 
 ### 權衡
 
@@ -123,7 +123,7 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的傳輸對於�
 }
 ```
 
-如果 `GeyserVoice` 與 VoiceCraft 在同一台電腦上執行，則綁定至 `127.0.0.1`。如果它在其他地方執行，請綁定到外掛程式可以到達的位址，並限制防火牆規則。
+如果 `VoiceCraft.Java` 與 VoiceCraft 在同一台電腦上執行，則綁定至 `127.0.0.1`。如果它在其他地方執行，請綁定到外掛程式可以到達的位址，並限制防火牆規則。
 
 ## 你應該選擇哪一個？
 
@@ -141,9 +141,9 @@ VoiceCraft 有多個面向 Minecraft 的傳輸層。選擇正確的傳輸對於�
 
 ### Java + Geyser/Floodgate
 
-使用 `McTcp` 到 `GeyserVoice`。
+使用 `McTcp` 到 `VoiceCraft.Java`。
 
-繼續閱讀 [GeyserVoice](/ecosystem/geyservoice)。
+繼續閱讀 [VoiceCraft.Java](/ecosystem/voicecraft-java)。
 
 ### 混合網路
 

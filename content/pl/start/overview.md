@@ -20,7 +20,7 @@ Większość wdrożeń składa się z trzech części:
 Integracje ekosystemów łączą Minecraft z tymi transportami:
 
 - `VoiceCraft.Addon` dla światów Bedrock i BDS
-- `GeyserVoice` dla stosów Java/Geyser/proxy
+- `VoiceCraft.Java` dla stosów Java/Geyser/proxy
 
 ## Jak to działa
 
@@ -29,7 +29,7 @@ Integracje ekosystemów łączą Minecraft z tymi transportami:
 3. Integracja po stronie Minecrafta aktualizuje serwer o stan rozgrywki:
    - `McHttp` dla BDS
    - `McWss` dla lokalnych światów Bedrock
-   - `McTcp` dla `GeyserVoice`
+   - `McTcp` dla `VoiceCraft.Java`
 4. Klient odtwarza dźwięk zależny od odległości zgodnie ze stanem serwera i wybranymi ustawieniami lokalnymi.
 
 Połączenie głosowe i połączenie transportowe Minecrafta są oddzielne. Jeśli podłączona jest tylko jedna strona, konfiguracja może wyglądać na częściowo sprawną, ale zachowanie dźwięku zależnego od odległości nadal będzie niekompletne.
@@ -46,7 +46,7 @@ Połączenie głosowe i połączenie transportowe Minecrafta są oddzielne. Jeś
 
 - wiele transportów Minecraft
 - Interfejs API dodatku Bedrock
-- most po stronie Java przez `GeyserVoice`
+- most po stronie Java przez `VoiceCraft.Java`
 - konfigurowalne efekty i metadane encji
 - tryby pozycjonowania zarówno po stronie serwera, jak i po stronie klienta
 
@@ -58,8 +58,8 @@ Ta elastyczność oznacza również, że liczy się pierwsza decyzja: najpierw w
 |---------------|---------------|-----|
 | Serwer dedykowany Bedrock | [McHttp for BDS](/minecraft/mchttp-bds) | BDS może wywołać stabilny punkt końcowy HTTP |
 | Lokalny świat Bedrock | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | Działa przez lokalny przepływ WebSocket/tunel poleceń |
-| Serwer Java z Geyser/Floodgate | [GeyserVoice](/ecosystem/geyservoice) | Wtyczka Java łączy się z VoiceCraft poprzez `McTcp` |
-| Bezpośredni serwer Paper | [GeyserVoice Direct Paper](/ecosystem/geyservoice-direct-paper) | Wtyczka może korzystać z zewnętrznego serwera lub zarządzać czasem działania |
+| Serwer Java z Geyser/Floodgate | [VoiceCraft.Java](/ecosystem/voicecraft-java) | Wtyczka Java łączy się z VoiceCraft poprzez `McTcp` |
+| Bezpośredni serwer Paper | [VoiceCraft.Java Direct Paper](/ecosystem/voicecraft-java-direct-paper) | Wtyczka może korzystać z zewnętrznego serwera lub zarządzać czasem działania |
 
 ## Co czytać dalej
 

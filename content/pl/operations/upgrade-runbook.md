@@ -1,6 +1,6 @@
 # Uaktualnij element Runbook
 
-Użyj tego podczas aktualizacji VoiceCraft lub powiązanego mostu, takiego jak `GeyserVoice`.
+Użyj tego podczas aktualizacji VoiceCraft lub powiązanego mostu, takiego jak `VoiceCraft.Java`.
 
 Ten element Runbook przeznaczony jest dla uaktualnień, które mogą mieć wpływ na zgodność między serwerem, klientem, dodatkiem Bedrock i elementami wtyczek po stronie Java. Celem jest utrzymanie ścieżki wycofywania, jednocześnie udowadniając, że cały stos nadal działa.
 
@@ -40,7 +40,7 @@ Minimalnie:
 7. Dźwięk zależny od odległości działa.
 8. Polecenia serwera, takie jak `list --clientsOnly`, pokazują oczekiwanych klientów.
 
-## W przypadku aktualizacji GeyserVoice
+## W przypadku aktualizacji VoiceCraft.Java
 
 Sprawdź także:
 

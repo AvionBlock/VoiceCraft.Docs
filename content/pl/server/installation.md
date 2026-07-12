@@ -11,7 +11,7 @@ Serwer VoiceCraft udostępnia wiele warstw jednocześnie:
 - Serwer głosowy VoiceCraft UDP
 - `McHttp` transport dla integracji Bedrock
 - `McWss` transport dla przepływów WebSocket/tunelu poleceń Bedrock
-- Transport `McTcp` dla mostów po stronie Java, takich jak `GeyserVoice`
+- Transport `McTcp` dla mostów po stronie Java, takich jak `VoiceCraft.Java`
 
 Możesz pozostawić wszystkie włączone lub wybrać transporty w czasie wykonywania.
 
@@ -96,7 +96,7 @@ Po czystym ponownym uruchomieniu serwera:
 3. Postępuj zgodnie z przewodnikiem Minecraft dotyczącym wybranego transportu:
    - [McHttp for BDS](/minecraft/mchttp-bds)
    - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-   - [GeyserVoice](/ecosystem/geyservoice)
+   - [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 Serwer nie jest uważany za w pełni skonfigurowany, dopóki klient się nie połączy, a strona Minecraft nie uwierzytelni się przy użyciu tego samego tokena transportowego.
 
@@ -207,4 +207,4 @@ dotnet run --project VoiceCraft.Server
 - [Instalacja klienta](/client/installation)
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)

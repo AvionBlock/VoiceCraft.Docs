@@ -7,7 +7,7 @@ Use this page for routine updates where you expect the topology to stay the same
 - `config/ServerProperties.json`
 - custom scripts/systemd or service manager wrapper
 - log history if needed
-- GeyserVoice `config.yml` if Java-side integration is used
+- VoiceCraft.Java `config.yml` if Java-side integration is used
 - Bedrock world pack configuration if the addon is used
 - notes for public/LAN hostnames and open ports
 
@@ -44,7 +44,7 @@ Still ask a small test group to verify:
 - Client and server `Major/Minor` versions should match.
 - Patch versions may differ.
 - Bedrock addon packages should match the server/client release when the release notes mention addon-side behavior.
-- GeyserVoice should be updated with its matching configuration expectations when using Java-side bridges.
+- VoiceCraft.Java should be updated with its matching configuration expectations when using Java-side bridges.
 
 If problems appear after an update, start with [Troubleshooting](/operations/troubleshooting).
 

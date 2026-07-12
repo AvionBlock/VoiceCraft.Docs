@@ -56,23 +56,23 @@
 5. 運行 `voicecraft:vcconnect <token>`
 6. 驗證綁定和移動
 
-## 場景 C：使用 GeyserVoice 管理的運行時直接提交論文
+## 場景 C：使用 VoiceCraft.Java 管理的運行時直接提交論文
 
 堆疊：
 
 - Paper/Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - 外掛程式管理的 VoiceCraft 執行時
 
 在以下情況下選擇此選項：
 
 - 一台 Paper/Folia 伺服器應擁有語音集成
 - 您需要更少的外部服務
-- GeyserVoice 應該下載並啟動 VoiceCraft
+- VoiceCraft.Java 應該下載並啟動 VoiceCraft
 
 流程：
 
-1. 安裝 `GeyserVoice`
+1. 安裝 `VoiceCraft.Java`
 2. 設定 `config.proxy.enabled = false`
 3. 配置 `config.voicecraft.transport.login-token`
 4. 啟用 `config.voicecraft.auto-start`
@@ -85,7 +85,7 @@
 堆疊：
 
 - Paper/Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - 外部管理 `VoiceCraft.Server`
 
 在以下情況下選擇此選項：
@@ -97,7 +97,7 @@
 流程：
 
 1. 在 VoiceCraft 上啟用 `McTcp`
-2. 在 GeyserVoice 設定 `config.voicecraft.transport.host`、`config.voicecraft.transport.port` 和 `config.voicecraft.transport.login-token`
+2. 在 VoiceCraft.Java 設定 `config.voicecraft.transport.host`、`config.voicecraft.transport.port` 和 `config.voicecraft.transport.login-token`
 3. 如果不需要，請停用外掛程式運行時管理
 4. 重新加載並驗證連接
 
@@ -105,8 +105,8 @@
 
 堆疊：
 
-- 代理程式上的 `GeyserVoice`
-- 後端 Paper 伺服器上的 `GeyserVoice`
+- 代理程式上的 `VoiceCraft.Java`
+- 後端 Paper 伺服器上的 `VoiceCraft.Java`
 - `VoiceCraft.Server` 與 `McTcp`
 
 在以下情況下選擇此選項：

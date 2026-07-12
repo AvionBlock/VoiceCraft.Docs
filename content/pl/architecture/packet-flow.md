@@ -47,10 +47,10 @@ Typowy przepływ Bedrock:
 
 Typowy przepływ Java/Geyser:
 
-1. `GeyserVoice` łączy się z `McTcp`.
+1. `VoiceCraft.Java` łączy się z `McTcp`.
 2. Wtyczka śledzi cykl życia i pozycję gracza po stronie Java.
 3. Gracz używa skonfigurowanego polecenia wiązania głosowego.
-4. `GeyserVoice` wysyła dane powiązania/aktualizacji do VoiceCraft.
+4. `VoiceCraft.Java` wysyła dane powiązania/aktualizacji do VoiceCraft.
 
 Jeśli powiązanie się nie powiedzie, najpierw sprawdź dopasowanie tokena i dostępność transportu, a następnie sprawdź, czy gracz ma aktywną sesję klienta VoiceCraft.
 

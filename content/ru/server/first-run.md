@@ -28,7 +28,7 @@
 
 - Голосовой трафик UDP и некоторые настройки транспорта по умолчанию используют общий `9050`
 - `McWss` по умолчанию отделяется от `9051`.
-- `McTcp` особенно актуален для `GeyserVoice`.
+- `McTcp` особенно актуален для `VoiceCraft.Java`.
 
 ## Линейный путь первого запуска
 
@@ -50,7 +50,7 @@ config/ServerProperties.json
 - `McWssConfig.LoginToken`
 - `McTcpConfig.LoginToken`
 
-Используйте токен от транспорта, который вы фактически подключите позже. Например, команда BDS `vcconnect` должна использовать `McHttpConfig.LoginToken`, а GeyserVoice — `McTcpConfig.LoginToken`.
+Используйте токен от транспорта, который вы фактически подключите позже. Например, команда BDS `vcconnect` должна использовать `McHttpConfig.LoginToken`, а VoiceCraft.Java — `McTcpConfig.LoginToken`.
 
 ### 3. Выберите один основной транспорт Minecraft
 
@@ -60,7 +60,7 @@ config/ServerProperties.json
 |-------|--------|---------------|
 | Выделенный сервер Bedrock | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
 | Локальный мир Bedrock | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
-| Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+| Java + Geyser/Floodgate | `McTcpConfig` | [VoiceCraft.Java](/ecosystem/voicecraft-java) |
 
 Вы можете запустить несколько транспортов, но первую настройку легче отладить, если доступен только необходимый.
 
@@ -105,7 +105,7 @@ config/ServerProperties.json
 
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 При запросе токена используйте соответствующий транспортный токен из `ServerProperties.json`.
 
@@ -187,7 +187,7 @@ config/ServerProperties.json
 - запуск нескольких сред из одного образа
 - использование панелей или systemd drop-ins
 - тестирование топологий прямого и прокси-сервера
-- разрешить другому инструменту, например `GeyserVoice`, запускать среду выполнения с сгенерированными значениями
+- разрешить другому инструменту, например `VoiceCraft.Java`, запускать среду выполнения с сгенерированными значениями
 
 ## Контрольный список при первом запуске
 
@@ -197,7 +197,7 @@ config/ServerProperties.json
 4. Подтвердите, какой транспорт вам действительно нужен:
    - `McHttp` для BDS
    - `McWss` для локальных миров
-   - `McTcp` для `GeyserVoice`
+   - `McTcp` для `VoiceCraft.Java`
 5. Проверьте привязки хоста.
 6. Открывайте только те порты, которые вам нужны.
 7. Перезагрузите сервер из той же папки установки.

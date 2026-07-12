@@ -24,7 +24,7 @@ Console players can still participate in some server-side scenarios when the res
 
 It can work in limited scenarios, especially when client-side positioning is used, but Realms is a more constrained environment than a dedicated server.
 
-If you want a predictable production setup, use BDS with `McHttp` or a Java/Geyser topology with `GeyserVoice`.
+If you want a predictable production setup, use BDS with `McHttp` or a Java/Geyser topology with `VoiceCraft.Java`.
 
 ## Which transport should I use?
 
@@ -33,15 +33,15 @@ If you want a predictable production setup, use BDS with `McHttp` or a Java/Geys
 - local Bedrock world:
   `McWss`
 - Java + Geyser / Floodgate:
-  `McTcp` through `GeyserVoice`
+  `McTcp` through `VoiceCraft.Java`
 
 The transport is for Minecraft-side state. Player clients still connect to the VoiceCraft UDP endpoint.
 
-## Does GeyserVoice require a separately managed VoiceCraft server?
+## Does VoiceCraft.Java require a separately managed VoiceCraft server?
 
 Not always.
 
-In direct Paper mode, GeyserVoice can bootstrap and run the VoiceCraft runtime under the hood using:
+In direct Paper mode, VoiceCraft.Java can bootstrap and run the VoiceCraft runtime under the hood using:
 
 - `config.voicecraft.auto-start`
 - `config.voicecraft.shutdown-on-disable`
@@ -59,7 +59,7 @@ It depends on whether your provider allows the required network path between the
 Examples:
 
 - BDS with `McHttp` needs outbound reachability to the VoiceCraft HTTP endpoint
-- Java + GeyserVoice needs reachability to the VoiceCraft `McTcp` endpoint
+- Java + VoiceCraft.Java needs reachability to the VoiceCraft `McTcp` endpoint
 
 Some providers block the exact network behavior you need.
 
@@ -71,7 +71,7 @@ Yes. That is common for:
 
 - local testing
 - small communities
-- direct Paper + GeyserVoice setups
+- direct Paper + VoiceCraft.Java setups
 
 Use loopback addresses such as `127.0.0.1` only when the consumer really runs on the same machine.
 
@@ -115,13 +115,13 @@ In `Settings.json` under `UserSettings.Users`.
 
 ## I run Java with Geyser. Do I need the Bedrock addon too?
 
-No. In Java + Geyser topologies, the bridge is typically `GeyserVoice`, not the Bedrock addon.
+No. In Java + Geyser topologies, the bridge is typically `VoiceCraft.Java`, not the Bedrock addon.
 
-Use the Bedrock addon for Bedrock worlds/BDS. Use GeyserVoice when Java-side infrastructure is the source of player state.
+Use the Bedrock addon for Bedrock worlds/BDS. Use VoiceCraft.Java when Java-side infrastructure is the source of player state.
 
 ## Is VoiceCraft a third-party hosted voice service?
 
-No. VoiceCraft does not require a third-party hosted service. You run the server/runtime yourself or let GeyserVoice manage the runtime in direct Paper mode.
+No. VoiceCraft does not require a third-party hosted service. You run the server/runtime yourself or let VoiceCraft.Java manage the runtime in direct Paper mode.
 
 ## Is VoiceCraft just a Minecraft mod?
 

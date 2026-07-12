@@ -1,6 +1,6 @@
 # Upgrade-Runbook
 
-Verwenden Sie dieses Runbook für Upgrades von VoiceCraft oder einer Bridge wie `GeyserVoice`.
+Verwenden Sie dieses Runbook für Upgrades von VoiceCraft oder einer Bridge wie `VoiceCraft.Java`.
 
 VoiceCraft `1.7.0` ändert das Event- und Entity-Property-Modell. Prüfen Sie deshalb Server, Client, Bedrock-Add-on und Java-Plugin als zusammengehörigen Stack.
 

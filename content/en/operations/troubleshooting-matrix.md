@@ -33,7 +33,7 @@ Common causes:
 - addon package version does not match the server/client release
 - custom addon logic intercepts or bypasses the stock bind flow
 
-## Symptom: GeyserVoice is installed, but Java-side bridge never becomes usable
+## Symptom: VoiceCraft.Java is installed, but Java-side bridge never becomes usable
 
 Check:
 
@@ -64,7 +64,7 @@ Check:
 3. snapshot forwarding stays intact across switches
 4. world ID namespacing logic remains consistent
 
-If only one backend fails, compare its GeyserVoice config and plugin version against a backend that works.
+If only one backend fails, compare its VoiceCraft.Java config and plugin version against a backend that works.
 
 ## Symptom: `McWss` is unstable
 

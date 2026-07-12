@@ -68,7 +68,7 @@ HTTP-Tools können bei `McHttp` hilfreich sein, lösen jedoch nicht automatisch 
 
 ## Vorbehalte für Java-Netzwerke
 
-Für `GeyserVoice`-Proxy-Bereitstellungen:
+Für `VoiceCraft.Java`-Proxy-Bereitstellungen:
 
 - Der Proxy muss VoiceCraft zuverlässig erreichen
 - Backend-Paper-Knoten müssen den Proxy-Nachrichtenpfad zuverlässig erreichen

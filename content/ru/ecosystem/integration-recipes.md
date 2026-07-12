@@ -56,23 +56,23 @@
 5. запустите `voicecraft:vcconnect <token>`
 6. проверьте привязку и движение
 
-## Сценарий C: Direct Paper со средой выполнения, управляемой GeyserVoice
+## Сценарий C: Direct Paper со средой выполнения, управляемой VoiceCraft.Java
 
 Стек:
 
 - Paper/Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - среда выполнения VoiceCraft, управляемая плагином
 
 Выбирайте это, когда:
 
 - один сервер Paper/Folia должен иметь голосовую интеграцию
 - вам нужно меньше внешних сервисов
-- GeyserVoice должен скачать и запустить VoiceCraft
+- VoiceCraft.Java должен скачать и запустить VoiceCraft
 
 Порядок:
 
-1. установите `GeyserVoice`
+1. установите `VoiceCraft.Java`
 2. установите `config.proxy.enabled = false`
 3. настройте `config.voicecraft.transport.login-token`
 4. включите `config.voicecraft.auto-start`
@@ -85,7 +85,7 @@
 Стек:
 
 - Paper/Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - внешний `VoiceCraft.Server`
 
 Выбирайте это, когда:
@@ -97,7 +97,7 @@
 Порядок:
 
 1. включите `McTcp` в VoiceCraft
-2. установите `config.voicecraft.transport.host`, `config.voicecraft.transport.port` и `config.voicecraft.transport.login-token` в GeyserVoice
+2. установите `config.voicecraft.transport.host`, `config.voicecraft.transport.port` и `config.voicecraft.transport.login-token` в VoiceCraft.Java
 3. отключите управление средой выполнения в плагине, если оно не требуется
 4. перезагрузите и подтвердите соединение
 
@@ -105,8 +105,8 @@
 
 Стек:
 
-- `GeyserVoice` на прокси
-- `GeyserVoice` на внутренних серверах Paper
+- `VoiceCraft.Java` на прокси
+- `VoiceCraft.Java` на внутренних серверах Paper
 - `VoiceCraft.Server` с `McTcp`
 
 Выбирайте это, когда:

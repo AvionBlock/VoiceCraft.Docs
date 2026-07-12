@@ -9,7 +9,7 @@ Die Grundidee ist einfach: Spieler führen `VoiceCraft.Client` aus, ein Backend 
 | Repository | Was es besitzt | Verwenden Sie es wann |
 |------------|--------------|-------------|
 | `VoiceCraft` | Client-Apps, eigenständiger Server, Protokoll, gemeinsam genutzter Kerncode, Minecraft-orientierte Transporte | Sie benötigen die Core-Server-/Client-Laufzeit oder möchten aus dem Quellcode erstellen |
-| `GeyserVoice` | Java-seitige Brücke für Paper, Velocity und BungeeCord | Sie führen Java, Geyser/Floodgate oder ein Proxy-Netzwerk aus |
+| `VoiceCraft.Java` | Java-seitige Brücke für Paper, Velocity und BungeeCord | Sie führen Java, Geyser/Floodgate oder ein Proxy-Netzwerk aus |
 | `VoiceCraft.Addon` | Bedrock-Add-on-Pakete und skriptfähige McApi-Oberfläche | Sie führen Bedrock-Welten aus oder möchten ein benutzerdefiniertes Add-on-Verhalten |
 
 ## Bereitstellungskarte
@@ -19,7 +19,7 @@ flowchart LR
   A["VoiceCraft Client"] --> B["VoiceCraft UDP Server"]
   C["Bedrock Addon (McHttp / McWss)"] --> D["Minecraft API Transport"]
   D --> B
-  E["GeyserVoice (Paper / Proxy)"] --> F["McTcp Bridge"]
+  E["VoiceCraft.Java (Paper / Proxy)"] --> F["McTcp Bridge"]
   F --> B
 ```
 
@@ -46,17 +46,17 @@ Verwenden Sie dies für Einzelspieler-, Demo- und Add-on-Tests.
 
 ### Java-Server mit Geyser / Floodgate
 
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - `VoiceCraft.Server`
-- optional eine verwaltete Laufzeit, die von `GeyserVoice` selbst gestartet wird
+- optional eine verwaltete Laufzeit, die von `VoiceCraft.Java` selbst gestartet wird
 - `McTcp` als VoiceCraft-zugewandte Brücke
 
 Verwenden Sie dies, wenn der Java-seitige Serverstatus die Quelle der Spielerpositionen und des Bindungsflusses ist.
 
 ### Java-Proxy-Netzwerk
 
-- `GeyserVoice` auf Proxy
-- `GeyserVoice` auf Backend-Paper-Servern
+- `VoiceCraft.Java` auf Proxy
+- `VoiceCraft.Java` auf Backend-Paper-Servern
 - `VoiceCraft.Server` erreicht über `McTcp`
 - Backend-Knoten streamen Snapshots an den Proxy
 
@@ -65,10 +65,10 @@ Verwenden Sie dies, wenn ein Proxy die zentrale VoiceCraft-Verbindung für mehre
 ## Warum es mehrere Repos gibt
 
 - `VoiceCraft` konzentriert sich auf die Kern-Sprachplattform
-- `GeyserVoice` übersetzt Java- oder Proxy-Umgebungen in einen VoiceCraft-kompatiblen Zustand
+- `VoiceCraft.Java` übersetzt Java- oder Proxy-Umgebungen in einen VoiceCraft-kompatiblen Zustand
 - `VoiceCraft.Addon` stellt Weltautomatisierung, Entity-Bindung und Effektkontrolle auf Bedrock bereit
 
-Durch diese Aufteilung kann sich jedes Projekt rund um seine Laufzeit weiterentwickeln: C#-Client-/Servercode in `VoiceCraft`, Java-Plugin-Code in `GeyserVoice` und Bedrock-Skript-/Add-On-Code in `VoiceCraft.Addon`.
+Durch diese Aufteilung kann sich jedes Projekt rund um seine Laufzeit weiterentwickeln: C#-Client-/Servercode in `VoiceCraft`, Java-Plugin-Code in `VoiceCraft.Java` und Bedrock-Skript-/Add-On-Code in `VoiceCraft.Addon`.
 
 ## Wählen Sie, wo Sie beginnen möchten
 
@@ -77,14 +77,14 @@ Durch diese Aufteilung kann sich jedes Projekt rund um seine Laufzeit weiterentw
 - Lokale Bedrock-Tests:
   Beginnen Sie mit [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 - Java + Geyser/Floodgate:
-  Beginnen Sie mit [GeyserVoice](/ecosystem/geyservoice).
+  Beginnen Sie mit [VoiceCraft.Java](/ecosystem/voicecraft-java).
 - Benutzerdefiniertes Bedrock-Verhalten:
   Lesen Sie [VoiceCraft.Addon](/ecosystem/voicecraft-addon), dann [Addon API](/ecosystem/addon-api).
 
 ## Weiter mit
 
 - [VoiceCraft-Repository und Build](/ecosystem/voicecraft-repository)
-- [GeyserVoice overview](/ecosystem/geyservoice)
+- [VoiceCraft.Java overview](/ecosystem/voicecraft-java)
 - [VoiceCraft.Addon overview](/ecosystem/voicecraft-addon)
 - [Addon API](/ecosystem/addon-api)
 - [Integration recipes](/ecosystem/integration-recipes)

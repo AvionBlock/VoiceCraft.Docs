@@ -43,7 +43,7 @@ To zależy od topologii:
 
 - `VoiceCraft.Addon.Core.McHttp` dla serwera dedykowanego Bedrock
 - `VoiceCraft.Addon.Core.McWss` dla lokalnych światów Bedrock i konfiguracji tunelu dowodzenia
-- `GeyserVoice` dla topologii Java, Geyser/Floodgate, Paper, Velocity i BungeeCord
+- `VoiceCraft.Java` dla topologii Java, Geyser/Floodgate, Paper, Velocity i BungeeCord
 
 Warstwa integracji odpowiada za tłumaczenie zdarzeń gry na stan VoiceCraft: dołączenie gracza, opuszczenie gracza, aktualizacja pozycji, identyfikatory świata, żądania powiązania, fałszywe byty, zmiany efektów i cykl życia połączenia.
 
@@ -100,7 +100,7 @@ Użyj tego do lokalnych testów lub na światach dla jednego gracza, gdzie akcep
 
 ```text
 VoiceCraft.Client -> VoiceCraft UDP server
-GeyserVoice -> McTcp endpoint
+VoiceCraft.Java -> McTcp endpoint
 ```
 
 Użyj tej opcji, jeśli infrastruktura po stronie Java jest źródłem pozycji gracza i stanu cyklu życia.

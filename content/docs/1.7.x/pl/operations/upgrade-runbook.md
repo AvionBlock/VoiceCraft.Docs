@@ -1,6 +1,6 @@
 # Procedura aktualizacji
 
-Użyj tego przy aktualizacji VoiceCraft albo bridge, np. `GeyserVoice`.
+Użyj tego przy aktualizacji VoiceCraft albo bridge, np. `VoiceCraft.Java`.
 
 VoiceCraft `1.7.0` zmienia model eventów i entity properties, więc trzeba sprawdzić cały stack: server, client, Bedrock addon i Java plugin.
 

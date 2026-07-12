@@ -26,7 +26,7 @@ VoiceCraftConfig.PositioningType
 - 伺服器或整合層可以提供權威的世界狀態
 - 你想要更集中的行為
 - 您使用 `McHttp` 執行 BDS
-- 你用 `GeyserVoice` 運行 Java/Geyser
+- 你用 `VoiceCraft.Java` 運行 Java/Geyser
 - 您希望工作人員/審核工具能夠推斷伺服器擁有的實體狀態
 
 在此模型中，Minecraft 端整合將位置和世界更新傳送至 `VoiceCraft.Server`。用戶端接收足夠的狀態，以便在本地播放距離感音訊。
@@ -51,7 +51,7 @@ VoiceCraftConfig.PositioningType
 |-------|------------------|--------|
 | Bedrock 專用伺服器 + `McHttp` | `0 = Server` | BDS插件可以報告權威的世界狀態 |
 | 本地 Bedrock 世界 + `McWss` | 通常 `0 = Server` | 插件仍然可以透過隧道發送狀態 |
-| Java + Geyser/Floodgate + `GeyserVoice` | `0 = Server` | 插件追蹤玩家生命週期和位置 |
+| Java + Geyser/Floodgate + `VoiceCraft.Java` | `0 = Server` | 插件追蹤玩家生命週期和位置 |
 | 實驗性僅限本地設置 | 視情況而定 | 僅當整合無法提供狀態時才使用客戶端 |
 
 ## 為什麼不匹配會破壞音訊預期

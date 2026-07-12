@@ -1,6 +1,6 @@
 # 升級執行手冊
 
-升級 VoiceCraft 或 `GeyserVoice` 等 bridge 時使用本頁。
+升級 VoiceCraft 或 `VoiceCraft.Java` 等 bridge 時使用本頁。
 
 VoiceCraft `1.7.0` 修改了 event 和 entity-property 模型，因此需要同時驗證 server、client、Bedrock addon 和 Java plugin。
 

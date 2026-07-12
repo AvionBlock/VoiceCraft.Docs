@@ -1,6 +1,6 @@
 # 升級操作手冊
 
-升級 VoiceCraft 或相關橋接器（例如 `GeyserVoice`）時使用此選項。
+升級 VoiceCraft 或相關橋接器（例如 `VoiceCraft.Java`）時使用此選項。
 
 此操作手冊適用於可能影響伺服器、用戶端、Bedrock 外掛程式和 Java 端外掛程式之間相容性的升級。目標是保持回滾路徑，同時證明整個堆疊仍然有效。
 
@@ -40,7 +40,7 @@
 7. 距離感音訊有效。
 8. `list --clientsOnly` 等伺服器指令顯示預期的客戶端。
 
-## 如果升級 GeyserVoice
+## 如果升級 VoiceCraft.Java
 
 還驗證：
 

@@ -56,23 +56,23 @@ Flow:
 5. run `voicecraft:vcconnect <token>`
 6. validate bind and movement
 
-## Scenario C: Direct Paper with GeyserVoice-managed runtime
+## Scenario C: Direct Paper with VoiceCraft.Java-managed runtime
 
 Stack:
 
 - Paper / Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - plugin-managed VoiceCraft runtime
 
 Choose this when:
 
 - one Paper/Folia server should own voice integration
 - you want fewer external services
-- GeyserVoice should download and start VoiceCraft
+- VoiceCraft.Java should download and start VoiceCraft
 
 Flow:
 
-1. install `GeyserVoice`
+1. install `VoiceCraft.Java`
 2. set `config.proxy.enabled = false`
 3. configure `config.voicecraft.transport.login-token`
 4. enable `config.voicecraft.auto-start`
@@ -85,7 +85,7 @@ This is the simplest Java-side setup when you want the plugin to run VoiceCraft 
 Stack:
 
 - Paper / Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - externally managed `VoiceCraft.Server`
 
 Choose this when:
@@ -97,7 +97,7 @@ Choose this when:
 Flow:
 
 1. enable `McTcp` on VoiceCraft
-2. set `config.voicecraft.transport.host`, `config.voicecraft.transport.port`, and `config.voicecraft.transport.login-token` in GeyserVoice
+2. set `config.voicecraft.transport.host`, `config.voicecraft.transport.port`, and `config.voicecraft.transport.login-token` in VoiceCraft.Java
 3. disable plugin runtime management if not needed
 4. reload and validate connection
 
@@ -105,8 +105,8 @@ Flow:
 
 Stack:
 
-- `GeyserVoice` on proxy
-- `GeyserVoice` on backend Paper servers
+- `VoiceCraft.Java` on proxy
+- `VoiceCraft.Java` on backend Paper servers
 - `VoiceCraft.Server` with `McTcp`
 
 Choose this when:

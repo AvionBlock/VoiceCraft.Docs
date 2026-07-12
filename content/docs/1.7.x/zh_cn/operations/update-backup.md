@@ -22,7 +22,7 @@ VoiceCraft `1.7.0` 不是单纯补丁。服务器、客户端、Bedrock addon �
 - `config/ServerProperties.json`
 - 自定义启动脚本、systemd、容器或面板配置
 - 需要保留的日志
-- GeyserVoice 或其他 Java bridge 配置
+- VoiceCraft.Java 或其他 Java bridge 配置
 - Bedrock world pack 配置
 - host、port、firewall、port forwarding 记录
 

@@ -9,7 +9,7 @@ Spieler nutzen `VoiceCraft.Client`, ein Backend betreibt `VoiceCraft.Server`, un
 | Repository | Aufgabe |
 |------------|---------|
 | `VoiceCraft` | Client, Server, Protocol, Transports |
-| `GeyserVoice` / Java Bridge | Paper, Geyser/Floodgate, Proxy |
+| `VoiceCraft.Java` / Java Bridge | Paper, Geyser/Floodgate, Proxy |
 | `VoiceCraft.Addon` | Bedrock Add-ons und McApi |
 
 Die primäre Entwicklung liegt im GitLab-Projekt. GitHub ist Mirror und Release-Ort.

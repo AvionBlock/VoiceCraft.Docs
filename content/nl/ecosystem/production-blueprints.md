@@ -33,16 +33,16 @@ Gebruik:
 
 - `VoiceCraft.Server`
 - `McTcp`
-- `GeyserVoice` Direct Paper-modus
+- `VoiceCraft.Java` Direct Paper-modus
 
 Optioneel:
 
-- laat GeyserVoice de VoiceCraft-runtime beheren als u de voorkeur geeft aan een enkele installatiestroom aan de Java-zijde
+- laat VoiceCraft.Java de VoiceCraft-runtime beheren als u de voorkeur geeft aan een enkele installatiestroom aan de Java-zijde
 
 Aanbevolen vorm:
 
 ```text
-Paper/Folia + GeyserVoice -> McTcp -> VoiceCraft.Server
+Paper/Folia + VoiceCraft.Java -> McTcp -> VoiceCraft.Server
 players -> VoiceCraft UDP endpoint
 ```
 
@@ -54,8 +54,8 @@ Gebruik:
 
 - extern `VoiceCraft.Server`
 - `McTcp`
-- `GeyserVoice` op proxy
-- `GeyserVoice` op backend-knooppunten
+- `VoiceCraft.Java` op proxy
+- `VoiceCraft.Java` op backend-knooppunten
 
 Waarom:
 
@@ -66,7 +66,7 @@ Waarom:
 Aanbevolen vorm:
 
 ```text
-backend Paper nodes -> proxy relay -> proxy GeyserVoice -> McTcp -> VoiceCraft.Server
+backend Paper nodes -> proxy relay -> proxy VoiceCraft.Java -> McTcp -> VoiceCraft.Server
 players -> VoiceCraft UDP endpoint
 ```
 

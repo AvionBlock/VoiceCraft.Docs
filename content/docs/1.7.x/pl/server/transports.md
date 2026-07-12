@@ -8,7 +8,7 @@ Transport to ścieżka, którą Minecraft-side automation wysyła state do `Voic
 |-----------|----------|----------|--------------|
 | `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP | Bedrock Dedicated Server |
 | `McWss` | `VoiceCraft.Addon.Core.McWss` | WebSocket + command tunnel | lokalne światy |
-| `McTcp` | Java bridge / `GeyserVoice` | TCP | Java, Geyser, proxy |
+| `McTcp` | Java bridge / `VoiceCraft.Java` | TCP | Java, Geyser, proxy |
 
 ## Wspólne zmiany 1.7
 

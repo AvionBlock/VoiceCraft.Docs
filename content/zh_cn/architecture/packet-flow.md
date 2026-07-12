@@ -47,10 +47,10 @@ VoiceCraft 有两个相关平面：
 
 典型的 Java/Geyser 流程：
 
-1. `GeyserVoice` 连接到 `McTcp`。
+1. `VoiceCraft.Java` 连接到 `McTcp`。
 2. 该插件跟踪 Java 端玩家的生命周期和位置。
 3. 玩家使用配置的语音绑定命令。
-4. `GeyserVoice` 将绑定/更新数据发送到 VoiceCraft。
+4. `VoiceCraft.Java` 将绑定/更新数据发送到 VoiceCraft。
 
 如果绑定失败，首先检查令牌匹配和传输可达性，然后检查玩家是否有活动的 VoiceCraft 客户端会话。
 

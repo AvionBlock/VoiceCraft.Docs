@@ -8,7 +8,7 @@ Transport 是 Minecraft state 進入 `VoiceCraft.Server` 的路徑。語音用�
 |-----------|----------|----------|------|
 | `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP | Bedrock Dedicated Server |
 | `McWss` | `VoiceCraft.Addon.Core.McWss` | WebSocket + command tunnel | 本地世界 |
-| `McTcp` | Java bridge / `GeyserVoice` | TCP | Java、Geyser、proxy |
+| `McTcp` | Java bridge / `VoiceCraft.Java` | TCP | Java、Geyser、proxy |
 
 ## 1.7 通用行為
 

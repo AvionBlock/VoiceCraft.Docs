@@ -18,7 +18,7 @@ Używaj tokena tylko z pasującą integracją:
 
 - `McHttpConfig.LoginToken` dla BDS `McHttp`
 - `McWssConfig.LoginToken` dla lokalnego Bedrock `McWss`
-- `McTcpConfig.LoginToken` dla mostu GeyserVoice/Java
+- `McTcpConfig.LoginToken` dla mostu VoiceCraft.Java/Java
 
 ## 2. Odsłoń tylko wymagane transporty
 
@@ -69,7 +69,7 @@ do produkcji, testowania i testów lokalnych.
 
 ## 6. Zachowaj ostrożność w przypadku środowisk wykonawczych zarządzanych przez wtyczki
 
-Jeśli `GeyserVoice` zarządza środowiskiem wykonawczym VoiceCraft:
+Jeśli `VoiceCraft.Java` zarządza środowiskiem wykonawczym VoiceCraft:
 
 - kontroluj katalog instalacyjny
 - zrozumieć, kto jest właścicielem zachowania związanego z ponownym uruchomieniem
@@ -91,7 +91,7 @@ Jest to przede wszystkim dla:
 
 ## 8. Ogranicz polecenia operacyjne
 
-W przypadku `GeyserVoice` zachowaj te informacje tylko dla personelu:
+W przypadku `VoiceCraft.Java` zachowaj te informacje tylko dla personelu:
 
 - `/voice connect`
 - `/voice reconnect`
@@ -126,6 +126,6 @@ Przed publicznym opublikowaniem zrzutów ekranu, dzienników lub konfiguracji us
 - włączone tylko wymagane transporty
 - pętla zwrotna używana w przypadku konsumentów korzystających z tego samego hosta
 - reguły zapory sieciowej ograniczone do znanych źródeł, jeśli to możliwe
-- Polecenia operacyjne GeyserVoice są ograniczone
+- Polecenia operacyjne VoiceCraft.Java są ograniczone
 - kopie zapasowe są bezpiecznie przechowywane
 - Wersje wydania i dodatków/wtyczek są wyrównane

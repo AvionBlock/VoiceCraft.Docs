@@ -8,7 +8,7 @@ Deze opties zijn ideaal wanneer:
 
 - u wilt omgevingsspecifieke waarden zonder JSON te bewerken
 - een procesmanager injecteert waarden bij het opstarten
-- `GeyserVoice` start de VoiceCraft-runtime automatisch
+- `VoiceCraft.Java` start de VoiceCraft-runtime automatisch
 - je test verschillende transporttopologieën vanuit dezelfde installatiemap
 
 Als u een eenvoudige handmatige installatie uitvoert, bewerkt u eerst `ServerProperties.json` en gebruikt u overschrijvingen alleen als deze de implementatie duidelijker maken.

@@ -22,7 +22,7 @@
 5. `McTcpConfig.Hostname` 是一個普通主機，而不是 URI。
 6. 運行時覆蓋不會取代預期的配置值。
 
-如果伺服器由 systemd、Docker、面板或 GeyserVoice 自動啟動管理，請檢查啟動參數以及 JSON 檔案。
+如果伺服器由 systemd、Docker、面板或 VoiceCraft.Java 自動啟動管理，請檢查啟動參數以及 JSON 檔案。
 
 ## 客戶端無法連接
 
@@ -50,7 +50,7 @@
 
 - BDS 外掛程式使用 `McHttpConfig.LoginToken`
 - 本地 Bedrock 世界使用 `McWssConfig.LoginToken`
-- GeyserVoice 使用 `McTcpConfig.LoginToken`
+- VoiceCraft.Java 使用 `McTcpConfig.LoginToken`
 
 ## McHttp 不工作
 

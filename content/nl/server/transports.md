@@ -12,7 +12,7 @@ Gebruik deze pagina voordat u `McHttpConfig`, `McWssConfig` of `McTcpConfig` bew
 |-----------|------------------|----------------|----------|-------------|
 | `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP-eindpunt | Bedrock Dedicated Server | `McHttpConfig.LoginToken` |
 | `McWss` | `VoiceCraft.Addon.Core.McWss` | websocket + opdrachttunnel | lokale Bedrock-werelden en testen | `McWssConfig.LoginToken` |
-| `McTcp` | `GeyserVoice` | onbewerkte TCP-brug | Java-, Geyser-, proxy- of Paper Bridge-scenario's | `McTcpConfig.LoginToken` |
+| `McTcp` | `VoiceCraft.Java` | onbewerkte TCP-brug | Java-, Geyser-, proxy- of Paper Bridge-scenario's | `McTcpConfig.LoginToken` |
 
 Kies geen transport uitsluitend op basis van poortnummer. Kies het op basis van welk Minecraft-onderdeel verbinding zal maken.
 
@@ -94,7 +94,7 @@ Gebruik dit wanneer u de lokale `/connect`-stroom nodig heeft. Voor een echte BD
 
 ### Beste gebruiksscenario's
 
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - Java-server of proxybridges
 - directe Paper-runtime-integratie
 
@@ -102,7 +102,7 @@ Gebruik dit wanneer u de lokale `/connect`-stroom nodig heeft. Voor een echte BD
 
 - direct bridge-transport voor plug-ins aan Java-zijde
 - vermijdt de semantiek van HTTP-eindpunten wanneer een native TCP-bridge beter is
-- sluit aan bij de huidige `GeyserVoice`-architectuur
+- sluit aan bij de huidige `VoiceCraft.Java`-architectuur
 
 ### Afwegingen
 
@@ -123,7 +123,7 @@ Gebruik dit wanneer u de lokale `/connect`-stroom nodig heeft. Voor een echte BD
 }
 ```
 
-Als `GeyserVoice` op dezelfde machine draait als VoiceCraft, bind dan aan `127.0.0.1`. Als het ergens anders draait, bind dan aan een adres dat de plug-in kan bereiken en beperk de firewall.
+Als `VoiceCraft.Java` op dezelfde machine draait als VoiceCraft, bind dan aan `127.0.0.1`. Als het ergens anders draait, bind dan aan een adres dat de plug-in kan bereiken en beperk de firewall.
 
 ## Welke moet je kiezen?
 
@@ -141,9 +141,9 @@ Ga verder met [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 
 ### Java + Geyser/Floodgate
 
-Gebruik `McTcp` tot en met `GeyserVoice`.
+Gebruik `McTcp` tot en met `VoiceCraft.Java`.
 
-Ga verder met [GeyserVoice](/ecosystem/geyservoice).
+Ga verder met [VoiceCraft.Java](/ecosystem/voicecraft-java).
 
 ### Gemengd netwerk
 

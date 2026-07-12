@@ -20,7 +20,7 @@ Die meisten Bereitstellungen bestehen aus drei Komponenten:
 Ökosystemintegrationen verbinden Minecraft mit diesen Transporten:
 
 - `VoiceCraft.Addon` für Bedrock Worlds und BDS
-- `GeyserVoice` für Java/Geyser/Proxy-Stacks
+- `VoiceCraft.Java` für Java/Geyser/Proxy-Stacks
 
 ## Wie es funktioniert
 
@@ -29,7 +29,7 @@ Die meisten Bereitstellungen bestehen aus drei Komponenten:
 3. Eine Minecraft-seitige Integration aktualisiert den Server mit dem Gameplay-Status:
    - `McHttp` für BDS
    - `McWss` für lokale Bedrock-Welten
-   - `McTcp` für `GeyserVoice`
+   - `McTcp` für `VoiceCraft.Java`
 4. Der Client spielt Proximity-Audio entsprechend dem Serverstatus und den ausgewählten lokalen Einstellungen ab.
 
 Die Sprachverbindung und die Minecraft-Transportverbindung sind getrennt. Wenn nur eine Seite verbunden ist, kann das Setup teilweise funktionsfähig wirken, das Proximity-Verhalten bleibt jedoch unvollständig.
@@ -46,7 +46,7 @@ Die Sprachverbindung und die Minecraft-Transportverbindung sind getrennt. Wenn n
 
 - mehrere Minecraft-Transporte
 - Bedrock-Add-on-API-Oberfläche
-- Java-seitige Brücke über `GeyserVoice`
+- Java-seitige Brücke über `VoiceCraft.Java`
 - konfigurierbare Effekte und Entitätsmetadaten
 - sowohl serverseitige als auch clientseitige Positionierungsmodi
 
@@ -58,8 +58,8 @@ Diese Flexibilität bedeutet auch, dass die erste Entscheidung zählt: Wählen S
 |---------------|---------------|-----|
 | Dedizierter Bedrock-Server | [McHttp for BDS](/minecraft/mchttp-bds) | BDS kann einen stabilen HTTP-Endpunkt aufrufen |
 | Lokale Bedrock-Welt | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | Funktioniert über den lokalen Websocket-/Befehlstunnelfluss |
-| Java-Server mit Geyser/Floodgate | [GeyserVoice](/ecosystem/geyservoice) | Java-seitiges Plugin stellt über `McTcp` eine Brücke zu VoiceCraft |
-| Direkter Paper-Server | [GeyserVoice Direct Paper](/ecosystem/geyservoice-direct-paper) | Das Plugin kann entweder einen externen Server nutzen oder die Laufzeit verwalten |
+| Java-Server mit Geyser/Floodgate | [VoiceCraft.Java](/ecosystem/voicecraft-java) | Java-seitiges Plugin stellt über `McTcp` eine Brücke zu VoiceCraft |
+| Direkter Paper-Server | [VoiceCraft.Java Direct Paper](/ecosystem/voicecraft-java-direct-paper) | Das Plugin kann entweder einen externen Server nutzen oder die Laufzeit verwalten |
 
 ## Was Sie als nächstes lesen sollten
 

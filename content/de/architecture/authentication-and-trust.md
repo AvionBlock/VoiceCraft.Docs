@@ -12,13 +12,13 @@ Beispiele:
 
 - Das Bedrock-Add-on authentifiziert sich mit `McHttpConfig.LoginToken`
 - `McWss` Welt authentifiziert sich mit `McWssConfig.LoginToken`
-- `GeyserVoice` authentifiziert sich mit `McTcpConfig.LoginToken`
+- `VoiceCraft.Java` authentifiziert sich mit `McTcpConfig.LoginToken`
 
 | Transport | Verbraucher | Token-Feld |
 |-----------|----------|-------------|
 | `McHttp` | BDS-Zusatzpaket | `McHttpConfig.LoginToken` |
 | `McWss` | lokales Bedrock-World-Addon | `McWssConfig.LoginToken` |
-| `McTcp` | `GeyserVoice` oder Java-seitige Brücke | `McTcpConfig.LoginToken` |
+| `McTcp` | `VoiceCraft.Java` oder Java-seitige Brücke | `McTcpConfig.LoginToken` |
 
 ## Vertrauen Sie Grenzen
 

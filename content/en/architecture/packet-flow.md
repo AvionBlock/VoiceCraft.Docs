@@ -47,10 +47,10 @@ Typical Bedrock flow:
 
 Typical Java/Geyser flow:
 
-1. `GeyserVoice` connects to `McTcp`.
+1. `VoiceCraft.Java` connects to `McTcp`.
 2. The plugin tracks Java-side player lifecycle and position.
 3. The player uses the configured voice bind command.
-4. `GeyserVoice` sends the bind/update data to VoiceCraft.
+4. `VoiceCraft.Java` sends the bind/update data to VoiceCraft.
 
 If bind fails, first check token match and transport reachability, then check whether the player has an active VoiceCraft client session.
 

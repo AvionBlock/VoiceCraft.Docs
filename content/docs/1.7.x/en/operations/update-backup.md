@@ -24,7 +24,7 @@ Because the wire model changed, keep client and server `Major.Minor` aligned: `1
 - `config/ServerProperties.json`
 - custom scripts, systemd units, container env, or panel startup settings
 - log history if needed
-- GeyserVoice or Java bridge configuration
+- VoiceCraft.Java or Java bridge configuration
 - Bedrock world pack configuration if the addon is used
 - notes for public/LAN hostnames, ports, firewall rules, and any port forwarding
 
@@ -89,7 +89,7 @@ The browser/web client target is removed in `1.7.0`. Use the native desktop or m
 - Client and server `Major.Minor` versions should match.
 - Patch versions may differ.
 - Bedrock addon packages should match the server/client release when release notes mention addon-side behavior.
-- GeyserVoice or other Java-side bridges should be updated with matching packet and property expectations.
+- VoiceCraft.Java or other Java-side bridges should be updated with matching packet and property expectations.
 - Custom packet integrations must be retested against the 1.7 event/property model.
 
 ## Rollback preparation

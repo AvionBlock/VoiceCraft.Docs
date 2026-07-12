@@ -48,7 +48,7 @@ Nutzen Sie `127.0.0.1` nur, wenn BDS und VoiceCraft auf demselben Host laufen.
 
 ## McTcpConfig
 
-Für Java-Bridges wie `GeyserVoice`.
+Für Java-Bridges wie `VoiceCraft.Java`.
 
 - `Hostname` ist ein Host, keine URI.
 - `Port` ist ein separates Feld.

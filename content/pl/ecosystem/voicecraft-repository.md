@@ -32,7 +32,7 @@ Repozytorium jest szersze niż „klient + serwer”:
 - definicje pakietów dla warstw VoiceCraft i McApi
 - efekty dźwiękowe i systemy widoczności
 
-Ważne jest również, aby zrozumieć, czym to repozytorium nie jest: VoiceCraft nie jest pojedynczym modem ani wtyczką do gry Minecraft. Podstawowe środowisko uruchomieniowe współpracuje z klientami i integracjami po stronie Minecrafta, takimi jak `VoiceCraft.Addon` lub `GeyserVoice`.
+Ważne jest również, aby zrozumieć, czym to repozytorium nie jest: VoiceCraft nie jest pojedynczym modem ani wtyczką do gry Minecraft. Podstawowe środowisko uruchomieniowe współpracuje z klientami i integracjami po stronie Minecrafta, takimi jak `VoiceCraft.Addon` lub `VoiceCraft.Java`.
 
 ## Wymagania dotyczące kompilacji
 
@@ -123,7 +123,7 @@ Aktualne osadzone ustawienia regionalne obejmują:
 
 - chcesz zbudować lub debugować rdzeń VoiceCraft
 - musisz zrozumieć, który projekt jest właścicielem zachowania klient/serwer
-- sprawdzasz, czy dana funkcja należy do rdzenia, dodatku lub GeyserVoice
+- sprawdzasz, czy dana funkcja należy do rdzenia, dodatku lub VoiceCraft.Java
 - przygotowujesz artefakty wersji niestandardowej
 
 ## Powiązane dokumenty
@@ -132,4 +132,4 @@ Aktualne osadzone ustawienia regionalne obejmują:
 - [ServerProperties.json](/server/server-properties)
 - [Tryby transportu](/server/transports)
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)

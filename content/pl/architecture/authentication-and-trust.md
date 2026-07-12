@@ -12,13 +12,13 @@ Przykłady:
 
 - Dodatek Bedrock uwierzytelnia się za pomocą `McHttpConfig.LoginToken`
 - Świat `McWss` uwierzytelnia się za pomocą `McWssConfig.LoginToken`
-- `GeyserVoice` uwierzytelnia się za pomocą `McTcpConfig.LoginToken`
+- `VoiceCraft.Java` uwierzytelnia się za pomocą `McTcpConfig.LoginToken`
 
 | Transport | Klient | Pole tokenu |
 |-----------|----------|-------------|
 | `McHttp` | Pakiet dodatków BDS | `McHttpConfig.LoginToken` |
 | `McWss` | lokalny dodatek do świata Bedrock | `McWssConfig.LoginToken` |
-| `McTcp` | `GeyserVoice` lub most po stronie Java | `McTcpConfig.LoginToken` |
+| `McTcp` | `VoiceCraft.Java` lub most po stronie Java | `McTcpConfig.LoginToken` |
 
 ## Granice zaufania
 

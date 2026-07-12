@@ -43,7 +43,7 @@ Dit is afhankelijk van de topologie:
 
 - `VoiceCraft.Addon.Core.McHttp` voor Bedrock Dedicated Server
 - `VoiceCraft.Addon.Core.McWss` voor lokale Bedrock-werelden en commandotunnelopstellingen
-- `GeyserVoice` voor Java-, Geyser/Floodgate-, Paper-, Velocity- en BungeeCord-topologieën
+- `VoiceCraft.Java` voor Java-, Geyser/Floodgate-, Paper-, Velocity- en BungeeCord-topologieën
 
 De integratielaag is verantwoordelijk voor het vertalen van gamegebeurtenissen naar de VoiceCraft-status: spelers sluiten zich aan, spelers vertrekken, positie-updates, wereld-ID's, bindingsverzoeken, nep-entiteiten, effectwijzigingen en verbindingslevenscyclus.
 
@@ -100,7 +100,7 @@ Gebruik dit voor lokaal testen of singleplayer-werelden waar een commandotunnel 
 
 ```text
 VoiceCraft.Client -> VoiceCraft UDP server
-GeyserVoice -> McTcp endpoint
+VoiceCraft.Java -> McTcp endpoint
 ```
 
 Gebruik dit wanneer de Java-infrastructuur de bron is van de spelerspositie en levenscyclusstatus.

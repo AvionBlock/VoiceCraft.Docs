@@ -68,7 +68,7 @@ HTTP tooling can help with `McHttp`, but it does not automatically solve raw `Mc
 
 ## Java network caveats
 
-For `GeyserVoice` proxy deployments:
+For `VoiceCraft.Java` proxy deployments:
 
 - the proxy must reliably reach VoiceCraft
 - backend Paper nodes must reliably reach the proxy message path

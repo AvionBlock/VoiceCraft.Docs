@@ -33,7 +33,7 @@ Veelvoorkomende oorzaken:
 - versie van het add-onpakket komt niet overeen met de server-/clientrelease
 - aangepaste add-onlogica onderschept of omzeilt de standaardbindstroom
 
-## Symptoom: GeyserVoice is geïnstalleerd, maar de Java-side bridge wordt nooit bruikbaar
+## Symptoom: VoiceCraft.Java is geïnstalleerd, maar de Java-side bridge wordt nooit bruikbaar
 
 Controleer:
 
@@ -64,7 +64,7 @@ Controleer:
 3. het doorsturen van snapshots blijft intact tussen switches
 4. world ID-naamruimtelogica blijft consistent
 
-Als slechts één backend faalt, vergelijk dan de GeyserVoice-configuratie en plug-inversie met een backend die werkt.
+Als slechts één backend faalt, vergelijk dan de VoiceCraft.Java-configuratie en plug-inversie met een backend die werkt.
 
 ## Symptoom: `McWss` is instabiel
 

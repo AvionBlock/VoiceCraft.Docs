@@ -10,7 +10,7 @@
 
 ## ใช้กับ Java/Geyser ได้ไหม
 
-ได้ผ่าน `GeyserVoice` และ transport ที่เหมาะสม
+ได้ผ่าน `VoiceCraft.Java` และ transport ที่เหมาะสม
 
 ## ทำไมต้อง bind
 

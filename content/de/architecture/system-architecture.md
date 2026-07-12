@@ -43,7 +43,7 @@ Dies hängt von der Topologie ab:
 
 - `VoiceCraft.Addon.Core.McHttp` für Bedrock Dedicated Server
 - `VoiceCraft.Addon.Core.McWss` für lokale Bedrock-Welten und Befehlstunnel-Setups
-- `GeyserVoice` für Java-, Geyser/Floodgate-, Paper-, Velocity- und BungeeCord-Topologien
+- `VoiceCraft.Java` für Java-, Geyser/Floodgate-, Paper-, Velocity- und BungeeCord-Topologien
 
 Die Integrationsschicht ist für die Übersetzung von Spielereignissen in den VoiceCraft-Status verantwortlich: Spielerbeitritt, Spielerabgang, Positionsaktualisierungen, Weltkennungen, Bindungsanfragen, gefälschte Entitäten, Effektänderungen und Verbindungslebenszyklus.
 
@@ -100,7 +100,7 @@ Verwenden Sie dies für lokale Tests oder Einzelspielerwelten, in denen ein Befe
 
 ```text
 VoiceCraft.Client -> VoiceCraft UDP server
-GeyserVoice -> McTcp endpoint
+VoiceCraft.Java -> McTcp endpoint
 ```
 
 Verwenden Sie dies, wenn die Java-seitige Infrastruktur die Quelle der Spielerposition und des Lebenszyklusstatus ist.

@@ -56,23 +56,23 @@ Durchfluss:
 5. Führen Sie `voicecraft:vcconnect <token>` aus
 6. Validieren Sie Bindung und Bewegung
 
-## Szenario C: Direct Paper mit von GeyserVoice verwalteter Laufzeit
+## Szenario C: Direct Paper mit von VoiceCraft.Java verwalteter Laufzeit
 
 Stapel:
 
 - Paper/Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - Plug-in-verwaltete VoiceCraft-Laufzeitumgebung
 
 Wählen Sie dies, wenn:
 
 - Ein Paper/Folia-Server sollte über eine Sprachintegration verfügen
 - Sie möchten weniger externe Dienste
-- GeyserVoice sollte VoiceCraft herunterladen und starten
+- VoiceCraft.Java sollte VoiceCraft herunterladen und starten
 
 Durchfluss:
 
-1. `GeyserVoice` installieren
+1. `VoiceCraft.Java` installieren
 2. setze `config.proxy.enabled = false`
 3. konfigurieren Sie `config.voicecraft.transport.login-token`
 4. `config.voicecraft.auto-start` aktivieren
@@ -85,7 +85,7 @@ Dies ist das einfachste Java-seitige Setup, wenn Sie möchten, dass das Plugin V
 Stapel:
 
 - Paper/Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - extern verwaltet `VoiceCraft.Server`
 
 Wählen Sie dies, wenn:
@@ -97,7 +97,7 @@ Wählen Sie dies, wenn:
 Durchfluss:
 
 1. Aktivieren Sie `McTcp` auf VoiceCraft
-2. Legen Sie `config.voicecraft.transport.host`, `config.voicecraft.transport.port` und `config.voicecraft.transport.login-token` in GeyserVoice fest
+2. Legen Sie `config.voicecraft.transport.host`, `config.voicecraft.transport.port` und `config.voicecraft.transport.login-token` in VoiceCraft.Java fest
 3. Deaktivieren Sie die Plugin-Laufzeitverwaltung, wenn sie nicht benötigt wird
 4. Verbindung neu laden und validieren
 
@@ -105,8 +105,8 @@ Durchfluss:
 
 Stapel:
 
-- `GeyserVoice` auf Proxy
-- `GeyserVoice` auf Backend-Paper-Servern
+- `VoiceCraft.Java` auf Proxy
+- `VoiceCraft.Java` auf Backend-Paper-Servern
 - `VoiceCraft.Server` mit `McTcp`
 
 Wählen Sie dies, wenn:

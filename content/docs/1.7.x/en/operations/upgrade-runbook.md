@@ -1,6 +1,6 @@
 # Upgrade Runbook
 
-Use this when upgrading VoiceCraft or a related bridge such as `GeyserVoice`.
+Use this when upgrading VoiceCraft or a related bridge such as `VoiceCraft.Java`.
 
 This runbook is for upgrades that can affect compatibility between server, client, Bedrock addon, and Java-side plugin pieces. VoiceCraft `1.7.0` is one of those upgrades because it changes the event and entity-property model.
 
@@ -84,7 +84,7 @@ Avoid it when:
 - firewall and port forwarding are already managed outside VoiceCraft
 - the transport is intentionally loopback-only
 
-## If upgrading GeyserVoice
+## If upgrading VoiceCraft.Java
 
 Also validate:
 
