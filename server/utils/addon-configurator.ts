@@ -40,19 +40,40 @@ const OWNER = 'AvionBlock'
 const REPO = 'VoiceCraft'
 const RELEASES_URL = `https://api.github.com/repos/${OWNER}/${REPO}/releases`
 
-const PACK_DEFINITIONS: Record<ReleasePackKey, { assetName: string, folderSlug: string }> = {
+const PACK_DEFINITIONS: Record<ReleasePackKey, { assetBaseName: string, folderSlug: string }> = {
   base: {
-    assetName: 'VoiceCraft.Addon.Basic.zip',
+    assetBaseName: 'VoiceCraft.Addon.Basic',
     folderSlug: 'voicecraft-basic',
   },
   http: {
-    assetName: 'VoiceCraft.Addon.Core.McHttp.zip',
+    assetBaseName: 'VoiceCraft.Addon.Core.McHttp',
     folderSlug: 'voicecraft-mchttp',
   },
   wss: {
-    assetName: 'VoiceCraft.Addon.Core.McWss.zip',
+    assetBaseName: 'VoiceCraft.Addon.Core.McWss',
     folderSlug: 'voicecraft-mcwss',
   },
+}
+
+function findPackAsset(
+  assets: GitHubReleaseAsset[],
+  packKey: ReleasePackKey,
+  releaseTag: string,
+) {
+  const { assetBaseName } = PACK_DEFINITIONS[packKey]
+  const version = releaseTag.replace(/^v/, '')
+
+  return assets.find((asset) =>
+    [
+      `${assetBaseName}.zip`,
+      `${assetBaseName}.v${version}.zip`,
+    ].includes(asset.name),
+  )
+}
+
+function hasRequiredAssets(assets: GitHubReleaseAsset[], releaseTag: string) {
+  return (Object.keys(PACK_DEFINITIONS) as ReleasePackKey[])
+    .every((packKey) => findPackAsset(assets, packKey, releaseTag))
 }
 
 export async function fetchAddonReleases() {
@@ -65,7 +86,7 @@ export async function fetchAddonReleases() {
 
   return releases
     .filter((release) => !release.draft)
-    .filter((release) => hasRequiredAssets(release.assets))
+    .filter((release) => hasRequiredAssets(release.assets, release.tag_name))
     .map((release) => ({
       tag: release.tag_name,
       name: release.name || release.tag_name,
@@ -109,7 +130,7 @@ export async function buildConfiguredAddonArchive(input: {
   const worldResourcePacks = parseWorldPackEntries(input.worldResourcePacksBytes, 'world_resource_packs.json')
 
   for (const packKey of getPackKeysForMode(input.transportMode)) {
-    const loadedPack = await loadPackBundle(release.assets, packKey)
+    const loadedPack = await loadPackBundle(release.assets, packKey, release.tag)
     await addPackEntries(outputZip, loadedPack.bundleZip, 'BP', `behavior_packs/${loadedPack.folderSlug}`)
     await addPackEntries(outputZip, loadedPack.bundleZip, 'RP', `resource_packs/${loadedPack.folderSlug}`)
     addWorldPackReference(worldBehaviorPacks, makeWorldPackReference(loadedPack.bpManifest))
@@ -170,18 +191,18 @@ function addWorldPackReference(entries: WorldPackEntry[], reference: PackManifes
   entries.push(reference)
 }
 
-function hasRequiredAssets(assets: GitHubReleaseAsset[]) {
-  return Object.values(PACK_DEFINITIONS).every((definition) => assets.some((asset) => asset.name === definition.assetName))
-}
-
-async function loadPackBundle(assets: GitHubReleaseAsset[], packKey: ReleasePackKey): Promise<LoadedPack> {
+async function loadPackBundle(
+  assets: GitHubReleaseAsset[],
+  packKey: ReleasePackKey,
+  releaseTag: string,
+): Promise<LoadedPack> {
   const definition = PACK_DEFINITIONS[packKey]
-  const asset = assets.find((item) => item.name === definition.assetName)
+  const asset = findPackAsset(assets, packKey, releaseTag)
 
   if (!asset) {
     throw createError({
       statusCode: 404,
-      statusMessage: `Release asset ${definition.assetName} was not found.`,
+      statusMessage: `Release asset ${definition.assetBaseName} was not found.`,
     })
   }
 
@@ -193,7 +214,7 @@ async function loadPackBundle(assets: GitHubReleaseAsset[], packKey: ReleasePack
   if (!bpManifestEntry || !rpManifestEntry) {
     throw createError({
       statusCode: 500,
-      statusMessage: `Release asset ${definition.assetName} is missing BP/RP manifests.`,
+      statusMessage: `Release asset ${asset.name} is missing BP/RP manifests.`,
     })
   }
 
