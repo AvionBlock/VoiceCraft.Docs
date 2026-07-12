@@ -93,7 +93,7 @@
       "ios": "iOS系统"
     },
     "androidNote": "Android 32 位不再可用。使用arm64 Android 版本。",
-    "serverSourceNote": "如果您需要此处未列出的平台，请查看完整版本页面或从源代码构建。",
+  "serverSourceNote": "VoiceCraft 1.7+ 版本发布在 GitLab。旧版本保留在 GitHub；GitHub 仅作为当前开发的镜像。",
     "allReleases": "打开所有版本",
     "addonKicker": "添加在",
     "addonTitle": "VoiceCraft 插件",

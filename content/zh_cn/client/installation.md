@@ -23,14 +23,14 @@
 
 ## Windows
 
-1. 下载`VoiceCraft.Client.Windows.<Architecture>.zip`。
+1. 下载`VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`。
 2. 提取存档。
 3. 运行 `VoiceCraft.Client.Windows.exe`。
 4. 如果出现 Windows SmartScreen，请验证该文件是否来自官方发布页面，然后再继续。
 
 ## Linux
 
-1. 下载`VoiceCraft.Client.Linux.<Architecture>.zip`。
+1. 下载`VoiceCraft.Client.Linux.<Architecture>.v1.7.0.zip`。
 2. 提取存档。
 3. 授予权限并运行：
 
@@ -43,22 +43,13 @@ chmod +x ./VoiceCraft.Client.Linux
 
 ## macOS
 
-选择一个套餐：
+选择适合设备的 ZIP 包：
 
-- `VoiceCraft.Client.MacOS.arm64.dmg` / `.pkg` 适用于 Apple Silicon
-- `VoiceCraft.Client.MacOS.x64.dmg` / `.pkg` 适用于英特尔
+- `VoiceCraft.Client.MacOS.arm64.v1.7.0.zip` 适用于 Apple Silicon
+- `VoiceCraft.Client.MacOS.x64.v1.7.0.zip` 适用于 Intel
 
-### DMG
-
-1. 打开`.dmg`。
-2. 将 `VoiceCraft.app` 拖至 `Applications`。
-3. 启动应用程序。
-
-### 包装袋
-
-1. 打开`.pkg`。
-2. 完成安装程序。
-3. 从 `Applications` 启动 `VoiceCraft`。
+1. 解压缩归档。
+2. 启动 `VoiceCraft.app`。
 
 如果 macOS 阻止启动：
 
@@ -70,14 +61,14 @@ xattr -dr com.apple.quarantine /Applications/VoiceCraft.app
 
 ## 安卓
 
-1. 下载`VoiceCraft.Client.Android.<Architecture>.zip`。
+1. 下载`VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip`。
 2. 提取存档。
 3. 从存档中打开 `.apk` 并安装。
 4. 当 Android 询问时允许麦克风权限。
 
 ## iOS（AltStore/侧载）
 
-1. 下载`VoiceCraft.Client.iOS.arm64.ipa`。
+1. 下载`VoiceCraft.Client.iOS.arm64.v1.7.0.zip`。
 2. 通过 AltStore 或其他旁加载工具安装 IPA。
 3. 如果需要，请在 iOS 设置中允许该配置文件。
 4. 首次启动时允许麦克风权限。

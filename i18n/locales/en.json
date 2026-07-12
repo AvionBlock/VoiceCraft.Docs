@@ -93,7 +93,7 @@
       "ios": "iOS"
     },
     "androidNote": "Android 32-bit is no longer available. Use the arm64 Android build.",
-    "serverSourceNote": "If you need a platform that is not listed here, check the full releases page or build from source.",
+    "serverSourceNote": "VoiceCraft 1.7+ releases are published on GitLab. Older releases stay on GitHub; GitHub is a mirror only for current development.",
     "allReleases": "Open All Releases",
     "addonKicker": "Addon",
     "addonTitle": "VoiceCraft Addon",

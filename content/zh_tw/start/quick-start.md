@@ -24,12 +24,12 @@ VoiceCraft 可透過多種方式部署：
 
 1. 開啟 [下載頁面](/download)。
 2. 下載適合您平台的伺服器存檔：
-   - `VoiceCraft.Server.Windows.x64.zip`
-   - `VoiceCraft.Server.Windows.x86.zip`
-   - `VoiceCraft.Server.Windows.arm64.zip`
-   - `VoiceCraft.Server.Linux.x64.zip`
-   - `VoiceCraft.Server.Linux.arm.zip`
-   - `VoiceCraft.Server.Linux.arm64.zip`
+   - `VoiceCraft.Server.Windows.x64.v1.7.0.zip`
+   - `VoiceCraft.Server.Windows.x86.v1.7.0.zip`
+   - `VoiceCraft.Server.Windows.arm64.v1.7.0.zip`
+   - `VoiceCraft.Server.Linux.x64.v1.7.0.zip`
+   - `VoiceCraft.Server.Linux.arm.v1.7.0.zip`
+   - `VoiceCraft.Server.Linux.arm64.v1.7.0.zip`
 
 如果您從原始程式碼建置，請參閱 [VoiceCraft 儲存庫和建置](/ecosystem/voicecraft-repository)。
 
@@ -89,11 +89,11 @@ VoiceCraft 目前有 3 種面向 Minecraft 的傳輸：
 
 從 [下載頁面](/download) 下載適合玩家的軟體包：
 
-- Windows：`VoiceCraft.Client.Windows.<arch>.zip`
-- Linux：`VoiceCraft.Client.Linux.<arch>.zip`
-- macOS：`VoiceCraft.Client.MacOS.<arch>.dmg` 或 `.pkg`
-- Android：`VoiceCraft.Client.Android.arm64.zip`（APK 內）
-- iOS：`VoiceCraft.Client.iOS.arm64.ipa`
+- Windows：`VoiceCraft.Client.Windows.<arch>.v1.7.0.zip`
+- Linux：`VoiceCraft.Client.Linux.<arch>.v1.7.0.zip`
+- macOS：`VoiceCraft.Client.MacOS.<arch>.v1.7.0.zip`
+- Android：`VoiceCraft.Client.Android.arm64.v1.7.0.zip`（APK 內）
+- iOS：`VoiceCraft.Client.iOS.arm64.v1.7.0.zip`
 
 ## 6.在客戶端新增伺服器
 

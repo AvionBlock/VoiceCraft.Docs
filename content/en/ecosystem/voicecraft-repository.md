@@ -1,6 +1,8 @@
 # VoiceCraft (Repository and Build)
 
-Repository: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+Primary repository: [gitlab.avion.team/voicecraft/VoiceCraft](https://gitlab.avion.team/voicecraft/VoiceCraft)
+
+GitHub is a public mirror only: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
 
 The `VoiceCraft` repository contains the core runtime. It is where the client, server, shared protocol, network model, and release builds come from.
 
@@ -50,7 +52,7 @@ dotnet --info
 Use this when you want to validate the full solution or produce local binaries:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft
 
 dotnet restore

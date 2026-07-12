@@ -23,14 +23,14 @@ Verwenden Sie für Remote-Server die öffentliche oder LAN-Adresse des Computers
 
 ## Windows
 
-1. Laden Sie `VoiceCraft.Client.Windows.<Architecture>.zip` herunter.
+1. Laden Sie `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip` herunter.
 2. Extrahieren Sie das Archiv.
 3. Führen Sie `VoiceCraft.Client.Windows.exe` aus.
 4. Wenn Windows SmartScreen angezeigt wird, überprüfen Sie, ob die Datei von der offiziellen Veröffentlichungsseite stammt, bevor Sie fortfahren.
 
 ## Linux
 
-1. Laden Sie `VoiceCraft.Client.Linux.<Architecture>.zip` herunter.
+1. Laden Sie `VoiceCraft.Client.Linux.<Architecture>.v1.7.0.zip` herunter.
 2. Extrahieren Sie das Archiv.
 3. Erteilen Sie Berechtigungen und führen Sie Folgendes aus:
 
@@ -43,22 +43,13 @@ Wenn die App keine Audiogeräte sehen kann, überprüfen Sie die PulseAudio/Pipe
 
 ## macOS
 
-Wählen Sie ein Paket:
+Wählen Sie das passende ZIP-Paket:
 
-- `VoiceCraft.Client.MacOS.arm64.dmg` / `.pkg` für Apple Silicon
-- `VoiceCraft.Client.MacOS.x64.dmg` / `.pkg` für Intel
+- `VoiceCraft.Client.MacOS.arm64.v1.7.0.zip` für Apple Silicon
+- `VoiceCraft.Client.MacOS.x64.v1.7.0.zip` für Intel
 
-### DMG
-
-1. Öffnen Sie `.dmg`.
-2. Ziehen Sie `VoiceCraft.app` auf `Applications`.
-3. Starten Sie die App.
-
-### PKG
-
-1. Öffnen Sie `.pkg`.
-2. Schließen Sie das Installationsprogramm ab.
-3. Starten Sie `VoiceCraft` von `Applications`.
+1. Entpacken Sie das Archiv.
+2. Starten Sie `VoiceCraft.app`.
 
 Wenn macOS den Start blockiert:
 
@@ -70,14 +61,14 @@ Entfernen Sie die Quarantäne nur für Builds, die Sie absichtlich heruntergelad
 
 ## Android
 
-1. Laden Sie `VoiceCraft.Client.Android.<Architecture>.zip` herunter.
+1. Laden Sie `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip` herunter.
 2. Extrahieren Sie das Archiv.
 3. Öffnen Sie `.apk` aus dem Archiv und installieren Sie es.
 4. Erlauben Sie die Mikrofonberechtigung, wenn Android Sie dazu auffordert.
 
 ## iOS (AltStore / Sideload)
 
-1. Laden Sie `VoiceCraft.Client.iOS.arm64.ipa` herunter.
+1. Laden Sie `VoiceCraft.Client.iOS.arm64.v1.7.0.zip` herunter.
 2. Installieren Sie IPA über AltStore oder ein anderes Sideload-Tool.
 3. Erlauben Sie das Profil bei Bedarf in den iOS-Einstellungen.
 4. Erlauben Sie beim ersten Start die Mikrofonberechtigung.

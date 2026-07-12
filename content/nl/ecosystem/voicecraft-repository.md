@@ -1,6 +1,8 @@
 # VoiceCraft (repository en build)
 
-Opslagplaats: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+Primaire repository: [gitlab.avion.team/voicecraft/VoiceCraft](https://gitlab.avion.team/voicecraft/VoiceCraft)
+
+GitHub is alleen een publieke mirror: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
 
 De `VoiceCraft`-repository bevat de kernruntime. Het is waar de client, server, gedeeld protocol, netwerkmodel en release-builds vandaan komen.
 
@@ -50,7 +52,7 @@ dotnet --info
 Gebruik dit als u de volledige oplossing wilt valideren of lokale binaire bestanden wilt produceren:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft
 
 dotnet restore

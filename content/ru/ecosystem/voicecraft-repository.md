@@ -1,6 +1,8 @@
 # VoiceCraft (репозиторий и сборка)
 
-Репозиторий: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+Основной репозиторий: [gitlab.avion.team/voicecraft/VoiceCraft](https://gitlab.avion.team/voicecraft/VoiceCraft)
+
+GitHub — только публичное зеркало: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
 
 Репозиторий `VoiceCraft` содержит основную среду выполнения. Отсюда берутся клиент, сервер, общий протокол, сетевая модель и сборки выпуска.
 
@@ -50,7 +52,7 @@ dotnet --info
 Используйте это, если хотите проверить полное решение или создать локальные двоичные файлы:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft
 
 dotnet restore

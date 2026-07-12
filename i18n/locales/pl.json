@@ -93,7 +93,7 @@
       "ios": "iOS"
     },
     "androidNote": "Android 32-bitowy nie jest już dostępny. Użyj kompilacji Androida arm64.",
-    "serverSourceNote": "Jeśli potrzebujesz platformy, której nie ma na tej liście, sprawdź stronę z pełnymi wersjami lub skompiluj ją ze źródła.",
+  "serverSourceNote": "Wydania VoiceCraft 1.7+ są publikowane w GitLabie. Starsze wydania zostają na GitHubie; GitHub jest tylko mirrorem bieżącego rozwoju.",
     "allReleases": "Otwórz wszystkie wydania",
     "addonKicker": "Dodatek",
     "addonTitle": "Addon VoiceCraft",

@@ -32,15 +32,15 @@
 Страница выпуска обычно включает в себя:
 
 - Windows:
-  `VoiceCraft.Server.Windows.x64.zip`, `x86`, `arm64`
+  `VoiceCraft.Server.Windows.x64.v1.7.0.zip`, `x86`, `arm64`
 - Linux:
-  `VoiceCraft.Server.Linux.x64.zip`, `arm`, `arm64`
+  `VoiceCraft.Server.Linux.x64.v1.7.0.zip`, `arm`, `arm64`
 
 Скачать: [страница загрузки](/download)
 
 ## Windows
 
-1. Загрузите `VoiceCraft.Server.Windows.<arch>.zip`.
+1. Загрузите `VoiceCraft.Server.Windows.<arch>.v1.7.0.zip`.
 2. Распакуйте архив в отдельную папку.
 3. Запустите сервер из этой папки:
 
@@ -52,7 +52,7 @@
 
 ## Linux
 
-1. Загрузите `VoiceCraft.Server.Linux.<arch>.zip`.
+1. Загрузите `VoiceCraft.Server.Linux.<arch>.v1.7.0.zip`.
 2. Распакуйте архив в отдельную папку.
 3. Запустите сервер из этой папки:
 
@@ -105,7 +105,7 @@ chmod +x ./VoiceCraft.Server
 Не всегда может быть готовый выделенный артефакт, но сервер можно собрать из исходного кода:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft/VoiceCraft.Server
 dotnet restore
 dotnet publish -c Release -r osx-arm64 -p:PublishSingleFile=true
@@ -192,7 +192,7 @@ sudo systemctl status voicecraft
 Минимальный порядок:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft
 dotnet restore
 dotnet build -c Release
