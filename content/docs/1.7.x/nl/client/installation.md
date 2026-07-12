@@ -20,7 +20,7 @@ Lokaal:
 
 ## Windows
 
-Download `VoiceCraft.Client.Windows.<Architecture>.zip`, pak uit en start `.exe`.
+Download `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`, pak uit en start `.exe`.
 
 ## Linux
 
@@ -39,11 +39,11 @@ xattr -dr com.apple.quarantine /Applications/VoiceCraft.app
 
 ## Android
 
-Installeer de APK uit `VoiceCraft.Client.Android.<Architecture>.zip` en geef microfoonrechten. `1.7.0` gebruikt Android package version `17`.
+Installeer de APK uit `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip` en geef microfoonrechten. `1.7.0` gebruikt Android package version `17`.
 
 ## iOS
 
-Installeer `VoiceCraft.Client.iOS.arm64.ipa` via AltStore, TestFlight of een ondersteunde route. Geef microfoon- en local network-permissies.
+Installeer `VoiceCraft.Client.iOS.arm64.v1.7.0.zip` via AltStore, TestFlight of een ondersteunde route. Geef microfoon- en local network-permissies.
 
 `1.7.0` bevat een iOS sample-rate fix. Bundle ID: `team.avion.voicecraft`.
 

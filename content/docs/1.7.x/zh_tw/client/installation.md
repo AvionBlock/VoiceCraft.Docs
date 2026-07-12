@@ -20,7 +20,7 @@ VoiceCraft `1.7.0` 提供原生桌面和行動用戶端。Browser/web client 已
 
 ## Windows
 
-下載 `VoiceCraft.Client.Windows.<Architecture>.zip`，解壓縮並執行 `.exe`。
+下載 `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`，解壓縮並執行 `.exe`。
 
 ## Linux
 
@@ -39,11 +39,11 @@ xattr -dr com.apple.quarantine /Applications/VoiceCraft.app
 
 ## Android
 
-從 `VoiceCraft.Client.Android.<Architecture>.zip` 中安裝 APK，並允許麥克風權限。`1.7.0` 使用 Android package version `17`。
+從 `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip` 中安裝 APK，並允許麥克風權限。`1.7.0` 使用 Android package version `17`。
 
 ## iOS
 
-透過 AltStore、TestFlight 或支援的方式安裝 `VoiceCraft.Client.iOS.arm64.ipa`。允許麥克風和 local network 權限。
+透過 AltStore、TestFlight 或支援的方式安裝 `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`。允許麥克風和 local network 權限。
 
 `1.7.0` 包含 iOS sample-rate fix。Bundle ID：`team.avion.voicecraft`。
 

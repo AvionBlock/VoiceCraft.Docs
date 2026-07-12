@@ -40,7 +40,7 @@ Połączenie głosowe i połączenie transportowe Minecrafta są oddzielne. Jeś
 - Linux (`x64`, `arm32`, `arm64`)
 - macOS (`x64`, `arm64`)
 - Android (`arm64`)
-- iOS (`arm64`, `.ipa`)
+- iOS (`arm64`, `.zip`)
 
 ## Co sprawia, że VoiceCraft jest elastyczny
 

@@ -24,12 +24,12 @@ Wählen Sie für die erste Einrichtung eine Topologie aus und stellen Sie nur de
 
 1. Öffnen Sie die [Download-Seite](/download).
 2. Laden Sie das Serverarchiv für Ihre Plattform herunter:
-   - `VoiceCraft.Server.Windows.x64.zip`
-   - `VoiceCraft.Server.Windows.x86.zip`
-   - `VoiceCraft.Server.Windows.arm64.zip`
-   - `VoiceCraft.Server.Linux.x64.zip`
-   - `VoiceCraft.Server.Linux.arm.zip`
-   - `VoiceCraft.Server.Linux.arm64.zip`
+   - `VoiceCraft.Server.Windows.x64.v1.7.0.zip`
+   - `VoiceCraft.Server.Windows.x86.v1.7.0.zip`
+   - `VoiceCraft.Server.Windows.arm64.v1.7.0.zip`
+   - `VoiceCraft.Server.Linux.x64.v1.7.0.zip`
+   - `VoiceCraft.Server.Linux.arm.v1.7.0.zip`
+   - `VoiceCraft.Server.Linux.arm64.v1.7.0.zip`
 
 Wenn Sie aus dem Quellcode erstellen, lesen Sie [VoiceCraft-Repository und Build](/ecosystem/voicecraft-repository).
 
@@ -89,11 +89,11 @@ Stellen Sie sicher, dass der ausgewählte Transport aktiviert und an eine Adress
 
 Laden Sie von der [Download-Seite](/download) das Paket für Ihre Spieler herunter:
 
-- Windows: `VoiceCraft.Client.Windows.<arch>.zip`
-- Linux: `VoiceCraft.Client.Linux.<arch>.zip`
-- macOS: `VoiceCraft.Client.MacOS.<arch>.dmg` oder `.pkg`
-- Android: `VoiceCraft.Client.Android.arm64.zip` (APK enthalten)
-- iOS: `VoiceCraft.Client.iOS.arm64.ipa`
+- Windows: `VoiceCraft.Client.Windows.<arch>.v1.7.0.zip`
+- Linux: `VoiceCraft.Client.Linux.<arch>.v1.7.0.zip`
+- macOS: `VoiceCraft.Client.MacOS.<arch>.v1.7.0.zip`
+- Android: `VoiceCraft.Client.Android.arm64.v1.7.0.zip` (APK enthalten)
+- iOS: `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`
 
 ## 6. Fügen Sie den Server im Client hinzu
 

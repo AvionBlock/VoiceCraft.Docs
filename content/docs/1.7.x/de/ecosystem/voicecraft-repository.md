@@ -2,7 +2,7 @@
 
 Primäres Repository: [gitlab.avion.team/voicecraft/VoiceCraft](https://gitlab.avion.team/voicecraft/VoiceCraft)
 
-Public Mirror: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+Public mirror only: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
 
 Das Repository enthält Client, Server, Core, Network, Tests und Tools. Der Browser/Web-Client wurde in `1.7.0` entfernt.
 

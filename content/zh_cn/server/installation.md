@@ -32,15 +32,15 @@ VoiceCraft 服务器同时公开多个层：
 发布页面通常包括：
 
 - Windows：
-  `VoiceCraft.Server.Windows.x64.zip`、`x86`、`arm64`
+  `VoiceCraft.Server.Windows.x64.v1.7.0.zip`、`x86`、`arm64`
 - Linux：
-  `VoiceCraft.Server.Linux.x64.zip`、`arm`、`arm64`
+  `VoiceCraft.Server.Linux.x64.v1.7.0.zip`、`arm`、`arm64`
 
 下载：[下载页面](/download)
 
 ## Windows
 
-1. 下载 `VoiceCraft.Server.Windows.<arch>.zip`。
+1. 下载 `VoiceCraft.Server.Windows.<arch>.v1.7.0.zip`。
 2. 将存档解压到专用文件夹。
 3. 从该文件夹启动服务器：
 
@@ -52,7 +52,7 @@ VoiceCraft 服务器同时公开多个层：
 
 ## Linux
 
-1. 下载 `VoiceCraft.Server.Linux.<arch>.zip`。
+1. 下载 `VoiceCraft.Server.Linux.<arch>.v1.7.0.zip`。
 2. 将存档解压到专用文件夹。
 3. 从该文件夹启动服务器：
 
@@ -105,7 +105,7 @@ chmod +x ./VoiceCraft.Server
 可能并不总是有预先构建的专用工件，但可以从源代码构建服务器：
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft/VoiceCraft.Server
 dotnet restore
 dotnet publish -c Release -r osx-arm64 -p:PublishSingleFile=true
@@ -192,7 +192,7 @@ sudo systemctl status voicecraft
 最小流程：
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft
 dotnet restore
 dotnet build -c Release

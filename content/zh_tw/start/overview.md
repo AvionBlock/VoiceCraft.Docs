@@ -40,7 +40,7 @@ VoiceCraft 是適用於 Minecraft Bedrock 版和相關橋接場景的距離感�
 - Linux（`x64`、`arm32`、`arm64`）
 - macOS（`x64`、`arm64`）
 - Android (`arm64`)
-- iOS（`arm64`、`.ipa`）
+- iOS（`arm64`、`.zip`）
 
 ## 是什麼讓 VoiceCraft 變得靈活
 

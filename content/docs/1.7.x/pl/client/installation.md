@@ -20,7 +20,7 @@ Lokalnie:
 
 ## Windows
 
-Pobierz `VoiceCraft.Client.Windows.<Architecture>.zip`, rozpakuj i uruchom `.exe`.
+Pobierz `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`, rozpakuj i uruchom `.exe`.
 
 ## Linux
 
@@ -39,11 +39,11 @@ xattr -dr com.apple.quarantine /Applications/VoiceCraft.app
 
 ## Android
 
-Zainstaluj APK z `VoiceCraft.Client.Android.<Architecture>.zip` i pozwól na mikrofon. `1.7.0` używa Android package version `17`.
+Zainstaluj APK z `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip` i pozwól na mikrofon. `1.7.0` używa Android package version `17`.
 
 ## iOS
 
-Zainstaluj `VoiceCraft.Client.iOS.arm64.ipa` przez AltStore, TestFlight albo wspieraną metodę. Pozwól na mikrofon i local network.
+Zainstaluj `VoiceCraft.Client.iOS.arm64.v1.7.0.zip` przez AltStore, TestFlight albo wspieraną metodę. Pozwól na mikrofon i local network.
 
 `1.7.0` zawiera fix iOS sample-rate. Bundle ID: `team.avion.voicecraft`.
 

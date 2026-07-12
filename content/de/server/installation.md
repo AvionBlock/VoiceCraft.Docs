@@ -32,15 +32,15 @@ Sie können alle aktiviert lassen oder Transporte zur Laufzeit auswählen.
 Die Veröffentlichungsseite enthält normalerweise Folgendes:
 
 - Windows:
-  `VoiceCraft.Server.Windows.x64.zip`, `x86`, `arm64`
+  `VoiceCraft.Server.Windows.x64.v1.7.0.zip`, `x86`, `arm64`
 - Linux:
-  `VoiceCraft.Server.Linux.x64.zip`, `arm`, `arm64`
+  `VoiceCraft.Server.Linux.x64.v1.7.0.zip`, `arm`, `arm64`
 
 Herunterladen: [Download-Seite](/download)
 
 ## Windows
 
-1. Laden Sie `VoiceCraft.Server.Windows.<arch>.zip` herunter.
+1. Laden Sie `VoiceCraft.Server.Windows.<arch>.v1.7.0.zip` herunter.
 2. Extrahieren Sie das Archiv in einen speziellen Ordner.
 3. Starten Sie den Server aus diesem Ordner:
 
@@ -52,7 +52,7 @@ Der erste Lauf erstellt `config/ServerProperties.json`. Bewahren Sie diese Datei
 
 ## Linux
 
-1. Laden Sie `VoiceCraft.Server.Linux.<arch>.zip` herunter.
+1. Laden Sie `VoiceCraft.Server.Linux.<arch>.v1.7.0.zip` herunter.
 2. Extrahieren Sie das Archiv in einen speziellen Ordner.
 3. Starten Sie den Server aus diesem Ordner:
 
@@ -105,7 +105,7 @@ Der Server gilt erst dann als vollständig eingerichtet, wenn der Client eine Ve
 Möglicherweise gibt es nicht immer ein vorgefertigtes dediziertes Artefakt, aber der Server kann aus dem Quellcode erstellt werden:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft/VoiceCraft.Server
 dotnet restore
 dotnet publish -c Release -r osx-arm64 -p:PublishSingleFile=true
@@ -192,7 +192,7 @@ SDK- und Projektdetails finden Sie unter [VoiceCraft-Repository und Build](/ecos
 Minimaler Durchfluss:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft
 dotnet restore
 dotnet build -c Release

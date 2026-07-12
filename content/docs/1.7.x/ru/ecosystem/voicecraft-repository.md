@@ -2,7 +2,7 @@
 
 Primary repository: [gitlab.avion.team/voicecraft/VoiceCraft](https://gitlab.avion.team/voicecraft/VoiceCraft)
 
-Public mirror: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+Public mirror only: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
 
 Репозиторий `VoiceCraft` содержит core runtime: client, server, shared protocol, network model и release builds.
 

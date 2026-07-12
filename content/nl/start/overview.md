@@ -40,7 +40,7 @@ De spraakverbinding en de Minecraft-transportverbinding zijn gescheiden. Als sle
 - Linux (`x64`, `arm32`, `arm64`)
 - macOS (`x64`, `arm64`)
 - Android (`arm64`)
-- iOS (`arm64`, `.ipa`)
+- iOS (`arm64`, `.zip`)
 
 ## Wat VoiceCraft flexibel maakt
 

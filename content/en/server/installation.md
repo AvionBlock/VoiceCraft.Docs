@@ -32,15 +32,15 @@ You can leave all of them enabled, or select transports at runtime.
 The release page usually includes:
 
 - Windows:
-  `VoiceCraft.Server.Windows.x64.zip`, `x86`, `arm64`
+  `VoiceCraft.Server.Windows.x64.v1.7.0.zip`, `x86`, `arm64`
 - Linux:
-  `VoiceCraft.Server.Linux.x64.zip`, `arm`, `arm64`
+  `VoiceCraft.Server.Linux.x64.v1.7.0.zip`, `arm`, `arm64`
 
 Download: [Download Page](/download)
 
 ## Windows
 
-1. Download `VoiceCraft.Server.Windows.<arch>.zip`.
+1. Download `VoiceCraft.Server.Windows.<arch>.v1.7.0.zip`.
 2. Extract the archive to a dedicated folder.
 3. Start the server from that folder:
 
@@ -52,7 +52,7 @@ The first run creates `config/ServerProperties.json`. Keep this file with the se
 
 ## Linux
 
-1. Download `VoiceCraft.Server.Linux.<arch>.zip`.
+1. Download `VoiceCraft.Server.Linux.<arch>.v1.7.0.zip`.
 2. Extract the archive to a dedicated folder.
 3. Start the server from that folder:
 
@@ -105,7 +105,7 @@ The server is not considered fully set up until the client connects and the Mine
 There may not always be a prebuilt dedicated artifact, but the server can be built from source:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft/VoiceCraft.Server
 dotnet restore
 dotnet publish -c Release -r osx-arm64 -p:PublishSingleFile=true
@@ -192,7 +192,7 @@ See [VoiceCraft repository and build](/ecosystem/voicecraft-repository) for SDK 
 Minimal flow:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft
 dotnet restore
 dotnet build -c Release

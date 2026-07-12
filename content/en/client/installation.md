@@ -23,14 +23,14 @@ For remote servers, use the public or LAN address of the machine running `VoiceC
 
 ## Windows
 
-1. Download `VoiceCraft.Client.Windows.<Architecture>.zip`.
+1. Download `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`.
 2. Extract the archive.
 3. Run `VoiceCraft.Client.Windows.exe`.
 4. If Windows SmartScreen appears, verify that the file came from the official release page before continuing.
 
 ## Linux
 
-1. Download `VoiceCraft.Client.Linux.<Architecture>.zip`.
+1. Download `VoiceCraft.Client.Linux.<Architecture>.v1.7.0.zip`.
 2. Extract the archive.
 3. Grant permissions and run:
 
@@ -43,22 +43,13 @@ If the app cannot see audio devices, check PulseAudio/PipeWire permissions and w
 
 ## macOS
 
-Choose one package:
+Choose the ZIP package that matches your device:
 
-- `VoiceCraft.Client.MacOS.arm64.dmg` / `.pkg` for Apple Silicon
-- `VoiceCraft.Client.MacOS.x64.dmg` / `.pkg` for Intel
+- `VoiceCraft.Client.MacOS.arm64.v1.7.0.zip` for Apple Silicon
+- `VoiceCraft.Client.MacOS.x64.v1.7.0.zip` for Intel
 
-### DMG
-
-1. Open `.dmg`.
-2. Drag `VoiceCraft.app` to `Applications`.
-3. Launch the app.
-
-### PKG
-
-1. Open `.pkg`.
-2. Complete the installer.
-3. Launch `VoiceCraft` from `Applications`.
+1. Extract the archive.
+2. Launch `VoiceCraft.app`.
 
 If macOS blocks startup:
 
@@ -70,14 +61,14 @@ Only remove quarantine for builds you intentionally downloaded and trust.
 
 ## Android
 
-1. Download `VoiceCraft.Client.Android.<Architecture>.zip`.
+1. Download `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip`.
 2. Extract the archive.
 3. Open the `.apk` from the archive and install.
 4. Allow microphone permission when Android asks.
 
 ## iOS (AltStore / sideload)
 
-1. Download `VoiceCraft.Client.iOS.arm64.ipa`.
+1. Download `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`.
 2. Install IPA via AltStore or another sideload tool.
 3. If needed, allow the profile in iOS settings.
 4. Allow microphone permission on first launch.

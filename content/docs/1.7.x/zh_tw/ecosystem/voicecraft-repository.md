@@ -2,7 +2,7 @@
 
 Primary repository：[gitlab.avion.team/voicecraft/VoiceCraft](https://gitlab.avion.team/voicecraft/VoiceCraft)
 
-Public mirror：[AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+Public mirror only：[AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
 
 倉庫包含 client、server、core、network、tests 和 tools。Browser/web client 在 `1.7.0` 中移除。
 

@@ -20,7 +20,7 @@ Lokaler Test:
 
 ## Windows
 
-1. `VoiceCraft.Client.Windows.<Architecture>.zip` herunterladen.
+1. `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip` herunterladen.
 2. Entpacken.
 3. `VoiceCraft.Client.Windows.exe` starten.
 
@@ -45,11 +45,11 @@ Nur für vertrauenswürdige Builds verwenden.
 
 ## Android
 
-APK aus `VoiceCraft.Client.Android.<Architecture>.zip` installieren und Mikrofonrechte erlauben. `1.7.0` nutzt Android Package Version `17`.
+APK aus `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip` installieren und Mikrofonrechte erlauben. `1.7.0` nutzt Android Package Version `17`.
 
 ## iOS
 
-`VoiceCraft.Client.iOS.arm64.ipa` über AltStore, TestFlight oder einen unterstützten Weg installieren. Mikrofon- und lokale Netzwerkrechte erlauben.
+`VoiceCraft.Client.iOS.arm64.v1.7.0.zip` über AltStore, TestFlight oder einen unterstützten Weg installieren. Mikrofon- und lokale Netzwerkrechte erlauben.
 
 `1.7.0` enthält einen Fix für iOS Sample-Rate-Konvertierung. Die Bundle ID lautet `team.avion.voicecraft`.
 

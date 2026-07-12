@@ -26,14 +26,14 @@ VoiceCraft `1.7.0` поставляет native desktop и mobile clients. Browse
 
 ## Windows
 
-1. Скачайте `VoiceCraft.Client.Windows.<Architecture>.zip`.
+1. Скачайте `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`.
 2. Распакуйте архив.
 3. Запустите `VoiceCraft.Client.Windows.exe`.
 4. Если Windows SmartScreen предупреждает, проверьте, что файл скачан с official release page.
 
 ## Linux
 
-1. Скачайте `VoiceCraft.Client.Linux.<Architecture>.zip`.
+1. Скачайте `VoiceCraft.Client.Linux.<Architecture>.v1.7.0.zip`.
 2. Распакуйте архив.
 3. Дайте права и запустите:
 
@@ -61,7 +61,7 @@ xattr -dr com.apple.quarantine /Applications/VoiceCraft.app
 
 ## Android
 
-1. Скачайте `VoiceCraft.Client.Android.<Architecture>.zip`.
+1. Скачайте `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip`.
 2. Распакуйте архив.
 3. Откройте `.apk` и установите.
 4. Разрешите microphone permission.
@@ -70,7 +70,7 @@ VoiceCraft `1.7.0` использует Android package version `17`.
 
 ## iOS
 
-1. Скачайте `VoiceCraft.Client.iOS.arm64.ipa`.
+1. Скачайте `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`.
 2. Установите IPA через AltStore, TestFlight или другой поддерживаемый путь.
 3. При необходимости разрешите profile в iOS settings.
 4. Разрешите microphone и local network permissions.

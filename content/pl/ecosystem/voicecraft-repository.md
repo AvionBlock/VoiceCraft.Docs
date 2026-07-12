@@ -1,6 +1,8 @@
 # VoiceCraft (repozytorium i kompilacja)
 
-Repozytorium: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+Główne repozytorium: [gitlab.avion.team/voicecraft/VoiceCraft](https://gitlab.avion.team/voicecraft/VoiceCraft)
+
+GitHub jest tylko publicznym mirrorem: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
 
 Repozytorium `VoiceCraft` zawiera podstawowe środowisko wykonawcze. To stamtąd pochodzą klient, serwer, wspólny protokół, model sieci i kompilacje wydań.
 
@@ -50,7 +52,7 @@ dotnet --info
 Użyj tego, jeśli chcesz sprawdzić pełne rozwiązanie lub utworzyć lokalne pliki binarne:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft
 
 dotnet restore

@@ -1,6 +1,8 @@
 # VoiceCraft（存储库和构建）
 
-存储库：[AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+主仓库：[gitlab.avion.team/voicecraft/VoiceCraft](https://gitlab.avion.team/voicecraft/VoiceCraft)
+
+GitHub 仅作为公开镜像：[AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
 
 `VoiceCraft` 存储库包含核心运行时。这是客户端、服务器、共享协议、网络模型和发布版本的来源。
 
@@ -50,7 +52,7 @@ dotnet --info
 当您想要验证完整的解决方案或生成本地二进制文件时，请使用此选项：
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft
 
 dotnet restore

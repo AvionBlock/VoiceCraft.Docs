@@ -32,15 +32,15 @@ U kunt ze allemaal ingeschakeld laten of transporten tijdens runtime selecteren.
 De releasepagina bevat meestal:
 
 - Windows:
-  `VoiceCraft.Server.Windows.x64.zip`, `x86`, `arm64`
+  `VoiceCraft.Server.Windows.x64.v1.7.0.zip`, `x86`, `arm64`
 - Linux:
-  `VoiceCraft.Server.Linux.x64.zip`, `arm`, `arm64`
+  `VoiceCraft.Server.Linux.x64.v1.7.0.zip`, `arm`, `arm64`
 
 Downloaden: [downloadpagina](/download)
 
 ## Windows
 
-1. Download `VoiceCraft.Server.Windows.<arch>.zip`.
+1. Download `VoiceCraft.Server.Windows.<arch>.v1.7.0.zip`.
 2. Pak het archief uit naar een speciale map.
 3. Start de server vanuit die map:
 
@@ -52,7 +52,7 @@ Bij de eerste run wordt `config/ServerProperties.json` gemaakt. Bewaar dit besta
 
 ## Linux
 
-1. Download `VoiceCraft.Server.Linux.<arch>.zip`.
+1. Download `VoiceCraft.Server.Linux.<arch>.v1.7.0.zip`.
 2. Pak het archief uit naar een speciale map.
 3. Start de server vanuit die map:
 
@@ -105,7 +105,7 @@ De server wordt pas als volledig ingesteld beschouwd als de client verbinding ma
 Er is misschien niet altijd een vooraf gebouwd speciaal artefact, maar de server kan vanaf de bron worden gebouwd:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft/VoiceCraft.Server
 dotnet restore
 dotnet publish -c Release -r osx-arm64 -p:PublishSingleFile=true
@@ -192,7 +192,7 @@ Zie [VoiceCraft-repository en build](/ecosystem/voicecraft-repository) voor SDK-
 Minimale stroom:
 
 ```bash
-git clone https://github.com/AvionBlock/VoiceCraft.git
+git clone https://gitlab.avion.team/voicecraft/VoiceCraft.git
 cd VoiceCraft
 dotnet restore
 dotnet build -c Release

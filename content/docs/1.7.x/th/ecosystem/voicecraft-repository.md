@@ -1,8 +1,10 @@
 # VoiceCraft Repository ใน 1.7
 
-Repository หลักมี client, server, core, network, tests และ tools
+Repository หลัก: [gitlab.avion.team/voicecraft/VoiceCraft](https://gitlab.avion.team/voicecraft/VoiceCraft)
 
-Public mirror: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+GitHub เป็น public mirror เท่านั้น: [AvionBlock/VoiceCraft](https://github.com/AvionBlock/VoiceCraft)
+
+Repository หลักมี client, server, core, network, tests และ tools
 
 ## สิ่งที่เปลี่ยน
 

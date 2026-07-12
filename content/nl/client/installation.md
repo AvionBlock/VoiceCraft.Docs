@@ -23,14 +23,14 @@ Voor externe servers gebruikt u het openbare adres of het LAN-adres van de machi
 
 ## Windows
 
-1. Download `VoiceCraft.Client.Windows.<Architecture>.zip`.
+1. Download `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`.
 2. Pak het archief uit.
 3. Voer `VoiceCraft.Client.Windows.exe` uit.
 4. Als Windows SmartScreen verschijnt, controleer dan of het bestand afkomstig is van de officiële releasepagina voordat u doorgaat.
 
 ## Linux
 
-1. Download `VoiceCraft.Client.Linux.<Architecture>.zip`.
+1. Download `VoiceCraft.Client.Linux.<Architecture>.v1.7.0.zip`.
 2. Pak het archief uit.
 3. Verleen machtigingen en voer uit:
 
@@ -43,22 +43,13 @@ Als de app geen audioapparaten kan zien, controleer dan de PulseAudio/PipeWire-m
 
 ## macOS
 
-Kies één pakket:
+Kies het ZIP-pakket dat bij uw apparaat past:
 
-- `VoiceCraft.Client.MacOS.arm64.dmg` / `.pkg` voor Apple Silicon
-- `VoiceCraft.Client.MacOS.x64.dmg` / `.pkg` voor Intel
+- `VoiceCraft.Client.MacOS.arm64.v1.7.0.zip` voor Apple Silicon
+- `VoiceCraft.Client.MacOS.x64.v1.7.0.zip` voor Intel
 
-### DMG
-
-1. Open `.dmg`.
-2. Sleep `VoiceCraft.app` naar `Applications`.
-3. Start de app.
-
-### PKG
-
-1. Open `.pkg`.
-2. Voltooi het installatieprogramma.
-3. Start `VoiceCraft` vanuit `Applications`.
+1. Pak het archief uit.
+2. Start `VoiceCraft.app`.
 
 Als macOS het opstarten blokkeert:
 
@@ -70,14 +61,14 @@ Verwijder alleen de quarantaine voor builds die u opzettelijk hebt gedownload en
 
 ## Android
 
-1. Download `VoiceCraft.Client.Android.<Architecture>.zip`.
+1. Download `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip`.
 2. Pak het archief uit.
 3. Open de `.apk` uit het archief en installeer.
 4. Sta microfoontoestemming toe wanneer Android daarom vraagt.
 
 ## iOS (AltStore / sideload)
 
-1. Download `VoiceCraft.Client.iOS.arm64.ipa`.
+1. Download `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`.
 2. Installeer IPA via AltStore of een andere sideload-tool.
 3. Sta indien nodig het profiel toe in de iOS-instellingen.
 4. Sta microfoontoestemming toe bij de eerste keer opstarten.
