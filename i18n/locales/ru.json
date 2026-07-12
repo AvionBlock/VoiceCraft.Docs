@@ -58,7 +58,6 @@
       "upgradeRunbook": "Порядок обновления",
       "troubleshootingMatrix": "Матрица диагностики",
       "voiceCraftRepository": "Репозиторий VoiceCraft",
-      "geyserVoice": "GeyserVoice",
       "voiceCraftAddon": "VoiceCraft.Addon",
       "integrationRecipes": "Рецепты интеграции",
       "directPaper": "Direct Paper",
@@ -69,7 +68,8 @@
       "packetFlow": "Поток пакетов",
       "authenticationTrust": "Аутентификация и доверие",
       "positioningModel": "Модель позиционирования",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "voiceCraftJava": "VoiceCraft.Java"
     }
   },
   "download": {

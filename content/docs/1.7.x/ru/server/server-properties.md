@@ -139,7 +139,7 @@
 
 ## McTcpConfig
 
-Используется Java-side bridges, особенно `GeyserVoice`.
+Используется Java-side bridges, особенно `VoiceCraft.Java`.
 
 Отличия:
 
@@ -199,7 +199,7 @@ Default matrix:
 - `McHttpConfig.Enabled = false` или optional
 - держите `McWssConfig.Hostname` loopback-bound, если remote access не нужен
 
-### GeyserVoice / Java bridge
+### VoiceCraft.Java / Java bridge
 
 - `McTcpConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` или optional

@@ -22,7 +22,7 @@ Client und Server sollten dieselbe `Major.Minor`-Version verwenden. Nutzen Sie `
 - `config/ServerProperties.json`
 - eigene Startskripte, systemd Units, Container- oder Panel-Konfiguration
 - Log-Historie, falls benötigt
-- GeyserVoice- oder Java-Bridge-Konfiguration
+- VoiceCraft.Java- oder Java-Bridge-Konfiguration
 - Bedrock World-Pack-Konfiguration
 - Notizen zu Hostnamen, Ports, Firewall und Portweiterleitung
 

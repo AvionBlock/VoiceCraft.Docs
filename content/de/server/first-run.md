@@ -28,7 +28,7 @@ Hinweise:
 
 - UDP-Sprachverkehr und einige Transportstandards teilen sich `9050`
 - `McWss` wird standardmäßig durch `9051` getrennt.
-- `McTcp` ist besonders relevant für `GeyserVoice`
+- `McTcp` ist besonders relevant für `VoiceCraft.Java`
 
 ## Linearer Ablauf für den ersten Start
 
@@ -50,7 +50,7 @@ Bevor ein Add-on, Plugin oder Spieler-Client eine Verbindung herstellt, ersetzen
 - `McWssConfig.LoginToken`
 - `McTcpConfig.LoginToken`
 
-Verwenden Sie den Token des Transports, den Sie später tatsächlich verbinden. Beispielsweise muss ein BDS-Befehl `vcconnect` `McHttpConfig.LoginToken` verwenden, während GeyserVoice `McTcpConfig.LoginToken` verwenden muss.
+Verwenden Sie den Token des Transports, den Sie später tatsächlich verbinden. Beispielsweise muss ein BDS-Befehl `vcconnect` `McHttpConfig.LoginToken` verwenden, während VoiceCraft.Java `McTcpConfig.LoginToken` verwenden muss.
 
 ### 3. Wählen Sie einen primären Minecraft-Transport
 
@@ -60,7 +60,7 @@ Entscheiden Sie anhand der Topologie, was aktiviert werden soll:
 |-------|--------|---------------|
 | Dedizierter Bedrock-Server | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
 | Lokale Bedrock-Welt | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
-| Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+| Java + Geyser/Floodgate | `McTcpConfig` | [VoiceCraft.Java](/ecosystem/voicecraft-java) |
 
 Sie können mehrere Transporte ausführen, aber ein erstes Setup ist einfacher zu debuggen, wenn nur der erforderliche verfügbar gemacht wird.
 
@@ -105,7 +105,7 @@ Fahren Sie mit der Anleitung fort, die dem von Ihnen aktivierten Transport entsp
 
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 Wenn Sie zur Eingabe eines Tokens aufgefordert werden, verwenden Sie das passende Transporttoken aus `ServerProperties.json`.
 
@@ -187,7 +187,7 @@ Sie gelten nur für den aktuellen Prozess und sind nützlich, wenn:
 - Ausführen mehrerer Umgebungen von einem Image aus
 - Verwenden von Panels oder Systemd-Drop-Ins
 - Testen direkter vs. Proxy-Topologien
-- Lassen Sie ein anderes Tool wie `GeyserVoice` die Laufzeit mit generierten Werten starten
+- Lassen Sie ein anderes Tool wie `VoiceCraft.Java` die Laufzeit mit generierten Werten starten
 
 ## Checkliste für den ersten Durchgang
 
@@ -197,7 +197,7 @@ Sie gelten nur für den aktuellen Prozess und sind nützlich, wenn:
 4. Bestätigen Sie, welchen Transport Sie tatsächlich benötigen:
    - `McHttp` für BDS
    - `McWss` für lokale Welten
-   - `McTcp` für `GeyserVoice`
+   - `McTcp` für `VoiceCraft.Java`
 5. Überprüfen Sie die Hostbindungen.
 6. Öffnen Sie nur die Ports, die Sie benötigen.
 7. Starten Sie den Server aus demselben Installationsordner neu.

@@ -33,16 +33,16 @@ players -> VoiceCraft UDP endpoint
 
 - `VoiceCraft.Server`
 - `McTcp`
-- `GeyserVoice` Direct Paper 模式
+- `VoiceCraft.Java` Direct Paper 模式
 
 可选：
 
-- 如果您更喜欢单个 Java 端安装流程，请让 GeyserVoice 管理 VoiceCraft 运行时
+- 如果您更喜欢单个 Java 端安装流程，请让 VoiceCraft.Java 管理 VoiceCraft 运行时
 
 推荐形状：
 
 ```text
-Paper/Folia + GeyserVoice -> McTcp -> VoiceCraft.Server
+Paper/Folia + VoiceCraft.Java -> McTcp -> VoiceCraft.Server
 players -> VoiceCraft UDP endpoint
 ```
 
@@ -54,8 +54,8 @@ players -> VoiceCraft UDP endpoint
 
 - 外部 `VoiceCraft.Server`
 - `McTcp`
-- 代理上的 `GeyserVoice`
-- 后端节点上的 `GeyserVoice`
+- 代理上的 `VoiceCraft.Java`
+- 后端节点上的 `VoiceCraft.Java`
 
 为什么：
 
@@ -66,7 +66,7 @@ players -> VoiceCraft UDP endpoint
 推荐形状：
 
 ```text
-backend Paper nodes -> proxy relay -> proxy GeyserVoice -> McTcp -> VoiceCraft.Server
+backend Paper nodes -> proxy relay -> proxy VoiceCraft.Java -> McTcp -> VoiceCraft.Server
 players -> VoiceCraft UDP endpoint
 ```
 

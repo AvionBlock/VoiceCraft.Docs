@@ -7,7 +7,7 @@ Gebruik deze pagina voor routinematige updates waarbij u verwacht dat de topolog
 - `config/ServerProperties.json`
 - aangepaste scripts/systemd of servicemanager-wrapper
 - log indien nodig de geschiedenis in
-- GeyserVoice `config.yml` als Java-integratie wordt gebruikt
+- VoiceCraft.Java `config.yml` als Java-integratie wordt gebruikt
 - Configuratie van het Bedrock World Pack als de add-on wordt gebruikt
 - opmerkingen voor openbare/LAN-hostnamen en open poorten
 
@@ -44,7 +44,7 @@ Vraag nog steeds een kleine testgroep om te verifiëren:
 - Client- en server-`Major/Minor`-versies moeten overeenkomen.
 - Patchversies kunnen verschillen.
 - Bedrock add-on-pakketten moeten overeenkomen met de server/client-release als de release-opmerkingen het gedrag aan de add-on vermelden.
-- GeyserVoice moet worden bijgewerkt met de bijbehorende configuratieverwachtingen bij gebruik van Java-side bridges.
+- VoiceCraft.Java moet worden bijgewerkt met de bijbehorende configuratieverwachtingen bij gebruik van Java-side bridges.
 
 Als er problemen optreden na een update, begin dan met [Troubleshooting](/operations/troubleshooting).
 

@@ -12,13 +12,13 @@ VoiceCraft использует общие токены на транспорт�
 
 - Аддон Bedrock аутентифицируется с помощью `McHttpConfig.LoginToken`
 - Мир `McWss` аутентифицируется с помощью `McWssConfig.LoginToken`
-- `GeyserVoice` проходит аутентификацию с помощью `McTcpConfig.LoginToken`
+- `VoiceCraft.Java` проходит аутентификацию с помощью `McTcpConfig.LoginToken`
 
 | Транспорт | Клиент | Поле токена |
 |-----------|----------|-------------|
 | `McHttp` | Пакет аддона BDS | `McHttpConfig.LoginToken` |
 | `McWss` | локальный аддон мира Bedrock | `McWssConfig.LoginToken` |
-| `McTcp` | `GeyserVoice` или мост на стороне Java | `McTcpConfig.LoginToken` |
+| `McTcp` | `VoiceCraft.Java` или мост на стороне Java | `McTcpConfig.LoginToken` |
 
 ## Границы доверия
 

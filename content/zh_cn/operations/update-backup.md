@@ -7,7 +7,7 @@
 - `config/ServerProperties.json`
 - 自定义脚本/systemd 或服务管理器包装器
 - 如果需要的话记录历史记录
-- GeyserVoice `config.yml` 如果使用 Java 端集成
+- VoiceCraft.Java `config.yml` 如果使用 Java 端集成
 - 如果使用插件，则Bedrock 世界包配置
 - 公共/LAN 主机名和开放端口的注释
 
@@ -44,7 +44,7 @@ VoiceCraft `v1.6.1` 需要在更新客户端/服务器二进制文件的同时�
 - 客户端和服务器 `Major/Minor` 版本应匹配。
 - 补丁版本可能有所不同。
 - 当发行说明提到插件端行为时，Bedrock插件包应与服务器/客户端版本匹配。
-- 使用 Java 端桥时，应使用其匹配的配置期望来更新 GeyserVoice。
+- 使用 Java 端桥时，应使用其匹配的配置期望来更新 VoiceCraft.Java。
 
 如果更新后出现问题，请从 [Troubleshooting](/operations/troubleshooting) 开始。
 

@@ -33,16 +33,16 @@ Verwendung:
 
 - `VoiceCraft.Server`
 - `McTcp`
-- `GeyserVoice` direkter Paper-Modus
+- `VoiceCraft.Java` direkter Paper-Modus
 
 Optional:
 
-- Lassen Sie GeyserVoice die VoiceCraft-Laufzeit verwalten, wenn Sie einen einzelnen Java-seitigen Installationsablauf bevorzugen
+- Lassen Sie VoiceCraft.Java die VoiceCraft-Laufzeit verwalten, wenn Sie einen einzelnen Java-seitigen Installationsablauf bevorzugen
 
 Empfohlene Form:
 
 ```text
-Paper/Folia + GeyserVoice -> McTcp -> VoiceCraft.Server
+Paper/Folia + VoiceCraft.Java -> McTcp -> VoiceCraft.Server
 players -> VoiceCraft UDP endpoint
 ```
 
@@ -54,8 +54,8 @@ Verwendung:
 
 - extern `VoiceCraft.Server`
 - `McTcp`
-- `GeyserVoice` auf Proxy
-- `GeyserVoice` auf Backend-Knoten
+- `VoiceCraft.Java` auf Proxy
+- `VoiceCraft.Java` auf Backend-Knoten
 
 Warum:
 
@@ -66,7 +66,7 @@ Warum:
 Empfohlene Form:
 
 ```text
-backend Paper nodes -> proxy relay -> proxy GeyserVoice -> McTcp -> VoiceCraft.Server
+backend Paper nodes -> proxy relay -> proxy VoiceCraft.Java -> McTcp -> VoiceCraft.Server
 players -> VoiceCraft UDP endpoint
 ```
 

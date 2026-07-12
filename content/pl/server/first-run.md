@@ -28,7 +28,7 @@ Uwagi:
 
 - Ruch głosowy UDP i niektóre domyślne ustawienia transportu są wspólne `9050`
 - `McWss` jest domyślnie oddzielony w `9051`
-- `McTcp` jest szczególnie istotny dla `GeyserVoice`
+- `McTcp` jest szczególnie istotny dla `VoiceCraft.Java`
 
 ## Liniowa ścieżka pierwszego uruchomienia
 
@@ -50,7 +50,7 @@ Zanim połączy się jakikolwiek dodatek, wtyczka lub klient gracza, zamień:
 - `McWssConfig.LoginToken`
 - `McTcpConfig.LoginToken`
 
-Użyj tokenu transportu, który faktycznie podłączysz później. Na przykład polecenie BDS `vcconnect` musi używać `McHttpConfig.LoginToken`, podczas gdy GeyserVoice musi używać `McTcpConfig.LoginToken`.
+Użyj tokenu transportu, który faktycznie podłączysz później. Na przykład polecenie BDS `vcconnect` musi używać `McHttpConfig.LoginToken`, podczas gdy VoiceCraft.Java musi używać `McTcpConfig.LoginToken`.
 
 ### 3. Wybierz jeden podstawowy transport Minecraft
 
@@ -60,7 +60,7 @@ Użyj topologii, aby zdecydować, co powinno być włączone:
 |-------|--------|---------------|
 | Serwer dedykowany Bedrock | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
 | Lokalny świat Bedrock | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
-| Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+| Java + Geyser/Floodgate | `McTcpConfig` | [VoiceCraft.Java](/ecosystem/voicecraft-java) |
 
 Możesz uruchomić wiele transportów, ale pierwszą konfigurację łatwiej debugować, gdy udostępniony jest tylko wymagany transport.
 
@@ -105,7 +105,7 @@ Kontynuuj korzystanie z przewodnika odpowiadającego włączonemu transportowi:
 
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 Po wyświetleniu monitu o token użyj pasującego tokenu transportowego z `ServerProperties.json`.
 
@@ -187,7 +187,7 @@ Dotyczą tylko bieżącego procesu i są przydatne, gdy:
 - uruchamianie wielu środowisk z jednego obrazu
 - za pomocą paneli lub drop-inów systemowych
 - testowanie topologii bezpośrednich i proxy
-- zezwolenie innemu narzędziu, takiemu jak `GeyserVoice` na uruchomienie środowiska wykonawczego z wygenerowanymi wartościami
+- zezwolenie innemu narzędziu, takiemu jak `VoiceCraft.Java` na uruchomienie środowiska wykonawczego z wygenerowanymi wartościami
 
 ## Lista kontrolna pierwszego uruchomienia
 
@@ -197,7 +197,7 @@ Dotyczą tylko bieżącego procesu i są przydatne, gdy:
 4. Potwierdź, jakiego transportu faktycznie potrzebujesz:
    - `McHttp` dla BDS
    - `McWss` dla światów lokalnych
-   - `McTcp` dla `GeyserVoice`
+   - `McTcp` dla `VoiceCraft.Java`
 5. Sprawdź powiązania hosta.
 6. Otwórz tylko te porty, których potrzebujesz.
 7. Uruchom ponownie serwer z tego samego folderu instalacyjnego.

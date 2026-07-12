@@ -20,7 +20,7 @@ VoiceCraft 是适用于 Minecraft Bedrock 版和相关桥接场景的距离感�
 生态系统集成将 Minecraft 连接到这些传输：
 
 - `VoiceCraft.Addon`，适用于 Bedrock 世界和 BDS
-- `GeyserVoice`，用于 Java / Geyser / 代理堆栈
+- `VoiceCraft.Java`，用于 Java / Geyser / 代理堆栈
 
 ## 它是如何运作的
 
@@ -29,7 +29,7 @@ VoiceCraft 是适用于 Minecraft Bedrock 版和相关桥接场景的距离感�
 3. Minecraft 端集成会更新服务器的游戏状态：
    - BDS 的 `McHttp`
    - `McWss` 适用于本地 Bedrock 世界
-   - `McTcp` 用于 `GeyserVoice`
+   - `McTcp` 用于 `VoiceCraft.Java`
 4. 客户端根据服务器状态和选定的本地设置播放距离感音频。
 
 语音连接和 Minecraft 传输连接是分开的。如果只连接其中一侧，设置可能看起来部分正常，但距离感行为仍然不完整。
@@ -46,7 +46,7 @@ VoiceCraft 是适用于 Minecraft Bedrock 版和相关桥接场景的距离感�
 
 - 多种 Minecraft 传输方式
 - Bedrock 附加包 API
-- 通过 `GeyserVoice` 的 Java 端桥接
+- 通过 `VoiceCraft.Java` 的 Java 端桥接
 - 可配置的效果和实体元数据
 - 服务器端和客户端两种定位模式
 
@@ -58,8 +58,8 @@ VoiceCraft 是适用于 Minecraft Bedrock 版和相关桥接场景的距离感�
 |---------------|---------------|-----|
 | Bedrock 专用服务器 | [McHttp for BDS](/minecraft/mchttp-bds) | BDS可以调用稳定的HTTP端点 |
 | 本地 Bedrock 世界 | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | 通过本地 WebSocket/命令隧道流程工作 |
-| 带有 Geyser/Floodgate 的 Java 服务器 | [GeyserVoice](/ecosystem/geyservoice) | Java 端插件通过 `McTcp` 桥接至 VoiceCraft |
-| Direct Paper 服务器 | [GeyserVoice Direct Paper](/ecosystem/geyservoice-direct-paper) | 插件可以使用外部服务器或管理运行时 |
+| 带有 Geyser/Floodgate 的 Java 服务器 | [VoiceCraft.Java](/ecosystem/voicecraft-java) | Java 端插件通过 `McTcp` 桥接至 VoiceCraft |
+| Direct Paper 服务器 | [VoiceCraft.Java Direct Paper](/ecosystem/voicecraft-java-direct-paper) | 插件可以使用外部服务器或管理运行时 |
 
 ## 接下来阅读
 

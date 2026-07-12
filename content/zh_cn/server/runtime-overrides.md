@@ -8,7 +8,7 @@ VoiceCraft 服务器通过根 CLI 选项支持运行时覆盖。
 
 - 您希望使用特定环境的值，但不想编辑 JSON
 - 流程管理器在启动时注入值
-- `GeyserVoice` 会自动启动 VoiceCraft 运行时
+- `VoiceCraft.Java` 会自动启动 VoiceCraft 运行时
 - 您从同一个安装文件夹测试多种传输拓扑
 
 如果只是简单的手动安装，请先编辑 `ServerProperties.json`，只在覆盖能让部署更清晰时再使用覆盖。

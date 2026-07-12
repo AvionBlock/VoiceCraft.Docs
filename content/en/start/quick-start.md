@@ -10,13 +10,13 @@ VoiceCraft can be deployed in several ways:
 
 - Bedrock Dedicated Server: `VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
 - Local Bedrock world / singleplayer: `VoiceCraft.Server` or local runtime + `Core.McWss`
-- Java server with Geyser/Floodgate: `GeyserVoice` + `VoiceCraft.Server`
-- Direct Paper server: `GeyserVoice` can also download and run the VoiceCraft runtime under the hood
+- Java server with Geyser/Floodgate: `VoiceCraft.Java` + `VoiceCraft.Server`
+- Direct Paper server: `VoiceCraft.Java` can also download and run the VoiceCraft runtime under the hood
 
 If you are unsure, start with one of these:
 
 - Bedrock dedicated server: read [McHttp for BDS](/minecraft/mchttp-bds)
-- Java + Geyser server: read [GeyserVoice](/ecosystem/geyservoice)
+- Java + Geyser server: read [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 For a first setup, choose one topology and expose only the transport it needs. You can add mixed setups later after the basic bind and proximity flow works.
 
@@ -68,7 +68,7 @@ The token you use later must match the transport:
 
 - BDS `McHttp` addon uses `McHttpConfig.LoginToken`
 - local Bedrock `McWss` addon uses `McWssConfig.LoginToken`
-- `GeyserVoice` uses `McTcpConfig.LoginToken`
+- `VoiceCraft.Java` uses `McTcpConfig.LoginToken`
 
 ## 4. Pick the Minecraft transport
 
@@ -79,7 +79,7 @@ VoiceCraft currently has 3 Minecraft-facing transports:
 - `McWss`:
   Best for local worlds, testing, and command-tunnel scenarios.
 - `McTcp`:
-  Best for Java-side bridges such as `GeyserVoice`.
+  Best for Java-side bridges such as `VoiceCraft.Java`.
 
 See [Transport Modes](/server/transports) for the full comparison.
 
@@ -112,7 +112,7 @@ Typical local setup:
 
 - For Bedrock Dedicated Server, use [McHttp for BDS](/minecraft/mchttp-bds).
 - For a local Bedrock world, use [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
-- For Java + Geyser/Floodgate, use [GeyserVoice](/ecosystem/geyservoice).
+- For Java + Geyser/Floodgate, use [VoiceCraft.Java](/ecosystem/voicecraft-java).
 
 This step is what gives VoiceCraft the in-game state needed for proximity audio: player identity, bind data, world IDs, position updates, and effect state.
 

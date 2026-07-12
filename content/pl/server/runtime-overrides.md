@@ -8,7 +8,7 @@ Opcje te są idealne, gdy:
 
 - chcesz wartości specyficznych dla środowiska bez edytowania JSON
 - menedżer procesu wstrzykuje wartości przy uruchomieniu
-- `GeyserVoice` automatycznie uruchamia środowisko wykonawcze VoiceCraft
+- `VoiceCraft.Java` automatycznie uruchamia środowisko wykonawcze VoiceCraft
 - testujesz kilka topologii transportu z tego samego folderu instalacyjnego
 
 Jeśli wykonujesz prostą instalację ręczną, najpierw edytuj `ServerProperties.json` i używaj zastąpień tylko wtedy, gdy ułatwiają one wdrożenie.

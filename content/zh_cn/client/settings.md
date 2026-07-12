@@ -89,7 +89,7 @@
 - `McWss Host Port`：
   用于 Bedrock Websocket 链接的本地 McWss 端口。
 
-`Positioning Type` 是最重要的客户端/服务器兼容性设置。在正常的 BDS 和 GeyserVoice 部署中，使用 `ServerProperties.json` 中配置的相同服务器端模式。
+`Positioning Type` 是最重要的客户端/服务器兼容性设置。在正常的 BDS 和 VoiceCraft.Java 部署中，使用 `ServerProperties.json` 中配置的相同服务器端模式。
 
 `McWss Listen Ip` 和 `McWss Host Port` 仅适用于 McWss 风格的本地 Bedrock 设置。它们不会取代用于语音 UDP 流量的 VoiceCraft 服务器条目。
 

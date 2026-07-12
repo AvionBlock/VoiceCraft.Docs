@@ -32,7 +32,7 @@ GitHub 仅作为公开镜像：[AvionBlock/VoiceCraft](https://github.com/AvionB
 - VoiceCraft 和 McApi 层的数据包定义
 - 音频效果和可视性系统
 
-了解这个存储库不是什么也很重要：VoiceCraft 不是一个单一的 Minecraft 模组或插件。核心运行时与客户端和 Minecraft 端集成（例如 `VoiceCraft.Addon` 或 `GeyserVoice`）协同工作。
+了解这个存储库不是什么也很重要：VoiceCraft 不是一个单一的 Minecraft 模组或插件。核心运行时与客户端和 Minecraft 端集成（例如 `VoiceCraft.Addon` 或 `VoiceCraft.Java`）协同工作。
 
 ## 构建要求
 
@@ -123,7 +123,7 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 
 - 您想要构建或调试核心 VoiceCraft
 - 您需要了解哪个项目拥有客户端/服务器行为
-- 您正在检查某个功能是否属于核心、插件或 GeyserVoice
+- 您正在检查某个功能是否属于核心、插件或 VoiceCraft.Java
 - 您正在准备自定义发布工件
 
 ## 相关文档
@@ -132,4 +132,4 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 - [ServerProperties.json](/server/server-properties)
 - [传输模式](/server/transports)
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)

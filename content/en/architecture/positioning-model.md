@@ -26,7 +26,7 @@ Best when:
 - the server or integration layer can provide authoritative world state
 - you want more centralized behavior
 - you run BDS with `McHttp`
-- you run Java/Geyser with `GeyserVoice`
+- you run Java/Geyser with `VoiceCraft.Java`
 - you want staff/moderation tooling to reason about server-owned entity state
 
 In this model, Minecraft-side integration sends position and world updates to `VoiceCraft.Server`. The client receives enough state to render proximity audio locally.
@@ -51,7 +51,7 @@ Use this only when you know why server-side positioning is not practical for the
 |-------|------------------|--------|
 | Bedrock Dedicated Server + `McHttp` | `0 = Server` | BDS addon can report authoritative world state |
 | Local Bedrock world + `McWss` | Usually `0 = Server` | Addon can still send state through the tunnel |
-| Java + Geyser/Floodgate + `GeyserVoice` | `0 = Server` | Plugin tracks player lifecycle and position |
+| Java + Geyser/Floodgate + `VoiceCraft.Java` | `0 = Server` | Plugin tracks player lifecycle and position |
 | Experimental local-only setup | Depends | Use client-side only when the integration cannot provide state |
 
 ## Why mismatches break audio expectations

@@ -68,7 +68,7 @@ Narzędzia HTTP mogą pomóc w przypadku `McHttp`, ale nie rozwiązują automaty
 
 ## Zastrzeżenia dotyczące sieci Java
 
-W przypadku wdrożeń proxy `GeyserVoice`:
+W przypadku wdrożeń proxy `VoiceCraft.Java`:
 
 - proxy musi niezawodnie dotrzeć do VoiceCraft
 - backend Węzły Paper muszą niezawodnie docierać do ścieżki wiadomości proxy

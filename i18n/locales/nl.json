@@ -58,7 +58,6 @@
       "upgradeRunbook": "Upgrade-runbook",
       "troubleshootingMatrix": "Probleemmatrix",
       "voiceCraftRepository": "VoiceCraft Repository",
-      "geyserVoice": "GeyserVoice",
       "voiceCraftAddon": "VoiceCraft.Addon",
       "integrationRecipes": "Integratierecepten",
       "directPaper": "Direct Paper",
@@ -69,7 +68,8 @@
       "packetFlow": "Pakketstroom",
       "authenticationTrust": "Authenticatie & vertrouwen",
       "positioningModel": "Positioneringsmodel",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "voiceCraftJava": "VoiceCraft.Java"
     }
   },
   "download": {
@@ -93,7 +93,7 @@
       "ios": "iOS"
     },
     "androidNote": "Android 32-bit is niet langer beschikbaar. Gebruik de arm64 Android-build.",
-  "serverSourceNote": "VoiceCraft-releases vanaf 1.7 worden op GitLab gepubliceerd. Oudere releases blijven op GitHub; GitHub is voor actuele ontwikkeling alleen een mirror.",
+    "serverSourceNote": "VoiceCraft-releases vanaf 1.7 worden op GitLab gepubliceerd. Oudere releases blijven op GitHub; GitHub is voor actuele ontwikkeling alleen een mirror.",
     "allReleases": "Open alle releases",
     "addonKicker": "Add-on",
     "addonTitle": "VoiceCraft-add-on",

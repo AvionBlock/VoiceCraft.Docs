@@ -24,7 +24,7 @@ VoiceCraft `1.7.0` — это minor-обновление. Его лучше ст
 - `config/ServerProperties.json`
 - кастомные scripts/systemd/service-manager wrappers
 - историю логов, если она нужна
-- конфиг GeyserVoice или другого Java bridge
+- конфиг VoiceCraft.Java или другого Java bridge
 - конфигурацию Bedrock world packs, если используется аддон
 - заметки по public/LAN hostnames, портам, firewall и port forwarding
 

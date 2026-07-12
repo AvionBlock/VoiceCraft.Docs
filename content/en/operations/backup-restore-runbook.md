@@ -16,7 +16,7 @@ Recommended:
 
 - previous release artifacts
 - logs around the last good known state
-- plugin configs such as `GeyserVoice/config.yml`
+- plugin configs such as `VoiceCraft.Java/config.yml`
 - Bedrock world pack config files
 - addon package versions currently installed in the world
 - service manager files such as systemd units or panel startup commands

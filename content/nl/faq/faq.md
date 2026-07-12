@@ -24,7 +24,7 @@ Consolespelers kunnen nog steeds deelnemen aan sommige serverscenario's als de r
 
 Het kan in beperkte scenario's werken, vooral wanneer positionering aan de clientzijde wordt gebruikt, maar Realms is een beperktere omgeving dan een speciale server.
 
-Als u een voorspelbare productie-opstelling wilt, gebruik dan BDS met `McHttp` of een Java/Geyser-topologie met `GeyserVoice`.
+Als u een voorspelbare productie-opstelling wilt, gebruik dan BDS met `McHttp` of een Java/Geyser-topologie met `VoiceCraft.Java`.
 
 ## Welk vervoer moet ik gebruiken?
 
@@ -33,15 +33,15 @@ Als u een voorspelbare productie-opstelling wilt, gebruik dan BDS met `McHttp` o
 - lokale Bedrock-wereld:
   `McWss`
 - Java + Geyser/Floodgate:
-  `McTcp` tot en met `GeyserVoice`
+  `McTcp` tot en met `VoiceCraft.Java`
 
 Het transport is voor de Minecraft-kant. Spelerclients maken nog steeds verbinding met het VoiceCraft UDP-eindpunt.
 
-## Heeft GeyserVoice een afzonderlijk beheerde VoiceCraft-server nodig?
+## Heeft VoiceCraft.Java een afzonderlijk beheerde VoiceCraft-server nodig?
 
 Niet altijd.
 
-In de directe Paper-modus kan GeyserVoice de VoiceCraft-runtime opstarten en uitvoeren onder de motorkap met behulp van:
+In de directe Paper-modus kan VoiceCraft.Java de VoiceCraft-runtime opstarten en uitvoeren onder de motorkap met behulp van:
 
 - `config.voicecraft.auto-start`
 - `config.voicecraft.shutdown-on-disable`
@@ -59,7 +59,7 @@ Het hangt ervan af of uw provider het vereiste netwerkpad tussen de spelserver e
 Voorbeelden:
 
 - BDS met `McHttp` heeft uitgaande bereikbaarheid naar het VoiceCraft HTTP-eindpunt nodig
-- Java + GeyserVoice heeft bereikbaarheid nodig voor het VoiceCraft `McTcp` eindpunt
+- Java + VoiceCraft.Java heeft bereikbaarheid nodig voor het VoiceCraft `McTcp` eindpunt
 
 Sommige providers blokkeren precies het netwerkgedrag dat u nodig heeft.
 
@@ -71,7 +71,7 @@ Ja. Dat is gebruikelijk voor:
 
 - lokale testen
 - kleine gemeenschappen
-- directe Paper + GeyserVoice-instellingen
+- directe Paper + VoiceCraft.Java-instellingen
 
 Gebruik loopback-adressen zoals `127.0.0.1` alleen als de consument daadwerkelijk op dezelfde machine draait.
 
@@ -115,13 +115,13 @@ In `Settings.json` onder `UserSettings.Users`.
 
 ## Ik gebruik Java met Geyser. Heb ik de Bedrock-add-on ook nodig?
 
-Nee. In Java- en Geyser-topologieën is de bridge doorgaans `GeyserVoice`, en niet de Bedrock-add-on.
+Nee. In Java- en Geyser-topologieën is de bridge doorgaans `VoiceCraft.Java`, en niet de Bedrock-add-on.
 
-Gebruik de Bedrock-add-on voor Bedrock-werelden/BDS. Gebruik GeyserVoice wanneer de Java-infrastructuur de bron is van de spelerstatus.
+Gebruik de Bedrock-add-on voor Bedrock-werelden/BDS. Gebruik VoiceCraft.Java wanneer de Java-infrastructuur de bron is van de spelerstatus.
 
 ## Is VoiceCraft een gehoste spraakservice van derden?
 
-Nee. VoiceCraft vereist geen gehoste service van derden. U voert zelf de server/runtime uit of laat GeyserVoice de runtime beheren in directe Paper-modus.
+Nee. VoiceCraft vereist geen gehoste service van derden. U voert zelf de server/runtime uit of laat VoiceCraft.Java de runtime beheren in directe Paper-modus.
 
 ## Is VoiceCraft slechts een Minecraft-mod?
 

@@ -68,7 +68,7 @@ HTTP 工具可以帮助处理 `McHttp`，但它不会自动解决原始 `McTcp` 
 
 ## Java 网络注意事项
 
-对于 `GeyserVoice` 代理部署：
+对于 `VoiceCraft.Java` 代理部署：
 
 - 代理必须可靠地到达 VoiceCraft
 - 后端Paper节点必须可靠到达代理消息路径

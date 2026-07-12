@@ -89,7 +89,7 @@ Jeśli słyszysz sygnał testowy, ale nie słychać innych graczy, prawdopodobni
 - `McWss Host Port`:
   lokalny port McWss używany do łącza internetowego Bedrock.
 
-`Positioning Type` to najważniejsze ustawienie zgodności klient/serwer. W normalnych wdrożeniach BDS i GeyserVoice użyj tego samego trybu po stronie serwera skonfigurowanego w `ServerProperties.json`.
+`Positioning Type` to najważniejsze ustawienie zgodności klient/serwer. W normalnych wdrożeniach BDS i VoiceCraft.Java użyj tego samego trybu po stronie serwera skonfigurowanego w `ServerProperties.json`.
 
 `McWss Listen Ip` i `McWss Host Port` mają znaczenie tylko w przypadku lokalnych konfiguracji Bedrock w stylu McWss. Nie zastępują one wpisu serwera VoiceCraft używanego dla ruchu głosowego UDP.
 

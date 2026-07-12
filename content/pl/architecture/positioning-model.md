@@ -26,7 +26,7 @@ Najlepiej, gdy:
 - serwer lub warstwa integracji może zapewnić autorytatywny stan świata
 - chcesz bardziej scentralizowanego zachowania
 - uruchamiasz BDS z `McHttp`
-- uruchamiasz Java/Geyser z `GeyserVoice`
+- uruchamiasz Java/Geyser z `VoiceCraft.Java`
 - chcesz, aby narzędzia personelu/moderacji analizowały stan jednostki będącej własnością serwera
 
 W tym modelu integracja po stronie Minecrafta wysyła aktualizacje pozycji i świata do `VoiceCraft.Server`. Klient otrzymuje wystarczający stan, aby lokalnie odtwarzać dźwięk zależny od odległości.
@@ -51,7 +51,7 @@ Używaj tej opcji tylko wtedy, gdy wiesz, dlaczego pozycjonowanie po stronie ser
 |-------|------------------|--------|
 | Serwer dedykowany Bedrock + `McHttp` | `0 = Server` | Dodatek BDS może zgłosić autorytatywny stan świata |
 | Lokalny świat Bedrock + `McWss` | Zwykle `0 = Server` | Addon nadal może przesyłać stan przez tunel |
-| Java + Geyser/Floodgate + `GeyserVoice` | `0 = Server` | Wtyczka śledzi cykl życia i pozycję gracza |
+| Java + Geyser/Floodgate + `VoiceCraft.Java` | `0 = Server` | Wtyczka śledzi cykl życia i pozycję gracza |
 | Eksperymentalna konfiguracja wyłącznie lokalna | Zależy | Używaj po stronie klienta tylko wtedy, gdy integracja nie może zapewnić stanu |
 
 ## Dlaczego niedopasowania psują oczekiwania audio

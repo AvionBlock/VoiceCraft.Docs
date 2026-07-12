@@ -9,7 +9,7 @@ The main idea is simple: players run `VoiceCraft.Client`, one backend runs or ma
 | Repository | What it owns | Use it when |
 |------------|--------------|-------------|
 | `VoiceCraft` | client apps, standalone server, protocol, shared core code, Minecraft-facing transports | you need the core server/client runtime or want to build from source |
-| `GeyserVoice` | Java-side bridge for Paper, Velocity, and BungeeCord | you run Java, Geyser/Floodgate, or a proxy network |
+| `VoiceCraft.Java` | Java-side bridge for Paper, Velocity, and BungeeCord | you run Java, Geyser/Floodgate, or a proxy network |
 | `VoiceCraft.Addon` | Bedrock addon packages and scriptable McApi surface | you run Bedrock worlds or want custom addon behavior |
 
 ## Deployment map
@@ -19,7 +19,7 @@ flowchart LR
   A["VoiceCraft Client"] --> B["VoiceCraft UDP Server"]
   C["Bedrock Addon (McHttp / McWss)"] --> D["Minecraft API Transport"]
   D --> B
-  E["GeyserVoice (Paper / Proxy)"] --> F["McTcp Bridge"]
+  E["VoiceCraft.Java (Paper / Proxy)"] --> F["McTcp Bridge"]
   F --> B
 ```
 
@@ -46,17 +46,17 @@ Use this for singleplayer, demos, and addon testing.
 
 ### Java server with Geyser / Floodgate
 
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - `VoiceCraft.Server`
-- optionally a managed runtime started by `GeyserVoice` itself
+- optionally a managed runtime started by `VoiceCraft.Java` itself
 - `McTcp` as the VoiceCraft-facing bridge
 
 Use this when Java-side server state is the source of player positions and bind flow.
 
 ### Java proxy network
 
-- `GeyserVoice` on proxy
-- `GeyserVoice` on backend Paper servers
+- `VoiceCraft.Java` on proxy
+- `VoiceCraft.Java` on backend Paper servers
 - `VoiceCraft.Server` reached through `McTcp`
 - backend nodes stream snapshots to the proxy
 
@@ -65,10 +65,10 @@ Use this when one proxy should own the central VoiceCraft connection for multipl
 ## Why multiple repos exist
 
 - `VoiceCraft` focuses on the core voice platform
-- `GeyserVoice` translates Java or proxy environments into VoiceCraft-compatible state
+- `VoiceCraft.Java` translates Java or proxy environments into VoiceCraft-compatible state
 - `VoiceCraft.Addon` exposes world automation, entity binding, and effect control on Bedrock
 
-This split lets each project evolve around its runtime: C# client/server code in `VoiceCraft`, Java plugin code in `GeyserVoice`, and Bedrock script/addon code in `VoiceCraft.Addon`.
+This split lets each project evolve around its runtime: C# client/server code in `VoiceCraft`, Java plugin code in `VoiceCraft.Java`, and Bedrock script/addon code in `VoiceCraft.Addon`.
 
 ## Choosing where to start
 
@@ -77,14 +77,14 @@ This split lets each project evolve around its runtime: C# client/server code in
 - Local Bedrock testing:
   start with [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 - Java + Geyser/Floodgate:
-  start with [GeyserVoice](/ecosystem/geyservoice).
+  start with [VoiceCraft.Java](/ecosystem/voicecraft-java).
 - Custom Bedrock behavior:
   read [VoiceCraft.Addon](/ecosystem/voicecraft-addon), then [Addon API](/ecosystem/addon-api).
 
 ## Continue with
 
 - [VoiceCraft repository and build](/ecosystem/voicecraft-repository)
-- [GeyserVoice overview](/ecosystem/geyservoice)
+- [VoiceCraft.Java overview](/ecosystem/voicecraft-java)
 - [VoiceCraft.Addon overview](/ecosystem/voicecraft-addon)
 - [Addon API](/ecosystem/addon-api)
 - [Integration recipes](/ecosystem/integration-recipes)

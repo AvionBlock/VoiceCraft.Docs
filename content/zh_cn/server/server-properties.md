@@ -105,7 +105,7 @@
 
 `Port` 是玩家客户端在 VoiceCraft 客户端 UI 中添加的端点。即使默认重用 `9050`，它也不会自动与每个 Minecraft 传输端点相同。
 
-`PositioningType` 必须与客户端设置匹配。在大多数 BDS 和 GeyserVoice 设置中，以 `0 = Server` 开头。
+`PositioningType` 必须与客户端设置匹配。在大多数 BDS 和 VoiceCraft.Java 设置中，以 `0 = Server` 开头。
 
 ## McWss 配置
 
@@ -160,7 +160,7 @@
 
 ## McTcp 配置
 
-由 Java 端桥使用，尤其是 `GeyserVoice`。
+由 Java 端桥使用，尤其是 `VoiceCraft.Java`。
 
 - `Enabled`：
   启用或禁用 McTcp。
@@ -181,9 +181,9 @@
 
 - `Hostname` 是一个普通主机，而不是 URI
 - `Port` 是一个单独的字段
-- 这是与 `GeyserVoice` 最相关的传输
+- 这是与 `VoiceCraft.Java` 最相关的传输
 
-当 Java 端插件或代理拥有 Minecraft 状态路径时，请使用 `McTcp`。 `GeyserVoice` `config.voicecraft.transport.host`、`config.voicecraft.transport.port` 和 `config.voicecraft.transport.login-token` 值必须与此部分匹配。
+当 Java 端插件或代理拥有 Minecraft 状态路径时，请使用 `McTcp`。 `VoiceCraft.Java` `config.voicecraft.transport.host`、`config.voicecraft.transport.port` 和 `config.voicecraft.transport.login-token` 值必须与此部分匹配。
 
 ## 默认音频效果配置
 
@@ -229,7 +229,7 @@
 - `McWssConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` 或可选
 
-### GeyserVoice / Java 桥
+### VoiceCraft.Java / Java 桥
 
 - `McTcpConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` 或可选

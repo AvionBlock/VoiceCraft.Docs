@@ -8,7 +8,7 @@ These options are ideal when:
 
 - you want environment-specific values without editing JSON
 - a process manager injects values at startup
-- `GeyserVoice` launches the VoiceCraft runtime automatically
+- `VoiceCraft.Java` launches the VoiceCraft runtime automatically
 - you test several transport topologies from the same install folder
 
 If you are doing a simple manual install, edit `ServerProperties.json` first and use overrides only when they make deployment clearer.

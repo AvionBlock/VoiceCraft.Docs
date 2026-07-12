@@ -9,7 +9,7 @@ VoiceCraft — это не один бинарник, а набор runtime laye
 | Repository | За что отвечает | Когда нужен |
 |------------|-----------------|-------------|
 | `VoiceCraft` | client apps, standalone server, protocol, shared core code, Minecraft-facing transports | нужен core server/client runtime или сборка из source |
-| `GeyserVoice` / Java bridge | Java-side bridge для Paper, Velocity, BungeeCord | Java, Geyser/Floodgate или proxy network |
+| `VoiceCraft.Java` / Java bridge | Java-side bridge для Paper, Velocity, BungeeCord | Java, Geyser/Floodgate или proxy network |
 | `VoiceCraft.Addon` | Bedrock addon packages и scriptable McApi surface | Bedrock worlds или custom addon behavior |
 
 Primary source repository для core VoiceCraft development — GitLab project. GitHub repository используется как public mirror и release distribution point.
@@ -84,14 +84,14 @@ Client и Minecraft integration не используют один и тот ж�
 - Local Bedrock testing:
   [McWss для Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 - Java + Geyser/Floodgate:
-  [GeyserVoice](/ecosystem/geyservoice).
+  [VoiceCraft.Java](/ecosystem/voicecraft-java).
 - Custom Bedrock behavior:
   [VoiceCraft.Addon](/ecosystem/voicecraft-addon), затем [Addon API](/ecosystem/addon-api).
 
 ## Читать дальше
 
 - [VoiceCraft repository and build](/ecosystem/voicecraft-repository)
-- [GeyserVoice overview](/ecosystem/geyservoice)
+- [VoiceCraft.Java overview](/ecosystem/voicecraft-java)
 - [VoiceCraft.Addon overview](/ecosystem/voicecraft-addon)
 - [Addon API](/ecosystem/addon-api)
 - [Integration recipes](/ecosystem/integration-recipes)

@@ -186,7 +186,7 @@ Use `McHttp` when BDS can reach the VoiceCraft HTTP endpoint. If BDS and VoiceCr
 
 ## McTcpConfig
 
-Used by Java-side bridges, especially `GeyserVoice`.
+Used by Java-side bridges, especially `VoiceCraft.Java`.
 
 - `Enabled`
 - `LoginToken`
@@ -204,7 +204,7 @@ Important differences compared to `McHttp` / `McWss`:
 
 - `Hostname` is a plain host, not a URI
 - `Port` is a separate field
-- this is the transport most relevant to `GeyserVoice`
+- this is the transport most relevant to `VoiceCraft.Java`
 
 ## DefaultAudioEffectsConfig
 
@@ -248,7 +248,7 @@ If a transport works only after disabling packet types, treat that as a compatib
 - `McHttpConfig.Enabled = false` or optional
 - keep `McWssConfig.Hostname` loopback-bound unless remote access is intentional
 
-### GeyserVoice / Java bridge
+### VoiceCraft.Java / Java bridge
 
 - `McTcpConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` or optional

@@ -89,7 +89,7 @@ Als u de testuitvoer wel kunt horen, maar andere spelers niet, is het afspeelapp
 - `McWss Host Port`:
   lokale McWss-poort die wordt gebruikt voor de Bedrock-websocket-link.
 
-`Positioning Type` is de belangrijkste client/server-compatibiliteitsinstelling. Gebruik bij normale BDS- en GeyserVoice-implementaties dezelfde servermodus die is geconfigureerd in `ServerProperties.json`.
+`Positioning Type` is de belangrijkste client/server-compatibiliteitsinstelling. Gebruik bij normale BDS- en VoiceCraft.Java-implementaties dezelfde servermodus die is geconfigureerd in `ServerProperties.json`.
 
 `McWss Listen Ip` en `McWss Host Port` zijn alleen van belang voor lokale Bedrock-opstellingen in McWss-stijl. Ze vervangen niet de VoiceCraft-serveringang die wordt gebruikt voor spraak-UDP-verkeer.
 

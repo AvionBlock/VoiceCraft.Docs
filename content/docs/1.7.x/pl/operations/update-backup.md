@@ -22,7 +22,7 @@ Klient i serwer powinny mieć zgodny `Major.Minor`. Używaj klientów `1.7.x` z 
 - `config/ServerProperties.json`
 - własne skrypty startowe, systemd, kontenery lub panel
 - logi, jeśli są potrzebne
-- konfigurację GeyserVoice albo innego Java bridge
+- konfigurację VoiceCraft.Java albo innego Java bridge
 - konfigurację Bedrock world packs
 - notatki o hostach, portach, firewallu i przekierowaniu portów
 

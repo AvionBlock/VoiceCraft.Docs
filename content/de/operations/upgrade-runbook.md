@@ -1,6 +1,6 @@
 # Runbook aktualisieren
 
-Verwenden Sie dies, wenn Sie VoiceCraft oder eine verwandte Bridge wie `GeyserVoice` aktualisieren.
+Verwenden Sie dies, wenn Sie VoiceCraft oder eine verwandte Bridge wie `VoiceCraft.Java` aktualisieren.
 
 Dieses Runbook ist für Upgrades gedacht, die sich auf die Kompatibilität zwischen Server, Client, Bedrock-Add-on und Java-seitigen Plugin-Teilen auswirken können. Das Ziel besteht darin, einen Rollback-Pfad beizubehalten und gleichzeitig zu beweisen, dass der gesamte Stapel noch funktioniert.
 
@@ -40,7 +40,7 @@ Mindestens:
 7. Proximity-Audio funktioniert.
 8. Serverbefehle wie `list --clientsOnly` zeigen erwartete Clients an.
 
-## Beim Upgrade von GeyserVoice
+## Beim Upgrade von VoiceCraft.Java
 
 Validieren Sie außerdem:
 

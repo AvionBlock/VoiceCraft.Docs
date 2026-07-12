@@ -105,7 +105,7 @@
 
 `Port` — это эндпоинт, который клиенты игроков добавляют в UI клиента VoiceCraft. Это не то же самое, что каждый эндпоинт транспорта Minecraft, даже если по умолчанию повторно используется `9050`.
 
-`PositioningType` должен соответствовать настройке клиента. В большинстве настроек BDS и GeyserVoice начните с `0 = Server`.
+`PositioningType` должен соответствовать настройке клиента. В большинстве настроек BDS и VoiceCraft.Java начните с `0 = Server`.
 
 ## McWssConfig
 
@@ -160,7 +160,7 @@
 
 ## McTcpConfig
 
-Используется мостами на стороне Java, особенно `GeyserVoice`.
+Используется мостами на стороне Java, особенно `VoiceCraft.Java`.
 
 - `Enabled`:
   включить или отключить McTcp.
@@ -181,9 +181,9 @@
 
 - `Hostname` — это обычный хост, а не URI.
 - `Port` — отдельное поле.
-- это транспорт, наиболее подходящий для `GeyserVoice`
+- это транспорт, наиболее подходящий для `VoiceCraft.Java`
 
-Используйте `McTcp`, когда плагин или прокси-сервер на стороне Java владеет путем к состоянию Minecraft. Значения `GeyserVoice`, `config.voicecraft.transport.host`, `config.voicecraft.transport.port` и `config.voicecraft.transport.login-token` должны соответствовать этому разделу.
+Используйте `McTcp`, когда плагин или прокси-сервер на стороне Java владеет путем к состоянию Minecraft. Значения `VoiceCraft.Java`, `config.voicecraft.transport.host`, `config.voicecraft.transport.port` и `config.voicecraft.transport.login-token` должны соответствовать этому разделу.
 
 ## DefaultAudioEffectsConfig
 
@@ -229,7 +229,7 @@
 - `McWssConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` или необязательно
 
-### GeyserVoice / Java-мост
+### VoiceCraft.Java / Java-мост
 
 - `McTcpConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` или необязательно

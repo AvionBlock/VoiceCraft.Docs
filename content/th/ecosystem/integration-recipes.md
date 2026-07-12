@@ -16,4 +16,4 @@
 
 ## Java/Geyser
 
-ใช้ `GeyserVoice` และ `McTcpConfig.LoginToken`
+ใช้ `VoiceCraft.Java` และ `McTcpConfig.LoginToken`

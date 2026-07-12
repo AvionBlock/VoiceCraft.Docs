@@ -32,7 +32,7 @@ GitHub — только публичное зеркало: [AvionBlock/VoiceCraf
 - определения пакетов для слоев VoiceCraft и McApi
 - звуковые эффекты и системы видимости
 
-Также важно понимать, чем не является этот репозиторий: VoiceCraft не является отдельным модом или плагином Minecraft. Основная среда выполнения работает вместе с клиентами и интеграциями на стороне Minecraft, такими как `VoiceCraft.Addon` или `GeyserVoice`.
+Также важно понимать, чем не является этот репозиторий: VoiceCraft не является отдельным модом или плагином Minecraft. Основная среда выполнения работает вместе с клиентами и интеграциями на стороне Minecraft, такими как `VoiceCraft.Addon` или `VoiceCraft.Java`.
 
 ## Требования к сборке
 
@@ -123,7 +123,7 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 
 - вы хотите собрать или отладить ядро VoiceCraft
 - вам нужно понять, какому проекту принадлежит поведение клиента/сервера
-- вы проверяете, принадлежит ли функция ядру, аддону или GeyserVoice
+- вы проверяете, принадлежит ли функция ядру, аддону или VoiceCraft.Java
 - вы готовите специальные артефакты выпуска
 
 ## Связанные документы
@@ -132,4 +132,4 @@ dotnet build VoiceCraft.Client/VoiceCraft.Client.MacOS -c Release
 - [ServerProperties.json](/server/server-properties)
 - [Режимы транспорта](/server/transports)
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)

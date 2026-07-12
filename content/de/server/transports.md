@@ -12,7 +12,7 @@ Verwenden Sie diese Seite, bevor Sie `McHttpConfig`, `McWssConfig` oder `McTcpCo
 |-----------|------------------|----------------|----------|-------------|
 | `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP-Endpunkt | Dedizierter Bedrock-Server | `McHttpConfig.LoginToken` |
 | `McWss` | `VoiceCraft.Addon.Core.McWss` | Websocket + Befehlstunnel | lokale Bedrock-Welten und Tests | `McWssConfig.LoginToken` |
-| `McTcp` | `GeyserVoice` | rohe TCP-Brücke | Java-, Geyser-, Proxy- oder Paper-Bridge-Szenarien | `McTcpConfig.LoginToken` |
+| `McTcp` | `VoiceCraft.Java` | rohe TCP-Brücke | Java-, Geyser-, Proxy- oder Paper-Bridge-Szenarien | `McTcpConfig.LoginToken` |
 
 Wählen Sie einen Transport nicht nur basierend auf der Portnummer. Wählen Sie es basierend darauf aus, welche Minecraft-seitige Komponente verbunden werden soll.
 
@@ -94,7 +94,7 @@ Verwenden Sie dies, wenn Sie den lokalen `/connect`-Flow benötigen. Für einen 
 
 ### Beste Anwendungsfälle
 
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - Java-Server oder Proxy-Bridges
 - direkte Paper-Laufzeitintegration
 
@@ -102,7 +102,7 @@ Verwenden Sie dies, wenn Sie den lokalen `/connect`-Flow benötigen. Für einen 
 
 - Direkter Bridge-Transport für Java-seitige Plugins
 - vermeidet HTTP-Endpunktsemantik, wenn eine native TCP-Brücke besser ist
-- Entspricht der aktuellen `GeyserVoice`-Architektur
+- Entspricht der aktuellen `VoiceCraft.Java`-Architektur
 
 ### Kompromisse
 
@@ -123,7 +123,7 @@ Verwenden Sie dies, wenn Sie den lokalen `/connect`-Flow benötigen. Für einen 
 }
 ```
 
-Wenn `GeyserVoice` auf demselben Computer wie VoiceCraft ausgeführt wird, binden Sie es an `127.0.0.1`. Wenn es anderswo ausgeführt wird, binden Sie es an eine Adresse, die das Plugin erreichen kann, und schränken Sie die Firewall ein.
+Wenn `VoiceCraft.Java` auf demselben Computer wie VoiceCraft ausgeführt wird, binden Sie es an `127.0.0.1`. Wenn es anderswo ausgeführt wird, binden Sie es an eine Adresse, die das Plugin erreichen kann, und schränken Sie die Firewall ein.
 
 ## Welches sollten Sie wählen?
 
@@ -141,9 +141,9 @@ Fahren Sie mit [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) fo
 
 ### Java + Geyser/Floodgate
 
-Verwenden Sie `McTcp` bis `GeyserVoice`.
+Verwenden Sie `McTcp` bis `VoiceCraft.Java`.
 
-Fahren Sie mit [GeyserVoice](/ecosystem/geyservoice) fort.
+Fahren Sie mit [VoiceCraft.Java](/ecosystem/voicecraft-java) fort.
 
 ### Gemischtes Netzwerk
 

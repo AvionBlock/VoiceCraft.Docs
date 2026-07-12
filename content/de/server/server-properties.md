@@ -105,7 +105,7 @@ Wenn Sie keine Telemetrie wünschen, stellen Sie Folgendes ein:
 
 `Port` ist der Endpunkt, den Spieler-Clients in der VoiceCraft-Client-Benutzeroberfläche hinzufügen. Es ist nicht automatisch dasselbe wie jeder Minecraft-Transportendpunkt, auch wenn standardmäßig `9050` wiederverwendet wird.
 
-`PositioningType` muss mit der Client-Einstellung übereinstimmen. Beginnen Sie in den meisten BDS- und GeyserVoice-Setups mit `0 = Server`.
+`PositioningType` muss mit der Client-Einstellung übereinstimmen. Beginnen Sie in den meisten BDS- und VoiceCraft.Java-Setups mit `0 = Server`.
 
 ## McWssConfig
 
@@ -160,7 +160,7 @@ Verwenden Sie `McHttp`, wenn BDS den VoiceCraft-HTTP-Endpunkt erreichen kann. We
 
 ## McTcpConfig
 
-Wird von Java-seitigen Bridges verwendet, insbesondere `GeyserVoice`.
+Wird von Java-seitigen Bridges verwendet, insbesondere `VoiceCraft.Java`.
 
 - `Enabled`:
   Aktivieren oder deaktivieren Sie McTcp.
@@ -181,9 +181,9 @@ Wichtige Unterschiede zu `McHttp` / `McWss`:
 
 - `Hostname` ist ein einfacher Host, kein URI
 - `Port` ist ein separates Feld
-- Dies ist der Transport, der für `GeyserVoice` am relevantesten ist.
+- Dies ist der Transport, der für `VoiceCraft.Java` am relevantesten ist.
 
-Verwenden Sie `McTcp`, wenn ein Java-seitiges Plugin oder ein Proxy den Minecraft-Statuspfad besitzt. Die Werte `GeyserVoice`, `config.voicecraft.transport.host`, `config.voicecraft.transport.port` und `config.voicecraft.transport.login-token` müssen mit diesem Abschnitt übereinstimmen.
+Verwenden Sie `McTcp`, wenn ein Java-seitiges Plugin oder ein Proxy den Minecraft-Statuspfad besitzt. Die Werte `VoiceCraft.Java`, `config.voicecraft.transport.host`, `config.voicecraft.transport.port` und `config.voicecraft.transport.login-token` müssen mit diesem Abschnitt übereinstimmen.
 
 ## DefaultAudioEffectsConfig
 
@@ -229,7 +229,7 @@ Wenn ein Transport erst nach dem Deaktivieren von Pakettypen funktioniert, betra
 - `McWssConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` oder optional
 
-### GeyserVoice / Java-Brücke
+### VoiceCraft.Java / Java-Brücke
 
 - `McTcpConfig.Enabled = true`
 - `McHttpConfig.Enabled = false` oder optional

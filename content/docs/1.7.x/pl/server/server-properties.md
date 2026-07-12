@@ -48,7 +48,7 @@ Dla Bedrock Dedicated Server:
 
 ## McTcpConfig
 
-Dla Java bridges, np. `GeyserVoice`.
+Dla Java bridges, np. `VoiceCraft.Java`.
 
 - `Hostname` to host, nie URI.
 - `Port` jest osobnym polem.

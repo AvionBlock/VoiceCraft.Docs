@@ -12,7 +12,7 @@ Transport — это путь, по которому Minecraft automation отп
 |-----------|-------------------|----------|----------|-------------|
 | `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP endpoint | Bedrock Dedicated Server | `McHttpConfig.LoginToken` |
 | `McWss` | `VoiceCraft.Addon.Core.McWss` | websocket + command tunnel | local Bedrock worlds и testing | `McWssConfig.LoginToken` |
-| `McTcp` | Java-side bridge, например `GeyserVoice` | raw TCP bridge | Java, Geyser, proxy, Paper bridge | `McTcpConfig.LoginToken` |
+| `McTcp` | Java-side bridge, например `VoiceCraft.Java` | raw TCP bridge | Java, Geyser, proxy, Paper bridge | `McTcpConfig.LoginToken` |
 
 Выбирайте transport по Minecraft-side component, а не только по номеру порта.
 
@@ -79,7 +79,7 @@ Custom consumers нужно обновить перед подключением
 }
 ```
 
-Если `GeyserVoice` на той же машине, bind'ите `127.0.0.1`. Если он на другой машине, bind'ите reachable address и ограничьте firewall.
+Если `VoiceCraft.Java` на той же машине, bind'ите `127.0.0.1`. Если он на другой машине, bind'ите reachable address и ограничьте firewall.
 
 ## NAT port mapping
 
@@ -110,9 +110,9 @@ Custom consumers нужно обновить перед подключением
 
 ### Java + Geyser/Floodgate
 
-Используйте `McTcp` через `GeyserVoice` или другой Java-side bridge.
+Используйте `McTcp` через `VoiceCraft.Java` или другой Java-side bridge.
 
-Дальше: [GeyserVoice](/ecosystem/geyservoice).
+Дальше: [VoiceCraft.Java](/ecosystem/voicecraft-java).
 
 ## Security advice
 

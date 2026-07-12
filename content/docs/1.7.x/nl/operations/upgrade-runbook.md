@@ -1,6 +1,6 @@
 # Upgrade-runbook
 
-Gebruik dit bij upgrades van VoiceCraft of een bridge zoals `GeyserVoice`.
+Gebruik dit bij upgrades van VoiceCraft of een bridge zoals `VoiceCraft.Java`.
 
 VoiceCraft `1.7.0` wijzigt het event- en entity-propertymodel. Test daarom server, client, Bedrock-addon en Java-plugin samen.
 

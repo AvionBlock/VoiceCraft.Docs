@@ -6,7 +6,7 @@
 
 ## Java/Geyser
 
-ใช้ `GeyserVoice` กับ `McTcp` และแยก log ของ VoiceCraft ออกจาก game server
+ใช้ `VoiceCraft.Java` กับ `McTcp` และแยก log ของ VoiceCraft ออกจาก game server
 
 ## Local testing
 

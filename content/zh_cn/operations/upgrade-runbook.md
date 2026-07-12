@@ -1,6 +1,6 @@
 # 升级操作手册
 
-升级 VoiceCraft 或相关桥（例如 `GeyserVoice`）时使用此选项。
+升级 VoiceCraft 或相关桥（例如 `VoiceCraft.Java`）时使用此选项。
 
 此操作手册适用于可能影响服务器、客户端、Bedrock 插件和 Java 端插件之间兼容性的升级。目标是保持回滚路径，同时证明整个堆栈仍然有效。
 
@@ -40,7 +40,7 @@
 7. 近距离音频有效。
 8. `list --clientsOnly` 等服务器命令显示预期的客户端。
 
-## 如果升级 GeyserVoice
+## 如果升级 VoiceCraft.Java
 
 还验证：
 

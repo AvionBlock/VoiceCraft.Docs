@@ -8,7 +8,7 @@ VoiceCraft nutzt mehrere Minecraft-seitige Transports. Der Transport ist der Pfa
 |-----------|----------|----------|---------|
 | `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP | Bedrock Dedicated Server |
 | `McWss` | `VoiceCraft.Addon.Core.McWss` | WebSocket + Command-Tunnel | lokale Bedrock-Welten |
-| `McTcp` | Java-Bridge / `GeyserVoice` | TCP | Java, Geyser, Proxy |
+| `McTcp` | Java-Bridge / `VoiceCraft.Java` | TCP | Java, Geyser, Proxy |
 
 ## Gemeinsames Verhalten in 1.7
 

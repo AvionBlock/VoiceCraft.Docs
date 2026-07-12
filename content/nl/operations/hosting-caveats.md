@@ -68,7 +68,7 @@ HTTP-tools kunnen helpen bij `McHttp`, maar lossen niet automatisch het onbewerk
 
 ## Waarschuwingen voor Java-netwerken
 
-Voor `GeyserVoice` proxy-implementaties:
+Voor `VoiceCraft.Java` proxy-implementaties:
 
 - de proxy moet VoiceCraft betrouwbaar bereiken
 - backend Paper-knooppunten moeten het proxyberichtpad op betrouwbare wijze kunnen bereiken

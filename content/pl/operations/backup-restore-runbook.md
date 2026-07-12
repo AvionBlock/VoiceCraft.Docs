@@ -16,7 +16,7 @@ Zalecane:
 
 - artefakty z poprzedniej wersji
 - rejestruje ostatni dobry znany stan
-- konfiguracje wtyczek, takie jak `GeyserVoice/config.yml`
+- konfiguracje wtyczek, takie jak `VoiceCraft.Java/config.yml`
 - Pliki konfiguracyjne pakietu Bedrock World Pack
 - wersje pakietów dodatków aktualnie zainstalowane na świecie
 - pliki menedżera usług, takie jak jednostki systemowe lub polecenia uruchamiania panelu

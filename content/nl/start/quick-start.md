@@ -10,13 +10,13 @@ VoiceCraft kan op verschillende manieren worden ingezet:
 
 - Bedrock Dedicated Server: `VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
 - Lokale Bedrock-wereld / singleplayer: `VoiceCraft.Server` of lokale runtime + `Core.McWss`
-- Java-server met Geyser/Floodgate: `GeyserVoice` + `VoiceCraft.Server`
-- Direct Paper-server: `GeyserVoice` kan ook de VoiceCraft-runtime op de achtergrond downloaden en uitvoeren
+- Java-server met Geyser/Floodgate: `VoiceCraft.Java` + `VoiceCraft.Server`
+- Direct Paper-server: `VoiceCraft.Java` kan ook de VoiceCraft-runtime op de achtergrond downloaden en uitvoeren
 
 Als u het niet zeker weet, begin dan met een van deze:
 
 - Bedrock dedicated server: lees [McHttp for BDS](/minecraft/mchttp-bds)
-- Java + Geyser-server: lees [GeyserVoice](/ecosystem/geyservoice)
+- Java + Geyser-server: lees [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 Kies voor een eerste setup één topologie en stel alleen het transport open dat deze nodig heeft. U kunt later gemengde setups toevoegen nadat de basisbinding en proximity-flow werken.
 
@@ -68,7 +68,7 @@ Het token dat je later gebruikt, moet overeenkomen met het transport:
 
 - BDS `McHttp` add-on gebruikt `McHttpConfig.LoginToken`
 - lokale Bedrock `McWss` add-on gebruikt `McWssConfig.LoginToken`
-- `GeyserVoice` gebruikt `McTcpConfig.LoginToken`
+- `VoiceCraft.Java` gebruikt `McTcpConfig.LoginToken`
 
 ## 4. Kies het Minecraft-transport
 
@@ -79,7 +79,7 @@ VoiceCraft heeft momenteel 3 Minecraft-gerichte transporten:
 - `McWss`:
   Het beste voor lokale werelden, testen en commandotunnelscenario's.
 - `McTcp`:
-  Het beste voor bruggen aan Java-zijde, zoals `GeyserVoice`.
+  Het beste voor bruggen aan Java-zijde, zoals `VoiceCraft.Java`.
 
 Zie [Transportmodi](/server/transports) voor de volledige vergelijking.
 
@@ -112,7 +112,7 @@ Typische lokale opstelling:
 
 - Voor Bedrock Dedicated Server gebruikt u [McHttp for BDS](/minecraft/mchttp-bds).
 - Gebruik [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) voor een lokale Bedrock-wereld.
-- Voor Java + Geyser/Floodgate gebruikt u [GeyserVoice](/ecosystem/geyservoice).
+- Voor Java + Geyser/Floodgate gebruikt u [VoiceCraft.Java](/ecosystem/voicecraft-java).
 
 Deze stap geeft VoiceCraft de in-game status die nodig is voor proximity audio: speleridentiteit, bindingsgegevens, wereld-ID's, positie-updates en effectstatus.
 

@@ -125,4 +125,4 @@ Mobile targets require platform-specific SDK, signing, and packaging steps outsi
 - [ServerProperties.json](/server/server-properties)
 - [Transport Modes](/server/transports)
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)

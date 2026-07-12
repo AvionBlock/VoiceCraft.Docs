@@ -26,7 +26,7 @@ Beste wanneer:
 - de server- of integratielaag kan een gezaghebbende wereldstaat bieden
 - je wilt meer gecentraliseerd gedrag
 - je voert BDS uit met `McHttp`
-- je voert Java/Geyser uit met `GeyserVoice`
+- je voert Java/Geyser uit met `VoiceCraft.Java`
 - u wilt dat personeels-/moderatietools redeneren over de status van de entiteit die eigendom is van de server
 
 In dit model stuurt de integratie aan Minecraft-zijde positie- en wereldupdates naar `VoiceCraft.Server`. De client ontvangt voldoende status om proximity audio lokaal weer te geven.
@@ -51,7 +51,7 @@ Gebruik dit alleen als u weet waarom positionering op de server niet praktisch i
 |-------|------------------|--------|
 | Bedrock Dedicated Server + `McHttp` | `0 = Server` | BDS-add-on kan een gezaghebbende wereldstaat rapporteren |
 | Lokale Bedrock-wereld + `McWss` | Meestal `0 = Server` | Addon kan nog steeds de status door de tunnel sturen |
-| Java + Geyser/Floodgate + `GeyserVoice` | `0 = Server` | De plug-in houdt de levenscyclus en positie van de speler bij |
+| Java + Geyser/Floodgate + `VoiceCraft.Java` | `0 = Server` | De plug-in houdt de levenscyclus en positie van de speler bij |
 | Experimentele, alleen lokale configuratie | Hangt ervan af | Gebruik alleen client-side als de integratie geen status kan bieden |
 
 ## Waarom mismatches de audioverwachtingen overtreden

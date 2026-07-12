@@ -20,7 +20,7 @@ De meeste implementaties bestaan uit drie onderdelen:
 Ecosysteemintegraties verbinden Minecraft met deze transporten:
 
 - `VoiceCraft.Addon` voor Bedrock-werelden en BDS
-- `GeyserVoice` voor Java / Geyser / proxystacks
+- `VoiceCraft.Java` voor Java / Geyser / proxystacks
 
 ## Hoe het werkt
 
@@ -29,7 +29,7 @@ Ecosysteemintegraties verbinden Minecraft met deze transporten:
 3. Een integratie aan de Minecraft-zijde werkt de server bij met de gameplay-status:
    - `McHttp` voor BDS
    - `McWss` voor lokale Bedrock-werelden
-   - `McTcp` voor `GeyserVoice`
+   - `McTcp` voor `VoiceCraft.Java`
 4. De client speelt proximity-audio af op basis van de serverstatus en geselecteerde lokale instellingen.
 
 De spraakverbinding en de Minecraft-transportverbinding zijn gescheiden. Als slechts één kant is aangesloten, kan de setup gedeeltelijk werken, maar blijft het proximity-gedrag onvolledig.
@@ -46,7 +46,7 @@ De spraakverbinding en de Minecraft-transportverbinding zijn gescheiden. Als sle
 
 - meerdere Minecraft-transporten
 - Bedrock add-on API-oppervlak
-- Brug aan Java-zijde via `GeyserVoice`
+- Brug aan Java-zijde via `VoiceCraft.Java`
 - configureerbare effecten en entiteitmetagegevens
 - zowel positioneringsmodi aan de serverzijde als aan de clientzijde
 
@@ -58,8 +58,8 @@ Die flexibiliteit betekent ook dat de eerste beslissing ertoe doet: kies eerst d
 |---------------|---------------|-----|
 | Bedrock Dedicated Server | [McHttp for BDS](/minecraft/mchttp-bds) | BDS kan een stabiel HTTP-eindpunt aanroepen |
 | Lokale Bedrock-wereld | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | Werkt via de lokale WebSocket-/commandotunnelstroom |
-| Java-server met Geyser/Floodgate | [GeyserVoice](/ecosystem/geyservoice) | Plugin aan Java-zijde verbindt met VoiceCraft via `McTcp` |
-| Direct Paper-server | [GeyserVoice Direct Paper](/ecosystem/geyservoice-direct-paper) | De plug-in kan een externe server gebruiken of de runtime beheren |
+| Java-server met Geyser/Floodgate | [VoiceCraft.Java](/ecosystem/voicecraft-java) | Plugin aan Java-zijde verbindt met VoiceCraft via `McTcp` |
+| Direct Paper-server | [VoiceCraft.Java Direct Paper](/ecosystem/voicecraft-java-direct-paper) | De plug-in kan een externe server gebruiken of de runtime beheren |
 
 ## Wat u hierna kunt lezen
 

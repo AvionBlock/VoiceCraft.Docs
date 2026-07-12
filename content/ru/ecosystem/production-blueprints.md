@@ -33,16 +33,16 @@ players -> VoiceCraft UDP endpoint
 
 - `VoiceCraft.Server`
 - `McTcp`
-- `GeyserVoice` режим Direct Paper
+- `VoiceCraft.Java` режим Direct Paper
 
 Необязательно:
 
-- позвольте GeyserVoice управлять средой выполнения VoiceCraft, если вы предпочитаете единый процесс установки на стороне Java
+- позвольте VoiceCraft.Java управлять средой выполнения VoiceCraft, если вы предпочитаете единый процесс установки на стороне Java
 
 Рекомендуемая форма:
 
 ```text
-Paper/Folia + GeyserVoice -> McTcp -> VoiceCraft.Server
+Paper/Folia + VoiceCraft.Java -> McTcp -> VoiceCraft.Server
 players -> VoiceCraft UDP endpoint
 ```
 
@@ -54,8 +54,8 @@ players -> VoiceCraft UDP endpoint
 
 - внешний `VoiceCraft.Server`
 - `McTcp`
-- `GeyserVoice` на прокси
-- `GeyserVoice` на внутренних узлах
+- `VoiceCraft.Java` на прокси
+- `VoiceCraft.Java` на внутренних узлах
 
 Почему:
 
@@ -66,7 +66,7 @@ players -> VoiceCraft UDP endpoint
 Рекомендуемая форма:
 
 ```text
-backend Paper nodes -> proxy relay -> proxy GeyserVoice -> McTcp -> VoiceCraft.Server
+backend Paper nodes -> proxy relay -> proxy VoiceCraft.Java -> McTcp -> VoiceCraft.Server
 players -> VoiceCraft UDP endpoint
 ```
 

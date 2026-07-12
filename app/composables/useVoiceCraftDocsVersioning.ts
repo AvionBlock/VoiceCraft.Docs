@@ -14,12 +14,19 @@ type VoiceCraftDocsVersioningConfig = {
 
 const versionPrefix = '/v'
 const overlayContentPrefix = '/docs'
-const defaultVersion: VoiceCraftDocsVersion = {
-  id: '1.6.x',
-  label: '1.6.x',
-  current: true,
-  source: 'legacy',
-}
+const defaultVersions: VoiceCraftDocsVersion[] = [
+  {
+    id: '1.7.x',
+    label: '1.7.x',
+    current: true,
+    extends: '1.6.x',
+  },
+  {
+    id: '1.6.x',
+    label: '1.6.x',
+    source: 'legacy',
+  },
+]
 
 function withoutTrailingSlash(path: string) {
   return path.length > 1 ? path.replace(/\/+$/, '') : path
@@ -47,7 +54,7 @@ export function useVoiceCraftDocsVersioning() {
 
   const versions = computed(() => {
     const items = appConfig.docsVersioning?.versions
-    return items?.length ? items : [defaultVersion]
+    return items?.length ? items : defaultVersions
   })
 
   const versionsById = computed(() => new Map(versions.value.map(version => [version.id, version])))
@@ -56,7 +63,7 @@ export function useVoiceCraftDocsVersioning() {
     appConfig.docsVersioning?.current
     || versions.value.find(version => version.current)?.id
     || versions.value[0]?.id
-    || defaultVersion.id
+    || '1.7.x'
   ))
 
   const legacyVersionId = computed(() => (

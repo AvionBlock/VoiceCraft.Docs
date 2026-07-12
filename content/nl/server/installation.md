@@ -11,7 +11,7 @@ VoiceCraft-server maakt meerdere lagen tegelijk zichtbaar:
 - VoiceCraft UDP-spraakserver
 - `McHttp` transport voor Bedrock-integraties
 - `McWss` transport voor websocket / commandotunnel Bedrock-stromen
-- `McTcp` transport voor Java-zijbruggen zoals `GeyserVoice`
+- `McTcp` transport voor Java-zijbruggen zoals `VoiceCraft.Java`
 
 U kunt ze allemaal ingeschakeld laten of transporten tijdens runtime selecteren.
 
@@ -96,7 +96,7 @@ Zodra de server netjes opnieuw is opgestart:
 3. Volg de Minecraft-gids voor het gekozen transport:
    - [McHttp for BDS](/minecraft/mchttp-bds)
    - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-   - [GeyserVoice](/ecosystem/geyservoice)
+   - [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 De server wordt pas als volledig ingesteld beschouwd als de client verbinding maakt en de Minecraft-kant zich verifieert met hetzelfde transporttoken.
 
@@ -207,4 +207,4 @@ dotnet run --project VoiceCraft.Server
 - [Clientinstallatie](/client/installation)
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)

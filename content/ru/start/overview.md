@@ -20,7 +20,7 @@ VoiceCraft полезен, когда вам нужен голосовой ча�
 Интеграция экосистемы соединяет Minecraft с этими транспортами:
 
 - `VoiceCraft.Addon` для миров Bedrock и BDS
-- `GeyserVoice` для стеков Java/Geyser/Proxy
+- `VoiceCraft.Java` для стеков Java/Geyser/Proxy
 
 ## Как это работает
 
@@ -29,7 +29,7 @@ VoiceCraft полезен, когда вам нужен голосовой ча�
 3. Интеграция со стороны Minecraft обновляет сервер с состоянием игрового процесса:
    - `McHttp` для BDS
    - `McWss` для локальных миров Bedrock
-   - `McTcp` для `GeyserVoice`
+   - `McTcp` для `VoiceCraft.Java`
 4. Клиент воспроизводит звук с учетом расстояния в соответствии с состоянием сервера и выбранными локальными настройками.
 
 Голосовое соединение и транспортное соединение Minecraft разделены. Если подключена только одна сторона, установка может выглядеть частично работоспособной, но поведение звука с учетом расстояния все равно будет неполным.
@@ -46,7 +46,7 @@ VoiceCraft полезен, когда вам нужен голосовой ча�
 
 - несколько транспортов Minecraft
 - API-интерфейс аддона Bedrock
-- мост на стороне Java через `GeyserVoice`
+- мост на стороне Java через `VoiceCraft.Java`
 - кастомные эффекты и метаданные сущностей
 - режимы позиционирования как на стороне сервера, так и на стороне клиента
 
@@ -58,8 +58,8 @@ VoiceCraft полезен, когда вам нужен голосовой ча�
 |---------------|---------------|-----|
 | Выделенный сервер Bedrock | [McHttp for BDS](/minecraft/mchttp-bds) | BDS может вызывать стабильный HTTP-эндпоинт |
 | Локальный мир Bedrock | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) | Работает через локальный WebSocket/командный туннель. |
-| Java-сервер с Geyser/Floodgate | [GeyserVoice](/ecosystem/geyservoice) | Плагин на стороне Java подключается к VoiceCraft через `McTcp` |
-| Сервер Direct Paper | [GeyserVoice Direct Paper](/ecosystem/geyservoice-direct-paper) | Плагин может использовать внешний сервер или управлять средой выполнения. |
+| Java-сервер с Geyser/Floodgate | [VoiceCraft.Java](/ecosystem/voicecraft-java) | Плагин на стороне Java подключается к VoiceCraft через `McTcp` |
+| Сервер Direct Paper | [VoiceCraft.Java Direct Paper](/ecosystem/voicecraft-java-direct-paper) | Плагин может использовать внешний сервер или управлять средой выполнения. |
 
 ## Что читать дальше
 

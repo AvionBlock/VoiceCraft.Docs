@@ -11,7 +11,7 @@ VoiceCraft 服务器同时公开多个层：
 - VoiceCraft UDP 语音服务器
 - `McHttp`，用于 Bedrock 集成的传输
 - `McWss`，用于 WebSocket/命令隧道 Bedrock 流程的传输
-- `McTcp` 用于 Java 端桥的传输，例如 `GeyserVoice`
+- `McTcp` 用于 Java 端桥的传输，例如 `VoiceCraft.Java`
 
 您可以将它们全部启用，或者在运行时选择传输。
 
@@ -96,7 +96,7 @@ chmod +x ./VoiceCraft.Server
 3. 按照所选传输对应的 Minecraft 指南操作：
    - [McHttp for BDS](/minecraft/mchttp-bds)
    - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-   - [GeyserVoice](/ecosystem/geyservoice)
+   - [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 只有在客户端成功连接，并且 Minecraft 端使用相同传输令牌完成身份验证后，服务器才算完成设置。
 
@@ -207,4 +207,4 @@ dotnet run --project VoiceCraft.Server
 - [客户端安装](/client/installation)
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)

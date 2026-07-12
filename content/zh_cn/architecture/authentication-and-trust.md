@@ -12,13 +12,13 @@ VoiceCraft 在 Minecraft 传输端使用共享令牌。这些令牌决定是否�
 
 - Bedrock 插件使用 `McHttpConfig.LoginToken` 进行身份验证
 - `McWss` 世界通过 `McWssConfig.LoginToken` 进行身份验证
-- `GeyserVoice` 使用 `McTcpConfig.LoginToken` 进行身份验证
+- `VoiceCraft.Java` 使用 `McTcpConfig.LoginToken` 进行身份验证
 
 | 传输 | 使用方 | 令牌字段 |
 |-----------|----------|-------------|
 | `McHttp` | BDS插件包 | `McHttpConfig.LoginToken` |
 | `McWss` | 本地 Bedrock 世界插件 | `McWssConfig.LoginToken` |
-| `McTcp` | `GeyserVoice` 或 Java 端桥 | `McTcpConfig.LoginToken` |
+| `McTcp` | `VoiceCraft.Java` 或 Java 端桥 | `McTcpConfig.LoginToken` |
 
 ## 信任边界
 

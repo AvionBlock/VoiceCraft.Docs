@@ -10,13 +10,13 @@ VoiceCraft 可透過多種方式部署：
 
 - Bedrock 專用伺服器：`VoiceCraft.Server` + `VoiceCraft.Addon.Core.McHttp`
 - 本地 Bedrock 世界/單人遊戲：`VoiceCraft.Server` 或本地運行時 + `Core.McWss`
-- 帶有 Geyser/Floodgate 的 Java 伺服器：`GeyserVoice` + `VoiceCraft.Server`
-- Direct Paper 伺服器：`GeyserVoice` 也可以在背景下載並執行 VoiceCraft 執行時間
+- 帶有 Geyser/Floodgate 的 Java 伺服器：`VoiceCraft.Java` + `VoiceCraft.Server`
+- Direct Paper 伺服器：`VoiceCraft.Java` 也可以在背景下載並執行 VoiceCraft 執行時間
 
 如果您不確定，請從以下之一開始：
 
 - Bedrock 專用伺服器：閱讀 [McHttp for BDS](/minecraft/mchttp-bds)
-- Java + Geyser 伺服器：閱讀 [GeyserVoice](/ecosystem/geyservoice)
+- Java + Geyser 伺服器：閱讀 [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 首次設定時，選擇一個拓撲，並只開放它需要的傳輸。等基本綁定和距離感語音流程正常後，再新增混合設定。
 
@@ -68,7 +68,7 @@ chmod +x ./VoiceCraft.Server
 
 - BDS `McHttp` 插件使用 `McHttpConfig.LoginToken`
 - 本地 Bedrock `McWss` 插件使用 `McWssConfig.LoginToken`
-- `GeyserVoice` 使用 `McTcpConfig.LoginToken`
+- `VoiceCraft.Java` 使用 `McTcpConfig.LoginToken`
 
 ## 4. 選擇 Minecraft 傳輸
 
@@ -79,7 +79,7 @@ VoiceCraft 目前有 3 種面向 Minecraft 的傳輸：
 - `McWss`：
   最適合本地世界、測試和命令隧道場景。
 - `McTcp`：
-  最適合 Java 端橋，例如 `GeyserVoice`。
+  最適合 Java 端橋，例如 `VoiceCraft.Java`。
 
 請參閱 [傳輸模式](/server/transports) 以了解完整比較。
 
@@ -112,7 +112,7 @@ VoiceCraft 目前有 3 種面向 Minecraft 的傳輸：
 
 - 對於Bedrock 專用伺服器，請使用 [McHttp for BDS](/minecraft/mchttp-bds)。
 - 對於本地 Bedrock 世界，請使用 [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)。
-- 對於 Java + Geyser/Floodgate，請使用 [GeyserVoice](/ecosystem/geyservoice)。
+- 對於 Java + Geyser/Floodgate，請使用 [VoiceCraft.Java](/ecosystem/voicecraft-java)。
 
 此步驟會向 VoiceCraft 提供距離感音訊所需的遊戲內狀態：玩家身分、綁定資料、世界 ID、位置更新和效果狀態。
 

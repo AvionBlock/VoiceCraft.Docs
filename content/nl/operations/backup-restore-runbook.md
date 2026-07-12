@@ -16,7 +16,7 @@ Aanbevolen:
 
 - artefacten uit eerdere releases
 - logt rond de laatst bekende staat
-- plug-inconfiguraties zoals `GeyserVoice/config.yml`
+- plug-inconfiguraties zoals `VoiceCraft.Java/config.yml`
 - Configuratiebestanden voor het Bedrock World Pack
 - addon-pakketversies die momenteel wereldwijd zijn geïnstalleerd
 - servicemanagerbestanden zoals systemd-eenheden of paneelopstartopdrachten

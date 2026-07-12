@@ -22,7 +22,7 @@ Check:
 5. `McTcpConfig.Hostname` is a plain host, not a URI.
 6. runtime overrides are not replacing the expected config values.
 
-If the server is managed by systemd, Docker, a panel, or GeyserVoice auto-start, check the startup arguments as well as the JSON file.
+If the server is managed by systemd, Docker, a panel, or VoiceCraft.Java auto-start, check the startup arguments as well as the JSON file.
 
 ## Client cannot connect
 
@@ -50,7 +50,7 @@ Examples:
 
 - BDS addon uses `McHttpConfig.LoginToken`
 - local Bedrock world uses `McWssConfig.LoginToken`
-- GeyserVoice uses `McTcpConfig.LoginToken`
+- VoiceCraft.Java uses `McTcpConfig.LoginToken`
 
 ## McHttp not working
 
@@ -69,7 +69,7 @@ Examples:
 - Confirm `DataTunnelCommand` matches the addon package.
 - Reduce `CommandsPerTick` if the command tunnel is unstable.
 
-## GeyserVoice not working
+## VoiceCraft.Java not working
 
 - Check `McTcpConfig.Enabled = true`.
 - Check `config.voicecraft.transport.host`.

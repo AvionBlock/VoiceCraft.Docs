@@ -58,7 +58,6 @@
       "upgradeRunbook": "Upgrade Runbook",
       "troubleshootingMatrix": "Troubleshooting Matrix",
       "voiceCraftRepository": "VoiceCraft Repository",
-      "geyserVoice": "GeyserVoice",
       "voiceCraftAddon": "VoiceCraft.Addon",
       "integrationRecipes": "Integration Recipes",
       "directPaper": "Direct Paper",
@@ -69,7 +68,8 @@
       "packetFlow": "Packet Flow",
       "authenticationTrust": "Authentication & Trust",
       "positioningModel": "Positioning Model",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "voiceCraftJava": "VoiceCraft.Java"
     }
   },
   "download": {

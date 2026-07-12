@@ -18,7 +18,7 @@ VoiceCraft 安全性主要是限制谁可以到达传输端点、保护共享令
 
 - BDS 的 `McHttpConfig.LoginToken` `McHttp`
 - `McWssConfig.LoginToken` 适用于本地 Bedrock `McWss`
-- `McTcpConfig.LoginToken` 用于 GeyserVoice / Java 桥
+- `McTcpConfig.LoginToken` 用于 VoiceCraft.Java / Java 桥
 
 ## 2.仅公开所需的传输
 
@@ -69,7 +69,7 @@ VoiceCraft 安全性主要是限制谁可以到达传输端点、保护共享令
 
 ## 6. 小心插件管理的运行时
 
-如果 `GeyserVoice` 管理 VoiceCraft 运行时：
+如果 `VoiceCraft.Java` 管理 VoiceCraft 运行时：
 
 - 控制安装目录
 - 了解谁拥有重启行为
@@ -91,7 +91,7 @@ VoiceCraft 安全性主要是限制谁可以到达传输端点、保护共享令
 
 ## 8. 限制操作命令
 
-对于 `GeyserVoice`，仅保留这些人员：
+对于 `VoiceCraft.Java`，仅保留这些人员：
 
 - `/voice connect`
 - `/voice reconnect`
@@ -126,6 +126,6 @@ VoiceCraft 安全性主要是限制谁可以到达传输端点、保护共享令
 - 仅启用所需的传输
 - 用于同主机消费者的环回
 - 防火墙规则尽可能限于已知来源
-- GeyserVoice 操作命令受限
+- VoiceCraft.Java 操作命令受限
 - 安全存储备份
 - 发行版和插件/插件版本保持一致

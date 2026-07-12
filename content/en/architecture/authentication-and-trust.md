@@ -12,13 +12,13 @@ Examples:
 
 - Bedrock addon authenticates with `McHttpConfig.LoginToken`
 - `McWss` world authenticates with `McWssConfig.LoginToken`
-- `GeyserVoice` authenticates with `McTcpConfig.LoginToken`
+- `VoiceCraft.Java` authenticates with `McTcpConfig.LoginToken`
 
 | Transport | Consumer | Token field |
 |-----------|----------|-------------|
 | `McHttp` | BDS addon package | `McHttpConfig.LoginToken` |
 | `McWss` | local Bedrock world addon | `McWssConfig.LoginToken` |
-| `McTcp` | `GeyserVoice` or Java-side bridge | `McTcpConfig.LoginToken` |
+| `McTcp` | `VoiceCraft.Java` or Java-side bridge | `McTcpConfig.LoginToken` |
 
 ## Trust boundaries
 

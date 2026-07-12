@@ -22,7 +22,7 @@ Client en server moeten dezelfde `Major.Minor` gebruiken.
 - `config/ServerProperties.json`
 - eigen scripts, systemd, container- of panelconfiguratie
 - logs indien nodig
-- GeyserVoice- of Java-bridge-config
+- VoiceCraft.Java- of Java-bridge-config
 - Bedrock world pack-configuratie
 - notities over hostnamen, poorten en firewall
 

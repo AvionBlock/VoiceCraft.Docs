@@ -12,7 +12,7 @@ Use this page before editing `McHttpConfig`, `McWssConfig`, or `McTcpConfig`.
 |-----------|------------------|----------------|----------|-------------|
 | `McHttp` | `VoiceCraft.Addon.Core.McHttp` | HTTP endpoint | Bedrock Dedicated Server | `McHttpConfig.LoginToken` |
 | `McWss` | `VoiceCraft.Addon.Core.McWss` | websocket + command tunnel | local Bedrock worlds and testing | `McWssConfig.LoginToken` |
-| `McTcp` | `GeyserVoice` | raw TCP bridge | Java, Geyser, proxy, or Paper bridge scenarios | `McTcpConfig.LoginToken` |
+| `McTcp` | `VoiceCraft.Java` | raw TCP bridge | Java, Geyser, proxy, or Paper bridge scenarios | `McTcpConfig.LoginToken` |
 
 Do not choose a transport based only on port number. Choose it based on which Minecraft-side component will connect.
 
@@ -94,7 +94,7 @@ Use this when you need the local `/connect` flow. For a real BDS production serv
 
 ### Best use cases
 
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - Java server or proxy bridges
 - direct Paper runtime integration
 
@@ -102,7 +102,7 @@ Use this when you need the local `/connect` flow. For a real BDS production serv
 
 - direct bridge transport for Java-side plugins
 - avoids HTTP endpoint semantics when a native TCP bridge is better
-- aligns with current `GeyserVoice` architecture
+- aligns with current `VoiceCraft.Java` architecture
 
 ### Trade-offs
 
@@ -123,7 +123,7 @@ Use this when you need the local `/connect` flow. For a real BDS production serv
 }
 ```
 
-If `GeyserVoice` runs on the same machine as VoiceCraft, bind to `127.0.0.1`. If it runs elsewhere, bind to an address the plugin can reach and restrict the firewall.
+If `VoiceCraft.Java` runs on the same machine as VoiceCraft, bind to `127.0.0.1`. If it runs elsewhere, bind to an address the plugin can reach and restrict the firewall.
 
 ## Which one should you choose?
 
@@ -141,9 +141,9 @@ Continue with [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer).
 
 ### Java + Geyser/Floodgate
 
-Use `McTcp` through `GeyserVoice`.
+Use `McTcp` through `VoiceCraft.Java`.
 
-Continue with [GeyserVoice](/ecosystem/geyservoice).
+Continue with [VoiceCraft.Java](/ecosystem/voicecraft-java).
 
 ### Mixed network
 

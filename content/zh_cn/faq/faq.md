@@ -24,7 +24,7 @@
 
 它可以在有限的场景中工作，特别是在使用客户端定位时，但 Realms 是一个比专用服务器更受限制的环境。
 
-如果您想要可预测的生产设置，请使用带有 `McHttp` 的 BDS 或带有 `GeyserVoice` 的 Java/Geyser 拓扑。
+如果您想要可预测的生产设置，请使用带有 `McHttp` 的 BDS 或带有 `VoiceCraft.Java` 的 Java/Geyser 拓扑。
 
 ## 我应该使用哪种传输？
 
@@ -33,15 +33,15 @@
 - 本地 Bedrock 世界：
   `McWss`
 - Java + Geyser/Floodgate：
-  `McTcp` 到 `GeyserVoice`
+  `McTcp` 到 `VoiceCraft.Java`
 
 该传输用于 Minecraft 端状态。玩家客户端仍连接到 VoiceCraft UDP 端点。
 
-## GeyserVoice 是否需要单独管理的 VoiceCraft 服务器？
+## VoiceCraft.Java 是否需要单独管理的 VoiceCraft 服务器？
 
 并非总是如此。
 
-在直接 Paper 模式下，GeyserVoice 可以使用以下命令在后台引导并运行 VoiceCraft 运行时：
+在直接 Paper 模式下，VoiceCraft.Java 可以使用以下命令在后台引导并运行 VoiceCraft 运行时：
 
 - `config.voicecraft.auto-start`
 - `config.voicecraft.shutdown-on-disable`
@@ -59,7 +59,7 @@
 示例：
 
 - 具有 `McHttp` 的 BDS 需要出站可访问 VoiceCraft HTTP 端点
-- Java + GeyserVoice 需要可访问 VoiceCraft `McTcp` 端点
+- Java + VoiceCraft.Java 需要可访问 VoiceCraft `McTcp` 端点
 
 某些提供商会阻止您所需的确切网络行为。
 
@@ -71,7 +71,7 @@
 
 - 本地测试
 - 小社区
-- 直接 Paper + GeyserVoice 设置
+- 直接 Paper + VoiceCraft.Java 设置
 
 仅当消费者真正在同一台机器上运行时才使用环回地址，例如`127.0.0.1`。
 
@@ -115,13 +115,13 @@
 
 ## 我用 Geyser 运行 Java。我还需要Bedrock插件吗？
 
-不会。在 Java + Geyser 拓扑中，桥通常是 `GeyserVoice`，而不是 Bedrock 插件。
+不会。在 Java + Geyser 拓扑中，桥通常是 `VoiceCraft.Java`，而不是 Bedrock 插件。
 
-使用Bedrock 世界/BDS 的Bedrock插件。当 Java 端基础设施是玩家状态的来源时，请使用 GeyserVoice。
+使用Bedrock 世界/BDS 的Bedrock插件。当 Java 端基础设施是玩家状态的来源时，请使用 VoiceCraft.Java。
 
 ## VoiceCraft 是第三方托管语音服务吗？
 
-不需要。VoiceCraft 不需要第三方托管服务。您可以自己运行服务器/运行时，或者让 GeyserVoice 在直接 Paper 模式下管理运行时。
+不需要。VoiceCraft 不需要第三方托管服务。您可以自己运行服务器/运行时，或者让 VoiceCraft.Java 在直接 Paper 模式下管理运行时。
 
 ## VoiceCraft 只是 Minecraft 的一个模组吗？
 

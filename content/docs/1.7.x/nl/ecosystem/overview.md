@@ -9,7 +9,7 @@ Spelers gebruiken `VoiceCraft.Client`, backend draait `VoiceCraft.Server`, en Mi
 | Repository | Rol |
 |------------|-----|
 | `VoiceCraft` | client, server, protocol, transports |
-| `GeyserVoice` / Java bridge | Paper, Geyser/Floodgate, proxy |
+| `VoiceCraft.Java` / Java bridge | Paper, Geyser/Floodgate, proxy |
 | `VoiceCraft.Addon` | Bedrock addons en McApi |
 
 GitLab is de primaire ontwikkelplek. GitHub is public mirror en releaseplek.

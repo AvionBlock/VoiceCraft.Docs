@@ -56,23 +56,23 @@ Stroom:
 5. voer `voicecraft:vcconnect <token>` uit
 6. valideer binding en beweging
 
-## Scenario C: Direct Paper met door GeyserVoice beheerde runtime
+## Scenario C: Direct Paper met door VoiceCraft.Java beheerde runtime
 
 Stapel:
 
 - Paper / Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - door plug-ins beheerde VoiceCraft-runtime
 
 Kies dit wanneer:
 
 - één Paper/Folia-server moet beschikken over spraakintegratie
 - je wilt minder externe diensten
-- GeyserVoice zou VoiceCraft moeten downloaden en starten
+- VoiceCraft.Java zou VoiceCraft moeten downloaden en starten
 
 Stroom:
 
-1. installeer `GeyserVoice`
+1. installeer `VoiceCraft.Java`
 2. stel `config.proxy.enabled = false` in
 3. configureren `config.voicecraft.transport.login-token`
 4. schakel `config.voicecraft.auto-start` in
@@ -85,7 +85,7 @@ Dit is de eenvoudigste installatie aan de Java-kant als je wilt dat de plug-in V
 Stapel:
 
 - Paper / Folia
-- `GeyserVoice`
+- `VoiceCraft.Java`
 - extern beheerd `VoiceCraft.Server`
 
 Kies dit wanneer:
@@ -97,7 +97,7 @@ Kies dit wanneer:
 Stroom:
 
 1. schakel `McTcp` in op VoiceCraft
-2. stel `config.voicecraft.transport.host`, `config.voicecraft.transport.port` en `config.voicecraft.transport.login-token` in GeyserVoice in
+2. stel `config.voicecraft.transport.host`, `config.voicecraft.transport.port` en `config.voicecraft.transport.login-token` in VoiceCraft.Java in
 3. schakel runtimebeheer van plug-ins uit als dit niet nodig is
 4. herlaad en valideer de verbinding
 
@@ -105,8 +105,8 @@ Stroom:
 
 Stapel:
 
-- `GeyserVoice` op proxy
-- `GeyserVoice` op backend Paper-servers
+- `VoiceCraft.Java` op proxy
+- `VoiceCraft.Java` op backend Paper-servers
 - `VoiceCraft.Server` met `McTcp`
 
 Kies dit wanneer:

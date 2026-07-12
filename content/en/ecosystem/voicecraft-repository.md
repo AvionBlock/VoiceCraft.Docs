@@ -32,7 +32,7 @@ The repository is broader than "client + server":
 - packet definitions for VoiceCraft and McApi layers
 - audio effects and visibility systems
 
-It is also important to understand what this repository is not: VoiceCraft is not a single Minecraft mod or plugin. The core runtime works together with clients and Minecraft-side integrations such as `VoiceCraft.Addon` or `GeyserVoice`.
+It is also important to understand what this repository is not: VoiceCraft is not a single Minecraft mod or plugin. The core runtime works together with clients and Minecraft-side integrations such as `VoiceCraft.Addon` or `VoiceCraft.Java`.
 
 ## Build requirements
 
@@ -123,7 +123,7 @@ Current embedded locales include:
 
 - you want to build or debug core VoiceCraft
 - you need to understand which project owns client/server behavior
-- you are checking whether a feature belongs in core, addon, or GeyserVoice
+- you are checking whether a feature belongs in core, addon, or VoiceCraft.Java
 - you are preparing custom release artifacts
 
 ## Related docs
@@ -132,4 +132,4 @@ Current embedded locales include:
 - [ServerProperties.json](/server/server-properties)
 - [Transport Modes](/server/transports)
 - [VoiceCraft.Addon](/ecosystem/voicecraft-addon)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)

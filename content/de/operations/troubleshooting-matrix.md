@@ -33,7 +33,7 @@ Häufige Ursachen:
 - Die Version des Add-on-Pakets stimmt nicht mit der Server-/Client-Version überein
 - Die benutzerdefinierte Add-on-Logik fängt den Stock-Bind-Fluss ab oder umgeht ihn
 
-## Symptom: GeyserVoice ist installiert, aber die Java-seitige Bridge wird nie nutzbar
+## Symptom: VoiceCraft.Java ist installiert, aber die Java-seitige Bridge wird nie nutzbar
 
 Überprüfen Sie:
 
@@ -64,7 +64,7 @@ Wenn das Plugin startet, bevor die verwaltete Laufzeit bereit ist, erhöhen Sie 
 3. Die Snapshot-Weiterleitung bleibt über Switches hinweg erhalten
 4. Die Namensraumlogik der Welt-ID bleibt konsistent
 
-Wenn nur ein Backend ausfällt, vergleichen Sie dessen GeyserVoice-Konfiguration und Plugin-Version mit einem funktionierenden Backend.
+Wenn nur ein Backend ausfällt, vergleichen Sie dessen VoiceCraft.Java-Konfiguration und Plugin-Version mit einem funktionierenden Backend.
 
 ## Symptom: `McWss` ist instabil
 

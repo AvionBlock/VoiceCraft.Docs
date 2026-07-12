@@ -9,7 +9,7 @@ VoiceCraft 由 client、server 和 Minecraft integrations 組成。
 | Repository | 作用 |
 |------------|------|
 | `VoiceCraft` | client、server、protocol、transports |
-| `GeyserVoice` / Java bridge | Paper、Geyser/Floodgate、proxy |
+| `VoiceCraft.Java` / Java bridge | Paper、Geyser/Floodgate、proxy |
 | `VoiceCraft.Addon` | Bedrock addons 和 McApi |
 
 GitLab 是主要開發倉庫。GitHub 是 public mirror 和 release 位置。

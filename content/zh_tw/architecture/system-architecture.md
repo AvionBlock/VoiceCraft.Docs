@@ -43,7 +43,7 @@ VoiceCraft 是距離感語音堆疊，而不是單一 Minecraft 模組。客戶�
 
 - `VoiceCraft.Addon.Core.McHttp` 用於Bedrock 專用伺服器
 - `VoiceCraft.Addon.Core.McWss` 用於本地 Bedrock 世界和指令隧道設置
-- `GeyserVoice` 適用於 Java、Geyser/Floodgate、Paper、Velocity 和 BungeeCord 拓樸
+- `VoiceCraft.Java` 適用於 Java、Geyser/Floodgate、Paper、Velocity 和 BungeeCord 拓樸
 
 整合層負責將遊戲事件轉換為 VoiceCraft 狀態：玩家加入、玩家離開、位置更新、世界識別碼、綁定請求、虛假實體、效果變更和連線生命週期。
 
@@ -100,7 +100,7 @@ Minecraft local world + Core.McWss -> McWss websocket endpoint
 
 ```text
 VoiceCraft.Client -> VoiceCraft UDP server
-GeyserVoice -> McTcp endpoint
+VoiceCraft.Java -> McTcp endpoint
 ```
 
 當 Java 端基礎架構是玩家位置和生命週期狀態的來源時，請使用此選項。

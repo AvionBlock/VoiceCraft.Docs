@@ -28,7 +28,7 @@ Opmerkingen:
 
 - UDP-spraakverkeer en sommige standaard transportinstellingen delen `9050`
 - `McWss` wordt standaard gescheiden op `9051`
-- `McTcp` is vooral relevant voor `GeyserVoice`
+- `McTcp` is vooral relevant voor `VoiceCraft.Java`
 
 ## Lineair pad voor de eerste run
 
@@ -50,7 +50,7 @@ Voordat een add-on, plug-in of speler-client verbinding maakt, vervangt u:
 - `McWssConfig.LoginToken`
 - `McTcpConfig.LoginToken`
 
-Gebruik het token van het transport dat u later daadwerkelijk aansluit. Een BDS `vcconnect`-opdracht moet bijvoorbeeld `McHttpConfig.LoginToken` gebruiken, terwijl GeyserVoice `McTcpConfig.LoginToken` moet gebruiken.
+Gebruik het token van het transport dat u later daadwerkelijk aansluit. Een BDS `vcconnect`-opdracht moet bijvoorbeeld `McHttpConfig.LoginToken` gebruiken, terwijl VoiceCraft.Java `McTcpConfig.LoginToken` moet gebruiken.
 
 ### 3. Kies één primair Minecraft-transport
 
@@ -60,7 +60,7 @@ Gebruik de topologie om te beslissen wat moet worden ingeschakeld:
 |-------|--------|---------------|
 | Bedrock Dedicated Server | `McHttpConfig` | [McHttp for BDS](/minecraft/mchttp-bds) |
 | Lokale Bedrock-wereld | `McWssConfig` | [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer) |
-| Java + Geyser/Floodgate | `McTcpConfig` | [GeyserVoice](/ecosystem/geyservoice) |
+| Java + Geyser/Floodgate | `McTcpConfig` | [VoiceCraft.Java](/ecosystem/voicecraft-java) |
 
 U kunt meerdere transporten uitvoeren, maar een eerste configuratie is gemakkelijker te debuggen als alleen het vereiste transport wordt geopend.
 
@@ -105,7 +105,7 @@ Ga verder met de gids die overeenkomt met het transport dat je hebt ingeschakeld
 
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 Wanneer u om een token wordt gevraagd, gebruikt u het overeenkomende transporttoken van `ServerProperties.json`.
 
@@ -187,7 +187,7 @@ Ze zijn alleen van toepassing op het huidige proces en zijn nuttig wanneer:
 - meerdere omgevingen uitvoeren vanaf één image
 - met behulp van panelen of systemd drop-ins
 - testen van directe versus proxy-topologieën
-- een ander hulpmiddel zoals `GeyserVoice` de runtime laten starten met gegenereerde waarden
+- een ander hulpmiddel zoals `VoiceCraft.Java` de runtime laten starten met gegenereerde waarden
 
 ## Controlelijst voor de eerste keer
 
@@ -197,7 +197,7 @@ Ze zijn alleen van toepassing op het huidige proces en zijn nuttig wanneer:
 4. Bevestig welk transport u daadwerkelijk nodig hebt:
    - `McHttp` voor BDS
    - `McWss` voor lokale werelden
-   - `McTcp` voor `GeyserVoice`
+   - `McTcp` voor `VoiceCraft.Java`
 5. Controleer hostbindingen.
 6. Open alleen de poorten die u nodig heeft.
 7. Start de server opnieuw op vanuit dezelfde installatiemap.

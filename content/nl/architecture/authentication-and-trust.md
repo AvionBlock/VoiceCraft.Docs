@@ -12,13 +12,13 @@ Voorbeelden:
 
 - Bedrock-add-on authenticeert met `McHttpConfig.LoginToken`
 - `McWss` wereld authenticeert met `McWssConfig.LoginToken`
-- `GeyserVoice` authenticeert met `McTcpConfig.LoginToken`
+- `VoiceCraft.Java` authenticeert met `McTcpConfig.LoginToken`
 
 | Vervoer | Consument | Tokenveld |
 |-----------|----------|-------------|
 | `McHttp` | BDS-add-onpakket | `McHttpConfig.LoginToken` |
 | `McWss` | lokale Bedrock-wereld-add-on | `McWssConfig.LoginToken` |
-| `McTcp` | `GeyserVoice` of brug aan Java-zijde | `McTcpConfig.LoginToken` |
+| `McTcp` | `VoiceCraft.Java` of brug aan Java-zijde | `McTcpConfig.LoginToken` |
 
 ## Vertrouw op grenzen
 

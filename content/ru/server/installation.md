@@ -11,7 +11,7 @@
 - Голосовой сервер VoiceCraft UDP
 - `McHttp` транспорт для интеграции с Bedrock
 - транспорт `McWss` для сценариев Bedrock на основе WebSocket и командного туннеля
-- Транспорт `McTcp` для мостов на стороне Java, таких как `GeyserVoice`
+- Транспорт `McTcp` для мостов на стороне Java, таких как `VoiceCraft.Java`
 
 Вы можете оставить их все включенными или выбрать транспорты во время выполнения.
 
@@ -96,7 +96,7 @@ chmod +x ./VoiceCraft.Server
 3. Следуйте руководству Minecraft для выбранного вами транспорта:
    - [McHttp for BDS](/minecraft/mchttp-bds)
    - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-   - [GeyserVoice](/ecosystem/geyservoice)
+   - [VoiceCraft.Java](/ecosystem/voicecraft-java)
 
 Сервер не считается полностью настроенным до тех пор, пока клиент не подключится и сторона Minecraft не пройдет аутентификацию с тем же транспортным токеном.
 
@@ -207,4 +207,4 @@ dotnet run --project VoiceCraft.Server
 - [Установка клиента](/client/installation)
 - [McHttp for BDS](/minecraft/mchttp-bds)
 - [McWss for Singleplayer Worlds](/minecraft/mcwss-singleplayer)
-- [GeyserVoice](/ecosystem/geyservoice)
+- [VoiceCraft.Java](/ecosystem/voicecraft-java)
