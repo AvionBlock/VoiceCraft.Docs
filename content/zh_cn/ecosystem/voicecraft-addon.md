@@ -1,6 +1,6 @@
 # VoiceCraft.Addon（Bedrock插件）
 
-存储库：[AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
+存储库：[voicecraft/VoiceCraft.Addon](https://gitlab.avion.team/voicecraft/VoiceCraft.Addon)
 
 该存储库包含实用的 Bedrock 插件包和用于自定义世界逻辑的脚本端 McApi 界面。
 
@@ -10,7 +10,7 @@
 
 - [下载页面](/download)
 - [附加包配置器](/addon-configurator)
-- [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
+- [Addon Releases](https://github.com/AvionBlock/VoiceCraft/releases/latest)
 
 ## 套餐
 

@@ -23,14 +23,14 @@ Voor externe servers gebruikt u het openbare adres of het LAN-adres van de machi
 
 ## Windows
 
-1. Download `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`.
+1. Download `VoiceCraft.Client.Windows.<Architecture>.v<version>.zip`.
 2. Pak het archief uit.
 3. Voer `VoiceCraft.Client.Windows.exe` uit.
 4. Als Windows SmartScreen verschijnt, controleer dan of het bestand afkomstig is van de officiële releasepagina voordat u doorgaat.
 
 ## Linux
 
-1. Download `VoiceCraft.Client.Linux.<Architecture>.v1.7.0.zip`.
+1. Download `VoiceCraft.Client.Linux.<Architecture>.v<version>.zip`.
 2. Pak het archief uit.
 3. Verleen machtigingen en voer uit:
 
@@ -45,8 +45,8 @@ Als de app geen audioapparaten kan zien, controleer dan de PulseAudio/PipeWire-m
 
 Kies het ZIP-pakket dat bij uw apparaat past:
 
-- `VoiceCraft.Client.MacOS.arm64.v1.7.0.zip` voor Apple Silicon
-- `VoiceCraft.Client.MacOS.x64.v1.7.0.zip` voor Intel
+- `VoiceCraft.Client.MacOS.arm64.v<version>.zip` voor Apple Silicon
+- `VoiceCraft.Client.MacOS.x64.v<version>.zip` voor Intel
 
 1. Pak het archief uit.
 2. Start `VoiceCraft.app`.
@@ -61,14 +61,14 @@ Verwijder alleen de quarantaine voor builds die u opzettelijk hebt gedownload en
 
 ## Android
 
-1. Download `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip`.
+1. Download `VoiceCraft.Client.Android.<Architecture>.v<version>.zip`.
 2. Pak het archief uit.
 3. Open de `.apk` uit het archief en installeer.
 4. Sta microfoontoestemming toe wanneer Android daarom vraagt.
 
 ## iOS (AltStore / sideload)
 
-1. Download `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`.
+1. Download `VoiceCraft.Client.iOS.arm64.v<version>.zip`.
 2. Installeer IPA via AltStore of een andere sideload-tool.
 3. Sta indien nodig het profiel toe in de iOS-instellingen.
 4. Sta microfoontoestemming toe bij de eerste keer opstarten.

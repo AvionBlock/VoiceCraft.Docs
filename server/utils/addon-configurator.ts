@@ -3,18 +3,31 @@ import * as nbt from 'prismarine-nbt'
 
 export type TransportMode = 'none' | 'http' | 'wss' | 'both'
 
-type GitHubReleaseAsset = {
+type ReleaseAsset = {
   name: string
-  browser_download_url: string
+  url: string
+}
+
+type AddonRelease = {
+  tag: string
+  name: string
+  publishedAt: string | null
+  assets: ReleaseAsset[]
 }
 
 type GitHubRelease = {
   tag_name: string
   name: string
   draft: boolean
-  prerelease: boolean
   published_at: string | null
-  assets: GitHubReleaseAsset[]
+  assets: { name: string, browser_download_url: string }[]
+}
+
+type GitLabRelease = {
+  tag_name: string
+  name: string
+  released_at: string | null
+  assets: { links: { name: string, url: string, direct_asset_url?: string }[] }
 }
 
 type PackManifestReference = {
@@ -36,9 +49,8 @@ type LoadedPack = {
   folderSlug: string
 }
 
-const OWNER = 'AvionBlock'
-const REPO = 'VoiceCraft'
-const RELEASES_URL = `https://api.github.com/repos/${OWNER}/${REPO}/releases`
+const GITLAB_RELEASES_URL = 'https://gitlab.avion.team/api/v4/projects/1/releases?per_page=100'
+const GITHUB_RELEASES_URL = 'https://api.github.com/repos/AvionBlock/VoiceCraft/releases?per_page=100'
 
 const PACK_DEFINITIONS: Record<ReleasePackKey, { assetBaseName: string, folderSlug: string }> = {
   base: {
@@ -56,7 +68,7 @@ const PACK_DEFINITIONS: Record<ReleasePackKey, { assetBaseName: string, folderSl
 }
 
 function findPackAsset(
-  assets: GitHubReleaseAsset[],
+  assets: ReleaseAsset[],
   packKey: ReleasePackKey,
   releaseTag: string,
 ) {
@@ -71,28 +83,63 @@ function findPackAsset(
   )
 }
 
-function hasRequiredAssets(assets: GitHubReleaseAsset[], releaseTag: string) {
+function hasRequiredAssets(assets: ReleaseAsset[], releaseTag: string) {
   return (Object.keys(PACK_DEFINITIONS) as ReleasePackKey[])
     .every((packKey) => findPackAsset(assets, packKey, releaseTag))
 }
 
 export async function fetchAddonReleases() {
-  const releases = await $fetch<GitHubRelease[]>(RELEASES_URL, {
-    headers: {
-      accept: 'application/vnd.github+json',
-      'user-agent': 'VoiceCraft.Docs',
-    },
-  })
+  // Some GitLab releases contain only client/server ZIPs. Use the matching
+  // GitHub mirror assets for those tags, but prefer complete GitLab packages.
+  const [gitLabResult, gitHubResult] = await Promise.allSettled([
+    $fetch<GitLabRelease[]>(GITLAB_RELEASES_URL),
+    $fetch<GitHubRelease[]>(GITHUB_RELEASES_URL, {
+      headers: {
+        accept: 'application/vnd.github+json',
+        'user-agent': 'VoiceCraft.Docs',
+      },
+    }),
+  ])
 
-  return releases
-    .filter((release) => !release.draft)
-    .filter((release) => hasRequiredAssets(release.assets, release.tag_name))
-    .map((release) => ({
-      tag: release.tag_name,
-      name: release.name || release.tag_name,
-      publishedAt: release.published_at,
-      assets: release.assets,
-    }))
+  if (gitLabResult.status === 'rejected' && gitHubResult.status === 'rejected') {
+    throw createError({ statusCode: 502, statusMessage: 'Could not load VoiceCraft addon releases.' })
+  }
+
+  const releases = new Map<string, AddonRelease>()
+
+  if (gitHubResult.status === 'fulfilled') {
+    for (const release of gitHubResult.value) {
+      if (release.draft) continue
+      const assets = release.assets.map(asset => ({ name: asset.name, url: asset.browser_download_url }))
+      if (!hasRequiredAssets(assets, release.tag_name)) continue
+      releases.set(release.tag_name, {
+        tag: release.tag_name,
+        name: release.name || release.tag_name,
+        publishedAt: release.published_at,
+        assets,
+      })
+    }
+  }
+
+  if (gitLabResult.status === 'fulfilled') {
+    for (const release of gitLabResult.value) {
+      const assets = (release.assets?.links ?? []).map(asset => ({
+        name: asset.name,
+        url: asset.direct_asset_url || asset.url,
+      }))
+      if (!hasRequiredAssets(assets, release.tag_name)) continue
+      releases.set(release.tag_name, {
+        tag: release.tag_name,
+        name: release.name || release.tag_name,
+        publishedAt: release.released_at,
+        assets,
+      })
+    }
+  }
+
+  return [...releases.values()].sort((a, b) =>
+    (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''),
+  )
 }
 
 export function getPackKeysForMode(mode: TransportMode): ReleasePackKey[] {
@@ -192,7 +239,7 @@ function addWorldPackReference(entries: WorldPackEntry[], reference: PackManifes
 }
 
 async function loadPackBundle(
-  assets: GitHubReleaseAsset[],
+  assets: ReleaseAsset[],
   packKey: ReleasePackKey,
   releaseTag: string,
 ): Promise<LoadedPack> {
@@ -206,7 +253,7 @@ async function loadPackBundle(
     })
   }
 
-  const zipBytes = await fetchArrayBuffer(asset.browser_download_url)
+  const zipBytes = await fetchArrayBuffer(asset.url)
   const bundleZip = await JSZip.loadAsync(zipBytes)
   const bpManifestEntry = bundleZip.file('BP/manifest.json')
   const rpManifestEntry = bundleZip.file('RP/manifest.json')
@@ -236,7 +283,7 @@ async function fetchArrayBuffer(url: string) {
   if (!response.ok) {
     throw createError({
       statusCode: 502,
-      statusMessage: `Failed to download release asset from GitHub: ${url}`,
+      statusMessage: `Failed to download release asset: ${url}`,
     })
   }
 

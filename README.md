@@ -1,209 +1,65 @@
 # VoiceCraft.Docs
 
-Documentation site for **VoiceCraft**, built with **Nuxt 4 + Docus** and multilingual support via `@nuxtjs/i18n`.
+Documentation site for [VoiceCraft](https://gitlab.avion.team/voicecraft/VoiceCraft), built with Nuxt 4, Nuxt Content, and `@nuxtjs/i18n`.
 
-Live documentation: [docs.voicecraft.chat](https://docs.voicecraft.chat)
+Live site: [docs.voicecraft.chat](https://docs.voicecraft.chat)
 
-This docs project includes:
-
-- a custom landing page UI;
-- client/server/Minecraft integration guides;
-- localized content and UI strings;
-- branded styling, fonts, and icons.
-
-## Tech Stack
-
-- `nuxt` 4
-- `docus`
-- `@nuxtjs/i18n`
-- `@nuxtjs/google-fonts`
-- `sass-embedded`
-- `pnpm`
-
-## Quick Start
+## Run locally
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-The site will be available at `http://localhost:3000` (or the next available port).
-
-## Scripts
+The development site starts at `http://localhost:3000` unless that port is occupied.
 
 ```bash
-pnpm dev      # start dev server
-pnpm build    # production build
-```
-
-## Project Structure
-
-```text
-VoiceCraft.Docs/
-├── app.config.ts                 # Docus/Nuxt UI config (header, seo, toc, theme)
-├── nuxt.config.ts                # Nuxt config, i18n, fonts, head/meta, favicon
-├── assets/css/theme.scss         # global styles and typography
-├── components/
-│   └── VoiceCraftLanding.vue     # custom homepage component
-├── content/
-│   ├── ru/                       # Russian documentation
-│   └── en/                       # English documentation
-├── i18n/locales/
-│   ├── ru.json                   # UI/landing translations (RU)
-│   └── en.json                   # UI/landing translations (EN)
-├── plugins/
-│   └── i18n-ui.ts                # runtime localization for UI labels (toc/title/links)
-└── public/
-    ├── favicon.ico               # favicon
-    └── images/                   # brand assets/screenshots
-```
-
-## Content and Routing
-
-Content is organized by locale under `content/<locale>/...`.
-
-Examples:
-
-- `content/ru/1.start/2.quick-start.md` → `/ru/start/quick-start`
-- `content/en/1.start/2.quick-start.md` → `/en/start/quick-start`
-
-Locale home pages:
-
-- `content/ru/index.md`
-- `content/en/index.md`
-
-Both use the `::voice-craft-landing::` component.
-
-## Localization
-
-### Where locales are configured
-
-In `nuxt.config.ts`:
-
-- `defaultLocale`
-- `locales[]`
-- `langDir`
-
-### Where UI translations live
-
-- `i18n/locales/ru.json`
-- `i18n/locales/en.json`
-
-`ui.*` keys are used for system labels (title, TOC, sidebar links),
-`landing.*` keys are used by the custom homepage.
-
-### Add a new locale
-
-1. Add locale in `nuxt.config.ts` (`code`, `name`, `file`).
-2. Create `i18n/locales/<code>.json`.
-3. Add `content/<code>/...` pages.
-4. Provide at least `ui.*` and `landing.*` keys.
-
-## Customization
-
-### Visual Theme
-
-Main styles are in `assets/css/theme.scss`.
-
-This file controls:
-
-- color palette and background effects;
-- buttons/cards/animations;
-- container widths;
-- typography (`Comfortaa` for content, `Nunito` for headings).
-
-### Landing Page
-
-`components/VoiceCraftLanding.vue`:
-
-- hero section;
-- CTA buttons;
-- product tour slider;
-- i18n-driven text.
-
-### Header / SEO / TOC
-
-`app.config.ts` + `plugins/i18n-ui.ts`:
-
-- site header title;
-- SEO values;
-- TOC labels;
-- sidebar utility link labels.
-
-## Favicon and Page Title
-
-- Favicon: `public/favicon.ico`
-- Additional icon asset: `public/images/brand/voicecraft-icon.png`
-- Head link configuration: `nuxt.config.ts`
-- Localized page title: `content/*/index.md` + `plugins/i18n-ui.ts`
-
-## Versioned Documentation
-
-The current legacy docs live in `content/<locale>/...` and are mapped to the
-version marked as `source: 'legacy'` in `app.config.ts`.
-
-New documentation versions should be added as overlay folders:
-
-```text
-content/docs/<version>/<locale>/<section>/<page>.md
-```
-
-Only add files that changed in the new version. Missing pages are resolved
-through the version chain declared with `extends` in `app.config.ts`, then fall
-back to English for the same version before trying the parent version.
-
-Example:
-
-```ts
-docsVersioning: {
-  current: '1.7.x',
-  legacy: '1.6.x',
-  versions: [
-    { id: '1.7.x', label: '1.7.x', current: true, extends: '1.6.x' },
-    { id: '1.6.x', label: '1.6.x', source: 'legacy' },
-  ],
-}
-```
-
-Fresh docs use regular URLs like `/server/transports`. Archived docs are
-available under `/v/<version>/server/transports`.
-
-## Build and Deploy
-
-```bash
+pnpm typecheck
 pnpm build
-```
-
-Production output is generated in `.output/`.
-
-To preview production build locally:
-
-```bash
 node .output/server/index.mjs
 ```
 
-## GitHub Pages Deployment
+The production build needs its Nitro server. The addon configurator uses
+`/api/addon-configurator/releases` and `/api/addon-configurator/build`, so a
+static export cannot provide the complete site. `nixpacks.toml` contains the
+install, build, and start commands used for server deployment.
 
-This repository includes an automated GitHub Pages workflow:
+## Project layout
 
-- Workflow file: `.github/workflows/deploy-pages.yml`
-- Trigger: push to `main` (and manual `workflow_dispatch`)
-- Build artifact: `.output/public`
+| Path | Purpose |
+|------|---------|
+| `app/components/` | Landing, downloads, documentation, and addon configurator UI |
+| `app/composables/` | Download links, configurator state, and documentation versioning |
+| `app/assets/styles/` | Site styles |
+| `content/<locale>/` | Base documentation for 1.6.x |
+| `content/docs/1.7.x/<locale>/` | Pages changed for the current 1.7.x documentation |
+| `i18n/locales/` | UI text for English, Russian, Dutch, German, Polish, Thai, and both Chinese variants |
+| `server/api/addon-configurator/` | Release listing and world archive building |
+| `public/` | Icons and screenshots |
 
-### One-time repository setup
+`app.config.ts` defines the documentation version chain. The current `1.7.x`
+pages are overlays on the `1.6.x` base; missing pages fall back through the
+version chain. Current pages use routes such as `/server/transports`, and older
+pages use `/v/1.6.x/server/transports`. Locale selection is handled by the
+site, so page URLs do not require a locale prefix.
 
-1. Open `Settings -> Pages`.
-2. Set **Source** to **GitHub Actions**.
-3. Ensure your custom domain is set to `docs.voicecraft.chat`.
-4. Verify DNS for `docs.voicecraft.chat` points to GitHub Pages.
+To add a locale, register it in `nuxt.config.ts`, create
+`i18n/locales/<code>.json`, and add pages under `content/<code>/`.
 
-### Notes
+## Release sources
 
-- `public/CNAME` is included for custom domain support.
-- `public/.nojekyll` is included so `_nuxt` assets are served correctly.
+The download page reads the client and server assets from the
+[latest GitLab release](https://gitlab.avion.team/voicecraft/VoiceCraft/-/releases/permalink/latest).
+Their names follow `VoiceCraft.<Client|Server>.<OS>.<arch>.v<version>.zip`.
 
-## Useful Links
+The addon configurator prefers GitLab assets when a release includes the
+required addon ZIPs. Otherwise it uses packages such as
+`VoiceCraft.Addon.Basic.zip`, `VoiceCraft.Addon.Core.McHttp.zip`, and
+`VoiceCraft.Addon.Core.McWss.zip` from the
+[GitHub mirror releases](https://github.com/AvionBlock/VoiceCraft/releases/latest).
+Addon source code lives in the
+[GitLab addon repository](https://gitlab.avion.team/voicecraft/VoiceCraft.Addon).
 
-- Docs: [docs.voicecraft.chat](https://docs.voicecraft.chat)
-- VoiceCraft: [GitHub](https://github.com/AvionBlock/VoiceCraft)
-- Releases: [Latest release](https://github.com/AvionBlock/VoiceCraft/releases/latest)
+When publishing a new release, verify that the GitLab release includes the
+expected client and server archives. The download page discovers their names
+from the latest-release API, so no version update is needed in the UI.

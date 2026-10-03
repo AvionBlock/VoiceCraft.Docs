@@ -23,14 +23,14 @@
 
 ## Windows
 
-1. Загрузите `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`.
+1. Загрузите `VoiceCraft.Client.Windows.<Architecture>.v<version>.zip`.
 2. Распакуйте архив.
 3. Запустите `VoiceCraft.Client.Windows.exe`.
 4. Если появится Windows SmartScreen, прежде чем продолжить, убедитесь, что файл взят с официальной страницы выпуска.
 
 ## Linux
 
-1. Загрузите `VoiceCraft.Client.Linux.<Architecture>.v1.7.0.zip`.
+1. Загрузите `VoiceCraft.Client.Linux.<Architecture>.v<version>.zip`.
 2. Распакуйте архив.
 3. Предоставьте разрешения и запустите:
 
@@ -45,8 +45,8 @@ chmod +x ./VoiceCraft.Client.Linux
 
 Выберите ZIP-пакет под свое устройство:
 
-- `VoiceCraft.Client.MacOS.arm64.v1.7.0.zip` для Apple Silicon
-- `VoiceCraft.Client.MacOS.x64.v1.7.0.zip` для Intel
+- `VoiceCraft.Client.MacOS.arm64.v<version>.zip` для Apple Silicon
+- `VoiceCraft.Client.MacOS.x64.v<version>.zip` для Intel
 
 1. Распакуйте архив.
 2. Запустите `VoiceCraft.app`.
@@ -61,14 +61,14 @@ xattr -dr com.apple.quarantine /Applications/VoiceCraft.app
 
 ## Андроид
 
-1. Загрузите `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip`.
+1. Загрузите `VoiceCraft.Client.Android.<Architecture>.v<version>.zip`.
 2. Распакуйте архив.
 3. Откройте `.apk` из архива и установите.
 4. Разрешите разрешение микрофона, когда Android спросит.
 
 ## iOS (AltStore/неопубликованная загрузка)
 
-1. Загрузите `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`.
+1. Загрузите `VoiceCraft.Client.iOS.arm64.v<version>.zip`.
 2. Установите IPA через AltStore или другой инструмент для боковой загрузки.
 3. При необходимости разрешите профиль в настройках iOS.
 4. Разрешить доступ к микрофону при первом запуске.

@@ -32,15 +32,17 @@ You can leave all of them enabled, or select transports at runtime.
 The release page usually includes:
 
 - Windows:
-  `VoiceCraft.Server.Windows.x64.v1.7.0.zip`, `x86`, `arm64`
+  `VoiceCraft.Server.Windows.x64.v<version>.zip`, `x86`, `arm64`
 - Linux:
-  `VoiceCraft.Server.Linux.x64.v1.7.0.zip`, `arm`, `arm64`
+  `VoiceCraft.Server.Linux.x64.v<version>.zip`, `arm`, `arm64`
 
 Download: [Download Page](/download)
 
+Use the [latest GitLab release](https://gitlab.avion.team/voicecraft/VoiceCraft/-/releases/permalink/latest). Since 1.7.2, the server runtime is packaged as a separate `VoiceCraft.Server.Runtime.dll` alongside the executable. Keep the extracted files together.
+
 ## Windows
 
-1. Download `VoiceCraft.Server.Windows.<arch>.v1.7.0.zip`.
+1. Download `VoiceCraft.Server.Windows.<arch>.v<version>.zip`.
 2. Extract the archive to a dedicated folder.
 3. Start the server from that folder:
 
@@ -52,7 +54,7 @@ The first run creates `config/ServerProperties.json`. Keep this file with the se
 
 ## Linux
 
-1. Download `VoiceCraft.Server.Linux.<arch>.v1.7.0.zip`.
+1. Download `VoiceCraft.Server.Linux.<arch>.v<version>.zip`.
 2. Extract the archive to a dedicated folder.
 3. Start the server from that folder:
 
@@ -62,6 +64,10 @@ chmod +x ./VoiceCraft.Server
 ```
 
 The first run creates `config/ServerProperties.json`. Keep this file with the server folder and make sure it is included in backups.
+
+## Startup options added in 1.7.2
+
+The standalone server accepts `--disable-commands`, `--disable-color`, `--disable-ansi`, and `--fail-fast`. Use `--disable-commands` when running without an interactive console; `--disable-color` and `--disable-ansi` simplify logs. `--fail-fast` skips the normal shutdown timeout when an error occurs.
 
 ## After the first start
 

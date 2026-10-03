@@ -32,15 +32,17 @@
 Страница выпуска обычно включает в себя:
 
 - Windows:
-  `VoiceCraft.Server.Windows.x64.v1.7.0.zip`, `x86`, `arm64`
+  `VoiceCraft.Server.Windows.x64.v<version>.zip`, `x86`, `arm64`
 - Linux:
-  `VoiceCraft.Server.Linux.x64.v1.7.0.zip`, `arm`, `arm64`
+  `VoiceCraft.Server.Linux.x64.v<version>.zip`, `arm`, `arm64`
 
 Скачать: [страница загрузки](/download)
 
+Используйте [последний релиз GitLab](https://gitlab.avion.team/voicecraft/VoiceCraft/-/releases/permalink/latest). Начиная с 1.7.2 серверная логика находится в отдельном файле `VoiceCraft.Server.Runtime.dll` рядом с исполняемым файлом. Не разделяйте файлы после распаковки.
+
 ## Windows
 
-1. Загрузите `VoiceCraft.Server.Windows.<arch>.v1.7.0.zip`.
+1. Загрузите `VoiceCraft.Server.Windows.<arch>.v<version>.zip`.
 2. Распакуйте архив в отдельную папку.
 3. Запустите сервер из этой папки:
 
@@ -52,7 +54,7 @@
 
 ## Linux
 
-1. Загрузите `VoiceCraft.Server.Linux.<arch>.v1.7.0.zip`.
+1. Загрузите `VoiceCraft.Server.Linux.<arch>.v<version>.zip`.
 2. Распакуйте архив в отдельную папку.
 3. Запустите сервер из этой папки:
 
@@ -62,6 +64,10 @@ chmod +x ./VoiceCraft.Server
 ```
 
 При первом запуске создается `config/ServerProperties.json`. Сохраните этот файл в папке сервера и убедитесь, что он включен в резервные копии.
+
+## Параметры запуска, добавленные в 1.7.2
+
+Сервер поддерживает `--disable-commands`, `--disable-color`, `--disable-ansi` и `--fail-fast`. Параметр `--disable-commands` отключает команды в консоли, два следующих упрощают вывод в логах, а `--fail-fast` пропускает ожидание при аварийном завершении.
 
 ## После первого запуска
 

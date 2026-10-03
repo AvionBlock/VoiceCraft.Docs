@@ -32,15 +32,15 @@ VoiceCraft 伺服器同時公開多個層：
 發布頁面通常包括：
 
 - Windows：
-  `VoiceCraft.Server.Windows.x64.v1.7.0.zip`、`x86`、`arm64`
+  `VoiceCraft.Server.Windows.x64.v<version>.zip`、`x86`、`arm64`
 - Linux：
-  `VoiceCraft.Server.Linux.x64.v1.7.0.zip`、`arm`、`arm64`
+  `VoiceCraft.Server.Linux.x64.v<version>.zip`、`arm`、`arm64`
 
 下載：[下載頁面](/download)
 
 ## Windows
 
-1. 下載 `VoiceCraft.Server.Windows.<arch>.v1.7.0.zip`。
+1. 下載 `VoiceCraft.Server.Windows.<arch>.v<version>.zip`。
 2. 將存檔解壓縮到專用資料夾。
 3. 從該資料夾啟動伺服器：
 
@@ -52,7 +52,7 @@ VoiceCraft 伺服器同時公開多個層：
 
 ## Linux
 
-1. 下載 `VoiceCraft.Server.Linux.<arch>.v1.7.0.zip`。
+1. 下載 `VoiceCraft.Server.Linux.<arch>.v<version>.zip`。
 2. 將存檔解壓縮到專用資料夾。
 3. 從該資料夾啟動伺服器：
 

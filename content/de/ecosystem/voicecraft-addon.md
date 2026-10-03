@@ -1,6 +1,6 @@
 # VoiceCraft.Addon (Bedrock Addon)
 
-Repository: [AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
+Repository: [voicecraft/VoiceCraft.Addon](https://gitlab.avion.team/voicecraft/VoiceCraft.Addon)
 
 Dieses Repository enthält praktische Bedrock-Add-on-Pakete und die skriptseitige McApi-Oberfläche für benutzerdefinierte Weltlogik.
 
@@ -10,7 +10,7 @@ Quicklinks:
 
 - [Download-Seite](/download)
 - [Add-on-Konfigurator](/addon-configurator)
-- [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
+- [Addon Releases](https://github.com/AvionBlock/VoiceCraft/releases/latest)
 
 ## Pakete
 

@@ -23,14 +23,14 @@ W przypadku serwerów zdalnych użyj adresu publicznego lub LAN komputera, na kt
 
 ## Windows
 
-1. Pobierz `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`.
+1. Pobierz `VoiceCraft.Client.Windows.<Architecture>.v<version>.zip`.
 2. Wypakuj archiwum.
 3. Uruchom `VoiceCraft.Client.Windows.exe`.
 4. Jeśli zostanie wyświetlony ekran Windows SmartScreen, przed kontynuowaniem sprawdź, czy plik pochodzi z oficjalnej strony wydania.
 
 ## Linux
 
-1. Pobierz `VoiceCraft.Client.Linux.<Architecture>.v1.7.0.zip`.
+1. Pobierz `VoiceCraft.Client.Linux.<Architecture>.v<version>.zip`.
 2. Wypakuj archiwum.
 3. Przyznaj uprawnienia i uruchom:
 
@@ -45,8 +45,8 @@ Jeśli aplikacja nie widzi urządzeń audio, sprawdź uprawnienia PulseAudio/Pip
 
 Wybierz pakiet ZIP pasujący do urządzenia:
 
-- `VoiceCraft.Client.MacOS.arm64.v1.7.0.zip` dla Apple Silicon
-- `VoiceCraft.Client.MacOS.x64.v1.7.0.zip` dla Intela
+- `VoiceCraft.Client.MacOS.arm64.v<version>.zip` dla Apple Silicon
+- `VoiceCraft.Client.MacOS.x64.v<version>.zip` dla Intela
 
 1. Rozpakuj archiwum.
 2. Uruchom `VoiceCraft.app`.
@@ -61,14 +61,14 @@ Usuń kwarantannę tylko dla kompilacji, które celowo pobrałeś i którym ufas
 
 ## Androida
 
-1. Pobierz `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip`.
+1. Pobierz `VoiceCraft.Client.Android.<Architecture>.v<version>.zip`.
 2. Wypakuj archiwum.
 3. Otwórz `.apk` z archiwum i zainstaluj.
 4. Zezwól na pozwolenie na korzystanie z mikrofonu, gdy Android o to poprosi.
 
 ## iOS (AltStore / ładowanie boczne)
 
-1. Pobierz `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`.
+1. Pobierz `VoiceCraft.Client.iOS.arm64.v<version>.zip`.
 2. Zainstaluj IPA poprzez AltStore lub inne narzędzie sideload.
 3. W razie potrzeby zezwól na profil w ustawieniach iOS.
 4. Zezwól na uprawnienia do mikrofonu przy pierwszym uruchomieniu.

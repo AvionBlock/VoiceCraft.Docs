@@ -8,7 +8,7 @@ type ClientDownloadItem = {
   key: string
   label: string
   meta: string
-  href: string
+  packageName: string
   os: ClientOs
   arch: ClientArch
 }
@@ -17,76 +17,37 @@ type ServerDownloadItem = {
   key: string
   label: string
   meta: string
-  href: string
+  packageName: string
   os: ServerOs
 }
 
-type VoiceCraftReleaseSource = 'github' | 'gitlab'
-
-const currentReleaseTag = 'v1.7.0'
-const gitHubReleasePage = 'https://github.com/AvionBlock/VoiceCraft/releases'
-const gitLabReleasePage = 'https://gitlab.avion.team/voicecraft/VoiceCraft/-/releases'
-const gitLabDownloadBase = 'https://gitlab.avion.team/voicecraft/VoiceCraft/-/releases'
-const gitLabReleaseThreshold = [1, 7, 0] as const
-
-function parseReleaseTag(tag: string) {
-  return tag
-    .replace(/^v/i, '')
-    .split('.')
-    .map(part => Number.parseInt(part, 10) || 0)
+type LatestRelease = {
+  tag: string
+  assets: { name: string, url: string }[]
 }
 
-function getReleaseSource(tag: string): VoiceCraftReleaseSource {
-  const version = parseReleaseTag(tag)
-
-  for (let index = 0; index < gitLabReleaseThreshold.length; index += 1) {
-    const part = version[index] ?? 0
-    const thresholdPart = gitLabReleaseThreshold[index] ?? 0
-
-    if (part > thresholdPart) return 'gitlab'
-    if (part < thresholdPart) return 'github'
-  }
-
-  return 'gitlab'
-}
-
-function createDownloadHref(packageName: string, tag = currentReleaseTag) {
-  const releaseSource = getReleaseSource(tag)
-
-  if (releaseSource === 'gitlab') {
-    const filename = `${packageName}.${tag}.zip`
-    return `${gitLabDownloadBase}/${tag}/downloads/voicecraft/${tag}/${filename}`
-  }
-
-  return `${gitHubReleasePage}/download/${tag}/${packageName}.zip`
-}
-
-function createReleasePage(tag = currentReleaseTag) {
-  return getReleaseSource(tag) === 'gitlab'
-    ? `${gitLabReleasePage}/${tag}`
-    : `${gitHubReleasePage}/tag/${tag}`
-}
+const releasePage = 'https://gitlab.avion.team/voicecraft/VoiceCraft/-/releases/permalink/latest'
 
 const clientItems: ClientDownloadItem[] = [
-  { key: 'client-windows-x64', label: 'Windows x64', meta: '.zip', href: createDownloadHref('VoiceCraft.Client.Windows.x64'), os: 'windows', arch: 'x64' },
-  { key: 'client-windows-arm64', label: 'Windows arm64', meta: '.zip', href: createDownloadHref('VoiceCraft.Client.Windows.arm64'), os: 'windows', arch: 'arm64' },
-  { key: 'client-windows-x86', label: 'Windows x86', meta: '.zip', href: createDownloadHref('VoiceCraft.Client.Windows.x86'), os: 'windows', arch: 'x86' },
-  { key: 'client-linux-x64', label: 'Linux x64', meta: '.zip', href: createDownloadHref('VoiceCraft.Client.Linux.x64'), os: 'linux', arch: 'x64' },
-  { key: 'client-linux-arm64', label: 'Linux arm64', meta: '.zip', href: createDownloadHref('VoiceCraft.Client.Linux.arm64'), os: 'linux', arch: 'arm64' },
-  { key: 'client-linux-arm', label: 'Linux arm32', meta: '.zip', href: createDownloadHref('VoiceCraft.Client.Linux.arm'), os: 'linux', arch: 'arm' },
-  { key: 'client-macos-arm64', label: 'macOS arm64', meta: '.zip', href: createDownloadHref('VoiceCraft.Client.MacOS.arm64'), os: 'macos', arch: 'arm64' },
-  { key: 'client-macos-x64', label: 'macOS x64', meta: '.zip', href: createDownloadHref('VoiceCraft.Client.MacOS.x64'), os: 'macos', arch: 'x64' },
-  { key: 'client-android-arm64', label: 'Android arm64', meta: '.zip / APK inside', href: createDownloadHref('VoiceCraft.Client.Android.arm64'), os: 'android', arch: 'arm64' },
-  { key: 'client-ios-arm64', label: 'iOS arm64', meta: '.zip / IPA inside', href: createDownloadHref('VoiceCraft.Client.iOS.arm64'), os: 'ios', arch: 'arm64' },
+  { key: 'client-windows-x64', label: 'Windows x64', meta: '.zip', packageName: 'VoiceCraft.Client.Windows.x64', os: 'windows', arch: 'x64' },
+  { key: 'client-windows-arm64', label: 'Windows arm64', meta: '.zip', packageName: 'VoiceCraft.Client.Windows.arm64', os: 'windows', arch: 'arm64' },
+  { key: 'client-windows-x86', label: 'Windows x86', meta: '.zip', packageName: 'VoiceCraft.Client.Windows.x86', os: 'windows', arch: 'x86' },
+  { key: 'client-linux-x64', label: 'Linux x64', meta: '.zip', packageName: 'VoiceCraft.Client.Linux.x64', os: 'linux', arch: 'x64' },
+  { key: 'client-linux-arm64', label: 'Linux arm64', meta: '.zip', packageName: 'VoiceCraft.Client.Linux.arm64', os: 'linux', arch: 'arm64' },
+  { key: 'client-linux-arm', label: 'Linux arm32', meta: '.zip', packageName: 'VoiceCraft.Client.Linux.arm', os: 'linux', arch: 'arm' },
+  { key: 'client-macos-arm64', label: 'macOS arm64', meta: '.zip', packageName: 'VoiceCraft.Client.MacOS.arm64', os: 'macos', arch: 'arm64' },
+  { key: 'client-macos-x64', label: 'macOS x64', meta: '.zip', packageName: 'VoiceCraft.Client.MacOS.x64', os: 'macos', arch: 'x64' },
+  { key: 'client-android-arm64', label: 'Android arm64', meta: '.zip / APK inside', packageName: 'VoiceCraft.Client.Android.arm64', os: 'android', arch: 'arm64' },
+  { key: 'client-ios-arm64', label: 'iOS arm64', meta: '.zip / IPA inside', packageName: 'VoiceCraft.Client.iOS.arm64', os: 'ios', arch: 'arm64' },
 ]
 
 const serverItems: ServerDownloadItem[] = [
-  { key: 'server-windows-x64', label: 'Windows x64', meta: '.zip', href: createDownloadHref('VoiceCraft.Server.Windows.x64'), os: 'windows' },
-  { key: 'server-windows-arm64', label: 'Windows arm64', meta: '.zip', href: createDownloadHref('VoiceCraft.Server.Windows.arm64'), os: 'windows' },
-  { key: 'server-windows-x86', label: 'Windows x86', meta: '.zip', href: createDownloadHref('VoiceCraft.Server.Windows.x86'), os: 'windows' },
-  { key: 'server-linux-x64', label: 'Linux x64', meta: '.zip', href: createDownloadHref('VoiceCraft.Server.Linux.x64'), os: 'linux' },
-  { key: 'server-linux-arm64', label: 'Linux arm64', meta: '.zip', href: createDownloadHref('VoiceCraft.Server.Linux.arm64'), os: 'linux' },
-  { key: 'server-linux-arm', label: 'Linux arm32', meta: '.zip', href: createDownloadHref('VoiceCraft.Server.Linux.arm'), os: 'linux' },
+  { key: 'server-windows-x64', label: 'Windows x64', meta: '.zip', packageName: 'VoiceCraft.Server.Windows.x64', os: 'windows' },
+  { key: 'server-windows-arm64', label: 'Windows arm64', meta: '.zip', packageName: 'VoiceCraft.Server.Windows.arm64', os: 'windows' },
+  { key: 'server-windows-x86', label: 'Windows x86', meta: '.zip', packageName: 'VoiceCraft.Server.Windows.x86', os: 'windows' },
+  { key: 'server-linux-x64', label: 'Linux x64', meta: '.zip', packageName: 'VoiceCraft.Server.Linux.x64', os: 'linux' },
+  { key: 'server-linux-arm64', label: 'Linux arm64', meta: '.zip', packageName: 'VoiceCraft.Server.Linux.arm64', os: 'linux' },
+  { key: 'server-linux-arm', label: 'Linux arm32', meta: '.zip', packageName: 'VoiceCraft.Server.Linux.arm', os: 'linux' },
 ]
 
 const clientPlatforms: { key: ClientOs, labelKey: string }[] = [
@@ -105,6 +66,7 @@ const serverPlatforms: { key: ServerOs, labelKey: string }[] = [
 export function useVoiceCraftDownloads() {
   const { t } = useI18n()
   const localePath = useLocalePath()
+  const { data: latestRelease } = useFetch<LatestRelease>('/api/downloads/latest')
 
   const selectedClientOs = ref<ClientOs>('windows')
   const selectedServerOs = ref<ServerOs>('windows')
@@ -153,12 +115,22 @@ export function useVoiceCraftDownloads() {
     return osFallback?.key ?? null
   })
 
+  function assetHref(packageName: string) {
+    return latestRelease.value?.assets.find(asset =>
+      asset.name.startsWith(`${packageName}.`) && asset.name.endsWith('.zip'),
+    )?.url ?? releasePage
+  }
+
   const clientItemsForSelectedOs = computed(() =>
-    clientItems.filter(item => item.os === selectedClientOs.value),
+    clientItems
+      .filter(item => item.os === selectedClientOs.value)
+      .map(item => ({ ...item, href: assetHref(item.packageName) })),
   )
 
   const serverItemsForSelectedOs = computed(() =>
-    serverItems.filter(item => item.os === selectedServerOs.value),
+    serverItems
+      .filter(item => item.os === selectedServerOs.value)
+      .map(item => ({ ...item, href: assetHref(item.packageName) })),
   )
 
   function isRecommended(key: string) {
@@ -183,9 +155,9 @@ export function useVoiceCraftDownloads() {
 
   return {
     t,
-    releasePage: createReleasePage(),
-    addonReleasePage: 'https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest',
-    addonRepo: 'https://github.com/AvionBlock/VoiceCraft.Addon',
+    releasePage,
+    addonReleasePage: 'https://github.com/AvionBlock/VoiceCraft/releases/latest',
+    addonRepo: 'https://gitlab.avion.team/voicecraft/VoiceCraft.Addon',
     addonConfiguratorPath: computed(() => localePath('/addon-configurator')),
     clientPlatforms,
     serverPlatforms,

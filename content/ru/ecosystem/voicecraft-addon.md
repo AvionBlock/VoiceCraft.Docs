@@ -1,6 +1,6 @@
 # VoiceCraft.Addon (Аддон Bedrock)
 
-Репозиторий: [AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
+Репозиторий: [voicecraft/VoiceCraft.Addon](https://gitlab.avion.team/voicecraft/VoiceCraft.Addon)
 
 Этот репозиторий содержит готовые пакеты аддона Bedrock и скриптовый интерфейс McApi для кастомной логики мира.
 
@@ -10,7 +10,7 @@
 
 - [страница загрузки](/download)
 - [конфигуратор аддона](/addon-configurator)
-- [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
+- [Addon Releases](https://github.com/AvionBlock/VoiceCraft/releases/latest)
 
 ## Пакеты
 

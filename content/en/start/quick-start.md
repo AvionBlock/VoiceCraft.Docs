@@ -24,12 +24,12 @@ For a first setup, choose one topology and expose only the transport it needs. Y
 
 1. Open the [download page](/download).
 2. Download the server archive for your platform:
-   - `VoiceCraft.Server.Windows.x64.v1.7.0.zip`
-   - `VoiceCraft.Server.Windows.x86.v1.7.0.zip`
-   - `VoiceCraft.Server.Windows.arm64.v1.7.0.zip`
-   - `VoiceCraft.Server.Linux.x64.v1.7.0.zip`
-   - `VoiceCraft.Server.Linux.arm.v1.7.0.zip`
-   - `VoiceCraft.Server.Linux.arm64.v1.7.0.zip`
+   - `VoiceCraft.Server.Windows.x64.v<version>.zip`
+   - `VoiceCraft.Server.Windows.x86.v<version>.zip`
+   - `VoiceCraft.Server.Windows.arm64.v<version>.zip`
+   - `VoiceCraft.Server.Linux.x64.v<version>.zip`
+   - `VoiceCraft.Server.Linux.arm.v<version>.zip`
+   - `VoiceCraft.Server.Linux.arm64.v<version>.zip`
 
 If you are building from source, see [VoiceCraft repository and build](/ecosystem/voicecraft-repository).
 
@@ -89,11 +89,11 @@ Make sure the chosen transport is enabled and bound to an address the Minecraft-
 
 From the [download page](/download), download the package for your players:
 
-- Windows: `VoiceCraft.Client.Windows.<arch>.v1.7.0.zip`
-- Linux: `VoiceCraft.Client.Linux.<arch>.v1.7.0.zip`
-- macOS: `VoiceCraft.Client.MacOS.<arch>.v1.7.0.zip`
-- Android: `VoiceCraft.Client.Android.arm64.v1.7.0.zip` (APK inside)
-- iOS: `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`
+- Windows: `VoiceCraft.Client.Windows.<arch>.v<version>.zip`
+- Linux: `VoiceCraft.Client.Linux.<arch>.v<version>.zip`
+- macOS: `VoiceCraft.Client.MacOS.<arch>.v<version>.zip`
+- Android: `VoiceCraft.Client.Android.arm64.v<version>.zip` (APK inside)
+- iOS: `VoiceCraft.Client.iOS.arm64.v<version>.zip`
 
 ## 6. Add the server in the client
 

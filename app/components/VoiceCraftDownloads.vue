@@ -178,7 +178,7 @@ const {
             class="vc-download-button"
           >
             <span class="vc-download-button-title">{{ t('download.addonReleases') }}</span>
-            <span class="vc-download-button-meta">GitHub Releases</span>
+            <span class="vc-download-button-meta">GitHub mirror</span>
           </a>
         </div>
 

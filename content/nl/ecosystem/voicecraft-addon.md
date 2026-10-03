@@ -1,6 +1,6 @@
 # VoiceCraft.Addon (Bedrock-add-on)
 
-Opslagplaats: [AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
+Opslagplaats: [voicecraft/VoiceCraft.Addon](https://gitlab.avion.team/voicecraft/VoiceCraft.Addon)
 
 Deze repository bevat praktische Bedrock add-on-pakketten en het McApi-oppervlak aan de scriptzijde voor aangepaste wereldlogica.
 
@@ -10,7 +10,7 @@ Snelle links:
 
 - [Downloadpagina](/download)
 - [Add-onconfigurator](/addon-configurator)
-- [Addon Releases](https://github.com/AvionBlock/VoiceCraft.Addon/releases/latest)
+- [Addon Releases](https://github.com/AvionBlock/VoiceCraft/releases/latest)
 
 ## Pakketten
 

@@ -243,7 +243,7 @@
       "behaviorJson": "准备上传的 world_behavior_packs.json",
       "resourceJson": "准备上传的 world_resource_packs.json",
       "release": "使用版本：{version}",
-      "request": "从 GitHub 请求服务器端构建发布资产",
+      "request": "正在使用发行包构建存档",
       "bundle": "正在加载包：{name}",
       "metadata": "生成世界包注册 JSON 文件",
       "archive": "打包最终世界档案",

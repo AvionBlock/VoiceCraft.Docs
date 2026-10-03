@@ -1,6 +1,6 @@
 # VoiceCraft.Addon (Bedrock Addon)
 
-Repository: [AvionBlock/VoiceCraft.Addon](https://github.com/AvionBlock/VoiceCraft.Addon)
+Repository: [voicecraft/VoiceCraft.Addon](https://gitlab.avion.team/voicecraft/VoiceCraft.Addon)
 
 De addon verbindt Bedrock-werelden met VoiceCraft via `McHttp` of `McWss` en biedt bind flow, UI, events en packet helpers.
 

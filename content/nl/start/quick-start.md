@@ -24,12 +24,12 @@ Kies voor een eerste setup één topologie en stel alleen het transport open dat
 
 1. Open de [downloadpagina](/download).
 2. Download het serverarchief voor uw platform:
-   - `VoiceCraft.Server.Windows.x64.v1.7.0.zip`
-   - `VoiceCraft.Server.Windows.x86.v1.7.0.zip`
-   - `VoiceCraft.Server.Windows.arm64.v1.7.0.zip`
-   - `VoiceCraft.Server.Linux.x64.v1.7.0.zip`
-   - `VoiceCraft.Server.Linux.arm.v1.7.0.zip`
-   - `VoiceCraft.Server.Linux.arm64.v1.7.0.zip`
+   - `VoiceCraft.Server.Windows.x64.v<version>.zip`
+   - `VoiceCraft.Server.Windows.x86.v<version>.zip`
+   - `VoiceCraft.Server.Windows.arm64.v<version>.zip`
+   - `VoiceCraft.Server.Linux.x64.v<version>.zip`
+   - `VoiceCraft.Server.Linux.arm.v<version>.zip`
+   - `VoiceCraft.Server.Linux.arm64.v<version>.zip`
 
 Als u vanaf de broncode bouwt, zie [VoiceCraft-repository en build](/ecosystem/voicecraft-repository).
 
@@ -89,11 +89,11 @@ Zorg ervoor dat het gekozen transport is ingeschakeld en gebonden is aan een adr
 
 Download vanaf de [downloadpagina](/download) het pakket voor uw spelers:
 
-- Windows: `VoiceCraft.Client.Windows.<arch>.v1.7.0.zip`
-- Linux: `VoiceCraft.Client.Linux.<arch>.v1.7.0.zip`
-- macOS: `VoiceCraft.Client.MacOS.<arch>.v1.7.0.zip`
-- Android: `VoiceCraft.Client.Android.arm64.v1.7.0.zip` (APK binnen)
-- iOS: `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`
+- Windows: `VoiceCraft.Client.Windows.<arch>.v<version>.zip`
+- Linux: `VoiceCraft.Client.Linux.<arch>.v<version>.zip`
+- macOS: `VoiceCraft.Client.MacOS.<arch>.v<version>.zip`
+- Android: `VoiceCraft.Client.Android.arm64.v<version>.zip` (APK binnen)
+- iOS: `VoiceCraft.Client.iOS.arm64.v<version>.zip`
 
 ## 6. Voeg de server toe aan de client
 

@@ -6,6 +6,8 @@ Install the client after `VoiceCraft.Server` is reachable. During first launch y
 
 VoiceCraft `1.7.0` provides native desktop and mobile clients. The previous browser/web client target is no longer part of the core release.
 
+For a new installation, use the [latest GitLab release](https://gitlab.avion.team/voicecraft/VoiceCraft/-/releases/permalink/latest). Since 1.7.2, the client can host a built-in server and includes Android connection and background-process fixes.
+
 ## Before you start
 
 You need:
@@ -26,14 +28,14 @@ For remote servers, use the public or LAN address of the machine running `VoiceC
 
 ## Windows
 
-1. Download `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`.
+1. Download `VoiceCraft.Client.Windows.<Architecture>.v<version>.zip`.
 2. Extract the archive.
 3. Run `VoiceCraft.Client.Windows.exe`.
 4. If Windows SmartScreen appears, verify that the file came from the official release page before continuing.
 
 ## Linux
 
-1. Download `VoiceCraft.Client.Linux.<Architecture>.v1.7.0.zip`.
+1. Download `VoiceCraft.Client.Linux.<Architecture>.v<version>.zip`.
 2. Extract the archive.
 3. Grant permissions and run:
 
@@ -61,7 +63,7 @@ Only remove quarantine for builds you intentionally downloaded and trust.
 
 ## Android
 
-1. Download `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip`.
+1. Download `VoiceCraft.Client.Android.<Architecture>.v<version>.zip`.
 2. Extract the archive.
 3. Open the `.apk` from the archive and install.
 4. Allow microphone permission when Android asks.
@@ -70,7 +72,7 @@ VoiceCraft `1.7.0` uses the Android package version `17`.
 
 ## iOS
 
-1. Download `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`.
+1. Download `VoiceCraft.Client.iOS.arm64.v<version>.zip`.
 2. Install IPA via AltStore, TestFlight, or another supported distribution path.
 3. If needed, allow the profile in iOS settings.
 4. Allow microphone and local network permissions when iOS asks.

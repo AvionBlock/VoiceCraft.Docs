@@ -24,12 +24,12 @@ VoiceCraft можно развернуть несколькими способа
 
 1. Откройте [страницу загрузки](/download).
 2. Скачайте архив сервера для вашей платформы:
-   - `VoiceCraft.Server.Windows.x64.v1.7.0.zip`
-   - `VoiceCraft.Server.Windows.x86.v1.7.0.zip`
-   - `VoiceCraft.Server.Windows.arm64.v1.7.0.zip`
-   - `VoiceCraft.Server.Linux.x64.v1.7.0.zip`
-   - `VoiceCraft.Server.Linux.arm.v1.7.0.zip`
-   - `VoiceCraft.Server.Linux.arm64.v1.7.0.zip`
+   - `VoiceCraft.Server.Windows.x64.v<version>.zip`
+   - `VoiceCraft.Server.Windows.x86.v<version>.zip`
+   - `VoiceCraft.Server.Windows.arm64.v<version>.zip`
+   - `VoiceCraft.Server.Linux.x64.v<version>.zip`
+   - `VoiceCraft.Server.Linux.arm.v<version>.zip`
+   - `VoiceCraft.Server.Linux.arm64.v<version>.zip`
 
 Если вы собираете из исходного кода, см. [репозиторий и сборку VoiceCraft](/ecosystem/voicecraft-repository).
 
@@ -89,11 +89,11 @@ chmod +x ./VoiceCraft.Server
 
 Загрузите пакет для своих игроков со [страницы загрузки](/download):
 
-- Windows: `VoiceCraft.Client.Windows.<arch>.v1.7.0.zip`
-- Linux: `VoiceCraft.Client.Linux.<arch>.v1.7.0.zip`
-- macOS: `VoiceCraft.Client.MacOS.<arch>.v1.7.0.zip`
-- Android: `VoiceCraft.Client.Android.arm64.v1.7.0.zip` (APK внутри)
-- iOS: `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`
+- Windows: `VoiceCraft.Client.Windows.<arch>.v<version>.zip`
+- Linux: `VoiceCraft.Client.Linux.<arch>.v<version>.zip`
+- macOS: `VoiceCraft.Client.MacOS.<arch>.v<version>.zip`
+- Android: `VoiceCraft.Client.Android.arm64.v<version>.zip` (APK внутри)
+- iOS: `VoiceCraft.Client.iOS.arm64.v<version>.zip`
 
 ## 6. Добавляем сервер в клиент
 

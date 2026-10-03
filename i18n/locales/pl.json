@@ -243,7 +243,7 @@
       "behaviorJson": "Przygotowuję przesłany world_behavior_packs.json",
       "resourceJson": "Przygotowuję przesłany world_resource_packs.json",
       "release": "Korzystanie z wersji: {version}",
-      "request": "Żądanie kompilacji po stronie serwera z zasobów wersji GitHub",
+      "request": "Tworzenie archiwum z pakietów wydania",
       "bundle": "Ładowanie pakietu: {name}",
       "metadata": "Generowanie plików JSON rejestracji pakietu światowego",
       "archive": "Pakowanie ostatecznego archiwum świata",

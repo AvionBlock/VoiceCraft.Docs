@@ -4,7 +4,9 @@
 
 Устанавливайте клиент после того, как `VoiceCraft.Server` reachable. При первом запуске добавьте server entry на VoiceCraft UDP endpoint, обычно `host:9050`.
 
-VoiceCraft `1.7.0` поставляет native desktop и mobile clients. Browser/web client target больше не входит в core release.
+Начиная с VoiceCraft `1.7.0` доступны нативные клиенты для компьютеров и мобильных устройств. Браузерный клиент больше не входит в основной релиз.
+
+Для новой установки используйте [последний релиз GitLab](https://gitlab.avion.team/voicecraft/VoiceCraft/-/releases/permalink/latest). Начиная с 1.7.2 клиент умеет запускать встроенный сервер; также исправлены подключение и фоновая работа на Android.
 
 ## Перед началом
 
@@ -26,14 +28,14 @@ VoiceCraft `1.7.0` поставляет native desktop и mobile clients. Browse
 
 ## Windows
 
-1. Скачайте `VoiceCraft.Client.Windows.<Architecture>.v1.7.0.zip`.
+1. Скачайте `VoiceCraft.Client.Windows.<Architecture>.v<version>.zip`.
 2. Распакуйте архив.
 3. Запустите `VoiceCraft.Client.Windows.exe`.
 4. Если Windows SmartScreen предупреждает, проверьте, что файл скачан с official release page.
 
 ## Linux
 
-1. Скачайте `VoiceCraft.Client.Linux.<Architecture>.v1.7.0.zip`.
+1. Скачайте `VoiceCraft.Client.Linux.<Architecture>.v<version>.zip`.
 2. Распакуйте архив.
 3. Дайте права и запустите:
 
@@ -61,7 +63,7 @@ xattr -dr com.apple.quarantine /Applications/VoiceCraft.app
 
 ## Android
 
-1. Скачайте `VoiceCraft.Client.Android.<Architecture>.v1.7.0.zip`.
+1. Скачайте `VoiceCraft.Client.Android.<Architecture>.v<version>.zip`.
 2. Распакуйте архив.
 3. Откройте `.apk` и установите.
 4. Разрешите microphone permission.
@@ -70,7 +72,7 @@ VoiceCraft `1.7.0` использует Android package version `17`.
 
 ## iOS
 
-1. Скачайте `VoiceCraft.Client.iOS.arm64.v1.7.0.zip`.
+1. Скачайте `VoiceCraft.Client.iOS.arm64.v<version>.zip`.
 2. Установите IPA через AltStore, TestFlight или другой поддерживаемый путь.
 3. При необходимости разрешите profile в iOS settings.
 4. Разрешите microphone и local network permissions.

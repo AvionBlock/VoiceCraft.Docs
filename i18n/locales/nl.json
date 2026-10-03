@@ -243,7 +243,7 @@
       "behaviorJson": "Geüploade world_behavior_packs.json voorbereiden",
       "resourceJson": "Geüploade world_resource_packs.json voorbereiden",
       "release": "Gebruikmakend van release: {version}",
-      "request": "Aanvragen van server-side build van GitHub-release-assets",
+      "request": "Archief samenstellen uit releasepakketten",
       "bundle": "Bundel laden: {name}",
       "metadata": "JSON-bestanden voor wereldpakketregistratie genereren",
       "archive": "Het laatste wereldarchief inpakken",

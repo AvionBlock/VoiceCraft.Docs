@@ -32,15 +32,15 @@ Możesz pozostawić wszystkie włączone lub wybrać transporty w czasie wykonyw
 Strona wydania zazwyczaj zawiera:
 
 - Windows:
-  `VoiceCraft.Server.Windows.x64.v1.7.0.zip`, `x86`, `arm64`
+  `VoiceCraft.Server.Windows.x64.v<version>.zip`, `x86`, `arm64`
 - Linux:
-  `VoiceCraft.Server.Linux.x64.v1.7.0.zip`, `arm`, `arm64`
+  `VoiceCraft.Server.Linux.x64.v<version>.zip`, `arm`, `arm64`
 
 Pobierz: [strona pobierania](/download)
 
 ## Windows
 
-1. Pobierz `VoiceCraft.Server.Windows.<arch>.v1.7.0.zip`.
+1. Pobierz `VoiceCraft.Server.Windows.<arch>.v<version>.zip`.
 2. Wypakuj archiwum do dedykowanego folderu.
 3. Uruchom serwer z tego folderu:
 
@@ -52,7 +52,7 @@ Pierwsze uruchomienie tworzy `config/ServerProperties.json`. Zachowaj ten plik w
 
 ## Linux
 
-1. Pobierz `VoiceCraft.Server.Linux.<arch>.v1.7.0.zip`.
+1. Pobierz `VoiceCraft.Server.Linux.<arch>.v<version>.zip`.
 2. Wypakuj archiwum do dedykowanego folderu.
 3. Uruchom serwer z tego folderu:
 

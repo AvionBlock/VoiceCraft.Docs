@@ -243,7 +243,7 @@
       "behaviorJson": "Preparing uploaded world_behavior_packs.json",
       "resourceJson": "Preparing uploaded world_resource_packs.json",
       "release": "Using release: {version}",
-      "request": "Requesting server-side build from GitHub release assets",
+      "request": "Building the archive from release packages",
       "bundle": "Loading bundle: {name}",
       "metadata": "Generating world pack registration JSON files",
       "archive": "Packing final world archive",

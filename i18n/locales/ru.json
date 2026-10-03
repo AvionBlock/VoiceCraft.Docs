@@ -236,7 +236,7 @@
       "behaviorJson": "Подготавливаем загруженный world_behavior_packs.json",
       "resourceJson": "Подготавливаем загруженный world_resource_packs.json",
       "release": "Используем релиз: {version}",
-      "request": "Запрашиваем серверную сборку из GitHub release assets",
+      "request": "Собираем архив из пакетов релиза",
       "bundle": "Загружаем bundle: {name}",
       "metadata": "Генерируем JSON-файлы регистрации пакетов мира",
       "archive": "Упаковываем итоговый архив мира",
