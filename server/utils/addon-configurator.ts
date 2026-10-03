@@ -88,7 +88,7 @@ function hasRequiredAssets(assets: ReleaseAsset[], releaseTag: string) {
     .every((packKey) => findPackAsset(assets, packKey, releaseTag))
 }
 
-export async function fetchAddonReleases() {
+async function loadAddonReleases() {
   // Some GitLab releases contain only client/server ZIPs. Use the matching
   // GitHub mirror assets for those tags, but prefer complete GitLab packages.
   const [gitLabResult, gitHubResult] = await Promise.allSettled([
@@ -137,9 +137,30 @@ export async function fetchAddonReleases() {
     }
   }
 
+  if (!releases.size) {
+    throw createError({ statusCode: 502, statusMessage: 'No complete VoiceCraft addon release is available.' })
+  }
+
   return [...releases.values()].sort((a, b) =>
     (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''),
   )
+}
+
+let releaseCache: { expiresAt: number, releases: AddonRelease[] } | null = null
+let pendingReleases: Promise<AddonRelease[]> | null = null
+
+export async function fetchAddonReleases() {
+  if (releaseCache && Date.now() < releaseCache.expiresAt) return releaseCache.releases
+  if (pendingReleases) return pendingReleases
+
+  pendingReleases = loadAddonReleases()
+    .then((releases) => {
+      releaseCache = { expiresAt: Date.now() + 5 * 60 * 1000, releases }
+      return releases
+    })
+    .finally(() => { pendingReleases = null })
+
+  return pendingReleases
 }
 
 export function getPackKeysForMode(mode: TransportMode): ReleasePackKey[] {
